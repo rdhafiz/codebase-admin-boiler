@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+include_once 'cms-api.php';
 include_once 'cms.php';
 /*
 |--------------------------------------------------------------------------

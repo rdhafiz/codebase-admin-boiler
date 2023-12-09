@@ -45,4 +45,13 @@ class Admin extends Eloquent implements Authenticatable
      * @var bool
      */
     public $timestamps = true;
+
+    protected $appends = ['avatar_full_path'];
+
+    public function getAvatarFullPathAttribute(){
+        if (isset($this->avatar) && $this->avatar != null) {
+            return asset('storage/'.$this->avatar);
+        }
+        return null;
+    }
 }

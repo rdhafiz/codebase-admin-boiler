@@ -2,6 +2,10 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\AdminAuthApiCheck;
+use App\Http\Middleware\AdminAuthApiReq;
+use App\Http\Middleware\AdminAuthCheck;
+use App\Http\Middleware\AdminAuthReq;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -63,5 +67,9 @@ class Kernel extends HttpKernel
         'signed' => \App\Http\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+        'AdminAuthCheck' => AdminAuthCheck::class,
+        'AdminAuthReq' => AdminAuthReq::class,
+        'AdminAuthApiCheck' => AdminAuthApiCheck::class,
+        'AdminAuthApiReq' => AdminAuthApiReq::class
     ];
 }
