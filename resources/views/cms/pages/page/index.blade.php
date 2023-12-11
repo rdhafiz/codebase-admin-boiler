@@ -30,33 +30,35 @@
                     </div>
                 </div>
                 <div class="block-content" id="vuePageListInstance">
-                    <table class="table table-bordered table-striped table-vcenter">
-                        <thead>
-                        <tr>
-                            <th>Page</th>
-                            <th class="d-none d-sm-table-cell">Url</th>
-                            <th style="width: 120px" class="text-center"></th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        @foreach($pages as $page)
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped table-vcenter">
+                            <thead>
                             <tr>
-                                <td>{{ ucwords($page['meta']['title']) }}</td>
-                                <td><a target="_blank" href="{{ env('APP_URL').'/'.$page['slug'] }}">{{ env('APP_URL').'/'.$page['slug'] }}</a></td>
-                                <td class="text-center">
-                                    <a href="{{route('CMS.page.edit', [$page['_id']])}}" class="btn btn-sm btn-outline-primary js-bs-tooltip-enabled me-1"><i class="fa fa-edit"></i></a>
-                                    @if($page['dynamic'] == 1)
-                                        <form class="d-inline-block" id="delete_{{$page['_id']}}" action="{{route('CMS.page.destroy', [$page['_id']])}}" method="POST">
-                                            {{csrf_field()}}
-                                            <input type="hidden" name="_method" value="DELETE">
-                                            <a @click="deletePage(`{{$page['_id']}}`)" class="btn btn-sm btn-outline-danger"><i class="fa fa-trash"></i></a>
-                                        </form>
-                                    @endif
-                                </td>
+                                <th>Page</th>
+                                <th>Url</th>
+                                <th style="width: 120px" class="text-center"></th>
                             </tr>
-                        @endforeach
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                            @foreach($pages as $page)
+                                <tr>
+                                    <td>{{ ucwords($page['meta']['title']) }}</td>
+                                    <td><a target="_blank" href="{{ env('APP_URL').'/'.$page['slug'] }}">{{ env('APP_URL').'/'.$page['slug'] }}</a></td>
+                                    <td class="text-center">
+                                        <a href="{{route('CMS.page.edit', [$page['_id']])}}" class="btn btn-sm btn-outline-primary js-bs-tooltip-enabled me-1"><i class="fa fa-edit"></i></a>
+                                        @if($page['dynamic'] == 1)
+                                            <form class="d-inline-block" id="delete_{{$page['_id']}}" action="{{route('CMS.page.destroy', [$page['_id']])}}" method="POST">
+                                                {{csrf_field()}}
+                                                <input type="hidden" name="_method" value="DELETE">
+                                                <a @click="deletePage(`{{$page['_id']}}`)" class="btn btn-sm btn-outline-danger"><i class="fa fa-trash"></i></a>
+                                            </form>
+                                        @endif
+                                    </td>
+                                </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
