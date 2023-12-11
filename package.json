@@ -14,5 +14,8 @@
         "simplebar": "^6.2.5",
         "vite": "^4.0.0",
         "vue": "^3.3.11"
+    },
+    "dependencies": {
+        "sweetalert2": "^11.10.1"
     }
 }

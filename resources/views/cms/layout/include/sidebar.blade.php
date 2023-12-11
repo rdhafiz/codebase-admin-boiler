@@ -82,18 +82,8 @@
                         </a>
                         <ul class="nav-main-submenu">
                             <li class="nav-main-item">
-                                <a class="nav-main-link active" href="javascript:void(0)">
-                                    <span class="nav-main-link-name">Homepage</span>
-                                </a>
-                            </li>
-                            <li class="nav-main-item">
-                                <a class="nav-main-link" href="javascript:void(0)">
-                                    <span class="nav-main-link-name">About Us</span>
-                                </a>
-                            </li>
-                            <li class="nav-main-item">
-                                <a class="nav-main-link" href="javascript:void(0)">
-                                    <span class="nav-main-link-name">Contact</span>
+                                <a class="nav-main-link active" href="{{route('CMS.page.index')}}">
+                                    <span class="nav-main-link-name">All Pages</span>
                                 </a>
                             </li>
                         </ul>
