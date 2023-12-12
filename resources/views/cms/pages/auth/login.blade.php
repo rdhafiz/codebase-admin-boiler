@@ -40,7 +40,7 @@
                                 <form class="js-validation-signin px-4" @submit.prevent="login">
                                     <div class="form-group form-floating mb-4">
                                         <input type="email" class="form-control" id="login-username" v-model="param.email" name="email" placeholder="Enter your email address" required>
-                                        <label class="form-label" for="login-email">Username</label>
+                                        <label class="form-label" for="login-email">Email</label>
                                         <div class="error-report text-danger"></div>
                                     </div>
                                     <div class="form-group form-floating mb-4">

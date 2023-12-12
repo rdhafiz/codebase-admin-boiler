@@ -49,6 +49,13 @@ const ApiService = {
             .catch((err) => errorHandler(err));
     },
 
+    // DELETE method
+    DELETE: (url, callback) => {
+        axios.delete(url, {headers: headersJson})
+            .then((response) => responseHandler(response, callback))
+            .catch((err) => errorHandler(err));
+    },
+
     // POST method for file uploads
     UPLOAD: (url, media, callback) => {
         axios.post(url, media, {headers: headersMultiPart})

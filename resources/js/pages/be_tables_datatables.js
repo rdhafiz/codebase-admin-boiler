@@ -1,17 +1,17 @@
 /*
- *  Document   : datatables.js
+ *  Document   : be_tables_datatables.js
  *  Author     : pixelcave
- *  Description: Using custom JS code to init DataTables plugin
+ *  Description: Custom JS code used in Tables Datatables Page
  */
 
 // DataTables, for more examples you can check out https://www.datatables.net/
-class pageTablesDatatables {
-	/*
-	 * Init DataTables functionality
-	 *
-	 */
-	static initDataTables() {
-		// Override a few default classes
+class pageTableDatatables {
+  /*
+   * Init DataTables functionality
+   *
+   */
+  static initDataTables() {
+    // Override a few default classes
     jQuery.extend(jQuery.fn.dataTable.ext.classes, {
       sWrapper: "dataTables_wrapper dt-bootstrap5",
       sFilterInput: "form-control",
@@ -43,12 +43,12 @@ class pageTablesDatatables {
       }
     });
 
-		// Init full DataTable
-		jQuery('.js-dataTable-full').dataTable({
-			pageLength: 5,
-			lengthMenu: [[5, 10, 20], [5, 10, 20]],
-			autoWidth: false
-		});
+    // Init full DataTable
+    jQuery('.js-dataTable-full').DataTable({
+      pageLength: 5,
+      lengthMenu: [[5, 10, 20], [5, 10, 20]],
+      autoWidth: false
+    });
 
     // Init DataTable with Buttons
     jQuery('.js-dataTable-buttons').DataTable({
@@ -59,16 +59,43 @@ class pageTablesDatatables {
       dom: "<'row'<'col-sm-12'<'text-center bg-body-light py-2 mb-2'B>>>" +
               "<'row'<'col-sm-12 col-md-6'l><'col-sm-12 col-md-6'f>><'row'<'col-sm-12'tr>><'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7'p>>"
     });
-	}
 
-	/*
-	 * Init functionality
-	 *
-	 */
-	static init() {
-		this.initDataTables();
-	}
+    // Init full extra DataTable
+    jQuery('.js-dataTable-full-pagination').DataTable({
+      pagingType: "full_numbers",
+      pageLength: 5,
+      lengthMenu: [[5, 10, 20], [5, 10, 20]],
+      autoWidth: false
+    });
+
+    // Init simple DataTable
+    jQuery('.js-dataTable-simple').DataTable({
+      pageLength: 5,
+      lengthMenu: false,
+      searching: false,
+      autoWidth: false,
+      dom: "<'row'<'col-sm-12'tr>>" +
+              "<'row'<'col-sm-6'i><'col-sm-6'p>>"
+    });
+
+    // Init responsive DataTable
+    jQuery('.js-dataTable-responsive').DataTable({
+      pagingType: "full_numbers",
+      pageLength: 5,
+      lengthMenu: [[5, 10, 20], [5, 10, 20]],
+      autoWidth: false,
+      responsive: true
+    });
+  }
+  
+  /*
+   * Init functionality
+   *
+   */
+  static init() {
+    this.initDataTables();
+  }
 }
 
 // Initialize when page loads
-Codebase.onLoad(() => pageTablesDatatables.init());
+Codebase.onLoad(() => pageTableDatatables.init());

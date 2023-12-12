@@ -14,7 +14,7 @@
 
     <!-- Modules -->
     @yield('css')
-    @vite(['resources/sass/main.scss', 'resources/js/codebase/app.js'])
+    @vite(['resources/sass/main.scss'])
     <!-- Modules -->
 
 </head>
@@ -38,6 +38,7 @@
 <!-- END Page Container -->
 
 </body>
-@vite(['resources/js/cms/auth/header.js'])
+@vite(['resources/js/lib/jquery.min.js', 'resources/js/codebase/app.js'])
+@vite(['resources/js/cms/helper/header.js'])
 @yield('js')
 </html>
