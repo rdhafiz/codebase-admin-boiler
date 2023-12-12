@@ -69,20 +69,20 @@
             <div class="content-side content-side-full">
                 <ul class="nav-main">
                     <li class="nav-main-item">
-                        <a class="nav-main-link{{ request()->is('dashboard') ? ' active' : '' }}" href="{{route('CMS.dashboard')}}">
+                        <a class="nav-main-link  {{Route::currentRouteName() == 'CMS.dashboard' ? 'active' : ''}}" href="{{route('CMS.dashboard')}}">
                             <i class="nav-main-link-icon fa fa-house-user"></i>
                             <span class="nav-main-link-name">Dashboard</span>
                         </a>
                     </li>
                     <li class="nav-main-heading">Website Settings</li>
-                    <li class="nav-main-item open">
+                    <li class="nav-main-item {{in_array(Route::currentRouteName(), ['CMS.page.index']) ? 'open' : ''}}">
                         <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="true" href="javascript:void(0)">
                             <i class="nav-main-link-icon fa fa-lightbulb"></i>
                             <span class="nav-main-link-name">Pages</span>
                         </a>
                         <ul class="nav-main-submenu">
                             <li class="nav-main-item">
-                                <a class="nav-main-link active" href="{{route('CMS.page.index')}}">
+                                <a class="nav-main-link {{Route::currentRouteName() == 'CMS.page.index' ? 'active' : ''}}" href="{{route('CMS.page.index')}}">
                                     <span class="nav-main-link-name">All Pages</span>
                                 </a>
                             </li>
@@ -97,7 +97,7 @@
                     </li>
                     <li class="nav-main-heading">Job Management</li>
                     <li class="nav-main-item">
-                        <a class="nav-main-link" href="/">
+                        <a class="nav-main-link" href="{{route('CMS.recruiter.index')}}">
                             <i class="nav-main-link-icon fa fa-globe"></i>
                             <span class="nav-main-link-name">Recruiters</span>
                         </a>

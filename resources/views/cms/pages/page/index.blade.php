@@ -31,7 +31,7 @@
                 </div>
                 <div class="block-content" id="vuePageListInstance">
                     <div class="table-responsive">
-                        <table class="table table-bordered table-striped table-vcenter">
+                        <table class="table table-striped table-vcenter">
                             <thead>
                             <tr>
                                 <th>Page</th>

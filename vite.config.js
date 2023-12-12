@@ -13,6 +13,7 @@ export default defineConfig({
                 'resources/js/cms/auth/login.js',
                 'resources/js/cms/helper/header.js',
                 'resources/js/cms/pages/page/page.js',
+                'resources/js/cms/pages/recruiter/recruiter.js',
             ],
             refresh: true,
         })

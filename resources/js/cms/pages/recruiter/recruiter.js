@@ -24,7 +24,7 @@ createApp({
         }
     },
     mounted() {
-        const vueInstance = document.getElementById('vuePageListInstance');
+        const vueInstance = document.getElementById('vueRecruiterListInstance');
         vueInstance.style.display = 'block';
     }
-}).mount('#vuePageListInstance')
+}).mount('#vueRecruiterListInstance')
