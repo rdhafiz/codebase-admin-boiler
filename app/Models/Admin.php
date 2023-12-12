@@ -7,10 +7,11 @@ use Illuminate\Notifications\Notifiable;
 use Jenssegers\Mongodb\Eloquent\Model as Eloquent;
 use Illuminate\Auth\Authenticatable as AuthenticatableTrait;
 use Illuminate\Contracts\Auth\Authenticatable;
+use Jenssegers\Mongodb\Eloquent\SoftDeletes;
 
 class Admin extends Eloquent implements Authenticatable
 {
-    use HasFactory, Notifiable, AuthenticatableTrait;
+    use HasFactory, Notifiable, AuthenticatableTrait, SoftDeletes;
 
     /**
      * The collection associated with the model.

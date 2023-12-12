@@ -44,6 +44,10 @@ return [
             'driver' => 'session',
             'provider' => 'admins',
         ],
+        'rcp' => [
+            'driver' => 'session',
+            'provider' => 'recruiters',
+        ],
     ],
 
     /*
@@ -71,6 +75,10 @@ return [
         'admins' => [
             'driver' => 'eloquent',
             'model' => App\Models\Admin::class,
+        ],
+        'recruiters' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Recruiters::class,
         ],
 
         // 'users' => [
