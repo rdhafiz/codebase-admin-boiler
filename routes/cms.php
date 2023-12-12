@@ -1,11 +1,14 @@
 <?php
 
 // Import necessary classes and namespaces
+use App\Http\Controllers\Cms\Api\AdminAuthApiController;
 use App\Http\Controllers\Cms\FrontController;
 use App\Http\Controllers\Cms\PageController;
 use App\Http\Controllers\Cms\RecruiterController;
 use App\Http\Middleware\AdminAuthCheck;
 use App\Http\Middleware\AdminAuthReq;
+use App\Http\Middleware\AdminAuthApiCheck;
+use App\Http\Middleware\AdminAuthApiReq;
 use Illuminate\Support\Facades\Route;
 
 // Define routes within a group with a specific prefix
@@ -32,6 +35,27 @@ Route::group(['prefix' => '/secure/administration'], function () {
 
         // Resourceful routes for 'recruiter' with alias 'CMS'
         Route::resource('recruiter', RecruiterController::class, ['as' => 'CMS']);
+    });
+
+});
+
+
+
+
+
+
+
+
+
+// CMS REST API Route
+// ===================
+Route::group(['prefix' => '/secure/administration/api'], function () {
+
+    Route::group(['prefix' => '/auth', 'middleware' => [AdminAuthApiCheck::class]], function () {
+        Route::post('/login', [AdminAuthApiController::class, 'login'])->name('CMS.api.login');
+    });
+    Route::group(['prefix' => '/auth', 'middleware' => [AdminAuthApiReq::class]], function () {
+        Route::get('/logout', [AdminAuthApiController::class, 'logout'])->name('CMS.api.logout');
     });
 
 });

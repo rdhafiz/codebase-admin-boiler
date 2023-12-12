@@ -14,6 +14,9 @@ export default defineConfig({
                 'resources/js/cms/helper/header.js',
                 'resources/js/cms/pages/page/page.js',
                 'resources/js/cms/pages/recruiter/recruiter.js',
+
+                'resources/js/rcp/auth/login.js',
+                'resources/js/rcp/helper/header.js',
             ],
             refresh: true,
         })
