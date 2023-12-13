@@ -22,8 +22,9 @@
                     </p>
                 </div>
             @endif
-            <form class="w-100" action="{{route('RCP.job.store')}}" method="post" enctype="multipart/form-data">
+            <form class="w-100" action="{{route('RCP.job.update', [$job['_id']])}}" method="post" enctype="multipart/form-data">
                 {{csrf_field()}}
+                <input type="hidden" name="_method" value="PUT">
                 <div class="w-100 mt-4">
                     <div class="block block-rounded">
                         <div class="block-header block-header-default">

@@ -16,6 +16,10 @@ export default defineConfig({
                 'resources/js/cms/auth/login.js',
                 'resources/js/cms/helper/header.js',
                 'resources/js/cms/pages/page/page.js',
+                'resources/js/cms/pages/course/course-create.js',
+                'resources/js/cms/pages/course/category.js',
+                'resources/js/cms/pages/course/type.js',
+                'resources/js/cms/pages/course/schedule.js',
                 'resources/js/cms/pages/recruiter/recruiter.js',
 
                 'resources/js/rcp/auth/login.js',

@@ -90,10 +90,33 @@
                     </li>
                     <li class="nav-main-heading">Learning Management</li>
                     <li class="nav-main-item">
-                        <a class="nav-main-link" href="/">
-                            <i class="nav-main-link-icon fa fa-globe"></i>
-                            <span class="nav-main-link-name">Courses</span>
+                        <a class="nav-main-link {{Route::currentRouteName() == 'CMS.course.index' ? 'active' : ''}}" href="{{route('CMS.course.index')}}">
+                            <i class="nav-main-link-icon fa fa-check-to-slot"></i>
+                            <span class="nav-main-link-name">All Courses</span>
                         </a>
+                    </li>
+                    <li class="nav-main-item {{in_array(Route::currentRouteName(), ['CMS.course.category.index','CMS.course.type.index','CMS.course.schedule.index']) ? 'open' : ''}}">
+                        <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="true" href="javascript:void(0)">
+                            <i class="nav-main-link-icon fa fa-cubes"></i>
+                            <span class="nav-main-link-name">Course Management</span>
+                        </a>
+                        <ul class="nav-main-submenu">
+                            <li class="nav-main-item">
+                                <a class="nav-main-link {{Route::currentRouteName() == 'CMS.course.category.index' ? 'active' : ''}}" href="{{route('CMS.course.category.index')}}">
+                                    <span class="nav-main-link-name">Course Category</span>
+                                </a>
+                            </li>
+                            <li class="nav-main-item">
+                                <a class="nav-main-link {{Route::currentRouteName() == 'CMS.course.type.index' ? 'active' : ''}}" href="{{route('CMS.course.type.index')}}">
+                                    <span class="nav-main-link-name">Course Type</span>
+                                </a>
+                            </li>
+                            <li class="nav-main-item">
+                                <a class="nav-main-link {{Route::currentRouteName() == 'CMS.course.schedule.index' ? 'active' : ''}}" href="{{route('CMS.course.schedule.index')}}">
+                                    <span class="nav-main-link-name">Course Schedule</span>
+                                </a>
+                            </li>
+                        </ul>
                     </li>
                     <li class="nav-main-heading">Job Management</li>
                     <li class="nav-main-item">

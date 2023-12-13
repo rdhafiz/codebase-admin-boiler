@@ -2,6 +2,10 @@
 
 // Import necessary classes and namespaces
 use App\Http\Controllers\Cms\Api\AdminAuthApiController;
+use App\Http\Controllers\Cms\CourseController;
+use App\Http\Controllers\Cms\CourseCategoryController;
+use App\Http\Controllers\Cms\CourseScheduleController;
+use App\Http\Controllers\Cms\CourseTypeController;
 use App\Http\Controllers\Cms\FrontController;
 use App\Http\Controllers\Cms\PageController;
 use App\Http\Controllers\Cms\RecruiterController;
@@ -32,6 +36,15 @@ Route::group(['prefix' => '/secure/administration'], function () {
 
         // Resourceful routes for 'page' with alias 'CMS'
         Route::resource('page', PageController::class, ['as' => 'CMS']);
+
+        // Resourceful routes for 'course category' with alias 'CMS'
+        Route::resource('course/category', CourseCategoryController::class, ['as' => 'CMS.course']);
+        // Resourceful routes for 'course type' with alias 'CMS'
+        Route::resource('course/type', CourseTypeController::class, ['as' => 'CMS.course']);
+        // Resourceful routes for 'course schedule' with alias 'CMS'
+        Route::resource('course/schedule', CourseScheduleController::class, ['as' => 'CMS.course']);
+        // Resourceful routes for 'course' with alias 'CMS'
+        Route::resource('course', CourseController::class, ['as' => 'CMS']);
 
         // Resourceful routes for 'recruiter' with alias 'CMS'
         Route::resource('recruiter', RecruiterController::class, ['as' => 'CMS']);

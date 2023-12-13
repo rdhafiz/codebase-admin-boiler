@@ -13,7 +13,7 @@ class RecruiterController extends Controller
 {
     public function index(): View
     {
-        $recruiters = Recruiters::orderBy('created_at', 'asc')->get();
+        $recruiters = Recruiters::orderBy('created_at', 'desc')->get();
         return view('cms.pages.recruiters.index', compact('recruiters'));
     }
 

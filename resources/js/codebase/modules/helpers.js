@@ -555,7 +555,7 @@ export default class Helpers {
    */
   static jsFlatpickr() {
     let elements = document.querySelectorAll('.js-flatpickr:not(.js-flatpickr-enabled)');
-
+      console.log(elements)
     elements.forEach(el => {
       // Add .js-flatpickr-enabled class to tag it as activated
       el.classList.add('js-flatpickr-enabled');
