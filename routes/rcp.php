@@ -3,6 +3,7 @@
 // Import necessary classes and namespaces
 use App\Http\Controllers\Rcp\Api\RcpAuthApiController;
 use App\Http\Controllers\Rcp\FrontController;
+use App\Http\Controllers\Rcp\JobController;
 use App\Http\Middleware\RcpAuthApiCheck;
 use App\Http\Middleware\RcpAuthApiReq;
 use App\Http\Middleware\RcpAuthCheck;
@@ -27,6 +28,9 @@ Route::group(['prefix' => '/recruiter/portal'], function () {
     Route::group(['middleware' => [RcpAuthReq::class]], function () {
         // Dashboard route accessible only to authenticated admins
         Route::get('/dashboard', [FrontController::class, 'dashboard'])->name('RCP.dashboard');
+
+        // Resourceful routes for 'job' with alias 'RCP'
+        Route::resource('job', JobController::class, ['as' => 'RCP']);
     });
 
 });

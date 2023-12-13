@@ -41,7 +41,7 @@
         <div class="content-header justify-content-lg-center">
             <!-- Logo -->
             <div>
-                <a class="text-decoration-none fw-bold tracking-wide mx-auto" href="{{route('CMS.dashboard')}}">
+                <a class="text-decoration-none fw-bold tracking-wide mx-auto" href="{{route('RCP.dashboard')}}">
                   <span class="smini-hidden">
                       <img style="width: 150px" src="{{asset('assets/images/purplemed.png')}}" alt="">
                   </span>
@@ -69,14 +69,14 @@
             <div class="content-side content-side-full">
                 <ul class="nav-main">
                     <li class="nav-main-item">
-                        <a class="nav-main-link  {{Route::currentRouteName() == 'CMS.dashboard' ? 'active' : ''}}" href="{{route('CMS.dashboard')}}">
+                        <a class="nav-main-link  {{Route::currentRouteName() == 'RCP.dashboard' ? 'active' : ''}}" href="{{route('RCP.dashboard')}}">
                             <i class="nav-main-link-icon fa fa-house-user"></i>
                             <span class="nav-main-link-name">Dashboard</span>
                         </a>
                     </li>
                     <li class="nav-main-heading">Job Management</li>
                     <li class="nav-main-item">
-                        <a class="nav-main-link" href="{{route('CMS.recruiter.index')}}">
+                        <a class="nav-main-link" href="{{route('RCP.job.index')}}">
                             <i class="nav-main-link-icon fa fa-globe"></i>
                             <span class="nav-main-link-name">Jobs</span>
                         </a>

@@ -1,4 +1,4 @@
-@extends('cms.layout.auth')
+@extends('rcp.layout.auth')
 @section('content')
 
     <!-- Page Container -->

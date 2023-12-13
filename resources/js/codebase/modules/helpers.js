@@ -30,7 +30,7 @@ export default class Helpers {
       'cb-table-tools-checkable': () => this.cbTableToolsCheckable(),
 
       // JavaScript
-      'js-ckeditor': () => this.jsCkeditor(),
+      'js-ckeditor': () => this.jsCkeditor(options),
       'js-ckeditor5': () => this.jsCkeditor5(),
       'js-simplemde': () => this.jsSimpleMDE(),
       'js-highlightjs': () => this.jsHighlightjs(),
@@ -232,7 +232,7 @@ export default class Helpers {
         }
         else { // ..else add it
           let elChild = document.createElement('span')
-          
+
           elChild.classList.add(cssClass)
           el.insertBefore(elChild, el.firstChild);
         }
@@ -389,13 +389,13 @@ export default class Helpers {
             && !e.target.parentNode.classList.contains('custom-control')) {
             let checkboxHead = table.querySelector('thead input[type=checkbox]');
             let checkbox = e.currentTarget.querySelector('input[type=checkbox]');
-            
+
             // Update row's checkbox status
             checkbox.checked = !checkbox.checked;
 
             // Update Row classes
             this.tableToolscheckRow(checkbox, checkbox.checked);
-  
+
             // Adjust checkbox in thead
             if (!checkbox.checked) {
               checkboxHead.checked = false
@@ -438,7 +438,7 @@ export default class Helpers {
    * <div id="js-ckeditor-inline">Hello inline CKEditor!</div>
    *
    */
-  static jsCkeditor() {
+  static jsCkeditor(options) {
     let ckeditorInline = document.querySelector('#js-ckeditor-inline:not(.js-ckeditor-inline-enabled)');
     let ckeditorFull = document.querySelector('#js-ckeditor:not(.js-ckeditor-enabled)');
 
@@ -453,7 +453,7 @@ export default class Helpers {
 
     // Init full text editor
     if (ckeditorFull) {
-      CKEDITOR.replace('js-ckeditor');
+      CKEDITOR.replace('js-ckeditor', options);
 
       // Add .js-ckeditor-enabled class to tag it as activated
       ckeditorFull.classList.add('js-ckeditor-enabled');
