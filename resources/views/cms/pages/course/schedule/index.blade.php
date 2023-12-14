@@ -35,9 +35,12 @@
                             <thead>
                             <tr>
                                 <th>Name</th>
-                                <th>Start Date</th>
-                                <th>End Date</th>
-                                <th>Total Course</th>
+                                <th class="text-center">Start Date</th>
+                                <th class="text-center">Duration</th>
+                                <th class="text-center">End Date</th>
+                                <th class="text-center">Blended</th>
+                                <th class="text-center">Face to Face</th>
+                                <th class="text-center">Total Course</th>
                                 <th style="width: 120px" class="text-center"></th>
                             </tr>
                             </thead>
@@ -45,9 +48,12 @@
                             @foreach($schedules as $schedule)
                                 <tr>
                                     <td>{{ $schedule['name'] }}</td>
-                                    <td>{{ $schedule['start_date_format'] }}</td>
-                                    <td>{{ $schedule['end_date_format'] }}</td>
-                                    <td>0</td>
+                                    <td class="text-center">{{ $schedule['start_date_format'] }}</td>
+                                    <td class="text-center">{{ $schedule['duration'] ?? 0 }} day(s)</td>
+                                    <td class="text-center">{{ $schedule['end_date_format'] }}</td>
+                                    <td class="text-center">{{ $schedule['blended'] ?? 0 }} day(s)</td>
+                                    <td class="text-center">{{ $schedule['face_to_face'] ?? 0 }} day(s)</td>
+                                    <td class="text-center">0</td>
                                     <td class="text-center">
                                         <a href="{{route('CMS.course.schedule.edit', [$schedule['_id']])}}" class="btn btn-sm btn-outline-primary js-bs-tooltip-enabled me-1"><i class="fa fa-edit"></i></a>
                                         <form class="d-inline-block" id="delete_{{$schedule['_id']}}" action="{{route('CMS.course.schedule.destroy', [$schedule['_id']])}}" method="POST">

@@ -35,7 +35,7 @@
                             <thead>
                             <tr>
                                 <th>Name</th>
-                                <th>Total Course</th>
+                                <th class="text-center">Total Course</th>
                                 <th style="width: 120px" class="text-center"></th>
                             </tr>
                             </thead>
@@ -43,7 +43,7 @@
                             @foreach($types as $type)
                                 <tr>
                                     <td>{{ $type['name'] }}</td>
-                                    <td>0</td>
+                                    <td class="text-center">0</td>
                                     <td class="text-center">
                                         <a href="{{route('CMS.course.type.edit', [$type['_id']])}}" class="btn btn-sm btn-outline-primary js-bs-tooltip-enabled me-1"><i class="fa fa-edit"></i></a>
                                         <form class="d-inline-block" id="delete_{{$type['_id']}}" action="{{route('CMS.course.type.destroy', [$type['_id']])}}" method="POST">

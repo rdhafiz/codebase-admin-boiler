@@ -20,6 +20,8 @@ export default defineConfig({
                 'resources/js/cms/pages/course/category.js',
                 'resources/js/cms/pages/course/type.js',
                 'resources/js/cms/pages/course/schedule.js',
+                'resources/js/cms/pages/course/schedule-create.js',
+                'resources/js/cms/pages/course/schedule-edit.js',
                 'resources/js/cms/pages/recruiter/recruiter.js',
 
                 'resources/js/rcp/auth/login.js',

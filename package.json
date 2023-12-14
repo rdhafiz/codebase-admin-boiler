@@ -27,6 +27,7 @@
         "postcss": "^8.4.31",
         "prettier": "^3.0.3",
         "rollup": "^4.4.0",
+        "moment": "^2.29.4",
         "sass": "^1.69.5",
         "simplebar": "^6.2.5",
         "stylelint": "^15.11.0",

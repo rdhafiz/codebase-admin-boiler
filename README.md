@@ -17,14 +17,24 @@ php artisan storage:link
 ```
 php artisan db:seed
 ```
-##### Initial Admin Credential
-```
-Email Address: secure@admin.com
-Password: 123asd123
-```
 
 ## Run Project as DEV
 ```
 php artisan serve
 npm run dev
+```
+
+
+## CMS Portal
+`http://localhost:8000/secure/administration`
+```
+Email Address: secure@admin.com
+Password: 123asd123
+```
+
+
+## Recruiter Portal
+`http://localhost:8000/recruiter/portal`
+```
+Create Recruiter from CMS panel and login with the credential
 ```

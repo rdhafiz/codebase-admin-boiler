@@ -32,16 +32,22 @@ class CourseScheduleController extends Controller
             $validator = Validator::make($request->all(), [
                 'name' => 'required|min:3',
                 'start_date' => 'required|date',
-                'end_date' => 'required|date',
+                'duration' => 'required|integer',
+                'blended' => 'required|integer',
+                'face_to_face' => 'required|integer',
             ]);
             if ($validator->fails()) {
                 return redirect()->back()->withInput($request->input())->withErrors($validator->errors());
             }
 
+            $end_date = date('Y-m-d', strtotime('+'.$request->duration." days", strtotime($request->start_date)));
             CourseSchedule::create([
                 'name' => $request->name,
                 'start_date' => date('Y-m-d', strtotime($request->start_date)),
-                'end_date' => date('Y-m-d', strtotime($request->end_date)),
+                'duration' => $request->duration,
+                'end_date' => $end_date,
+                'blended' => $request->blended,
+                'face_to_face' => $request->face_to_face,
             ]);
 
             return redirect()->route('CMS.course.schedule.index')->withErrors(['success' => ['New schedule information has been created successfully']]);
@@ -78,15 +84,22 @@ class CourseScheduleController extends Controller
             $validator = Validator::make($request->all(), [
                 'name' => 'required|min:3',
                 'start_date' => 'required|date',
-                'end_date' => 'required|date',
+                'duration' => 'required|integer',
+                'blended' => 'required|integer',
+                'face_to_face' => 'required|integer',
             ]);
             if ($validator->fails()) {
                 return redirect()->back()->withInput($request->input())->withErrors($validator->errors());
             }
 
+            $end_date = date('Y-m-d', strtotime('+'.$request->duration." days", strtotime($request->start_date)));
+
             $schedule->name = $request->name;
             $schedule->start_date = date('Y-m-d', strtotime($request->start_date));
-            $schedule->end_date = date('Y-m-d', strtotime($request->end_date));
+            $schedule->duration = $request->duration;
+            $schedule->end_date = $end_date;
+            $schedule->blended = $request->blended;
+            $schedule->face_to_face = $request->face_to_face;
             $schedule->save();
 
             return redirect()->route('CMS.course.schedule.index')->withErrors(['success' => ['Course schedule information has been updated successfully']]);
