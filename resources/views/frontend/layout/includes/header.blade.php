@@ -23,7 +23,6 @@
 {{--            </div>--}}
 
             <a class="btn btn-primary btn-sm fs-sm order-lg-3 d-none d-sm-inline-flex" href="https://themes.getbootstrap.com/product/around-multipurpose-template-ui-kit/" target="_blank" rel="noopener">
-                <i class="ai-cart fs-xl me-2 ms-n1"></i>
                 Apply Now
             </a>
 
@@ -34,41 +33,50 @@
 
             <!-- Navbar collapse (Main navigation) -->
             <nav class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav navbar-nav-scroll me-auto" style="--ar-scroll-height: 520px;">
+                <ul class="navbar-nav navbar-nav-scroll ms-auto" style="--ar-scroll-height: 520px;">
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle active" href="#" data-bs-toggle="dropdown" aria-expanded="false">OSCE</a>
+                        <a class="nav-link dropdown-toggle active" href="#" data-bs-toggle="dropdown" aria-expanded="false">Training</a>
                         <div class="dropdown-menu overflow-hidden p-0">
                             <div class="d-lg-flex">
                                 <div class="mega-dropdown-column pt-1 pt-lg-3 pb-lg-4">
                                     <ul class="list-unstyled mb-0">
                                         <li>
-                                            <a class="dropdown-item" href="index.html">Training</a>
+                                            <a class="dropdown-item" href="#">OSCE</a>
                                         </li>
                                     </ul>
                                 </div>
                                 <div class="mega-dropdown-column pb-2 pt-lg-3 pb-lg-4">
                                     <ul class="list-unstyled mb-0">
                                         <li>
-                                            <a class="dropdown-item" href="landing-creative-agency.html">Jobs</a>
+                                            <a class="dropdown-item" href="#">Plab I-II</a>
                                         </li>
                                     </ul>
                                 </div>
                                 <div class="mega-dropdown-column pb-2 pt-lg-3 pb-lg-4">
                                     <ul class="list-unstyled mb-0">
                                         <li>
-                                            <a class="dropdown-item" href="landing-creative-agency.html">Resources</a>
+                                            <a class="dropdown-item" href="#">CBT</a>
                                         </li>
                                     </ul>
                                 </div>
                                 <div class="mega-dropdown-column pb-2 pt-lg-3 pb-lg-4">
                                     <ul class="list-unstyled mb-0">
                                         <li>
-                                            <a class="dropdown-item" href="landing-creative-agency.html">International Candidates</a>
+                                            <a class="dropdown-item" href="#">English Language</a>
                                         </li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="components/typography.html">Jobs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="components/typography.html">International Candidate</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="components/typography.html">Resources</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="components/typography.html">About</a>

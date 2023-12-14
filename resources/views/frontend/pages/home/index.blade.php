@@ -136,7 +136,7 @@
 
 
     <!-- Section 3 - Jobs -->
-    <section class="">
+    <section id="section-jobs">
         <div class="container mt-1 py-md-2 py-lg-4">
             <h2 class="h1 text-center pt-1 pt-sm-4 pb-3 mb-3 mb-lg-4">Find a Job You'll Love</h2>
 {{--            <p class="text-center mx-auto pb-3 mb-3 mb-lg-4" style="max-width: 480px;">Using basic data skills you can analysis and improve your business indicators with Around</p>--}}
@@ -144,12 +144,13 @@
 
                 <!-- Item -->
                 <div class="col-md-5">
-                    <div class="bg-secondary card border-0 h-100">
+                    <div class="bg-theme-light card border-0 h-100">
                         <div class="card-body">
                             <a href="#">
 {{--                                <img class="d-dark-mode-none" src="{{ asset('assets/images/frontend/landing/saas-2/features/01-light.png') }}" alt="Image">--}}
 {{--                                <img class="d-none d-dark-mode-block" src="{{ asset('assets/images/frontend/landing/saas-2/features/01-dark.png') }}" alt="Image">--}}
-                                <img src="{{ asset('assets/images/frontend/home/temporary.png') }}" width="90" alt="Locum">
+{{--                                <img src="{{ asset('assets/images/frontend/home/temporary.png') }}" width="90" alt="Locum">--}}
+                                <i class="ai-time display-1"></i>
                             </a>
                             <div class="pt-3 mt-2 mt-lg-3">
                                 <h3>Locum</h3>
@@ -165,12 +166,13 @@
 
                 <!-- Item -->
                 <div class="col-md-7">
-                    <div class="bg-secondary card border-0 h-100">
+                    <div class="bg-theme-light card border-0 h-100">
                         <div class="card-body overflow-hidden">
                             <div class="d-sm-flex align-items-center">
                                 <a class="d-block order-sm-2 flex-shrink-0 mt-n4 mb-n2" href="#">
 {{--                                    <img src="{{ asset('assets/images/frontend/landing/saas-2/features/02.png') }}" width="308" alt="Image">--}}
-                                    <img src="{{ asset('assets/images/frontend/home/parttime.png') }}" width="90" alt="Temporary">
+{{--                                    <img src="{{ asset('assets/images/frontend/home/parttime.png') }}" width="90" alt="Temporary">--}}
+                                    <i class="ai-clock display-1"></i>
                                 </a>
                                 <div class="order-sm-1 pe-sm-3 me-xl-4">
                                     <h3>Temporary</h3>
@@ -189,13 +191,14 @@
 
                 <!-- Item -->
                 <div class="col-md-7">
-                    <div class="bg-secondary card border-0 h-100">
+                    <div class="bg-theme-light card border-0 h-100">
                         <div class="card-body overflow-hidden">
                             <div class="d-sm-flex align-items-center">
                                 <a class="d-block order-sm-2 flex-shrink-0 mt-n4 mb-n2" href="#">
 {{--                                    <img class="d-dark-mode-none" src="{{ asset('assets/images/frontend/landing/saas-2/features/03-light.png') }}" width="308" alt="Image">--}}
 {{--                                    <img class="d-none d-dark-mode-block" src="{{ asset('assets/images/frontend/landing/saas-2/features/03-dark.png') }}" width="308" alt="Image">--}}
-                                    <img src="{{ asset('assets/images/frontend/home/fulltime.png') }}" width="90" alt="Fulltime">
+{{--                                    <img src="{{ asset('assets/images/frontend/home/fulltime.png') }}" width="90" alt="Fulltime">--}}
+                                    <i class="ai-circle-check display-1"></i>
                                 </a>
                                 <div class="order-sm-1 pe-sm-3 me-xl-4">
                                     <h3>Permanent</h3>
@@ -227,93 +230,99 @@
 
 
     <!-- Section 4 - Why Choose Us -->
-    <section class="bg-secondary">
+    <section id="section-medics" class="bg-dark">
         <section class="container pt-5 pt-xl-2 pb-5 mb-2 mb-lg-3 mb-xl-4 mb-xxl-5">
-        <div class="row align-items-center pt-2 pt-sm-3 pt-md-4 pt-lg-5 mt-xl-2 mt-xxl-3">
-            <div class="col-md-6 col-xl-5 pb-3 pb-md-0 mb-4 mb-md-0">
-                <div class="ratio ratio-1x1 d-flex align-items-center position-relative rounded-circle overflow-hidden bg-size-cover mx-auto" style="max-width: 530px; background-image: url('assets/images/frontend/home/why-choose-us.jpeg');">
-                    <div class="bg-black position-absolute top-0 start-0 w-100 h-100 opacity-50"></div>
-                    <div class="position-relative z-2 p-4" data-bs-theme="dark">
-                        <div class="text-center mx-auto" style="max-width: 275px;">
-{{--                            <span class="d-block text-body fs-sm text-uppercase mb-3">Why Choose Us</span>--}}
-                            <h2 class="display-6 mb-0">Why <br>Choose Us</h2>
+            <div class="row align-items-center pt-2 pt-sm-3 pt-md-4 pt-lg-5 mt-xl-2 mt-xxl-3">
+                <div class="col-md-6 col-xl-5 pb-3 pb-md-0 mb-4 mb-md-0">
+{{--                    <h2 class="display-6 mb-5 text-center text-white">Why Choose Us</h2>--}}
+                    <div class="ratio ratio-1x1 d-flex align-items-center position-relative rounded-1 overflow-hidden bg-size-cover bg-position-top-end mx-auto" style="max-width: 530px; background-image: url('assets/images/frontend/home/medics-image.jpg');">
+                        <div class="position-absolute top-0 start-0 w-100 h-100"></div>
+    {{--                    <div class="position-relative z-2 p-4" data-bs-theme="dark">--}}
+    {{--                        <div class="text-center mx-auto" style="max-width: 275px;">--}}
+    {{--                            <span class="d-block text-body fs-sm text-uppercase mb-3">Why Choose Us</span>--}}
+    {{--                            <h2 class="display-6 mb-0">Why <br>Choose Us</h2>--}}
+    {{--                        </div>--}}
+    {{--                    </div>--}}
+                    </div>
+                </div>
+                <div class="col-md-6 col-xl-5 offset-xl-1">
+                    <div class="ps-md-4 ps-xl-0">
+                        <div class="steps steps-hoverable">
+                            <div class="step py-3 py-xl-3">
+                                <div class="step-number">
+                                    <div class="step-number-inner">M</div>
+                                </div>
+                                <div class="step-body">
+                                    <h3 class="h5 pb-1 mb-2">Motivation</h3>
+                                    <p class="mb-0">We create a positive and motivating environment to help our clients reach their full potential and exceed their own expectations.</p>
+                                </div>
+                            </div>
+                            <div class="step py-3 py-xl-3">
+                                <div class="step-number">
+                                    <div class="step-number-inner">E</div>
+                                </div>
+                                <div class="step-body">
+                                    <h3 class="h5 pb-1 mb-2">Excellence</h3>
+                                    <p class="mb-0">We strive for the highest level of quality and performance in all aspects of our work, constantly seeking to improve and set high standards for ourselves and others. We commit to a process of continuous growth and development.</p>
+                                </div>
+                            </div>
+                            <div class="step py-3 py-xl-3">
+                                <div class="step-number">
+                                    <div class="step-number-inner">D</div>
+                                </div>
+                                <div class="step-body">
+                                    <h3 class="h5 pb-1 mb-2">Dedication</h3>
+                                    <p class="mb-0">We are dedicated to providing a high-quality service and continuously improving our training and recruitment methods to meet the needs of our clients.</p>
+                                </div>
+                            </div>
+                            <div class="step py-3 py-xl-3">
+                                <div class="step-number">
+                                    <div class="step-number-inner">I</div>
+                                </div>
+                                <div class="step-body">
+                                    <h3 class="h5 pb-1 mb-2">Inclusivity</h3>
+                                    <p class="mb-0">We foster an inclusive culture that embraces the British values of fairness and tolerance of all in the workplace.</p>
+                                </div>
+                            </div>
+                            <div class="step py-3 py-xl-3">
+                                <div class="step-number">
+                                    <div class="step-number-inner">C</div>
+                                </div>
+                                <div class="step-body">
+                                    <h3 class="h5 pb-1 mb-2">Community</h3>
+                                    <p class="mb-0">We strive to build a strong community of medical professionals that can support each other in their professional development and career advancement.</p>
+                                </div>
+                            </div>
+                            <div class="step py-3 py-xl-3">
+                                <div class="step-number">
+                                    <div class="step-number-inner">S</div>
+                                </div>
+                                <div class="step-body">
+                                    <h3 class="h5 pb-1 mb-2">Support</h3>
+                                    <p class="mb-0">We offer unparalleled support to our clients, both during their training and as they navigate the job market.</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 col-xl-5 offset-xl-1">
-                <div class="ps-md-4 ps-xl-0">
-                    <div class="steps steps-hoverable">
-                        <div class="step py-3 py-xl-4">
-                            <div class="step-number">
-                                <div class="step-number-inner">M</div>
-                            </div>
-                            <div class="step-body">
-                                <h3 class="h5 pb-1 mb-2">Motivation</h3>
-                                <p class="mb-0">We create a positive and motivating environment to help our clients reach their full potential and exceed their own expectations.</p>
-                            </div>
-                        </div>
-                        <div class="step py-3 py-xl-4">
-                            <div class="step-number">
-                                <div class="step-number-inner">E</div>
-                            </div>
-                            <div class="step-body">
-                                <h3 class="h5 pb-1 mb-2">Excellence</h3>
-                                <p class="mb-0">We strive for the highest level of quality and performance in all aspects of our work, constantly seeking to improve and set high standards for ourselves and others. We commit to a process of continuous growth and development.</p>
-                            </div>
-                        </div>
-                        <div class="step py-3 py-xl-4">
-                            <div class="step-number">
-                                <div class="step-number-inner">D</div>
-                            </div>
-                            <div class="step-body">
-                                <h3 class="h5 pb-1 mb-2">Dedication</h3>
-                                <p class="mb-0">We are dedicated to providing a high-quality service and continuously improving our training and recruitment methods to meet the needs of our clients.</p>
-                            </div>
-                        </div>
-                        <div class="step py-3 py-xl-4">
-                            <div class="step-number">
-                                <div class="step-number-inner">I</div>
-                            </div>
-                            <div class="step-body">
-                                <h3 class="h5 pb-1 mb-2">Inclusivity</h3>
-                                <p class="mb-0">We foster an inclusive culture that embraces the British values of fairness and tolerance of all in the workplace.</p>
-                            </div>
-                        </div>
-                        <div class="step py-3 py-xl-4">
-                            <div class="step-number">
-                                <div class="step-number-inner">C</div>
-                            </div>
-                            <div class="step-body">
-                                <h3 class="h5 pb-1 mb-2">Community</h3>
-                                <p class="mb-0">We strive to build a strong community of medical professionals that can support each other in their professional development and career advancement.</p>
-                            </div>
-                        </div>
-                        <div class="step py-3 py-xl-4">
-                            <div class="step-number">
-                                <div class="step-number-inner">S</div>
-                            </div>
-                            <div class="step-body">
-                                <h3 class="h5 pb-1 mb-2">Support</h3>
-                                <p class="mb-0">We offer unparalleled support to our clients, both during their training and as they navigate the job market.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
     </section>
 
 
     <!-- Section 5 - Services -->
-    <section class="">
+    <section id="section-why-us">
         <div class="container my-md-2 my-lg-3 my-xl-4 my-xxl-5">
+            <div class="row g-4 pb-xl-2 pb-xxl-3">
+                <div class="col">
+                    <h2 class="display-6 mb-5 text-center">Why Us</h2>
+                </div>
+            </div>
             <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4 pb-xl-2 pb-xxl-3">
 
                 <!-- Item -->
                 <div class="col">
-                    <div class="bg-secondary card h-100 border-0 rounded-5">
+                    <div class="bg-theme-light card h-100 border-0 rounded-5">
                         <div class="card-body pb-3">
                             <svg class="d-block mt-1 mt-sm-0 mb-4" width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
                                 <g class="text-info">
@@ -338,7 +347,7 @@
 
                 <!-- Item -->
                 <div class="col">
-                    <div class="bg-secondary card h-100 border-0 rounded-5">
+                    <div class="bg-theme-light card h-100 border-0 rounded-5">
                         <div class="card-body pb-3">
                             <svg class="d-block mt-1 mt-sm-0 mb-4" width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
                                 <g class="text-info">
@@ -363,7 +372,7 @@
 
                 <!-- Item -->
                 <div class="col">
-                    <div class="bg-secondary card h-100 border-0 rounded-5">
+                    <div class="bg-theme-light card h-100 border-0 rounded-5">
                         <div class="card-body pb-3">
                             <svg class="d-block mt-1 mt-sm-0 mb-4" width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
                                 <g class="text-primary">

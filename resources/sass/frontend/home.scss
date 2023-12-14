@@ -4,6 +4,20 @@
   transform: skew(0, -2.76deg) translateY(calc(50vw/-12));
 }
 
+#section-medics {
+  .steps {
+    .step-body {
+      color: white;
+    }
+  }
+}
+
+#section-why-us, #section-jobs {
+  p {
+    color: black;
+  }
+}
+
 #journey {
   .icon {
     font-size: 6em;

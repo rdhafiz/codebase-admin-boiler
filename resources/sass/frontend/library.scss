@@ -7,3 +7,12 @@ $purplemed-color: $theme-color;
 .bg-theme {
   background-color: $theme-color;
 }
+
+.text-theme-light {
+  color: $theme-color;
+  opacity: 50;
+}
+
+.bg-theme-light {
+  background-color: rgb(70 190 203 / 35%);
+}
