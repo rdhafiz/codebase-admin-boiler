@@ -144,7 +144,7 @@
 
                 <!-- Item -->
                 <div class="col-md-5">
-                    <div class="bg-theme-light card border-0 h-100">
+                    <div class="border-primary border-2 card h-100">
                         <div class="card-body">
                             <a href="#">
 {{--                                <img class="d-dark-mode-none" src="{{ asset('assets/images/frontend/landing/saas-2/features/01-light.png') }}" alt="Image">--}}
@@ -166,7 +166,7 @@
 
                 <!-- Item -->
                 <div class="col-md-7">
-                    <div class="bg-theme-light card border-0 h-100">
+                    <div class="border-primary border-2 card h-100">
                         <div class="card-body overflow-hidden">
                             <div class="d-sm-flex align-items-center">
                                 <a class="d-block order-sm-2 flex-shrink-0 mt-n4 mb-n2" href="#">
@@ -191,7 +191,7 @@
 
                 <!-- Item -->
                 <div class="col-md-7">
-                    <div class="bg-theme-light card border-0 h-100">
+                    <div class="border-primary border-2 card h-100">
                         <div class="card-body overflow-hidden">
                             <div class="d-sm-flex align-items-center">
                                 <a class="d-block order-sm-2 flex-shrink-0 mt-n4 mb-n2" href="#">
@@ -322,7 +322,7 @@
 
                 <!-- Item -->
                 <div class="col">
-                    <div class="bg-theme-light card h-100 border-0 rounded-5">
+                    <div class="border-primary border-2 card h-100 rounded-5">
                         <div class="card-body pb-3">
                             <svg class="d-block mt-1 mt-sm-0 mb-4" width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
                                 <g class="text-info">
@@ -347,7 +347,7 @@
 
                 <!-- Item -->
                 <div class="col">
-                    <div class="bg-theme-light card h-100 border-0 rounded-5">
+                    <div class="border-primary border-2 card h-100 rounded-5">
                         <div class="card-body pb-3">
                             <svg class="d-block mt-1 mt-sm-0 mb-4" width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
                                 <g class="text-info">
@@ -372,7 +372,7 @@
 
                 <!-- Item -->
                 <div class="col">
-                    <div class="bg-theme-light card h-100 border-0 rounded-5">
+                    <div class="border-primary border-2 card h-100 rounded-5">
                         <div class="card-body pb-3">
                             <svg class="d-block mt-1 mt-sm-0 mb-4" width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
                                 <g class="text-primary">

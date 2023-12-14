@@ -9,7 +9,7 @@
 
             <div class="w-100" id="vueInstance" style="display: none">
                 <!-- Page Content -->
-                <div class="bg-image" style="background-image: url({{asset('assets/images/london-bridge-purple-med.jpg')}});">
+                <div class="bg-image" style="background-image: url({{asset('assets/images/three-nurses.png')}});">
                     <div class="row mx-0 bg-black-50">
                         <div class="hero-static col-md-6 col-xl-8 d-none d-md-flex align-items-md-end">
                             <div class="p-4">
