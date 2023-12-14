@@ -13,7 +13,7 @@ class RecruiterController extends Controller
 {
     public function index(): View
     {
-        $recruiters = Recruiters::orderBy('created_at', 'asc')->get();
+        $recruiters = Recruiters::orderBy('created_at', 'desc')->get();
         return view('cms.pages.recruiters.index', compact('recruiters'));
     }
 
@@ -31,7 +31,7 @@ class RecruiterController extends Controller
                 'email' => 'required|email|unique:recruiters:email',
                 'phone' => 'nullable|alpha_num',
                 'address' => 'nullable|string',
-                'post_cde' => 'nullable|alpha_num',
+                'post_code' => 'nullable|alpha_num',
                 'city' => 'nullable|string',
                 'country' => 'nullable|string',
                 'password' => 'nullable|min:6|confirmed',
@@ -54,7 +54,7 @@ class RecruiterController extends Controller
                 'password' => bcrypt($password),
                 'phone' => $request->phone ?? null,
                 'address' => $request->address ?? null,
-                'post_cde' => $request->post_cde ?? null,
+                'post_code' => $request->post_code ?? null,
                 'city' => $request->city ?? null,
                 'country' => $request->country ?? null
             ]);
@@ -95,7 +95,7 @@ class RecruiterController extends Controller
                 'email' => 'required|email|unique:recruiters:email',
                 'phone' => 'nullable|alpha_num',
                 'address' => 'nullable|string',
-                'post_cde' => 'nullable|alpha_num',
+                'post_code' => 'nullable|alpha_num',
                 'city' => 'nullable|string',
                 'country' => 'nullable|string',
                 'password' => 'nullable|min:6|confirmed',
@@ -117,7 +117,7 @@ class RecruiterController extends Controller
             $recruiter->email = $request->email;
             $recruiter->phone = $request->phone ?? null;
             $recruiter->address = $request->address ?? null;
-            $recruiter->post_cde = $request->post_cde ?? null;
+            $recruiter->post_code = $request->post_code ?? null;
             $recruiter->city = $request->city ?? null;
             $recruiter->country = $request->country ?? null;
             $recruiter->save();
@@ -127,7 +127,6 @@ class RecruiterController extends Controller
             return redirect()->back()->withErrors(['error' => [$e->getMessage()]]);
         }
     }
-
     public function destroy($id)
     {
         try {
@@ -141,5 +140,4 @@ class RecruiterController extends Controller
             return redirect()->back()->withErrors(['error' => [$e->getMessage()]]);
         }
     }
-
 }

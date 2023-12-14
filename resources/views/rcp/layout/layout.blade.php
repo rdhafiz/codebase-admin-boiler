@@ -13,7 +13,7 @@
     <!-- Vue CDN -->
 
     <!-- Modules -->
-    @yield('css')
+    @yield('stylesheet')
     @vite(['resources/sass/main.scss'])
     <!-- Modules -->
 
