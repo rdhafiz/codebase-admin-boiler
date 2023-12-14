@@ -1,17 +1,39 @@
 import Swal from 'sweetalert2/dist/sweetalert2.js'
 import 'sweetalert2/src/sweetalert2.scss'
 import moment from "moment";
+import flatPickr from 'vue-flatpickr-component';
+import 'flatpickr/dist/flatpickr.css';
 
 const {createApp} = Vue
 createApp({
+    components: {flatPickr},
     data() {
         return {
             param: {
-                course_discount: 0,
+                course_title: null,
+                course_overview: '',
+                course_lead_trainer: null,
+                course_category: '',
+                course_type: '',
+                course_fee: null,
+                course_duration: null,
+                course_start_date: null,
+                course_end_date: null,
                 courseSchedules: [],
                 payment_instalment: 0,
-                total_installment: 0,
+                payment_instalment_duration: 0,
+                payment_total_instalment: 0,
                 payment_instalment_details: [],
+                course_discount: 0,
+                course_discount_start_date: null,
+                course_discount_end_date: null,
+                course_discount_amount: 0,
+                course_discount_promo_code: null
+            },
+            dateConfig: {
+                altFormat: 'F j, Y',
+                altInput: true,
+                dateFormat: 'Y-m-d',
             }
         }
     },
@@ -37,38 +59,27 @@ createApp({
         },
         calculateInstallment() {
             this.param.payment_instalment_details.length = 0;
-            const course_fee = parseFloat(document.getElementById('courseForm').elements['course_fee'].value) || 0;
-            const payment_duration = parseFloat(document.getElementById('courseForm').elements['payment_duration'].value) || 0;
-            const total_installment = parseFloat(document.getElementById('courseForm').elements['total_installment'].value) || 0;
-            if (course_fee > 0 && payment_duration > 0 && total_installment > 0) {
-                this.param.total_installment = total_installment;
-                const divideDays = payment_duration / total_installment;
-
+            if (this.param.course_fee > 0 && this.param.payment_instalment_duration > 0 && this.param.payment_total_instalment > 0) {
+                const divideDays = this.param.payment_instalment_duration / this.param.payment_total_instalment;
                 let i = 0;
-                while (i < total_installment) {
+                while (i < this.param.payment_total_instalment) {
                     const sl = i + 1;
                     let days = Math.floor(divideDays);
-                    let amount = Math.floor(course_fee / this.param.total_installment);
-                    if (sl === total_installment) {
+                    let amount = Math.floor(this.param.course_fee / this.param.payment_total_instalment);
+                    if (sl === this.param.payment_total_instalment) {
                         days = Math.ceil(divideDays);
-                        amount = Math.ceil(course_fee / this.param.total_installment);
+                        amount = Math.ceil(this.param.course_fee / this.param.payment_total_instalment);
                     }
                     this.param.payment_instalment_details.push({
-                        sl: sl,
                         days: days,
                         amount: amount
                     });
-
                     i++;
                 }
-
-                console.log(this.param.payment_instalment_details);
             }
         },
-        deleteOneInstallment() {
-            let total_installment = parseFloat(document.getElementById('courseForm').elements['total_installment'].value) || 0;
-            total_installment = total_installment - 1;
-            document.getElementById('courseForm').elements['total_installment'].value = total_installment;
+        deleteThisInstallment(index) {
+            this.param.payment_instalment_details.splice(index, 1);
             this.calculateInstallment();
         },
         calculateSchedule(){
@@ -91,12 +102,21 @@ createApp({
                 const d2 = new Date(current.setDate(current.getDate() + days));
 
                 result.push({
-                    start: moment(d1).format('LL'),
-                    end: d2 <= end ? moment(new Date(d2.setDate(d2.getDate() - 1))).format('LL') : moment(end).format('LL')
+                    start: moment(d1).format('YYYY-MM-DD'),
+                    end: d2 <= end ? moment(new Date(d2.setDate(d2.getDate() - 1))).format('YYYY-MM-DD') : moment(end).format('YYYY-MM-DD')
                 });
             } while (current <= end);
 
             return result;
+        },
+        deleteThisSchedule(index){
+            this.param.courseSchedules.splice(index, 1);
+        },
+        addNewSchedule(){
+            this.param.courseSchedules.push({
+                start: null,
+                end: null
+            });
         }
     },
     mounted() {

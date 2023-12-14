@@ -26,6 +26,7 @@ export default defineConfig({
 
                 'resources/js/rcp/auth/login.js',
                 'resources/js/rcp/helper/header.js',
+                'resources/js/rcp/pages/job/job.js',
             ],
             refresh: true,
         }),
