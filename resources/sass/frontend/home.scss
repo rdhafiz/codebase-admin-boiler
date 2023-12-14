@@ -1,0 +1,15 @@
+@import "library";
+
+#section-schedule {
+  transform: skew(0, -2.76deg) translateY(calc(50vw/-12));
+}
+
+#journey {
+  .icon {
+    font-size: 6em;
+    color: $theme-color;
+  }
+  img {
+    max-width: 140px;
+  }
+}

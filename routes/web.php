@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Frontend\HomepageController;
 
 include_once 'cms.php';
 include_once 'rcp.php';
@@ -15,6 +16,5 @@ include_once 'rcp.php';
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {return view("welcome");});
+Route::get('/', [HomepageController::class, "home"])->name('homepage');

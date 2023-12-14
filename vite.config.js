@@ -1,4 +1,4 @@
-import { defineConfig } from "vite";
+import {defineConfig, optimizeDeps} from "vite";
 import laravel from "laravel-vite-plugin";
 
 export default defineConfig({
@@ -6,6 +6,9 @@ export default defineConfig({
         laravel({
             input: [
                 'resources/sass/main.scss',
+                'resources/sass/frontend/purplemed.scss',
+                'resources/sass/frontend/home.scss',
+                'resources/js/frontend/purplemed.js',
 
                 'resources/js/lib/jquery.min.js',
                 'resources/js/codebase/app.js',
@@ -19,6 +22,9 @@ export default defineConfig({
                 'resources/js/rcp/helper/header.js',
             ],
             refresh: true,
-        })
+        }),
     ],
+    optimizeDeps: {
+        exclude: [],
+    },
 });
