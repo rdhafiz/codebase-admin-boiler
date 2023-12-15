@@ -41,8 +41,6 @@ Route::group(['prefix' => '/secure/administration'], function () {
         Route::resource('course/category', CourseCategoryController::class, ['as' => 'CMS.course']);
         // Resourceful routes for 'course type' with alias 'CMS'
         Route::resource('course/type', CourseTypeController::class, ['as' => 'CMS.course']);
-        // Resourceful routes for 'course schedule' with alias 'CMS'
-        Route::resource('course/schedule', CourseScheduleController::class, ['as' => 'CMS.course']);
         // Resourceful routes for 'course' with alias 'CMS'
         Route::resource('course', CourseController::class, ['as' => 'CMS']);
 

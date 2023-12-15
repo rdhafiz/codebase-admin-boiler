@@ -6,9 +6,9 @@ createApp({
         return {}
     },
     methods: {
-        deletePage(id) {
+        deleteCourse(id) {
             Swal.fire({
-                title: "Delete Page",
+                title: "Delete Course",
                 html: "<strong>Are you sure?</strong> <br> <span class='text-danger'>You won't be able to revert this!</span>",
                 icon: "warning",
                 showCancelButton: true,
@@ -24,7 +24,7 @@ createApp({
         }
     },
     mounted() {
-        const vueInstance = document.getElementById('vueScheduleListInstance');
+        const vueInstance = document.getElementById('vueCourseListInstance');
         vueInstance.style.display = 'block';
     }
-}).mount('#vueScheduleListInstance')
+}).mount('#vueCourseListInstance')

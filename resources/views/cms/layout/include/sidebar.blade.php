@@ -95,7 +95,7 @@
                             <span class="nav-main-link-name">All Courses</span>
                         </a>
                     </li>
-                    <li class="nav-main-item {{in_array(Route::currentRouteName(), ['CMS.course.category.index','CMS.course.category.create','CMS.course.category.edit','CMS.course.type.index','CMS.course.type.create','CMS.course.type.edit','CMS.course.schedule.index','CMS.course.schedule.create','CMS.course.schedule.edit']) ? 'open' : ''}}">
+                    <li class="nav-main-item {{in_array(Route::currentRouteName(), ['CMS.course.category.index','CMS.course.category.create','CMS.course.category.edit','CMS.course.type.index','CMS.course.type.create','CMS.course.type.edit']) ? 'open' : ''}}">
                         <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="true" href="javascript:void(0)">
                             <i class="nav-main-link-icon fa fa-cubes"></i>
                             <span class="nav-main-link-name">Course Management</span>
@@ -109,11 +109,6 @@
                             <li class="nav-main-item">
                                 <a class="nav-main-link {{in_array(Route::currentRouteName(), ['CMS.course.type.index','CMS.course.type.create','CMS.course.type.edit']) ? 'active' : ''}}" href="{{route('CMS.course.type.index')}}">
                                     <span class="nav-main-link-name">Course Type</span>
-                                </a>
-                            </li>
-                            <li class="nav-main-item">
-                                <a class="nav-main-link {{in_array(Route::currentRouteName(), ['CMS.course.schedule.index','CMS.course.schedule.create','CMS.course.schedule.edit']) ? 'active' : ''}}" href="{{route('CMS.course.schedule.index')}}">
-                                    <span class="nav-main-link-name">Course Schedule</span>
                                 </a>
                             </li>
                         </ul>

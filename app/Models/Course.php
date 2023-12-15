@@ -20,4 +20,11 @@ class Course extends Eloquent
         'deleted_at',
     ];
     public $timestamps = true;
+
+    public function category(){
+        return $this->hasOne(CourseCategories::class, '_id', 'course_category')->select('name');
+    }
+    public function type(){
+        return $this->hasOne(CourseType::class, '_id', 'course_type')->select('name');
+    }
 }
