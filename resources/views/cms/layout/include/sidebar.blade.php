@@ -90,9 +90,9 @@
                     </li>
                     <li class="nav-main-heading">Learning Management</li>
                     <li class="nav-main-item">
-                        <a class="nav-main-link {{Route::currentRouteName() == 'CMS.course.index' ? 'active' : ''}}" href="{{route('CMS.course.index')}}">
-                            <i class="nav-main-link-icon fa fa-check-to-slot"></i>
-                            <span class="nav-main-link-name">All Courses</span>
+                        <a class="nav-main-link" href="{{route('CMS.trainer.index')}}">
+                            <i class="nav-main-link-icon fa fa-globe"></i>
+                            <span class="nav-main-link-name">Trainer Management</span>
                         </a>
                     </li>
                     <li class="nav-main-item {{in_array(Route::currentRouteName(), ['CMS.course.category.index','CMS.course.category.create','CMS.course.category.edit','CMS.course.type.index','CMS.course.type.create','CMS.course.type.edit']) ? 'open' : ''}}">
@@ -101,6 +101,11 @@
                             <span class="nav-main-link-name">Course Management</span>
                         </a>
                         <ul class="nav-main-submenu">
+                            <li class="nav-main-item">
+                                <a class="nav-main-link {{in_array(Route::currentRouteName(), ['CMS.course.category.index','CMS.course.category.create','CMS.course.category.edit']) ? 'active' : ''}}" href="{{route('CMS.course.category.index')}}">
+                                    <span class="nav-main-link-name">All Courses</span>
+                                </a>
+                            </li>
                             <li class="nav-main-item">
                                 <a class="nav-main-link {{in_array(Route::currentRouteName(), ['CMS.course.category.index','CMS.course.category.create','CMS.course.category.edit']) ? 'active' : ''}}" href="{{route('CMS.course.category.index')}}">
                                     <span class="nav-main-link-name">Course Category</span>
