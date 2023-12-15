@@ -102,7 +102,7 @@
                         </a>
                         <ul class="nav-main-submenu">
                             <li class="nav-main-item">
-                                <a class="nav-main-link {{in_array(Route::currentRouteName(), ['CMS.course.category.index','CMS.course.category.create','CMS.course.category.edit']) ? 'active' : ''}}" href="{{route('CMS.course.category.index')}}">
+                                <a class="nav-main-link {{in_array(Route::currentRouteName(), ['CMS.course.category.index','CMS.course.category.create','CMS.course.category.edit']) ? 'active' : ''}}" href="{{route('CMS.course.index')}}">
                                     <span class="nav-main-link-name">All Courses</span>
                                 </a>
                             </li>
