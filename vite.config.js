@@ -17,6 +17,7 @@ export default defineConfig({
                 'resources/js/cms/helper/header.js',
 
                 'resources/js/cms/pages/page/page.js',
+                'resources/js/cms/pages/trainer/trainer.js',
                 'resources/js/cms/pages/trainer/create.js',
                 'resources/js/cms/pages/course/course.js',
                 'resources/js/cms/pages/course/course-create.js',

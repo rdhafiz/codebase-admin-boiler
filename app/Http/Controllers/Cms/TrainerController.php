@@ -42,6 +42,10 @@ class TrainerController extends Controller
             $imagePath = null;
             if ($request->avatar) {
                 $imagePath = Storage::disk('public')->put('media/images', $request->avatar);
+            } else {
+                $avatarStream = file_get_contents('https://ui-avatars.com/api/?name='.$request->name);
+                $imagePath = 'media/images/'.time().'.png';
+                file_put_contents(public_path('storage/'.$imagePath), $avatarStream);
             }
 
             $trainer = new Trainers();
@@ -89,13 +93,12 @@ class TrainerController extends Controller
             }
             $validator = Validator::make($request->all(), [
                 'name' => 'required|min:5',
-                'email' => 'required|email|unique:trainers:email',
-                'phone' => 'nullable|alpha_num',
-                'address' => 'nullable|string',
-                'post_code' => 'nullable|alpha_num',
-                'city' => 'nullable|string',
-                'country' => 'nullable|string',
-                'password' => 'nullable|min:6|confirmed',
+                'designation' => 'required|min:2',
+                'employment_history' => 'nullable|string',
+                'qualifications' => 'nullable|string',
+                'social_facebook' => 'nullable|url',
+                'social_twitter' => 'nullable|url',
+                'social_linkedin' => 'nullable|url',
             ]);
             if ($validator->fails()) {
                 return redirect()->back()->withInput($request->input())->withErrors($validator->errors());

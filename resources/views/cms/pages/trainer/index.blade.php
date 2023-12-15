@@ -34,23 +34,22 @@
                         <table class="table table-striped table-vcenter">
                             <thead>
                             <tr>
-                                <th></th>
+                                <th style="width: 80px"></th>
                                 <th>Name</th>
-                                <th>Email</th>
-                                <th>Phone</th>
-                                <th>Jobs</th>
-                                <th style="width: 120px" class="text-center"></th>
+                                <th>Designation</th>
+                                <th style="width: 150px" class="text-center"></th>
                             </tr>
                             </thead>
                             <tbody>
                             @foreach($trainers as $trainer)
                                 <tr>
-                                    <td></td>
+                                    <td>
+                                        <img class="img-fluid rounded-pill border border-2" style="width: 50px; height: 50px; object-fit: cover;overflow: hidden;" src="{{$trainer['avatar_full_path']}}" alt="">
+                                    </td>
                                     <td>{{ $trainer['name'] }}</td>
-                                    <td>{{ $trainer['email'] }}</td>
-                                    <td>{{ $trainer['phone'] }}</td>
-                                    <td>0</td>
+                                    <td>{{ $trainer['designation'] }}</td>
                                     <td class="text-center">
+                                        <a href="{{route('CMS.trainer.show', [$trainer['_id']])}}" class="btn btn-sm btn-outline-success js-bs-tooltip-enabled me-1"><i class="fa fa-magnifying-glass"></i></a>
                                         <a href="{{route('CMS.trainer.edit', [$trainer['_id']])}}" class="btn btn-sm btn-outline-primary js-bs-tooltip-enabled me-1"><i class="fa fa-edit"></i></a>
                                         <form class="d-inline-block" id="delete_{{$trainer['_id']}}" action="{{route('CMS.trainer.destroy', [$trainer['_id']])}}" method="POST">
                                             {{csrf_field()}}
@@ -70,5 +69,5 @@
     </div>
 @endsection
 @section('js')
-    @vite('resources/js/cms/pages/recruiter/recruiter.js')
+    @vite('resources/js/cms/pages/trainer/trainer.js')
 @endsection

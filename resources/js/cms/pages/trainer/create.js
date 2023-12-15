@@ -13,13 +13,18 @@ createApp({
                 var reader = new FileReader();
                 reader.onload = function(file) {
                     image.src = file.target.result;
+                    image.style.display = 'block';
                 }
                 reader.readAsDataURL(input.files[0]);
             }
         }
     },
     mounted() {
-        const vueInstance = document.getElementById('vueRecruiterListInstance');
+        const vueInstance = document.getElementById('vueTrainerFormInstance');
         vueInstance.style.display = 'block';
+        window.Codebase.helpersOnLoad(['js-ckeditor'], {
+            toolbar : 'Basic',
+            uiColor : '#9AB8F3'
+        });
     }
-}).mount('#vueRecruiterListInstance')
+}).mount('#vueTrainerFormInstance')

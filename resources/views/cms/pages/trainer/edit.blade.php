@@ -4,12 +4,12 @@
 
         <div class="container-lg">
             <div class="w-100 mb-4">
-                <h2 class="fs-2 m-0 p-0">Edit Recruiter</h2>
+                <h2 class="fs-2 m-0 p-0">Edit Trainer</h2>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{route('CMS.dashboard')}}">Dashboard</a></li>
-                        <li class="breadcrumb-item"><a href="{{route('CMS.recruiter.index')}}">Recruiters</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Edit Recruiter</li>
+                        <li class="breadcrumb-item"><a href="{{route('CMS.trainer.index')}}">Trainers</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Edit Trainer</li>
                     </ol>
                 </nav>
             </div>
@@ -22,109 +22,112 @@
                     </p>
                 </div>
             @endif
-            <form class="w-100" action="{{route('CMS.recruiter.update', [$recruiter['_id']])}}" method="post" enctype="multipart/form-data">
-                {{csrf_field()}}
-                <input type="hidden" name="_method" value="PUT">
-                <div class="w-100 mt-4">
-                    <div class="block block-rounded">
-                        <div class="block-header block-header-default">
-                            <h3 class="block-title">Edit Recruiter</h3>
-                            <div class="block-options">
-                                <a href="{{route('CMS.recruiter.index')}}" class="btn btn-sm btn-outline-secondary me-1">Cancel</a>
-                                <button type="submit" class="btn btn-sm btn-outline-success">Save Changes</button>
-                            </div>
-                        </div>
-                        <div class="block-content p-3 p-lg-5">
 
-                            <div class="w-100">
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <div class="form-group mb-4">
-                                            <label class="form-label">Name</label>
-                                            <input type="text" class="form-control" name="name" value="{{$recruiter['name']}}">
-                                            @if($errors->has('name')) <small class="text-danger">{{$errors->first('name')}}</small> @endif
-                                        </div>
-                                        <div class="form-group mb-4">
-                                            <label class="form-label">Email</label>
-                                            <input type="email" class="form-control" name="email" value="{{$recruiter['email']}}">
-                                            @if($errors->has('email')) <small class="text-danger">{{$errors->first('email')}}</small> @endif
-                                        </div>
-                                        <div class="form-group mb-4">
-                                            <label class="form-label">Phone</label>
-                                            <input type="tel" class="form-control" name="phone" value="{{$recruiter['phone']}}">
-                                            @if($errors->has('phone')) <small class="text-danger">{{$errors->first('phone')}}</small> @endif
-                                        </div>
-                                        <div class="form-group mb-4">
-                                            <label class="form-label">Address</label>
-                                            <input type="text" class="form-control" name="address" value="{{$recruiter['address']}}">
-                                            @if($errors->has('address')) <small class="text-danger">{{$errors->first('address')}}</small> @endif
-                                        </div>
-                                        <div class="form-group mb-4">
-                                            <div class="row">
-                                                <div class="col-lg-12">
-                                                    <div class="form-group mb-4">
-                                                        <label class="form-label">Post Code</label>
-                                                        <input type="text" class="form-control" name="post_code" value="{{$recruiter['post_code']}}">
-                                                        @if($errors->has('post_code')) <small class="text-danger">{{$errors->first('post_code')}}</small> @endif
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-12">
-                                                    <div class="form-group mb-4">
-                                                        <label class="form-label">City</label>
-                                                        <input type="text" class="form-control" name="city" value="{{$recruiter['city']}}">
-                                                        @if($errors->has('city')) <small class="text-danger">{{$errors->first('city')}}</small> @endif
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-12">
-                                                    <div class="form-group mb-4">
-                                                        <label class="form-label">Country</label>
-                                                        <input type="text" class="form-control" name="country" value="{{$recruiter['country']}}">
-                                                        @if($errors->has('country')) <small class="text-danger">{{$errors->first('country')}}</small> @endif
-                                                    </div>
+            <div class="w-100" id="vueTrainerFormInstance">
+                <form class="w-100" action="{{route('CMS.trainer.update', [$trainer['_id']])}}" method="post" enctype="multipart/form-data">
+                    {{csrf_field()}}
+                    <input type="hidden" name="_method" value="PUT">
+                    <div class="w-100 mt-4">
+                        <div class="block block-rounded">
+                            <div class="block-header block-header-default">
+                                <h3 class="block-title">Edit Trainer</h3>
+                                <div class="block-options">
+                                    <a href="{{route('CMS.trainer.index')}}" class="btn btn-sm btn-outline-secondary me-1">Cancel</a>
+                                    <button type="submit" class="btn btn-sm btn-outline-success">Save Changes</button>
+                                </div>
+                            </div>
+                            <div class="block-content p-3 p-lg-5">
+
+                                <div class="w-100">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="form-group mb-4">
+                                                <div class="w-100">
+                                                    @if(isset($trainer['avatar']) && !empty($trainer['avatar']))
+                                                            <img class="img-fluid rounded-pill border border-2 mb-2" id="preview-image" style="width: 200px; height: 200px; object-fit: cover;overflow: hidden;" src="{{$trainer['avatar_full_path']}}" alt="">
+                                                    @else
+                                                        <img class="img-fluid rounded-pill border border-2 mb-2" id="preview-image" style="width: 200px; height: 200px; object-fit: cover;overflow: hidden;display: none">
+                                                    @endif
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="form-group mb-4">
-                                            @if(isset($recruiter['avatar']) && !empty($recruiter['avatar']))
-                                                <div class="w-100 mb-2">
-                                                    <img class="img-fluid rounded-pill" style="width: 200px; height: 200px; object-fit: cover;overflow: hidden;" src="{{$recruiter['avatar_full_path']}}" alt="">
-                                                </div>
-                                            @endif
-                                            <label class="form-label">Recruiter Photo</label>
-                                            <input type="file" class="form-control" name="avatar">
-                                            @if($errors->has('avatar')) <small class="text-danger">{{$errors->first('avatar')}}</small> @endif
+                                        <div class="col-lg-6">
+                                            <div class="form-group mb-4">
+                                                <label class="form-label">Trainer Photo</label>
+                                                <input type="file" class="form-control" name="avatar" @change="selectImage($event)">
+                                                @if($errors->has('avatar'))
+                                                    <small class="text-danger">{{$errors->first('avatar')}}</small>
+                                                @endif
+                                            </div>
+                                            <div class="form-group mb-4">
+                                                <label class="form-label">Name</label>
+                                                <input type="text" class="form-control" name="name" value="{{old('name') ?? $trainer->name}}">
+                                                @if($errors->has('name'))
+                                                    <small class="text-danger">{{$errors->first('name')}}</small>
+                                                @endif
+                                            </div>
+                                            <div class="form-group mb-4">
+                                                <label class="form-label">Designation</label>
+                                                <input type="text" class="form-control" name="designation" value="{{old('designation') ?? $trainer->designation}}">
+                                                @if($errors->has('designation'))
+                                                    <small class="text-danger">{{$errors->first('designation')}}</small>
+                                                @endif
+                                            </div>
                                         </div>
-                                        <div class="form_group bg-light p-3 border">
+                                        <div class="col-lg-6">
                                             <div class="form-group mb-4">
-                                                <p class="alert alert-warning">If you want to set password, please fill the password input's</p>
+                                                <label class="form-label">Facebook Profile</label>
+                                                <input type="text" class="form-control" name="social_facebook" value="{{old('social_facebook') ?? $trainer->social_facebook}}">
+                                                @if($errors->has('social_facebook'))
+                                                    <small class="text-danger">{{$errors->first('social_facebook')}}</small>
+                                                @endif
                                             </div>
                                             <div class="form-group mb-4">
-                                                <label class="form-label">Password</label>
-                                                <input type="password" class="form-control" name="password">
-                                                @if($errors->has('password')) <small class="text-danger">{{$errors->first('password')}}</small> @endif
+                                                <label class="form-label">Twitter Profile</label>
+                                                <input type="text" class="form-control" name="social_twitter" value="{{old('social_twitter') ?? $trainer->social_twitter}}">
+                                                @if($errors->has('social_twitter'))
+                                                    <small class="text-danger">{{$errors->first('social_twitter')}}</small>
+                                                @endif
                                             </div>
                                             <div class="form-group mb-4">
-                                                <label class="form-label">Re-type Password</label>
-                                                <input type="password" class="form-control" name="password_confirmation">
-                                                @if($errors->has('password_confirmation')) <small class="text-danger">{{$errors->first('password_confirmation')}}</small> @endif
+                                                <label class="form-label">LinkedIn Profile</label>
+                                                <input type="text" class="form-control" name="social_linkedin" value="{{old('social_linkedin') ?? $trainer->social_linkedin}}">
+                                                @if($errors->has('social_linkedin'))
+                                                    <small class="text-danger">{{$errors->first('social_linkedin')}}</small>
+                                                @endif
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="form-group mb-4">
+                                                <label class="form-label">Employment History</label>
+                                                <textarea id="js-ckeditor" name="employment_history" class="form-control">{{ old('employment_history') ?? $trainer->employment_history }}</textarea>
+                                                @if($errors->has('employment_history'))
+                                                    <small class="text-danger">{{$errors->first('employment_history')}}</small>
+                                                @endif
+                                            </div>
+                                            <div class="form-group mb-4">
+                                                <label class="form-label">Qualifications</label>
+                                                <textarea id="js-ckeditor-2" name="qualifications" class="form-control">{{ old('qualifications') ?? $trainer->qualifications }}</textarea>
+                                                @if($errors->has('qualifications'))
+                                                    <small class="text-danger">{{$errors->first('qualifications')}}</small>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+
+
                             </div>
-
-
                         </div>
                     </div>
-                </div>
-            </form>
-
+                </form>
+            </div>
 
         </div>
 
     </div>
 @endsection
 @section('js')
+    <script type="application/javascript" src="{{asset('assets/js/plugins/ckeditor/ckeditor.js')}}"></script>
+    @vite('resources/js/cms/pages/trainer/create.js')
 @endsection
