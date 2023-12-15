@@ -11,6 +11,7 @@ createApp({
         return {
             param: {
                 course_title: null,
+                course_workstations: 10,
                 course_overview: '',
                 course_lead_trainer: null,
                 course_category: '',
@@ -34,7 +35,10 @@ createApp({
                 altFormat: 'F j, Y',
                 altInput: true,
                 dateFormat: 'Y-m-d',
-            }
+            },
+            autoCalculate: 0,
+            installmentTotalPrice: 0,
+            installmentTotalPriceExceed: 0,
         }
     },
     methods: {
@@ -59,16 +63,20 @@ createApp({
         },
         calculateInstallment() {
             this.param.payment_instalment_details.length = 0;
-            if (this.param.course_fee > 0 && this.param.payment_instalment_duration > 0 && this.param.payment_total_instalment > 0) {
+            let Fee = this.param.course_fee;
+            if(this.param.course_discount_amount > 0){
+                Fee = this.param.course_fee - this.param.course_discount_amount;
+            }
+            if (Fee > 0 && this.param.payment_instalment_duration > 0 && this.param.payment_total_instalment > 0) {
                 const divideDays = this.param.payment_instalment_duration / this.param.payment_total_instalment;
                 let i = 0;
                 while (i < this.param.payment_total_instalment) {
                     const sl = i + 1;
                     let days = Math.floor(divideDays);
-                    let amount = Math.floor(this.param.course_fee / this.param.payment_total_instalment);
+                    let amount = Math.floor(Fee / this.param.payment_total_instalment);
                     if (sl === this.param.payment_total_instalment) {
                         days = Math.ceil(divideDays);
-                        amount = Math.ceil(this.param.course_fee / this.param.payment_total_instalment);
+                        amount = Math.ceil(Fee / this.param.payment_total_instalment);
                     }
                     this.param.payment_instalment_details.push({
                         days: days,
@@ -76,6 +84,17 @@ createApp({
                     });
                     i++;
                 }
+                this.calculateInstallmentTotalPrice();
+            }
+        },
+        calculateInstallmentTotalPrice(){
+            this.installmentTotalPrice = 0;
+            this.installmentTotalPriceExceed = 0;
+            this.param.payment_instalment_details.forEach((v) => {
+                this.installmentTotalPrice = parseFloat(this.installmentTotalPrice) + parseFloat(v.amount);
+            })
+            if(this.installmentTotalPrice > (this.param.course_fee - this.param.course_discount_amount)){
+                this.installmentTotalPriceExceed = 1;
             }
         },
         deleteThisInstallment(index) {
@@ -83,13 +102,14 @@ createApp({
             this.calculateInstallment();
         },
         calculateSchedule(){
-            this.param.courseSchedules.length = 0;
-            const course_duration = parseFloat(document.getElementById('courseForm').elements['course_duration'].value) || 0;
-            const course_start_date = document.getElementById('courseForm').elements['course_start_date'].value;
-            const course_end_date = document.getElementById('courseForm').elements['course_end_date'].value;
-            if(course_duration > 0 && course_start_date.trim() !== '' && course_end_date.trim() !== ''){
-                this.param.courseSchedules = this.divideSchedule(course_start_date, course_end_date, course_duration);
-                console.log(this.param.courseSchedules);
+            if(this.autoCalculate === 1){
+                this.param.courseSchedules.length = 0;
+                const course_duration = parseFloat(document.getElementById('courseForm').elements['course_duration'].value) || 0;
+                const course_start_date = document.getElementById('courseForm').elements['course_start_date'].value;
+                const course_end_date = document.getElementById('courseForm').elements['course_end_date'].value;
+                if(course_duration > 0 && course_start_date.trim() !== '' && course_end_date.trim() !== ''){
+                    this.param.courseSchedules = this.divideSchedule(course_start_date, course_end_date, course_duration);
+                }
             }
         },
         divideSchedule(start, end, days) {
@@ -117,11 +137,26 @@ createApp({
                 start: null,
                 end: null
             });
+        },
+        submitForm() {
+            const form = document.getElementById('courseForm');
+            form.submit();
         }
     },
     mounted() {
         const vueInstance = document.getElementById('vueCourseCreateInstance');
         vueInstance.style.display = 'block';
         window.Codebase.helpersOnLoad(['js-flatpickr']);
+        window.Codebase.helpersOnLoad(['js-ckeditor'], {
+            toolbar : 'Basic',
+            uiColor : '#9AB8F3'
+        });
+        if(window.course_details !== undefined){
+            this.param = window.course_details;
+            console.log(this.param.course_discount)
+        }
+        setTimeout(() => {
+            this.autoCalculate = 1;
+        }, 2000)
     }
 }).mount('#vueCourseCreateInstance')

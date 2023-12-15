@@ -8,7 +8,7 @@ createApp({
     methods: {
         deletePage(id) {
             Swal.fire({
-                title: "Delete Page",
+                title: "Delete Course Category",
                 html: "<strong>Are you sure?</strong> <br> <span class='text-danger'>You won't be able to revert this!</span>",
                 icon: "warning",
                 showCancelButton: true,

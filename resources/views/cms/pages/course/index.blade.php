@@ -34,22 +34,35 @@
                         <table class="table table-striped table-vcenter">
                             <thead>
                             <tr>
-                                <th>Name</th>
-                                <th>Total Course</th>
-                                <th style="width: 120px" class="text-center"></th>
+                                <th>Course</th>
+                                <th class="text-center">Category</th>
+                                <th class="text-center">Type</th>
+                                <th class="text-center">Duration</th>
+                                <th class="text-center">Course Fee</th>
+                                <th style="width: 150px" class="text-center"></th>
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($categories as $cat)
+                            @foreach($courses as $course)
                                 <tr>
-                                    <td>{{ $cat['name'] }}</td>
-                                    <td>0</td>
+                                    <td>{{ $course->course_title }}</td>
+                                    <td class="text-center">{{ $course->category->name }}</td>
+                                    <td class="text-center">{{ $course->type->name }}</td>
+                                    <td class="text-center">{{ $course->course_duration }}</td>
                                     <td class="text-center">
-                                        <a href="{{route('CMS.course.edit', [$cat['_id']])}}" class="btn btn-sm btn-outline-primary js-bs-tooltip-enabled me-1"><i class="fa fa-edit"></i></a>
-                                        <form class="d-inline-block" id="delete_{{$cat['_id']}}" action="{{route('CMS.course.destroy', [$cat['_id']])}}" method="POST">
+                                        @if($course->course_discount == 1)
+                                            {{ $course->course_fee - $course->course_discount_amount }} <br>
+                                            <s class="text-danger">{{ $course->course_fee }}</s>
+                                        @else
+                                            {{ $course->course_fee }}
+                                        @endif
+                                    </td>
+                                    <td class="text-center">
+                                        <a href="{{route('CMS.course.edit', [$course->_id])}}" class="btn btn-sm btn-outline-primary js-bs-tooltip-enabled me-1"><i class="fa fa-magnifying-glass"></i></a>
+                                        <form class="d-inline-block" id="delete_{{$course['_id']}}" action="{{route('CMS.course.destroy', [$course['_id']])}}" method="POST">
                                             {{csrf_field()}}
                                             <input type="hidden" name="_method" value="DELETE">
-                                            <a @click="deletePage(`{{$cat['_id']}}`)" class="btn btn-sm btn-outline-danger"><i class="fa fa-trash"></i></a>
+                                            <a @click="deleteCourse(`{{$course['_id']}}`)" class="btn btn-sm btn-outline-danger"><i class="fa fa-trash"></i></a>
                                         </form>
                                     </td>
                                 </tr>
@@ -64,5 +77,5 @@
     </div>
 @endsection
 @section('js')
-    @vite('resources/js/cms/pages/course/category.js')
+    @vite('resources/js/cms/pages/course/course.js')
 @endsection
