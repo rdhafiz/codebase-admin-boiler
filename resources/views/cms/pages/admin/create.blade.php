@@ -4,12 +4,12 @@
 
         <div class="container-lg">
             <div class="w-100 mb-4">
-                <h2 class="fs-2 m-0 p-0">New Trainer</h2>
+                <h2 class="fs-2 m-0 p-0">New Admin</h2>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{route('CMS.dashboard')}}">Dashboard</a></li>
-                        <li class="breadcrumb-item"><a href="{{route('CMS.trainer.index')}}">Trainers</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">New Trainer</li>
+                        <li class="breadcrumb-item"><a href="{{route('CMS.admin.index')}}">Admins</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">New Admin</li>
                     </ol>
                 </nav>
             </div>
@@ -23,16 +23,16 @@
                 </div>
             @endif
 
-            <div class="w-100" id="vueTrainerFormInstance">
-                <form class="w-100" action="{{route('CMS.trainer.store')}}" method="post" enctype="multipart/form-data">
+            <div class="w-100" id="vueAdminFormInstance">
+                <form class="w-100" action="{{route('CMS.admin.store')}}" method="post" enctype="multipart/form-data">
                     {{csrf_field()}}
                     <div class="w-100 mt-4">
                         <div class="block block-rounded">
                             <div class="block-header block-header-default">
-                                <h3 class="block-title">New Trainer</h3>
+                                <h3 class="block-title">New Admin</h3>
                                 <div class="block-options">
-                                    <a href="{{route('CMS.trainer.index')}}" class="btn btn-sm btn-outline-secondary me-1">Cancel</a>
-                                    <button type="submit" class="btn btn-sm btn-outline-success">Save Trainer</button>
+                                    <a href="{{route('CMS.admin.index')}}" class="btn btn-sm btn-outline-secondary me-1">Cancel</a>
+                                    <button type="submit" class="btn btn-sm btn-outline-success">Save Admin</button>
                                 </div>
                             </div>
                             <div class="block-content p-3 p-lg-5">
@@ -48,7 +48,7 @@
                                         </div>
                                         <div class="col-lg-6">
                                             <div class="form-group mb-4">
-                                                <label class="form-label">Trainer Photo</label>
+                                                <label class="form-label">Admin Photo</label>
                                                 <input type="file" class="form-control" name="avatar" @change="selectImage($event)">
                                                 @if($errors->has('avatar')) <small class="text-danger">{{$errors->first('avatar')}}</small> @endif
                                             </div>
@@ -58,38 +58,35 @@
                                                 @if($errors->has('name')) <small class="text-danger">{{$errors->first('name')}}</small> @endif
                                             </div>
                                             <div class="form-group mb-4">
-                                                <label class="form-label">Designation</label>
-                                                <input type="text" class="form-control" name="designation" value="{{old('designation')}}">
+                                                <label class="form-label">Permission</label>
+                                                <select class="form-select" name="user_role">
+                                                    <option value="{{ \App\Models\Admin::$SuperAdmin }}">{{ \App\Models\Admin::getAdminRoleText(\App\Models\Admin::$SuperAdmin) }}</option>
+                                                    <option value="{{ \App\Models\Admin::$CoursePlanner }}">{{ \App\Models\Admin::getAdminRoleText(\App\Models\Admin::$CoursePlanner) }}</option>
+                                                    <option value="{{ \App\Models\Admin::$FinanceManager }}">{{ \App\Models\Admin::getAdminRoleText(\App\Models\Admin::$FinanceManager) }}</option>
+                                                </select>
                                                 @if($errors->has('designation')) <small class="text-danger">{{$errors->first('designation')}}</small> @endif
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
                                             <div class="form-group mb-4">
-                                                <label class="form-label">Facebook Profile</label>
-                                                <input type="text" class="form-control" name="social_facebook" value="{{old('social_facebook')}}">
-                                                @if($errors->has('social_facebook')) <small class="text-danger">{{$errors->first('social_facebook')}}</small> @endif
+                                                <label class="form-label">Email Address</label>
+                                                <input type="email" class="form-control" name="email" value="{{old('email')}}">
+                                                @if($errors->has('email')) <small class="text-danger">{{$errors->first('email')}}</small> @endif
+                                            </div>
+
+{{--                                            <div class="form-group mb-4">--}}
+{{--                                                <p class="alert alert-warning">If you want to set password, please fill the password input's</p>--}}
+{{--                                            </div>--}}
+
+                                            <div class="form-group mb-4">
+                                                <label class="form-label">Password</label>
+                                                <input type="password" class="form-control" name="password">
+                                                @if($errors->has('password')) <small class="text-danger">{{$errors->first('password')}}</small> @endif
                                             </div>
                                             <div class="form-group mb-4">
-                                                <label class="form-label">Twitter Profile</label>
-                                                <input type="text" class="form-control" name="social_twitter" value="{{old('social_twitter')}}">
-                                                @if($errors->has('social_twitter')) <small class="text-danger">{{$errors->first('social_twitter')}}</small> @endif
-                                            </div>
-                                            <div class="form-group mb-4">
-                                                <label class="form-label">LinkedIn Profile</label>
-                                                <input type="text" class="form-control" name="social_linkedin" value="{{old('social_linkedin')}}">
-                                                @if($errors->has('social_linkedin')) <small class="text-danger">{{$errors->first('social_linkedin')}}</small> @endif
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-12">
-                                            <div class="form-group mb-4">
-                                                <label class="form-label">Employment History</label>
-                                                <textarea id="js-ckeditor" name="employment_history" class="form-control">{{ old('employment_history') }}</textarea>
-                                                @if($errors->has('employment_history')) <small class="text-danger">{{$errors->first('employment_history')}}</small> @endif
-                                            </div>
-                                            <div class="form-group mb-4">
-                                                <label class="form-label">Qualifications</label>
-                                                <textarea id="js-ckeditor-2" name="qualifications" class="form-control">{{ old('qualifications') }}</textarea>
-                                                @if($errors->has('qualifications')) <small class="text-danger">{{$errors->first('qualifications')}}</small> @endif
+                                                <label class="form-label">Re-type Password</label>
+                                                <input type="password" class="form-control" name="password_confirmation">
+                                                @if($errors->has('password_confirmation')) <small class="text-danger">{{$errors->first('password_confirmation')}}</small> @endif
                                             </div>
                                         </div>
                                     </div>
@@ -107,6 +104,5 @@
     </div>
 @endsection
 @section('js')
-    <script type="application/javascript" src="{{asset('assets/js/plugins/ckeditor/ckeditor.js')}}"></script>
-    @vite('resources/js/cms/pages/trainer/create.js')
+    @vite('resources/js/cms/pages/admin/create.js')
 @endsection

@@ -44,9 +44,9 @@
                                             <div class="form-group mb-4">
                                                 <div class="w-100">
                                                     @if(isset($trainer['avatar']) && !empty($trainer['avatar']))
-                                                            <img class="img-fluid rounded-pill border border-2 mb-2" id="preview-image" style="width: 200px; height: 200px; object-fit: cover;overflow: hidden;" src="{{$trainer['avatar_full_path']}}" alt="">
+                                                            <img class="img-fluid rounded-pill border border-2 mb-2" id="preview-image" style="width: 150px; height: 150px; object-fit: cover;overflow: hidden;" src="{{$trainer['avatar_full_path']}}" alt="">
                                                     @else
-                                                        <img class="img-fluid rounded-pill border border-2 mb-2" id="preview-image" style="width: 200px; height: 200px; object-fit: cover;overflow: hidden;display: none">
+                                                        <img class="img-fluid rounded-pill border border-2 mb-2" id="preview-image" style="width: 150px; height: 150px; object-fit: cover;overflow: hidden;display: none">
                                                     @endif
                                                 </div>
                                             </div>

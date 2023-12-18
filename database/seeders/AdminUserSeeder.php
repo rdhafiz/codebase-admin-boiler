@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Admin;
+use App\Services\MediaServices;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -23,14 +24,34 @@ class AdminUserSeeder extends Seeder
         }
 
         Admin::truncate();
-        $avatarStream = file_get_contents('https://ui-avatars.com/api/?name=Secure Administrator');
-        $avatar = 'media/images/'.time().'.png';
-        file_put_contents(public_path('storage/'.$avatar), $avatarStream);
+
+        // Super Admin
+        $avatar = MediaServices::uploadDummy('Secure Administrator');
         Admin::create([
             'name' => 'Secure Administrator',
             'email' => 'secure@admin.com',
             'password' => bcrypt('123asd123'),
-            'user_role' => 1,
+            'user_role' => Admin::$SuperAdmin,
+            'avatar' => $avatar
+        ]);
+
+        // Course Planner
+        $avatar = MediaServices::uploadDummy('Course Planner');
+        Admin::create([
+            'name' => 'Course Planner',
+            'email' => 'course.planner@admin.com',
+            'password' => bcrypt('123asd123'),
+            'user_role' => Admin::$CoursePlanner,
+            'avatar' => $avatar
+        ]);
+
+        // Finance Manager
+        $avatar = MediaServices::uploadDummy('Finance Manager');
+        Admin::create([
+            'name' => 'Finance Manager',
+            'email' => 'finance.manager@admin.com',
+            'password' => bcrypt('123asd123'),
+            'user_role' => Admin::$FinanceManager,
             'avatar' => $avatar
         ]);
     }
