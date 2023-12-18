@@ -4,6 +4,7 @@
 use App\Http\Controllers\Rcp\Api\RcpAuthApiController;
 use App\Http\Controllers\Rcp\FrontController;
 use App\Http\Controllers\Rcp\JobController;
+use App\Http\Controllers\Rcp\ProfileController;
 use App\Http\Middleware\RcpAuthApiCheck;
 use App\Http\Middleware\RcpAuthApiReq;
 use App\Http\Middleware\RcpAuthCheck;
@@ -28,6 +29,13 @@ Route::group(['prefix' => '/recruiter/portal'], function () {
     Route::group(['middleware' => [RcpAuthReq::class]], function () {
         // Dashboard route accessible only to authenticated admins
         Route::get('/dashboard', [FrontController::class, 'dashboard'])->name('RCP.dashboard');
+
+        // Profile route accessible only to authenticated admins
+        Route::get('/profile', [ProfileController::class, 'profile'])->name('RCP.profile');
+        Route::get('/profile/update', [ProfileController::class, 'profileUpdate'])->name('RCP.profile.update');
+        Route::put('/profile/update', [ProfileController::class, 'profileUpdateAction'])->name('RCP.profile.update.action');
+        Route::get('/profile/update/password', [ProfileController::class, 'profileUpdatePassword'])->name('RCP.profile.update.password');
+        Route::put('/profile/update/password', [ProfileController::class, 'profileUpdatePasswordAction'])->name('RCP.profile.update.password.action');
 
         // Resourceful routes for 'job' with alias 'RCP'
         Route::resource('job', JobController::class, ['as' => 'RCP']);

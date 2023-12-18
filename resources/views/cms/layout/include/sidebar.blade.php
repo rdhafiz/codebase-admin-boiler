@@ -77,7 +77,7 @@
                     <li class="nav-main-heading">Website Settings</li>
                     <li class="nav-main-item {{in_array(Route::currentRouteName(), ['CMS.page.index']) ? 'open' : ''}}">
                         <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="true" href="javascript:void(0)">
-                            <i class="nav-main-link-icon fa fa-lightbulb"></i>
+                            <i class="nav-main-link-icon fa fa-file-alt"></i>
                             <span class="nav-main-link-name">Pages</span>
                         </a>
                         <ul class="nav-main-submenu">
@@ -91,8 +91,14 @@
                     <li class="nav-main-heading">Learning Management</li>
                     <li class="nav-main-item">
                         <a class="nav-main-link" href="{{route('CMS.trainer.index')}}">
-                            <i class="nav-main-link-icon fa fa-globe"></i>
+                            <i class="nav-main-link-icon fa fa-users-rectangle"></i>
                             <span class="nav-main-link-name">Trainer Management</span>
+                        </a>
+                    </li>
+                    <li class="nav-main-item">
+                        <a class="nav-main-link" href="{{route('CMS.learner.index')}}">
+                            <i class="nav-main-link-icon fa fa-users"></i>
+                            <span class="nav-main-link-name">Learner Management</span>
                         </a>
                     </li>
                     <li class="nav-main-item {{in_array(Route::currentRouteName(), ['CMS.course.category.index','CMS.course.category.create','CMS.course.category.edit','CMS.course.type.index','CMS.course.type.create','CMS.course.type.edit']) ? 'open' : ''}}">
@@ -103,16 +109,19 @@
                         <ul class="nav-main-submenu">
                             <li class="nav-main-item">
                                 <a class="nav-main-link {{in_array(Route::currentRouteName(), ['CMS.course.category.index','CMS.course.category.create','CMS.course.category.edit']) ? 'active' : ''}}" href="{{route('CMS.course.index')}}">
+                                    <i class="nav-main-link-icon fa fa-display"></i>
                                     <span class="nav-main-link-name">All Courses</span>
                                 </a>
                             </li>
                             <li class="nav-main-item">
                                 <a class="nav-main-link {{in_array(Route::currentRouteName(), ['CMS.course.category.index','CMS.course.category.create','CMS.course.category.edit']) ? 'active' : ''}}" href="{{route('CMS.course.category.index')}}">
+                                    <i class="nav-main-link-icon fa fa-cubes-stacked"></i>
                                     <span class="nav-main-link-name">Course Category</span>
                                 </a>
                             </li>
                             <li class="nav-main-item">
                                 <a class="nav-main-link {{in_array(Route::currentRouteName(), ['CMS.course.type.index','CMS.course.type.create','CMS.course.type.edit']) ? 'active' : ''}}" href="{{route('CMS.course.type.index')}}">
+                                    <i class="nav-main-link-icon fa fa-cubes-stacked"></i>
                                     <span class="nav-main-link-name">Course Type</span>
                                 </a>
                             </li>
@@ -121,14 +130,14 @@
                     <li class="nav-main-heading">Job Management</li>
                     <li class="nav-main-item">
                         <a class="nav-main-link" href="{{route('CMS.recruiter.index')}}">
-                            <i class="nav-main-link-icon fa fa-globe"></i>
+                            <i class="nav-main-link-icon fa fa-user-friends"></i>
                             <span class="nav-main-link-name">Recruiters</span>
                         </a>
                     </li>
                     <li class="nav-main-heading">Admin Management</li>
                     <li class="nav-main-item">
                         <a class="nav-main-link" href="{{route('CMS.admin.index')}}">
-                            <i class="nav-main-link-icon fa fa-globe"></i>
+                            <i class="nav-main-link-icon fa fa-user-secret"></i>
                             <span class="nav-main-link-name">Admins</span>
                         </a>
                     </li>

@@ -5,6 +5,7 @@ use App\Http\Controllers\Cms\Api\AdminAuthApiController;
 use App\Http\Controllers\Cms\AdminUserController;
 use App\Http\Controllers\Cms\CourseController;
 use App\Http\Controllers\Cms\CourseCategoryController;
+use App\Http\Controllers\Cms\LearnerController;
 use App\Http\Controllers\Cms\TrainerController;
 use App\Http\Controllers\Cms\CourseTypeController;
 use App\Http\Controllers\Cms\FrontController;
@@ -48,6 +49,8 @@ Route::group(['prefix' => '/secure/administration'], function () {
 
         // Resourceful routes for 'trainer' with alias 'CMS'
         Route::resource('trainer', TrainerController::class, ['as' => 'CMS'])->middleware(['AdminPermissionReq:super']);
+        // Resourceful routes for 'learner' with alias 'CMS'
+        Route::resource('learner', LearnerController::class, ['as' => 'CMS'])->middleware(['AdminPermissionReq:super']);
 
         // Resourceful routes for 'course category' with alias 'CMS'
         Route::resource('course/category', CourseCategoryController::class, ['as' => 'CMS.course'])->middleware(['AdminPermissionReq:super,course']);

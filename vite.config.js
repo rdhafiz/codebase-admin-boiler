@@ -20,6 +20,8 @@ export default defineConfig({
                 'resources/js/cms/pages/page/page.js',
                 'resources/js/cms/pages/admin/admin.js',
                 'resources/js/cms/pages/admin/create.js',
+                'resources/js/cms/pages/learner/learner.js',
+                'resources/js/cms/pages/learner/create.js',
                 'resources/js/cms/pages/trainer/trainer.js',
                 'resources/js/cms/pages/trainer/create.js',
                 'resources/js/cms/pages/course/course.js',
