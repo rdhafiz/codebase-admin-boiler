@@ -3,24 +3,24 @@
 namespace App\Http\Controllers\Cms;
 
 use App\Http\Controllers\Controller;
-use App\Models\Admin;
+use App\Models\User;
 use App\Services\MediaServices;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\View\View;
 
-class AdminUserController extends Controller
+class LearnerController extends Controller
 {
     public function index(): View
     {
-        $admins = Admin::orderBy('created_at', 'desc')->where('_id', '!=', Auth::guard('admin')->id())->get();
-        return view('cms.pages.admin.index', compact('admins'));
+        $learners = User::orderBy('created_at', 'desc')->get();
+        return view('cms.pages.learner.index', compact('learners'));
     }
 
     public function create(): View
     {
-        return view('cms.pages.admin.create');
+        return view('cms.pages.learner.create');
     }
 
     public function store(Request $request)
@@ -29,8 +29,8 @@ class AdminUserController extends Controller
 
             $validator = Validator::make($request->all(), [
                 'name' => 'required|min:5',
-                'email' => 'required|email|unique:admins:email',
-                'user_role' => 'required|numeric',
+                'email' => 'required|email|unique:users,email',
+                'phone' => 'required',
                 'password' => 'required|min:6|confirmed',
             ]);
             if ($validator->fails()) {
@@ -43,15 +43,15 @@ class AdminUserController extends Controller
                 $imagePath = MediaServices::uploadDummy($request->name);
             }
 
-            $admin = Admin::create([
+            $learner = User::create([
                 'avatar' => $imagePath,
                 'name' => $request->name,
                 'email' => $request->email,
-                'user_role' => $request->user_role,
+                'phone' => $request->phone,
                 'password' => bcrypt($request->password),
             ]);
 
-            return redirect()->route('CMS.admin.show', [$admin->_id])->withErrors(['success' => ['New admin information has been created successfully']]);
+            return redirect()->route('CMS.learner.show', [$learner->_id])->withErrors(['success' => ['New learner information has been created successfully']]);
         } catch (\Exception $e) {
             return redirect()->back()->withErrors(['error' => [$e->getMessage()]]);
         }
@@ -59,53 +59,54 @@ class AdminUserController extends Controller
 
     public function show($id): View
     {
-        $admin = Admin::where('_id', $id)->first();
-        if ($admin == null) {
+        $learner = User::where('_id', $id)->first();
+        if ($learner == null) {
             abort('404');
         }
-        return view('cms.pages.admin.show', compact('admin'));
+        return view('cms.pages.learner.show', compact('learner'));
     }
 
     public function edit($id): View
     {
-        $admin = Admin::where('_id', $id)->first();
-        if ($admin == null) {
+        $learner = User::where('_id', $id)->first();
+        if ($learner == null) {
             abort('404');
         }
-        return view('cms.pages.admin.edit', compact('admin'));
+        return view('cms.pages.learner.edit', compact('learner'));
     }
 
     public function update(Request $request, $id)
     {
         try {
-            $admin = Admin::where('_id', $id)->first();
-            if ($admin == null) {
+            $learner = User::where('_id', $id)->first();
+            if ($learner == null) {
                 abort('404');
             }
             $validator = Validator::make($request->all(), [
                 'name' => 'required|min:5',
-                'email' => 'required|email|unique:admins,email,'.$id.',_id',
-                'user_role' => 'required|numeric',
+                'email' => 'required|email|unique:users,email,'.$id.',_id',
+                'phone' => 'required',
                 'password' => 'nullable|min:6|confirmed',
             ]);
             if ($validator->fails()) {
                 return redirect()->back()->withInput($request->input())->withErrors($validator->errors());
             }
 
-            $imagePath = $admin->avatar;
+            $imagePath = $learner->avatar;
             if ($request->avatar) {
                 $imagePath = MediaServices::upload($request->avatar);
             }
 
             if (!empty($request->password)) {
-                $admin->password = bcrypt($request->password);
+                $learner->password = bcrypt($request->password);
             }
-            $admin->avatar = $imagePath;
-            $admin->name = $request->name;
-            $admin->email = $request->email;
-            $admin->save();
+            $learner->avatar = $imagePath;
+            $learner->name = $request->name;
+            $learner->email = $request->email;
+            $learner->phone = $request->phone;
+            $learner->save();
 
-            return redirect()->route('CMS.admin.show', [$admin->_id])->withErrors(['success' => ['Admin information has been updated successfully']]);
+            return redirect()->route('CMS.learner.show', [$learner->_id])->withErrors(['success' => ['User information has been updated successfully']]);
         } catch (\Exception $e) {
             return redirect()->back()->withErrors(['error' => [$e->getMessage()]]);
         }
@@ -114,14 +115,14 @@ class AdminUserController extends Controller
     public function destroy($id)
     {
         try {
-            $admin = Admin::where('_id', $id)->first();
-            if ($admin == null) {
+            $learner = User::where('_id', $id)->first();
+            if ($learner == null) {
                 abort('404');
             }
-            $admin->email = 'deleted-'.$admin->email;
-            $admin->save();
-            $admin->delete();
-            return redirect()->back()->withErrors(['success' => ['Admin has been deleted successfully']]);
+            $learner->email = 'deleted-'.$learner->email;
+            $learner->save();
+            $learner->delete();
+            return redirect()->back()->withErrors(['success' => ['User has been deleted successfully']]);
         } catch (\Exception $e) {
             return redirect()->back()->withErrors(['error' => [$e->getMessage()]]);
         }
