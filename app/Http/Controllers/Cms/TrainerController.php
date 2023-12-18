@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Cms;
 
 use App\Http\Controllers\Controller;
 use App\Models\Trainers;
+use App\Services\MediaServices;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
@@ -39,13 +40,10 @@ class TrainerController extends Controller
                 return redirect()->back()->withInput($request->input())->withErrors($validator->errors());
             }
 
-            $imagePath = null;
             if ($request->avatar) {
-                $imagePath = Storage::disk('public')->put('media/images', $request->avatar);
+                $imagePath = MediaServices::upload($request->avatar);
             } else {
-                $avatarStream = file_get_contents('https://ui-avatars.com/api/?name='.$request->name);
-                $imagePath = 'media/images/'.time().'.png';
-                file_put_contents(public_path('storage/'.$imagePath), $avatarStream);
+                $imagePath = MediaServices::uploadDummy($request->name);
             }
 
             $trainer = new Trainers();
@@ -133,6 +131,9 @@ class TrainerController extends Controller
             if ($trainer == null) {
                 abort('404');
             }
+
+            $trainer->email = 'deleted-'.$trainer->email;
+            $trainer->save();
             $trainer->delete();
             return redirect()->back()->withErrors(['success' => ['Trainer has been deleted successfully']]);
         } catch (\Exception $e) {

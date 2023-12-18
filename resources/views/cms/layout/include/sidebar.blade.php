@@ -125,6 +125,13 @@
                             <span class="nav-main-link-name">Recruiters</span>
                         </a>
                     </li>
+                    <li class="nav-main-heading">Admin Management</li>
+                    <li class="nav-main-item">
+                        <a class="nav-main-link" href="{{route('CMS.admin.index')}}">
+                            <i class="nav-main-link-icon fa fa-globe"></i>
+                            <span class="nav-main-link-name">Admins</span>
+                        </a>
+                    </li>
                 </ul>
             </div>
             <!-- END Side Navigation -->

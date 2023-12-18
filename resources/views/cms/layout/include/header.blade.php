@@ -42,7 +42,7 @@
                 </button>
                 <div class="dropdown-menu dropdown-menu-md dropdown-menu-end p-0" aria-labelledby="page-header-user-dropdown">
                     <div class="p-2">
-                        <a class="dropdown-item d-flex align-items-center justify-content-start space-x-1" href="be_pages_generic_profile.html">
+                        <a class="dropdown-item d-flex align-items-center justify-content-start space-x-1" href="{{route('CMS.profile')}}">
                             <i class="fa fa-fw fa-user opacity-25 me-2"></i>
                             <span>Profile</span>
                         </a>

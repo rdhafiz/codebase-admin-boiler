@@ -89,7 +89,7 @@
                                         <div class="form-group mb-4">
                                             @if(isset($recruiter['avatar']) && !empty($recruiter['avatar']))
                                                 <div class="w-100 mb-2">
-                                                    <img class="img-fluid rounded-pill" style="width: 200px; height: 200px; object-fit: cover;overflow: hidden;" src="{{$recruiter['avatar_full_path']}}" alt="">
+                                                    <img class="img-fluid rounded-pill" style="width: 150px; height: 150px; object-fit: cover;overflow: hidden;" src="{{$recruiter['avatar_full_path']}}" alt="">
                                                 </div>
                                             @endif
                                             <label class="form-label">Recruiter Photo</label>
