@@ -842,5 +842,5 @@
 
 @section('js')
     @parent
-    @vite(['resources/js/vendor/jarallax.min.js'])
+    <script src="{{ asset('assets/js/vendor/jarallax.min.js') }}"></script>
 @show
