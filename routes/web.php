@@ -30,4 +30,7 @@ Route::get('resources', [ResourcesPageController::class, "viewPage"])->name('res
 Route::get('international-candidates', [InternationalCandidatesPageController::class, "ViewPage"])->name('international-candidates');
 
 Route::get('/', [HomepageController::class, "home"])->name('homepage');
+
+// Apply Course
 Route::get('/apply', [ApplyController::class, "index"])->name('front.apply');
+Route::post('/apply', [ApplyController::class, "apply"])->name('front.apply.action');
