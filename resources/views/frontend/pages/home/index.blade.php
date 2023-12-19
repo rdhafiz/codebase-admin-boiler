@@ -7,10 +7,10 @@
 @section('content')
 
     <!-- Section 1 - Hero -->
-    <section id="section-hero" class="bg-dark d-flex min-vh-100 position-relative overflow-hidden py-5 jarallax-img" data-bs-theme="dark" data-jarallax data-speed="0.65"
+    <section id="section-hero" class="bg-dark d-flex min-vh-100 position-relative overflow-hidden py-lg-5 jarallax-img" data-bs-theme="dark" data-jarallax data-speed="0.65"
     style="background-image: url({{ asset('assets/images/frontend/home/london-bridge.jpg') }}); background-size: cover;">
-        <div class="container d-flex flex-column justify-content-center position-relative z-2 pt-sm-3 pt-md-4 pt-xl-5 pb-1 pb-sm-3 pb-lg-4 pb-xl-5">
-            <div class="row flex-lg-nowrap align-items-center pb-5 pt-2 pt-lg-4 pt-xl-0 mt-lg-4 mt-xl-0">
+        <div class="container d-flex flex-column justify-content-lg-center justify-content-end position-relative z-2 pt-sm-3 pt-md-4 pt-xl-5 pb-1 pb-sm-3 pb-lg-4 pb-xl-5">
+            <div class="row flex-lg-nowrap align-items-center pb-lg-5 pt-2 pt-lg-4 pt-xl-0 mt-lg-4 mt-xl-0">
                 {{--
                 <div class="col-lg-7 order-lg-2 ms-lg-4 mb-2 mb-lg-0">
                     <div class="parallax order-lg-2 mx-auto" style="max-width: 740px;">
@@ -143,7 +143,7 @@
 
 
     <section id="section-courses" class="bg-secondary">
-        <div class="container py-2 py-sm-0 py-lg-5">
+        <div class="container py-5 py-sm-0 py-lg-5">
 
 <!--        <div class="row">
             <div class="col-12 order-md-2 mb-3 mb-md-0">
@@ -203,8 +203,8 @@
 
     </section>
 
-    <section id="section-jobs" class="container py-5 my-5">
-        <div class="row mb-5 pb-3">
+    <section id="section-jobs" class="container py-5">
+        <div class="row mb-5 pb-lg-3">
             <div class="col-12 order-md-2 mb-md-0 mb-3">
                 <div class=" display-4 fw-bold lh-1 text-uppercase pe-3 d-flex justify-content-center">
                     Jobs You'll Love
@@ -550,9 +550,9 @@
 
 
     <!-- Section 5 - Services -->
-    <section class="container pt-2 pt-xxl-3 pb-5 mb-sm-2 mb-lg-3 mb-xl-4 mb-xxl-5">
+    <section class="container pt-lg-2 pt-5 pt-xxl-3 pb-5 mb-sm-2 mb-lg-3 mb-xl-4 mb-xxl-5">
         <div class="row pb-md-3">
-            <div class="col-md-4 mb-2 mb-sm-3 mb-md-4 pb-2" style="margin-top: -120px;">
+            <div class="col-md-4 mb-2 mb-sm-3 mb-md-4 pb-lg-2 pb-5 text-center text-lg-start" style="margin-top: -120px;">
                 <div class="position-sticky top-0" style="padding-top: 120px;">
 {{--                    <h2 class="display-3 mb-0 mb-md-3 pb-lg-3">Why would you choose us?</h2>--}}
                     <div class="display-4 fw-bold lh-1 text-uppercase pe-3 d-flex justify-content-center">
