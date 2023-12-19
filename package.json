@@ -39,7 +39,6 @@
         "vue-flatpickr-component": "^11.0.3"
     },
     "dependencies": {
-        "@esbuild/darwin-arm64": "^0.19.9",
         "@fullcalendar/bootstrap5": "^6.1.9",
         "@fullcalendar/core": "^6.1.9",
         "@fullcalendar/daygrid": "^6.1.9",
@@ -68,6 +67,7 @@
         "timezz": "^7.0.0"
     },
     "optionalDependencies": {
-        "@esbuild/linux-x64": "^0.19.9"
+        "@esbuild/linux-x64": "^0.19.9",
+        "@esbuild/darwin-arm64": "^0.19.9"
     }
 }
