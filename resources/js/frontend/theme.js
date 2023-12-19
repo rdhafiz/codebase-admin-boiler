@@ -1,5 +1,6 @@
 import Parallax from "parallax-js/src/parallax";
 import Swiper from "swiper";
+import AOS from "aos/dist/aos";
 
 /**
  * Around | Multipurpose Bootstrap HTML Template

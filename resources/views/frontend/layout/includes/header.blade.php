@@ -1,7 +1,7 @@
-<header data-bs-theme="dark">
+<header data-bs-theme="light">
 
     <!-- Navbar. Remove 'fixed-top' class to make the navigation bar scrollable with the page -->
-    <div class="navbar navbar-expand-lg fixed-top">
+    <div class="bg-secondary navbar navbar-expand-lg fixed-top">
         <div class="container">
 
             <!-- Navbar brand (Logo) -->
@@ -22,8 +22,8 @@
 {{--                </label>--}}
 {{--            </div>--}}
 
-            <a class="btn btn-primary btn-sm fs-sm order-lg-3 d-none d-sm-inline-flex" href="https://themes.getbootstrap.com/product/around-multipurpose-template-ui-kit/" target="_blank" rel="noopener">
-                Apply Now
+            <a class="btn text-theme-dark order-lg-3 d-none d-sm-inline-flex" href="#" target="_blank" rel="noopener">
+                Login/Signup
             </a>
 
             <!-- Mobile menu toggler (Hamburger) -->
@@ -86,9 +86,9 @@
                     </li>
                 </ul>
                 <div class="d-sm-none p-3 mt-n3">
-                    <a class="btn btn-primary w-100 mb-1" href="https://themes.getbootstrap.com/product/around-multipurpose-template-ui-kit/" target="_blank" rel="noopener">
+                    <a class="btn btn-theme w-100 mb-1" href="https://themes.getbootstrap.com/product/around-multipurpose-template-ui-kit/" target="_blank" rel="noopener">
                         <i class="ai-cart fs-xl me-2 ms-n1"></i>
-                        Buy now
+                        Apply now
                     </a>
                 </div>
             </nav>

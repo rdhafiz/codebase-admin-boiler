@@ -1,14 +1,35 @@
-$theme-color: #46becb;
-$purplemed-color: $theme-color;
+$purplemed-color: #9a145d; // #46becb;
+$purplemed-color-light: rgb(154 20 93 / 50%);
+$purplemed-color-dark: rgb(154 20 93 / 80%);
+$theme-color: $purplemed-color-light;
+$theme-color-lightest: rgb(154 20 93 / 10%);
+$theme-color-dark: $purplemed-color-dark;
+
+:root {
+    --color-theme : rgb(154 20 93 / 50%); //$theme-color;
+    --color-theme-dark : rgb(154 20 93 / 80%); //$theme-color-dark;
+}
 
 .text-theme {
   color: $theme-color;
 }
+.text-theme-dark {
+  color: $theme-color-dark;
+}
 .bg-theme {
   background-color: $theme-color;
 }
+.bg-theme-lightest {
+  background-color: $theme-color-lightest;
+}
+.bg-theme-dark {
+  background-color: $theme-color-dark;
+}
 .border-theme {
   border: 1px solid $theme-color;
+}
+.border-theme-dark {
+  border: 1px solid $theme-color-dark;
 }
 .text-theme-light {
   color: $theme-color;
@@ -16,4 +37,23 @@ $purplemed-color: $theme-color;
 }
 .bg-theme-light {
   background-color: rgb(70 190 203 / 35%);
+}
+.btn-theme {
+    --ar-btn-color: #fff;
+    --ar-btn-bg: rgb(154 20 93 / 80%);
+    --ar-btn-border-color: rgb(154 20 93 / 80%);
+    --ar-btn-hover-color: #fff;
+    --ar-btn-hover-bg: rgb(154 20 93);
+    --ar-btn-hover-border-color: rgb(154 20 93 / 80%);
+    --ar-btn-focus-shadow-rgb: 96, 157, 137;
+    --ar-btn-active-color: #fff;
+    --ar-btn-active-bg: rgb(154 20 93);
+    --ar-btn-active-border-color: rgb(154 20 93 / 80%);
+    --ar-btn-active-shadow: unset;
+    --ar-btn-disabled-color: #fff;
+    --ar-btn-disabled-bg: rgb(154 20 93 / 80%);
+    --ar-btn-disabled-border-color: rgb(154 20 93 / 80%);
+}
+.btn-theme-darker {
+
 }
