@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Cms;
 use App\Http\Controllers\Controller;
 use App\Models\Course;
 use App\Models\CourseCategories;
+use App\Models\CourseInstallments;
+use App\Models\CourseSchedules;
 use App\Models\CourseType;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -37,7 +39,7 @@ class CourseController extends Controller
                 "course_duration" => "required|numeric",
                 "course_start_date" => "required|date",
                 "course_end_date" => "required|date",
-                "courseSchedules" => "required|array",
+                "course_schedules" => "required|array",
                 "payment_instalment" => "nullable|numeric",
                 "payment_instalment_duration" => $request->payment_instalment == 1 ? "required|numeric" : 'nullable|numeric',
                 "payment_total_instalment" => $request->payment_instalment == 1 ? "required|numeric" : 'nullable|numeric',
@@ -63,11 +65,9 @@ class CourseController extends Controller
             $course->course_duration = $request->course_duration;
             $course->course_start_date = $request->course_start_date;
             $course->course_end_date = $request->course_end_date;
-            $course->courseSchedules = $request->courseSchedules;
             $course->payment_instalment = $request->payment_instalment ?? 0;
             $course->payment_instalment_duration = $request->payment_instalment_duration ?? null;
             $course->payment_total_instalment = $request->payment_total_instalment ?? null;
-            $course->payment_instalment_details = $request->payment_instalment_details ?? [];
             $course->course_discount = $request->course_discount ?? 0;
             $course->course_discount_start_date = $request->course_discount_start_date ?? null;
             $course->course_discount_end_date = $request->course_discount_end_date ?? null;
@@ -75,6 +75,33 @@ class CourseController extends Controller
             $course->course_discount_promo_code = $request->course_discount_promo_code ?? null;
             $course->course_overview = $request->course_overview ?? null;
             $course->save();
+
+            if ($course) {
+                if (is_array($request->course_schedules) && count($request->course_schedules) > 0) {
+                    $course_schedules = [];
+                    foreach ($request->course_schedules as $courseSchedule){
+                        $course_schedules[] = array(
+                            'course_id' => $course->_id,
+                            'start' => $courseSchedule['start'],
+                            'end' => $courseSchedule['end'],
+                        );
+                    }
+                    CourseSchedules::insert($course_schedules);
+                }
+                if (is_array($request->payment_instalment_details) && count($request->payment_instalment_details) > 0) {
+                    CourseInstallments::insert($request->payment_instalment_details);
+
+                    $payment_instalment_details = [];
+                    foreach ($request->payment_instalment_details as $payment_instalment_detail){
+                        $payment_instalment_details[] = array(
+                            'course_id' => $course->_id,
+                            'days' => $payment_instalment_detail['days'],
+                            'amount' => $payment_instalment_detail['amount'],
+                        );
+                    }
+                    CourseInstallments::insert($payment_instalment_details);
+                }
+            }
 
             return redirect()->route('CMS.course.index')->withErrors(['success' => ['New course has been created successfully']]);
         } catch (\Exception $e) {
@@ -91,7 +118,7 @@ class CourseController extends Controller
     {
         $courseCategory = CourseCategories::orderBy('name', 'asc')->get()->toArray();
         $courseType = CourseType::orderBy('name', 'asc')->get()->toArray();
-        $course = Course::where('_id', $id)->first();
+        $course = Course::with(['course_schedules','payment_instalment_details'])->where('_id', $id)->first();
         return view('cms.pages.course.edit', compact('courseCategory', 'courseType', 'course'));
     }
 
@@ -111,7 +138,7 @@ class CourseController extends Controller
                 "course_duration" => "required|numeric",
                 "course_start_date" => "required|date",
                 "course_end_date" => "required|date",
-                "courseSchedules" => "required|array",
+                "course_schedules" => "required|array",
                 "payment_instalment" => "nullable|numeric",
                 "payment_instalment_duration" => $request->payment_instalment == 1 ? "required|numeric" : 'nullable|numeric',
                 "payment_total_instalment" => $request->payment_instalment == 1 ? "required|numeric" : 'nullable|numeric',
@@ -136,11 +163,9 @@ class CourseController extends Controller
             $course->course_duration = $request->course_duration;
             $course->course_start_date = $request->course_start_date;
             $course->course_end_date = $request->course_end_date;
-            $course->courseSchedules = $request->courseSchedules;
             $course->payment_instalment = $request->payment_instalment ?? 0;
             $course->payment_instalment_duration = $request->payment_instalment_duration ?? null;
             $course->payment_total_instalment = $request->payment_total_instalment ?? null;
-            $course->payment_instalment_details = $request->payment_instalment_details ?? [];
             $course->course_discount = $request->course_discount ?? 0;
             $course->course_discount_start_date = $request->course_discount_start_date ?? null;
             $course->course_discount_end_date = $request->course_discount_end_date ?? null;
@@ -148,6 +173,35 @@ class CourseController extends Controller
             $course->course_discount_promo_code = $request->course_discount_promo_code ?? null;
             $course->course_overview = $request->course_overview ?? null;
             $course->save();
+
+            if ($course) {
+                if (is_array($request->course_schedules) && count($request->course_schedules) > 0) {
+                    $course_schedules = [];
+                    foreach ($request->course_schedules as $courseSchedule){
+                        $course_schedules[] = array(
+                            'course_id' => $course->_id,
+                            'start' => $courseSchedule['start'],
+                            'end' => $courseSchedule['end'],
+                        );
+                    }
+                    CourseSchedules::where('course_id', $course->_id)->delete();
+                    CourseSchedules::insert($course_schedules);
+                }
+                if (is_array($request->payment_instalment_details) && count($request->payment_instalment_details) > 0) {
+                    CourseInstallments::insert($request->payment_instalment_details);
+
+                    $payment_instalment_details = [];
+                    foreach ($request->payment_instalment_details as $payment_instalment_detail){
+                        $payment_instalment_details[] = array(
+                            'course_id' => $course->_id,
+                            'days' => $payment_instalment_detail['days'],
+                            'amount' => $payment_instalment_detail['amount'],
+                        );
+                    }
+                    CourseInstallments::where('course_id', $course->_id)->delete();
+                    CourseInstallments::insert($payment_instalment_details);
+                }
+            }
 
             return redirect()->route('CMS.course.index')->withErrors(['success' => ['Course has been updated successfully']]);
         } catch (\Exception $e) {

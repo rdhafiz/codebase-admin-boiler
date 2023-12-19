@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Frontend\ApplyController;
 use App\Http\Controllers\Frontend\HomepageController;
 
 include_once 'cms.php';
@@ -18,3 +19,4 @@ include_once 'rcp.php';
 
 //Route::get('/', function () {return view("welcome");});
 Route::get('/', [HomepageController::class, "home"])->name('homepage');
+Route::get('/apply', [ApplyController::class, "index"])->name('front.apply');

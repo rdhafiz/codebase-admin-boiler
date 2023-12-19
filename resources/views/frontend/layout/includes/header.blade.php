@@ -22,7 +22,7 @@
 {{--                </label>--}}
 {{--            </div>--}}
 
-            <a class="btn btn-primary btn-sm fs-sm order-lg-3 d-none d-sm-inline-flex" href="https://themes.getbootstrap.com/product/around-multipurpose-template-ui-kit/" target="_blank" rel="noopener">
+            <a class="btn btn-primary btn-sm fs-sm order-lg-3 d-none d-sm-inline-flex" href="{{route('front.apply')}}">
                 Apply Now
             </a>
 

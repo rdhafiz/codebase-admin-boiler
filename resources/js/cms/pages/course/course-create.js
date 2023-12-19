@@ -1,5 +1,3 @@
-import Swal from 'sweetalert2/dist/sweetalert2.js'
-import 'sweetalert2/src/sweetalert2.scss'
 import moment from "moment";
 import flatPickr from 'vue-flatpickr-component';
 import 'flatpickr/dist/flatpickr.css';
@@ -20,7 +18,7 @@ createApp({
                 course_duration: null,
                 course_start_date: null,
                 course_end_date: null,
-                courseSchedules: [],
+                course_schedules: [],
                 payment_instalment: 0,
                 payment_instalment_duration: 0,
                 payment_total_instalment: 0,
@@ -103,12 +101,12 @@ createApp({
         },
         calculateSchedule(){
             if(this.autoCalculate === 1){
-                this.param.courseSchedules.length = 0;
+                this.param.course_schedules.length = 0;
                 const course_duration = parseFloat(document.getElementById('courseForm').elements['course_duration'].value) || 0;
                 const course_start_date = document.getElementById('courseForm').elements['course_start_date'].value;
                 const course_end_date = document.getElementById('courseForm').elements['course_end_date'].value;
                 if(course_duration > 0 && course_start_date.trim() !== '' && course_end_date.trim() !== ''){
-                    this.param.courseSchedules = this.divideSchedule(course_start_date, course_end_date, course_duration);
+                    this.param.course_schedules = this.divideSchedule(course_start_date, course_end_date, course_duration);
                 }
             }
         },
@@ -130,10 +128,10 @@ createApp({
             return result;
         },
         deleteThisSchedule(index){
-            this.param.courseSchedules.splice(index, 1);
+            this.param.course_schedules.splice(index, 1);
         },
         addNewSchedule(){
-            this.param.courseSchedules.push({
+            this.param.course_schedules.push({
                 start: null,
                 end: null
             });
@@ -153,7 +151,7 @@ createApp({
         });
         if(window.course_details !== undefined){
             this.param = window.course_details;
-            console.log(this.param.course_discount)
+            console.log(this.param)
         }
         setTimeout(() => {
             this.autoCalculate = 1;
