@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Cms;
 
 use App\Http\Controllers\Controller;
 use App\Models\Recruiters;
+use App\Services\MediaServices;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
@@ -40,9 +41,10 @@ class RecruiterController extends Controller
                 return redirect()->back()->withInput($request->input())->withErrors($validator->errors());
             }
 
-            $imagePath = null;
             if ($request->avatar) {
-                $imagePath = Storage::disk('public')->put('media/images', $request->avatar);
+                $imagePath = MediaServices::upload($request->avatar);
+            } else {
+                $imagePath = MediaServices::uploadDummy($request->name);
             }
 
             $password = $request->password ?? time();
@@ -106,7 +108,7 @@ class RecruiterController extends Controller
 
             $imagePath = $recruiter->avatar;
             if ($request->avatar) {
-                $imagePath = Storage::disk('public')->put('media/images', $request->avatar);
+                $imagePath = MediaServices::upload($request->avatar);
             }
 
             if (!empty($request->password)) {
@@ -127,6 +129,7 @@ class RecruiterController extends Controller
             return redirect()->back()->withErrors(['error' => [$e->getMessage()]]);
         }
     }
+
     public function destroy($id)
     {
         try {
@@ -134,6 +137,9 @@ class RecruiterController extends Controller
             if ($recruiter == null) {
                 abort('404');
             }
+
+            $recruiter->email = 'deleted-'.$recruiter->email;
+            $recruiter->save();
             $recruiter->delete();
             return redirect()->back()->withErrors(['success' => ['Recruiter has been deleted successfully']]);
         } catch (\Exception $e) {

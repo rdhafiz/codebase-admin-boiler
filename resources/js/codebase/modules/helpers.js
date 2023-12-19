@@ -441,6 +441,7 @@ export default class Helpers {
   static jsCkeditor(options) {
     let ckeditorInline = document.querySelector('#js-ckeditor-inline:not(.js-ckeditor-inline-enabled)');
     let ckeditorFull = document.querySelector('#js-ckeditor:not(.js-ckeditor-enabled)');
+    let ckeditorFull2 = document.querySelector('#js-ckeditor-2:not(.js-ckeditor-enabled)');
 
     // Init inline text editor
     if (ckeditorInline) {
@@ -454,6 +455,12 @@ export default class Helpers {
     // Init full text editor
     if (ckeditorFull) {
       CKEDITOR.replace('js-ckeditor', options);
+
+      // Add .js-ckeditor-enabled class to tag it as activated
+      ckeditorFull.classList.add('js-ckeditor-enabled');
+    }
+    if (ckeditorFull2) {
+      CKEDITOR.replace('js-ckeditor-2', options);
 
       // Add .js-ckeditor-enabled class to tag it as activated
       ckeditorFull.classList.add('js-ckeditor-enabled');

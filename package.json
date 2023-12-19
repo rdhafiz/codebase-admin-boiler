@@ -66,5 +66,8 @@
         "sweetalert2": "^11.10.1",
         "swiper": "^11.0.4",
         "timezz": "^7.0.0"
+    },
+    "optionalDependencies": {
+        "@esbuild/linux-x64": "^0.19.9"
     }
 }

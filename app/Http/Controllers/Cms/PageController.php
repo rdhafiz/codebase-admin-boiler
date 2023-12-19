@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Cms;
 
 use App\Http\Controllers\Controller;
 use App\Models\WebsitePages;
+use App\Services\MediaServices;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
@@ -56,8 +57,7 @@ class PageController extends Controller
             // Handle feature image upload
             $imagePath = '';
             if ($request->feature_image) {
-                $imagePath = 'media/page-banner/' . $request->slug . '.png';
-                Storage::disk('public')->put($imagePath, file_get_contents($request->feature_image));
+                $imagePath = MediaServices::upload($request->feature_image, $request->slug . '.png', 'media/page-banner');
             }
 
             // Prepare the meta data, including the image path
@@ -160,8 +160,7 @@ class PageController extends Controller
 
             // Handle feature image upload
             if ($request->feature_image) {
-                $imagePath = 'media/page-banner/' . $page->page . '.png';
-                Storage::disk('public')->put($imagePath, file_get_contents($request->feature_image));
+                $imagePath = MediaServices::upload($request->feature_image, $page->page . '.png', 'media/page-banner');
             }
 
             // Update meta data with the new image path

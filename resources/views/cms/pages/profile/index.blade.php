@@ -4,12 +4,13 @@
 
         <div class="container-lg">
             <div class="w-100 mb-4">
-                <h2 class="fs-2 m-0 p-0">Recruiter Preview</h2>
+                <h2 class="fs-2 m-0 p-0">
+                    {{ \App\Models\Admin::getAdminRoleText(auth()->guard('admin')->user()->user_role) }} Profile
+                </h2>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{route('CMS.dashboard')}}">Dashboard</a></li>
-                        <li class="breadcrumb-item"><a href="{{route('CMS.recruiter.index')}}">Recruiters</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Preview</li>
+                        <li class="breadcrumb-item active" aria-current="page">Profile</li>
                     </ol>
                 </nav>
             </div>
@@ -26,39 +27,36 @@
             <div class="w-100 mt-4">
                 <div class="block block-rounded">
                     <div class="block-header block-header-default">
-                        <h3 class="block-title">{{ $recruiter['name'] }}</h3>
+                        <h3 class="block-title">{{ \App\Models\Admin::getAdminRoleText(auth()->guard('admin')->user()->user_role) }}</h3>
                         <div class="block-options">
-                            <a href="{{route('CMS.recruiter.edit', [$recruiter['_id']])}}" class="btn btn-sm btn-outline-primary js-bs-tooltip-enabled me-1"><i class="fa fa-edit"></i></a>
+                            <a href="{{route('CMS.profile.update.password')}}" class="btn btn-sm btn-outline-warning js-bs-tooltip-enabled me-1"><i class="fa fa-key"></i></a>
+                            <a href="{{route('CMS.profile.update')}}" class="btn btn-sm btn-outline-primary js-bs-tooltip-enabled"><i class="fa fa-edit"></i></a>
                         </div>
                     </div>
                     <div class="block-content">
                         <div class="w-100">
 
                             <div class="form-group mb-4">
-                                @if(isset($recruiter['avatar']) && !empty($recruiter['avatar']))
-                                    <div class="w-100 mb-2">
-                                        <img class="img-fluid rounded-pill" style="width: 150px; height: 150px; object-fit: cover;overflow: hidden;" src="{{$recruiter['avatar_full_path']}}" alt="">
-                                    </div>
-                                @endif
+                                <div class="w-100 mb-2">
+                                    <img class="img-fluid rounded-pill border border-2 mb-2" style="width: 150px; height: 150px; object-fit: cover;overflow: hidden;" src="{{ auth()->guard('admin')->user()->avatar_full_path }}" alt="">
+                                </div>
                             </div>
                             <div class="form-group mb-4">
                                 <table class="table">
                                     <tbody>
                                     <tr>
-                                        <th style="width: 100px">Name</th>
-                                        <td>{{ $recruiter['name'] }}</td>
+                                        <th style="width: 150px">Name</th>
+                                        <td>{{ auth()->guard('admin')->user()->name }}</td>
                                     </tr>
                                     <tr>
                                         <th>Email</th>
-                                        <td>{{ $recruiter['email'] }}</td>
+                                        <td>{{ auth()->guard('admin')->user()->email }}</td>
                                     </tr>
                                     <tr>
-                                        <th>Phone</th>
-                                        <td>{{ $recruiter['phone'] }}</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Address</th>
-                                        <td>{{ $recruiter['address'] }}, {{ $recruiter['city'] }} {{ $recruiter['post_code'] }}, {{ $recruiter['country'] }}</td>
+                                        <th>Permission</th>
+                                        <td>
+                                            <span class="badge bg-success">{{ \App\Models\Admin::getAdminRoleText(auth()->guard('admin')->user()->user_role) }}</span>
+                                        </td>
                                     </tr>
                                     </tbody>
                                 </table>
