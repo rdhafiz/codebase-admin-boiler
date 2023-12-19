@@ -19,4 +19,7 @@ include_once 'rcp.php';
 
 //Route::get('/', function () {return view("welcome");});
 Route::get('/', [HomepageController::class, "home"])->name('homepage');
+
+// Apply Course
 Route::get('/apply', [ApplyController::class, "index"])->name('front.apply');
+Route::post('/apply', [ApplyController::class, "apply"])->name('front.apply.action');
