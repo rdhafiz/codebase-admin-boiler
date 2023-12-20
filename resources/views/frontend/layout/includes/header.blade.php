@@ -5,7 +5,7 @@
         <div class="container">
 
             <!-- Navbar brand (Logo) -->
-            <a class="navbar-brand pe-sm-3" href="{{ route('homepage') }}">
+            <a class="navbar-brand pe-sm-3" href="{{ route('home') }}">
               <span class="flex-shrink-0 me-2">
                 <img width="150" src="{{ asset('assets/images/logo.png') }}" alt="Purple Med Logo">
               </span>
@@ -35,7 +35,7 @@
             <nav class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav navbar-nav-scroll ms-auto" style="--ar-scroll-height: 520px;">
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle active" href="#" data-bs-toggle="dropdown" aria-expanded="false">Training</a>
+                        <a class="nav-link dropdown-toggle @if(Route::currentRouteName() == 'osce-training') active @endif" href="#" data-bs-toggle="dropdown" aria-expanded="false">Training</a>
                         <div class="dropdown-menu overflow-hidden p-0">
                             <div class="d-lg-flex">
                                 <div class="mega-dropdown-column pt-1 pt-lg-3 pb-lg-4">
@@ -73,10 +73,10 @@
                         <a class="nav-link" href="components/typography.html">Jobs</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="components/typography.html">International Candidate</a>
+                        <a class="nav-link @if(Route::currentRouteName() == 'international-candidates') active @endif" href="{{ route('international-candidates') }}">International Candidate</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="components/typography.html">Resources</a>
+                        <a class="nav-link @if(Route::currentRouteName() == 'resources') active @endif" href="{{ route('resources') }}">Resources</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="components/typography.html">About</a>

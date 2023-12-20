@@ -7,10 +7,10 @@
     <!-- SEO meta tags -->
     <title>{{env('APP_NAME')}}</title>
     <meta name="description" content="OSCE Course">
-    <meta name="keywords" content="OSCE, Purple Med, Medical, Plab, Plab 1, Plab 2">
+    <meta name="keywords" content="OSCE Course, OSCE, Purple Med, Medical, Medics, Plab, Plab 1, Plab 2">
     <meta name="author" content="MediprospectsAI Ltd">
 
-    <link rel="icon" type="image/x-icon" href="{{asset('favicon.png')}}">
+    <link rel="icon" type="image/x-icon" href="{{asset('favicon.ico')}}">
 
     <!-- Import Google font (Inter) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">

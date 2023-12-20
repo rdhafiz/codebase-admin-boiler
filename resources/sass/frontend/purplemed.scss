@@ -9,4 +9,19 @@
 @import "../../css/frontend/theme.css";
 //@import "../main"; //customisation sass file
 
-//@import "library";
+@import "library";
+
+.navbar-nav {
+    --ar-navbar-hover-color: var(--color-theme-dark) !important;
+
+    .nav-link.active, .nav-link.show {
+        color: var(--color-theme-dark) !important;
+        text-decoration-color: var(--color-theme-dark) !important;
+        font-weight: bolder !important;
+        border-bottom: 1px solid var(--color-theme-dark) !important;
+    }
+}
+
+.nav-link:hover, .nav-link:focus, .dropdown-item:hover, .dropdown-item:focus {
+    color: var(--color-theme-dark) !important;
+}
