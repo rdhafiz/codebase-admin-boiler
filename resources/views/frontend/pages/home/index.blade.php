@@ -486,7 +486,7 @@
                 </div>
                 <div class="col-md-6 col-xl-6 offset-xl-1">
                     <div class="ps-md-4 ps-lg-0">
-                        <div class="position-relative d-flex justify-content-end my-3 py-1" data-aos="fade-left" data-aos-easing="ease-out-back">
+                        <div class="position-relative d-flex justify-content-end my-3 py-1">
                             <div class="btn btn-lg btn-icon btn-theme fs-xl fw-bold rounded-circle position-absolute top-50 start-0 translate-middle-y z-2 pe-none">M</div>
                             <div class="card border-0 ps-3" style="width: calc(100% - 1.75rem);">
                                 <div class="card-body ps-4 py-4">
@@ -497,7 +497,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="position-relative d-flex justify-content-end my-3 py-1" data-aos="fade-left" data-aos-easing="ease-out-back" data-aos-delay="250">
+                        <div class="position-relative d-flex justify-content-end my-3 py-1">
                             <div class="btn btn-lg btn-icon btn-theme fs-xl fw-bold rounded-circle position-absolute top-50 start-0 translate-middle-y z-2 pe-none">E</div>
                             <div class="card border-0 ps-3" style="width: calc(100% - 1.75rem);">
                                 <div class="card-body ps-4 py-4">
@@ -508,7 +508,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="position-relative d-flex justify-content-end my-3 py-1" data-aos="fade-left" data-aos-easing="ease-out-back" data-aos-delay="500">
+                        <div class="position-relative d-flex justify-content-end my-3 py-1">
                             <div class="btn btn-lg btn-icon btn-theme fs-xl fw-bold rounded-circle position-absolute top-50 start-0 translate-middle-y z-2 pe-none">D</div>
                             <div class="card border-0 ps-3" style="width: calc(100% - 1.75rem);">
                                 <div class="card-body ps-4 py-4">
@@ -519,7 +519,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="position-relative d-flex justify-content-end my-3 py-1" data-aos="fade-left" data-aos-easing="ease-out-back" data-aos-delay="700">
+                        <div class="position-relative d-flex justify-content-end my-3 py-1">
                             <div class="btn btn-lg btn-icon btn-theme fs-xl fw-bold rounded-circle position-absolute top-50 start-0 translate-middle-y z-2 pe-none">I</div>
                             <div class="card border-0 ps-3" style="width: calc(100% - 1.75rem);">
                                 <div class="card-body ps-4 py-4">
@@ -530,7 +530,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="position-relative d-flex justify-content-end my-3 py-1" data-aos="fade-left" data-aos-easing="ease-out-back" data-aos-delay="700">
+                        <div class="position-relative d-flex justify-content-end my-3 py-1">
                             <div class="btn btn-lg btn-icon btn-theme fs-xl fw-bold rounded-circle position-absolute top-50 start-0 translate-middle-y z-2 pe-none">C</div>
                             <div class="card border-0 ps-3" style="width: calc(100% - 1.75rem);">
                                 <div class="card-body ps-4 py-4">
@@ -541,7 +541,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="position-relative d-flex justify-content-end my-3 py-1" data-aos="fade-left" data-aos-easing="ease-out-back" data-aos-delay="700">
+                        <div class="position-relative d-flex justify-content-end my-3 py-1">
                             <div class="btn btn-lg btn-icon btn-theme fs-xl fw-bold rounded-circle position-absolute top-50 start-0 translate-middle-y z-2 pe-none">S</div>
                             <div class="card border-0 ps-3" style="width: calc(100% - 1.75rem);">
                                 <div class="card-body ps-4 py-4">
