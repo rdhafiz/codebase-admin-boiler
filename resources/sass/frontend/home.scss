@@ -1,8 +1,5 @@
 @import "library";
 
-p {
-    font-size: calc(var(--ar-body-font-size) * 1.25) !important;
-}
 #section-hero {
 
     //background-image: url("assets/images/frontend/home/london-bridge.jpg");
@@ -99,14 +96,4 @@ section {
     .section-title {
         color: var(--color-theme-dark);
     }
-}
-
-#journey {
-  .icon {
-    font-size: 6em;
-    color: $theme-color;
-  }
-  img {
-    max-width: 140px;
-  }
 }
