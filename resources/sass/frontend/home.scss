@@ -1,5 +1,8 @@
 @import "library";
 
+p {
+    font-size: calc(var(--ar-body-font-size) * 1.25) !important;
+}
 #section-hero {
 
     //background-image: url("assets/images/frontend/home/london-bridge.jpg");
