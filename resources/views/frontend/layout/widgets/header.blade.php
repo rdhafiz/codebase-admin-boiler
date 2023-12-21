@@ -8,9 +8,6 @@
         </a>
 
 
-        <a class="btn btn-primary btn-sm fs-sm order-lg-3 d-none d-sm-inline-flex" href="{{route('front.apply')}}">
-            Apply Now
-        </a>
 
         <!-- Mobile menu toggler (Hamburger) -->
         <button class="navbar-toggler ms-sm-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
@@ -58,12 +55,28 @@
                 <li class="nav-item">
                     <a class="nav-link" href="docs/getting-started.html">Contact</a>
                 </li>
+                <li class="nav-item">
+                    @if(auth()->check())
+                        <div class="dropdown">
+                            <button class="btn btn-primary btn-sm fs-sm order-lg-3 d-none d-sm-inline-flex dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                {{auth()->user()->name}}
+                            </button>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="{{route('front.profile')}}">Profile</a>
+                                <a class="dropdown-item" href="#">Training</a>
+                                <hr class="my-2">
+                                <a class="dropdown-item" href="{{route('front.logout')}}">Logout</a>
+                            </div>
+                        </div>
+                    @else
+                        <a class="btn btn-primary btn-sm fs-sm order-lg-3 d-none d-sm-inline-flex" href="{{route('front.login')}}">
+                            Login Now
+                        </a>
+                    @endif
+                </li>
             </ul>
-            <div class="d-sm-none p-3 mt-n3">
-                <a class="btn btn-primary w-100 mb-1" href="{{route('front.apply')}}">
-                    Apply Now
-                </a>
-            </div>
+
         </nav>
+
     </div>
 </header>

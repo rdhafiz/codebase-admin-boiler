@@ -84,6 +84,7 @@
             border-radius: 5px;
         }
     </style>
+    @yield('stylesheet')
 </head>
 <body>
 

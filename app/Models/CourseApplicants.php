@@ -20,4 +20,14 @@ class CourseApplicants extends Eloquent
         'deleted_at',
     ];
     public $timestamps = true;
+
+    public function course(){
+        return $this->hasOne(Course::class, '_id', 'course_id');
+    }
+    public function type(){
+        return $this->hasOne(CourseType::class, '_id', 'course_type');
+    }
+    public function schedule(){
+        return $this->hasOne(CourseSchedules::class, '_id', 'schedule_id');
+    }
 }

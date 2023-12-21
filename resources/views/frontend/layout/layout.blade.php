@@ -46,5 +46,6 @@
 
 
 </body>
+@vite(['resources/js/frontend/purplemed.js',])
 @yield('js')
 </html>

@@ -4,7 +4,7 @@
     <h1>Hello {{$learner->name}}</h1>
     <p>
         You account has been registered successfully. <br>
-        Please <a href="{{route('front.apply')}}">login</a> with the following credentials and reset your temporary password.
+        Please login with the following credentials and reset your temporary password.
     </p>
     <p>
         <strong>Email Address: </strong> {{$learner->email}} <br>

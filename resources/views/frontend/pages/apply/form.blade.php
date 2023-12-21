@@ -118,14 +118,14 @@
                                 <div class="col-lg-4">
                                     <div class="form-group mb-4">
                                         <label class="form-label">CBT Pass Date</label>
-                                        <input type="date" class="form-control" name="cbt_pass_date" id="cbt_pass_date" placeholder="CBT Pass Date" required>
+                                        <input type="date" class="form-control" name="cbt_pass_date" value="{{old('cbt_pass_date')}}" id="cbt_pass_date" placeholder="CBT Pass Date" required>
                                         @if($errors->has('cbt_pass_date'))<small class="text-danger">{{$errors->first('cbt_pass_date')}}</small> @endif
                                     </div>
                                 </div>
                                 <div class="col-lg-4">
                                     <div class="form-group mb-4">
                                         <label class="form-label">IELTS/OET Score (if applicable)</label>
-                                        <input type="text" class="form-control" name="ielts_score" placeholder="IELTS/OET Score (optional)">
+                                        <input type="text" class="form-control" name="ielts_score" value="{{old('ielts_score')}}" placeholder="IELTS/OET Score (optional)">
                                         @if($errors->has('ielts_score'))<small class="text-danger">{{$errors->first('ielts_score')}}</small> @endif
                                     </div>
                                 </div>
