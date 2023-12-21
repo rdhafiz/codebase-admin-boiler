@@ -27,4 +27,13 @@ class Course extends Eloquent
     public function type(){
         return $this->hasOne(CourseType::class, '_id', 'course_type')->select('name');
     }
+    public function course_fee_price(){
+        return $this->hasOne(CoursePrice::class, '_id', 'course_fee');
+    }
+    public function course_schedules(){
+        return $this->hasMany(CourseSchedules::class, 'course_id', '_id');
+    }
+    public function payment_instalment_details(){
+        return $this->hasMany(CourseInstallments::class, 'course_id', '_id');
+    }
 }

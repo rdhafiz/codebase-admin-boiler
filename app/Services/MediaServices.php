@@ -20,11 +20,13 @@ class MediaServices
         }
         return $path;
     }
+
     public static function uploadDummy($string)
     {
-        $filename = Str::slug($string).'.png';
-        $avatarStream = file_get_contents('https://ui-avatars.com/api/?name='.$string);
-        $imagePath = 'media/images/'.$filename;
+        $string = str_replace(' ', '+', $string);
+        $filename = Str::slug($string) . '.png';
+        $avatarStream = file_get_contents('https://ui-avatars.com/api/?name=' . $string);
+        $imagePath = 'media/images/' . $filename;
         Storage::disk('public')->put($imagePath, $avatarStream);
         return $imagePath;
     }

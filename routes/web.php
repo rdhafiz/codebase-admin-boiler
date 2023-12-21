@@ -8,6 +8,11 @@ use App\Http\Controllers\Frontend\InternationalCandidatesPageController;
 use App\Http\Controllers\Frontend\AboutPageController;
 use App\Http\Controllers\Frontend\ContactPageController;
 use App\Http\Controllers\Frontend\JobsPageController;
+use App\Http\Controllers\Frontend\ApplyController;
+use App\Http\Controllers\Frontend\AuthController;
+use App\Http\Controllers\Frontend\ProfileController;
+use App\Http\Middleware\UserAuthCheck;
+use App\Http\Middleware\UserAuthReq;
 
 include_once 'cms.php';
 include_once 'rcp.php';
@@ -23,6 +28,7 @@ include_once 'rcp.php';
 */
 
 //Route::get('/', function () {return view("welcome");});
+
 Route::get('/', [HomePageController::class, "viewPage"])->name('home');
 Route::get('osce-training', [TrainingPageController::class, "viewPage"])->name('osce');
 Route::get('resources', [ResourcesPageController::class, "viewPage"])->name('resources');
@@ -30,3 +36,20 @@ Route::get('international-candidates', [InternationalCandidatesPageController::c
 Route::get('about', [AboutPageController::class, "ViewPage"])->name('about-us');
 Route::get('contact', [ContactPageController::class, "ViewPage"])->name('contact-us');
 Route::get('jobs', [JobsPageController::class, "ViewPage"])->name('jobs');
+
+
+// User Authentication
+Route::group(['middleware' => [UserAuthCheck::class]], function () {
+    Route::get('/login', [AuthController::class, "login"])->name('front.login');
+    Route::post('/login', [AuthController::class, "loginAction"])->name('front.login.action');
+});
+// User Profile
+Route::group(['middleware' => [UserAuthReq::class]], function () {
+    Route::get('/logout', [AuthController::class, "logout"])->name('front.logout');
+
+    Route::get('/profile', [ProfileController::class, "profile"])->name('front.profile');
+});
+
+// Apply Course
+Route::get('/apply', [ApplyController::class, "index"])->name('front.apply');
+Route::post('/apply', [ApplyController::class, "apply"])->name('front.apply.action');

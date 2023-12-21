@@ -52,7 +52,7 @@
                     </ul>
                     <div class="d-flex justify-content-center justify-content-lg-start pt-4 pt-xl-4 pb-3">
                         <div class="text-center">
-                            <a class="btn btn-theme w-100 w-sm-auto" href="#">Apply Now</a>
+                            <a class="btn btn-theme w-100 w-sm-auto" href="{{route('front.apply')}}">Apply Now</a>
                             <p class="text-black fs-sm pt-2 mt-sm-1 mb-0">100% job guaranteed!</p>
                         </div>
                     </div>
@@ -100,7 +100,7 @@
 
             <div class="row">
                 <div class="col-12 d-flex justify-content-center">
-                    <button class="btn btn-theme"><i class="ai-calendar-minus pe-2"></i>Apply Now</button>
+                    <a class="btn btn-theme" href="{{route('front.apply')}}"><i class="ai-calendar-minus pe-2"></i>Apply Now</a>
                 </div>
             </div>
         </div>

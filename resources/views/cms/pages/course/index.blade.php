@@ -51,10 +51,10 @@
                                     <td class="text-center">{{ $course->course_duration }}</td>
                                     <td class="text-center">
                                         @if($course->course_discount == 1)
-                                            {{ $course->course_fee - $course->course_discount_amount }} <br>
-                                            <s class="text-danger">{{ $course->course_fee }}</s>
+                                            {{ $course->course_fee_price->price - $course->course_discount_amount }} <br>
+                                            <s class="text-danger">{{ $course->course_fee_price->price }}</s>
                                         @else
-                                            {{ $course->course_fee }}
+                                            {{ $course->course_fee_price->price }}
                                         @endif
                                     </td>
                                     <td class="text-center">
