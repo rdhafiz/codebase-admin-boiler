@@ -55,7 +55,7 @@
         </div>
         <p class="nav fs-sm mb-0">
             <span class="text-body-secondary">&copy; All rights reserved. Made by</span>
-            <a class="nav-link fw-normal p-0 ms-1" href="https://createx.studio/" target="_blank" rel="noopener">Createx Studio</a>
+            <a class="nav-link fw-normal p-0 ms-1" href="https://mediprospects.ai/" target="_blank" rel="noopener">MediprospectsAI</a>
         </p>
     </div>
 </footer>

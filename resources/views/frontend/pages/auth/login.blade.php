@@ -29,13 +29,13 @@
                                     {{csrf_field()}}
                                     <div class="pb-3 mb-3">
                                         <div class="position-relative">
-                                            <i class="ai-mail fs-lg position-absolute top-50 start-0 translate-middle-y text-light opacity-80 ms-3"></i>
+                                            <i class="ai-mail fs-lg position-absolute top-50 start-0 translate-middle-y text-dark opacity-80 ms-3"></i>
                                             <input class="form-control form-control-lg ps-5" type="email" name="email" value="{{old('email')}}" placeholder="Email address" required>
                                             @if($errors->has('email'))<small class="text-danger">{{$errors->first('email')}}</small> @endif
                                         </div>
                                     </div>
                                     <div class="mb-4">
-                                        <div class="position-relative"><i class="ai-lock-closed fs-lg position-absolute top-50 start-0 translate-middle-y text-light opacity-80 ms-3"></i>
+                                        <div class="position-relative"><i class="ai-lock-closed fs-lg position-absolute top-50 start-0 translate-middle-y text-dark opacity-80 ms-3"></i>
                                             <div class="password-toggle">
                                                 <input class="form-control form-control-lg ps-5" type="password" placeholder="Password" name="password" required>
                                                 <label class="password-toggle-btn" aria-label="Show/hide password">
