@@ -117,7 +117,7 @@
                                                 @if($errors->has('course_end_date')) <small class="text-danger">{{$errors->first('course_end_date')}}</small> @endif
                                             </div>
                                         </div>
-                                        <div class="col-lg-12" v-if="param.courseSchedules.length > 0">
+                                        <div class="col-lg-12" v-if="param.course_schedules.length > 0">
                                             <div class="form-group bg-light p-lg-5 p-3 mb-4">
                                                 <div class="w-100">
                                                     <table class="table table-bordered m-0">
@@ -130,17 +130,17 @@
                                                         </tr>
                                                         </thead>
                                                         <tbody>
-                                                        <tr v-for="(schedule,index) in param.courseSchedules">
+                                                        <tr v-for="(schedule,index) in param.course_schedules">
                                                             <td>#@{{ index+1 }}</td>
                                                             <td class="p-0">
                                                                 <flat-pickr v-model="schedule.start"
                                                                             :config="dateConfig" class="form-control m-0 border-0 shadow-none text-center"
-                                                                            placeholder="Schedule Start Date" :name="'courseSchedules['+index+'][start]'" required/>
+                                                                            placeholder="Schedule Start Date" :name="'course_schedules['+index+'][start]'" required/>
                                                             </td>
                                                             <td class="p-0">
                                                                 <flat-pickr v-model="schedule.end"
                                                                             :config="dateConfig" class="form-control m-0 border-0 shadow-none text-center"
-                                                                            placeholder="Schedule End Date" :name="'courseSchedules['+index+'][end]'" required/>
+                                                                            placeholder="Schedule End Date" :name="'course_schedules['+index+'][end]'" required/>
                                                             </td>
                                                             <td class="text-center"><a @click="deleteThisSchedule(index)" class="btn btn-sm btn-outline-danger"><i class="fa fa-trash"></i></a></td>
                                                         </tr>
