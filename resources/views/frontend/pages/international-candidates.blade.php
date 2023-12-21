@@ -8,8 +8,17 @@
 
     <section class="container py-5 mt-5">
 
+        <div class="row pb-lg-5">
+            <div class="col-12">
+                <h1 class="display-3 fw-medium text-uppercase mb-0 text-theme-dark">
+                    International Candidates
+                </h1>
+                <hr>
+            </div>
+        </div>
+
         <div class="row">
-            <div class="offset-lg-2 col-lg-8 offset-xl-2 col-xl-8 pe-lg-4 pe-xl-0">
+            <div class="col-12 pe-lg-4 pe-xl-0">
 
                 <!-- Post title + post meta -->
                 <h1 class="pb-2 pb-lg-3">
@@ -99,7 +108,7 @@
                     <b>Evidence Submission:</b> Evidence of training and assessment in English can be in the form of a transcript from the educational institution that conducted the training, showcasing your reading and writing competence. This comprehensive evidence, along with SIFE, will holistically demonstrate your English language competence across all necessary domains for NMC registration.
                 </p>
                 <p class="fs-lg mb-3">
-                    For more information, please <a target="_blank"
+                    For more information, please <a target="_blank" class="text-theme-dark"
                         href="https://www.nmc.org.uk/registration/guidance-for-employers/sife-faqs/">visit</a>.
                 </p>
 
@@ -108,7 +117,7 @@
                     Stage 3: Self-Eligibility
                 </h2>
                 <p class="fs-lg mb-3">
-                    This step involves filling out an <a target="_blank"
+                    This step involves filling out an <a target="_blank" class="text-theme-dark"
                         href="https://www.nmc.org.uk/registration/joining-the-register/register-nurse-midwife/trained-outside-uk/how-to-guide/check-ready/checklist-tool/nm-checklist-form/">online self-assessment form</a> to determine if you are eligible to apply for NMC registration. During this process, you must verify that you fulfil the NMC's health, good character, and English language requirements. Additionally, you need to acknowledge that you will be required to submit supporting documents as evidence later in the application process.
                 </p>
                 <h2 class="h4 mb-lg-4 pt-3 pt-md-4 pt-xl-5">
@@ -116,8 +125,8 @@
                 </h2>
                 <p class="fs-lg mb-3">
                     After the NMC confirms your eligibility, you will be required to take the CBT (Computer-Based Test). This online exam assesses your theoretical knowledge based on practice. The test consists of multiple-choice questions and can be administered at test centres worldwide. The NMC allows three attempts at the CBT within a single application, with at least ten days between each attempt. You must pass the CBT within six months of completing your eligibility. The test provider,
-                    <a target="_blank" href="https://home.pearsonvue.com/nmc">Pearson VUE</a>, should be contacted directly to schedule and pay for your exam. As of March 2023,
-                    <a target="_blank" href="https://www.nmc.org.uk/registration/joining-the-register/toc/toc-2021/cbt/">the test fee is £83</a>.
+                    <a target="_blank" class="text-theme-dark" href="https://home.pearsonvue.com/nmc">Pearson VUE</a>, should be contacted directly to schedule and pay for your exam. As of March 2023,
+                    <a target="_blank" class="text-theme-dark" href="https://www.nmc.org.uk/registration/joining-the-register/toc/toc-2021/cbt/">the test fee is £83</a>.
                 </p>
                 <h2 class="h4 mb-lg-4 pt-3 pt-md-4 pt-xl-5">
                     Stage 5: Submission of Required Documents
@@ -157,13 +166,13 @@
                 </h2>
                 <p class="fs-lg mb-3">
                     Upon completion of the previous steps, you will be eligible to apply for a Band 5 Registered Nurse role. Initially, you will hold the status of a pre-registered nurse and work as a Band 3 or 4 healthcare assistant until you successfully complete your Objective Structured Clinical Examination (OSCE) After being offered a position in the UK, you can apply for your Tier 2 visa and begin your UK post. It is important to note that you must pass your
-                    <a href="{{ route('osce') }}">OSCE</a> within 3 months of arrival.
+                    <a class="text-theme-dark" href="{{ route('osce') }}">OSCE</a> within 3 months of arrival.
                 </p>
                 <h2 class="h4 mb-lg-4 pt-3 pt-md-4 pt-xl-5">
                     Stage 8: OSCE
                 </h2>
                 <p class="fs-lg mb-3">
-                    Upon arriving in the UK, you will have a three-month window to pass your OSCE exam. This examination evaluates your clinical expertise and can only be taken in the UK. The OSCE replicates a clinical setting and patient situations that all registered nurses and midwives are expected to face while assessing, planning, implementing, and evaluating care. Please visit our <a href="{{ route('osce') }}">OSCE training page</a> to find out more about how we can help you pass on your first attempt, saving you time, money and the stress of having to re-sit the exam.
+                    Upon arriving in the UK, you will have a three-month window to pass your OSCE exam. This examination evaluates your clinical expertise and can only be taken in the UK. The OSCE replicates a clinical setting and patient situations that all registered nurses and midwives are expected to face while assessing, planning, implementing, and evaluating care. Please visit our <a class="text-theme-dark" href="{{ route('osce') }}">OSCE training page</a> to find out more about how we can help you pass on your first attempt, saving you time, money and the stress of having to re-sit the exam.
                 </p>
                 <h2 class="h4 mb-lg-4 pt-3 pt-md-4 pt-xl-5">
                     Stage 9: Identity Verification

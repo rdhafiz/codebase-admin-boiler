@@ -9,6 +9,12 @@ $theme-color-dark: $purplemed-color-dark;
     --color-theme : rgb(154 20 93 / 50%); //$theme-color;
     --color-theme-dark : rgb(154 20 93 / 80%); //$theme-color-dark;
     --ar-navbar-hover-color: var(--color-theme-dark) !important;
+    --ar-heading-link-hover-color: var(--color-theme-dark) !important;
+    --ar-accordion-active-color: var(--color-theme-dark) !important;
+}
+
+.accordion-button:not(.collapsed) {
+    color: var(--ar-heading-link-color) !important;
 }
 
 .text-theme {
