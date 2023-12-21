@@ -41,22 +41,24 @@
                                 <div class="w-100">
 
                                     <div class="row">
-                                        <div class="col-lg-8">
+                                        <div class="col-lg-12">
                                             <div class="form-group mb-4">
                                                 <label class="form-label">Course Title</label>
                                                 <input type="text" class="form-control" name="course_title" v-model="param.course_title" placeholder="Course Title" required>
-                                                @if($errors->has('course_title')) <small class="text-danger">{{$errors->first('course_title')}}</small> @endif
+                                                @if($errors->has('course_title'))
+                                                    <small class="text-danger">{{$errors->first('course_title')}}</small>
+                                                @endif
                                             </div>
                                         </div>
                                         <div class="col-lg-4">
                                             <div class="form-group mb-4">
                                                 <label class="form-label">Course Workstations</label>
                                                 <input type="number" class="form-control" name="course_workstations" v-model="param.course_workstations" placeholder="Course Title" required>
-                                                @if($errors->has('course_workstations')) <small class="text-danger">{{$errors->first('course_workstations')}}</small> @endif
+                                                @if($errors->has('course_workstations'))
+                                                    <small class="text-danger">{{$errors->first('course_workstations')}}</small>
+                                                @endif
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="row">
                                         <div class="col-lg-4">
                                             <div class="form-group mb-4">
                                                 <label class="form-label">Course Category</label>
@@ -66,7 +68,9 @@
                                                         <option value="{{$cat['_id']}}">{{$cat['name']}}</option>
                                                     @endforeach
                                                 </select>
-                                                @if($errors->has('course_category')) <small class="text-danger">{{$errors->first('course_category')}}</small> @endif
+                                                @if($errors->has('course_category'))
+                                                    <small class="text-danger">{{$errors->first('course_category')}}</small>
+                                                @endif
                                             </div>
                                         </div>
                                         <div class="col-lg-4">
@@ -78,46 +82,59 @@
                                                         <option value="{{$type['_id']}}">{{$type['name']}}</option>
                                                     @endforeach
                                                 </select>
-                                                @if($errors->has('course_type')) <small class="text-danger">{{$errors->first('course_type')}}</small> @endif
+                                                @if($errors->has('course_type'))
+                                                    <small class="text-danger">{{$errors->first('course_type')}}</small>
+                                                @endif
                                             </div>
                                         </div>
-                                        <div class="col-lg-4">
+                                        <div class="col-lg-6">
                                             <div class="form-group mb-4">
                                                 <label class="form-label">Course Fee</label>
-                                                <input type="text" class="form-control" name="course_fee" v-model="param.course_fee" placeholder="Course Fee" @keyup="calculateInstallment" @change="calculateInstallment" required>
-                                                @if($errors->has('course_fee')) <small class="text-danger">{{$errors->first('course_fee')}}</small> @endif
+                                                <select name="course_fee" class="form-select">
+                                                    <option value="">Select Course Fee</option>
+                                                    @foreach($coursePrices as $price)
+                                                        <option @if($course->course_fee == $price['_id']) selected @endif  value="{{$price['_id']}}" data-price="{{$price['price']}}">£{{$price['price']}} - {{$price['name']}}</option>
+                                                    @endforeach
+                                                </select>
+                                                @if($errors->has('course_fee'))
+                                                    <small class="text-danger">{{$errors->first('course_fee')}}</small>
+                                                @endif
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="row mb-4">
-                                        <div class="col-lg-4">
+                                        <div class="col-lg-6">
                                             <div class="form-group mb-4">
                                                 <label class="form-label">Course Duration</label>
                                                 <input type="text" class="form-control" name="course_duration" v-model="param.course_duration" placeholder="Course Duration" @keyup="calculateSchedule" @change="calculateSchedule" required>
-                                                @if($errors->has('course_duration')) <small class="text-danger">{{$errors->first('course_duration')}}</small> @endif
+                                                @if($errors->has('course_duration'))
+                                                    <small class="text-danger">{{$errors->first('course_duration')}}</small>
+                                                @endif
                                             </div>
                                         </div>
-                                        <div class="col-lg-4">
+                                        <div class="col-lg-6">
                                             <div class="form-group mb-4">
                                                 <label class="form-label">Course Start Date</label>
                                                 <flat-pickr v-model="param.course_start_date"
                                                             :config="dateConfig" class="form-control"
                                                             @on-change="calculateSchedule"
                                                             placeholder="Course Start Date" name="course_start_date" required/>
-                                                @if($errors->has('course_start_date')) <small class="text-danger">{{$errors->first('course_start_date')}}</small> @endif
+                                                @if($errors->has('course_start_date'))
+                                                    <small class="text-danger">{{$errors->first('course_start_date')}}</small>
+                                                @endif
                                             </div>
                                         </div>
-                                        <div class="col-lg-4">
+                                        <div class="col-lg-6">
                                             <div class="form-group mb-4">
                                                 <label class="form-label">Course End Date</label>
                                                 <flat-pickr v-model="param.course_end_date"
                                                             :config="dateConfig" class="form-control"
                                                             @on-change="calculateSchedule"
                                                             placeholder="Course End Date" name="course_end_date" required/>
-                                                @if($errors->has('course_end_date')) <small class="text-danger">{{$errors->first('course_end_date')}}</small> @endif
+                                                @if($errors->has('course_end_date'))
+                                                    <small class="text-danger">{{$errors->first('course_end_date')}}</small>
+                                                @endif
                                             </div>
                                         </div>
-                                        <div class="col-lg-12" v-if="param.courseSchedules.length > 0">
+                                        <div class="col-lg-12" v-if="param.course_schedules.length > 0">
                                             <div class="form-group bg-light p-lg-5 p-3 mb-4">
                                                 <div class="w-100">
                                                     <table class="table table-bordered m-0">
@@ -130,17 +147,18 @@
                                                         </tr>
                                                         </thead>
                                                         <tbody>
-                                                        <tr v-for="(schedule,index) in param.courseSchedules">
+                                                        <tr v-for="(schedule,index) in param.course_schedules">
                                                             <td>#@{{ index+1 }}</td>
                                                             <td class="p-0">
                                                                 <flat-pickr v-model="schedule.start"
+                                                                            @on-change="calculateThisSchedule(index)"
                                                                             :config="dateConfig" class="form-control m-0 border-0 shadow-none text-center"
-                                                                            placeholder="Schedule Start Date" :name="'courseSchedules['+index+'][start]'" required/>
+                                                                            placeholder="Schedule Start Date" :name="'course_schedules['+index+'][start]'" required/>
                                                             </td>
                                                             <td class="p-0">
                                                                 <flat-pickr v-model="schedule.end"
                                                                             :config="dateConfig" class="form-control m-0 border-0 shadow-none text-center"
-                                                                            placeholder="Schedule End Date" :name="'courseSchedules['+index+'][end]'" required/>
+                                                                            placeholder="Schedule End Date" :name="'course_schedules['+index+'][end]'" required/>
                                                             </td>
                                                             <td class="text-center"><a @click="deleteThisSchedule(index)" class="btn btn-sm btn-outline-danger"><i class="fa fa-trash"></i></a></td>
                                                         </tr>
@@ -186,14 +204,18 @@
                                                             <div class="form-group mb-2">
                                                                 <label class="form-label">Payment Duration</label>
                                                                 <input type="number" class="form-control" name="payment_instalment_duration" v-model="param.payment_instalment_duration" placeholder="Total Installment" @keyup="calculateInstallment" @change="calculateInstallment" required>
-                                                                @if($errors->has('payment_instalment_duration')) <small class="text-danger">{{$errors->first('payment_instalment_duration')}}</small> @endif
+                                                                @if($errors->has('payment_instalment_duration'))
+                                                                    <small class="text-danger">{{$errors->first('payment_instalment_duration')}}</small>
+                                                                @endif
                                                             </div>
                                                         </div>
                                                         <div class="col-lg-4">
                                                             <div class="form-group mb-2">
                                                                 <label class="form-label">Total Installment</label>
                                                                 <input type="number" class="form-control" name="payment_total_instalment" v-model="param.payment_total_instalment" placeholder="Total Installment" @keyup="calculateInstallment" @change="calculateInstallment" required>
-                                                                @if($errors->has('payment_total_instalment')) <small class="text-danger">{{$errors->first('payment_total_instalment')}}</small> @endif
+                                                                @if($errors->has('payment_total_instalment'))
+                                                                    <small class="text-danger">{{$errors->first('payment_total_instalment')}}</small>
+                                                                @endif
                                                             </div>
                                                         </div>
                                                     </div>
@@ -212,7 +234,12 @@
                                                         <tr v-for="(instalment,index) in param.payment_instalment_details">
                                                             <td>#@{{ index+1 }}</td>
                                                             <td class="p-0"><input type="text" class="form-control border-0 shadow-none text-center" v-model="instalment.days" placeholder="Days" :name="'payment_instalment_details['+index+'][days]'"></td>
-                                                            <td class="p-0"><input type="text" class="form-control border-0 shadow-none text-center" v-model="instalment.amount" placeholder="Payment Amount" :name="'payment_instalment_details['+index+'][amount]'" @change="calculateInstallmentTotalPrice" @keyup="calculateInstallmentTotalPrice"></td>
+                                                            <td class="p-0">
+                                                                <select v-model="instalment.price_id" :name="'payment_instalment_details['+index+'][price_id]'" class="form-select border-0 shadow-none text-center">
+                                                                    <option value="">Select Installment Fee</option>
+                                                                    <option v-for="price in coursePrices" :value="price._id">£ @{{ price.price }} - @{{ price.name}}</option>
+                                                                </select>
+                                                            </td>
                                                             <td class=" text-center"><a @click="deleteThisInstallment(index)" class="btn btn-sm btn-outline-danger"><i class="fa fa-trash"></i></a></td>
                                                         </tr>
                                                         </tbody>
@@ -233,7 +260,9 @@
                                                         <label class="form-check-label" for="course_discount">Enable Discount</label>
                                                     </div>
                                                 </div>
-                                                @if($errors->has('course_title')) <small class="text-danger">{{$errors->first('course_title')}}</small> @endif
+                                                @if($errors->has('course_title'))
+                                                    <small class="text-danger">{{$errors->first('course_title')}}</small>
+                                                @endif
                                             </div>
                                         </div>
                                         <div class="col-lg-12" v-if="param.course_discount == 1">
@@ -245,7 +274,9 @@
                                                             <flat-pickr v-model="param.course_discount_start_date"
                                                                         :config="dateConfig" class="form-control m-0 border-0 shadow-none"
                                                                         placeholder="Discount Start Date" name="course_discount_start_date" required/>
-                                                            @if($errors->has('course_discount_start_date')) <small class="text-danger">{{$errors->first('course_discount_start_date')}}</small> @endif
+                                                            @if($errors->has('course_discount_start_date'))
+                                                                <small class="text-danger">{{$errors->first('course_discount_start_date')}}</small>
+                                                            @endif
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-6">
@@ -254,14 +285,18 @@
                                                             <flat-pickr v-model="param.course_discount_end_date"
                                                                         :config="dateConfig" class="form-control m-0 border-0 shadow-none"
                                                                         placeholder="Discount End Date" name="course_discount_end_date" required/>
-                                                            @if($errors->has('course_discount_end_date')) <small class="text-danger">{{$errors->first('course_discount_end_date')}}</small> @endif
+                                                            @if($errors->has('course_discount_end_date'))
+                                                                <small class="text-danger">{{$errors->first('course_discount_end_date')}}</small>
+                                                            @endif
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-6">
                                                         <div class="form-group mb-4">
                                                             <label class="form-label">Discount Amount</label>
                                                             <input type="text" class="form-control" name="course_discount_amount" v-model="param.course_discount_amount" placeholder="Discount Amount" @keyup="calculateInstallment" @change="calculateInstallment" required>
-                                                            @if($errors->has('course_discount_amount')) <small class="text-danger">{{$errors->first('course_discount_amount')}}</small> @endif
+                                                            @if($errors->has('course_discount_amount'))
+                                                                <small class="text-danger">{{$errors->first('course_discount_amount')}}</small>
+                                                            @endif
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-6">
@@ -271,7 +306,9 @@
                                                             <div class="w-100">
                                                                 <small class="text-info">If want to enable this discount for all then keep the promo code blank</small>
                                                             </div>
-                                                            @if($errors->has('course_discount_promo_code')) <small class="text-danger">{{$errors->first('course_discount_promo_code')}}</small> @endif
+                                                            @if($errors->has('course_discount_promo_code'))
+                                                                <small class="text-danger">{{$errors->first('course_discount_promo_code')}}</small>
+                                                            @endif
                                                         </div>
                                                     </div>
                                                 </div>
@@ -311,7 +348,8 @@
     <script type="application/javascript" src="{{asset('assets/js/plugins/ckeditor/ckeditor.js')}}"></script>
     <script type="application/javascript" src="{{asset('assets/js/plugins/flatpickr/flatpickr.min.js')}}"></script>
     <script>
-        window.course_details = {!! json_encode($course) !!}
+        window.course_details = {!! json_encode($course, true) !!};
+        window.coursePrices = {!! json_encode($coursePrices, true) !!};
     </script>
     @vite('resources/js/cms/pages/course/course-create.js')
 @endsection

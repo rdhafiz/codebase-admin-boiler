@@ -7,6 +7,8 @@ use App\Http\Middleware\AdminAuthApiReq;
 use App\Http\Middleware\AdminAuthCheck;
 use App\Http\Middleware\AdminAuthReq;
 use App\Http\Middleware\AdminPermissionReq;
+use App\Http\Middleware\UserAuthCheck;
+use App\Http\Middleware\UserAuthReq;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -72,6 +74,8 @@ class Kernel extends HttpKernel
         'AdminAuthReq' => AdminAuthReq::class,
         'AdminAuthApiCheck' => AdminAuthApiCheck::class,
         'AdminAuthApiReq' => AdminAuthApiReq::class,
-        'AdminPermissionReq' => AdminPermissionReq::class
+        'AdminPermissionReq' => AdminPermissionReq::class,
+        'UserAuthCheck' => UserAuthCheck::class,
+        'UserAuthReq' => UserAuthReq::class
     ];
 }
