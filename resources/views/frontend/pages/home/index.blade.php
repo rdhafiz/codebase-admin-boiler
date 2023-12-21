@@ -366,7 +366,7 @@
                 <div class="position-sticky top-0" style="padding-top: 120px;">
 {{--                    <h2 class="display-3 mb-0 mb-md-3 pb-lg-3">Why would you choose us?</h2>--}}
                     <h2 class="text-body h1 fw-bold lh-1 pe-3 d-flex justify-content-center">
-                        Why Would You Choose Us?
+                        Why Would You <br/>Choose Us?
                     </h2>
                 </div>
             </div>

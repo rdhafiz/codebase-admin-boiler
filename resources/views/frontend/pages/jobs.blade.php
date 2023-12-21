@@ -6,7 +6,7 @@
 
 @section('content')
 
-    <section class="bg-body py-5">
+    <section class="bg-body py-5 my-lg-0 mt-3">
         <div class="container py-md-2 py-lg-4 my-xl-2 my-xxl-3">
 
             <div class="row py-4 my-2 my-md-3 my-lg-4">
@@ -55,21 +55,21 @@
                     </div>
                 </div>
                 <div class="col-md-9 col-lg-9">
-                    <div>
+                    <div class="mb-4 mb-lg-1">
                         <span class="badge fs-sm bg-warning text-white mb-2">Locum</span>
                         <h2 class="mb-2">Assistant Practitioner</h2>
                         <p class="fs-lg mb-0 mb-lg-4">
                             This programme is designed for those who want to pursue a career in Artificial Intelligence (specialising in machine learning and deep learning), developing smart and insightful software agents/algorithms that can...
                         </p>
                     </div>
-                    <div>
+                    <div class="mb-4 mb-lg-1">
                         <span class="badge fs-sm bg-success text-white mb-2">Permanent</span>
                         <h2 class="mb-2">Neonatal Nursing Associate</h2>
                         <p class="fs-lg mb-0 mb-lg-4">
                             This programme is designed for those who want to pursue a career in Artificial Intelligence (specialising in machine learning and deep learning), developing smart and insightful software agents/algorithms that can...
                         </p>
                     </div>
-                    <div>
+                    <div class="mb-4 mb-lg-1">
                         <span class="badge fs-sm bg-info text-white mb-2">Temporary</span>
                         <h2 class="mb-2">Assistant Practitioner - District Nursing Team</h2>
                         <p class="fs-lg mb-0 mb-lg-4">
