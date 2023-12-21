@@ -18,7 +18,7 @@
         <nav class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav navbar-nav-scroll ms-auto" style="--ar-scroll-height: 520px;">
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle active" href="#" data-bs-toggle="dropdown" aria-expanded="false">Training</a>
+                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Training</a>
                     <div class="dropdown-menu overflow-hidden p-0">
                         <div class="d-lg-flex">
                             <div class="mega-dropdown-column pt-1 pt-lg-3 pb-lg-4">

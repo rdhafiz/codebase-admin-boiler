@@ -10,7 +10,7 @@
 
         <div class="row pb-lg-5">
             <div class="col-12">
-                <h1 class="display-3 fw-medium text-uppercase mb-0 text-theme-dark">
+                <h1 class="display-3 fw-medium text-uppercase mb-0 text-primary">
                     Resources
                 </h1>
                 <hr>

@@ -11,7 +11,7 @@
         <div class="container pt-5 pb-lg-2 pb-xl-4 py-xxl-5">
 
             <!-- Page title -->
-            <h1 class="display-3 fw-medium text-theme-dark">
+            <h1 class="display-3 fw-medium text-primary">
                 We'd love to hear from you
             </h1>
             <p class="fs-lg pb-4 mb-2 mb-sm-3">
