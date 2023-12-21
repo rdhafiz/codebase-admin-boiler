@@ -88,6 +88,12 @@
                             </li>
                         </ul>
                     </li>
+                    <li class="nav-main-item">
+                        <a class="nav-main-link" href="{{route('CMS.config.index')}}">
+                            <i class="nav-main-link-icon fa fa-users-rectangle"></i>
+                            <span class="nav-main-link-name">Config</span>
+                        </a>
+                    </li>
                     <li class="nav-main-heading">Learning Management</li>
                     <li class="nav-main-item">
                         <a class="nav-main-link" href="{{route('CMS.trainer.index')}}">
@@ -101,7 +107,7 @@
                             <span class="nav-main-link-name">Learner Management</span>
                         </a>
                     </li>
-                    <li class="nav-main-item {{in_array(Route::currentRouteName(), ['CMS.course.category.index','CMS.course.category.create','CMS.course.category.edit','CMS.course.type.index','CMS.course.type.create','CMS.course.type.edit']) ? 'open' : ''}}">
+                    <li class="nav-main-item {{in_array(Route::currentRouteName(), ['CMS.course.category.index','CMS.course.category.create','CMS.course.category.edit','CMS.course.type.index','CMS.course.type.create','CMS.course.type.edit','CMS.course.price.index','CMS.course.price.create','CMS.course.price.edit']) ? 'open' : ''}}">
                         <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="true" href="javascript:void(0)">
                             <i class="nav-main-link-icon fa fa-cubes"></i>
                             <span class="nav-main-link-name">Course Management</span>
@@ -123,6 +129,12 @@
                                 <a class="nav-main-link {{in_array(Route::currentRouteName(), ['CMS.course.type.index','CMS.course.type.create','CMS.course.type.edit']) ? 'active' : ''}}" href="{{route('CMS.course.type.index')}}">
                                     <i class="nav-main-link-icon fa fa-cubes-stacked"></i>
                                     <span class="nav-main-link-name">Course Type</span>
+                                </a>
+                            </li>
+                            <li class="nav-main-item">
+                                <a class="nav-main-link {{in_array(Route::currentRouteName(), ['CMS.course.price.index','CMS.course.price.create','CMS.course.price.edit']) ? 'active' : ''}}" href="{{route('CMS.course.price.index')}}">
+                                    <i class="nav-main-link-icon fa fa-gbp"></i>
+                                    <span class="nav-main-link-name">Course Price</span>
                                 </a>
                             </li>
                         </ul>

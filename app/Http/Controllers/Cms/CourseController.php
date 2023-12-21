@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Course;
 use App\Models\CourseCategories;
 use App\Models\CourseInstallments;
+use App\Models\CoursePrice;
 use App\Models\CourseSchedules;
 use App\Models\CourseType;
 use Illuminate\Http\Request;
@@ -24,7 +25,8 @@ class CourseController extends Controller
     {
         $courseCategory = CourseCategories::orderBy('name', 'asc')->get()->toArray();
         $courseType = CourseType::orderBy('name', 'asc')->get()->toArray();
-        return view('cms.pages.course.create', compact('courseCategory', 'courseType'));
+        $coursePrices = CoursePrice::orderBy('name', 'asc')->get()->toArray();
+        return view('cms.pages.course.create', compact('courseCategory', 'courseType', 'coursePrices'));
     }
 
     public function store(Request $request)
@@ -35,7 +37,7 @@ class CourseController extends Controller
                 "course_workstations" => 'nullable|numeric',
                 "course_category" => "required",
                 "course_type" => "required",
-                "course_fee" => "required|numeric",
+                "course_fee" => "required",
                 "course_duration" => "required|numeric",
                 "course_start_date" => "required|date",
                 "course_end_date" => "required|date",
@@ -79,7 +81,7 @@ class CourseController extends Controller
             if ($course) {
                 if (is_array($request->course_schedules) && count($request->course_schedules) > 0) {
                     $course_schedules = [];
-                    foreach ($request->course_schedules as $courseSchedule){
+                    foreach ($request->course_schedules as $courseSchedule) {
                         $course_schedules[] = array(
                             'course_id' => $course->_id,
                             'start' => $courseSchedule['start'],
@@ -92,11 +94,11 @@ class CourseController extends Controller
                     CourseInstallments::insert($request->payment_instalment_details);
 
                     $payment_instalment_details = [];
-                    foreach ($request->payment_instalment_details as $payment_instalment_detail){
+                    foreach ($request->payment_instalment_details as $payment_instalment_detail) {
                         $payment_instalment_details[] = array(
                             'course_id' => $course->_id,
                             'days' => $payment_instalment_detail['days'],
-                            'amount' => $payment_instalment_detail['amount'],
+                            'price_id' => $payment_instalment_detail['price_id'],
                         );
                     }
                     CourseInstallments::insert($payment_instalment_details);
@@ -118,8 +120,9 @@ class CourseController extends Controller
     {
         $courseCategory = CourseCategories::orderBy('name', 'asc')->get()->toArray();
         $courseType = CourseType::orderBy('name', 'asc')->get()->toArray();
-        $course = Course::with(['course_schedules','payment_instalment_details'])->where('_id', $id)->first();
-        return view('cms.pages.course.edit', compact('courseCategory', 'courseType', 'course'));
+        $coursePrices = CoursePrice::orderBy('name', 'asc')->get()->toArray();
+        $course = Course::with(['course_schedules', 'payment_instalment_details'])->where('_id', $id)->first();
+        return view('cms.pages.course.edit', compact('courseCategory', 'courseType', 'coursePrices', 'course'));
     }
 
     public function update(Request $request, $id)
@@ -134,7 +137,7 @@ class CourseController extends Controller
                 "course_workstations" => 'nullable|numeric',
                 "course_category" => "required",
                 "course_type" => "required",
-                "course_fee" => "required|numeric",
+                "course_fee" => "required",
                 "course_duration" => "required|numeric",
                 "course_start_date" => "required|date",
                 "course_end_date" => "required|date",
@@ -177,7 +180,7 @@ class CourseController extends Controller
             if ($course) {
                 if (is_array($request->course_schedules) && count($request->course_schedules) > 0) {
                     $course_schedules = [];
-                    foreach ($request->course_schedules as $courseSchedule){
+                    foreach ($request->course_schedules as $courseSchedule) {
                         $course_schedules[] = array(
                             'course_id' => $course->_id,
                             'start' => $courseSchedule['start'],
@@ -191,11 +194,11 @@ class CourseController extends Controller
                     CourseInstallments::insert($request->payment_instalment_details);
 
                     $payment_instalment_details = [];
-                    foreach ($request->payment_instalment_details as $payment_instalment_detail){
+                    foreach ($request->payment_instalment_details as $payment_instalment_detail) {
                         $payment_instalment_details[] = array(
                             'course_id' => $course->_id,
                             'days' => $payment_instalment_detail['days'],
-                            'amount' => $payment_instalment_detail['amount'],
+                            'price_id' => $payment_instalment_detail['price_id'],
                         );
                     }
                     CourseInstallments::where('course_id', $course->_id)->delete();

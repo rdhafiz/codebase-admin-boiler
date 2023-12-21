@@ -37,6 +37,7 @@ createApp({
             autoCalculate: 0,
             installmentTotalPrice: 0,
             installmentTotalPriceExceed: 0,
+            coursePrices: window.coursePrices
         }
     },
     methods: {
@@ -61,8 +62,10 @@ createApp({
         },
         calculateInstallment() {
             this.param.payment_instalment_details.length = 0;
+            const course_fee = document.getElementById('courseForm').elements['course_fee'];
+            this.param.course_fee = course_fee.options[course_fee.selectedIndex].dataset.price;
             let Fee = this.param.course_fee;
-            if(this.param.course_discount_amount > 0){
+            if (this.param.course_discount_amount > 0) {
                 Fee = this.param.course_fee - this.param.course_discount_amount;
             }
             if (Fee > 0 && this.param.payment_instalment_duration > 0 && this.param.payment_total_instalment > 0) {
@@ -71,66 +74,54 @@ createApp({
                 while (i < this.param.payment_total_instalment) {
                     const sl = i + 1;
                     let days = Math.floor(divideDays);
-                    let amount = Math.floor(Fee / this.param.payment_total_instalment);
                     if (sl === this.param.payment_total_instalment) {
                         days = Math.ceil(divideDays);
-                        amount = Math.ceil(Fee / this.param.payment_total_instalment);
                     }
                     this.param.payment_instalment_details.push({
                         days: days,
-                        amount: amount
+                        price_id: ''
                     });
                     i++;
                 }
-                this.calculateInstallmentTotalPrice();
-            }
-        },
-        calculateInstallmentTotalPrice(){
-            this.installmentTotalPrice = 0;
-            this.installmentTotalPriceExceed = 0;
-            this.param.payment_instalment_details.forEach((v) => {
-                this.installmentTotalPrice = parseFloat(this.installmentTotalPrice) + parseFloat(v.amount);
-            })
-            if(this.installmentTotalPrice > (this.param.course_fee - this.param.course_discount_amount)){
-                this.installmentTotalPriceExceed = 1;
             }
         },
         deleteThisInstallment(index) {
             this.param.payment_instalment_details.splice(index, 1);
             this.calculateInstallment();
         },
-        calculateSchedule(){
+        calculateSchedule() {
             if(this.autoCalculate === 1){
                 this.param.course_schedules.length = 0;
                 const course_duration = parseFloat(document.getElementById('courseForm').elements['course_duration'].value) || 0;
                 const course_start_date = document.getElementById('courseForm').elements['course_start_date'].value;
-                const course_end_date = document.getElementById('courseForm').elements['course_end_date'].value;
-                if(course_duration > 0 && course_start_date.trim() !== '' && course_end_date.trim() !== ''){
-                    this.param.course_schedules = this.divideSchedule(course_start_date, course_end_date, course_duration);
+                if (course_duration > 0 && course_start_date.trim() !== '') {
+                    const start = new Date(course_start_date);
+                    const current = new Date(start.getTime());
+                    const end = new Date(current.setDate(current.getDate() + course_duration));
+                    this.param.course_schedules.push({
+                        start: moment(start).format('YYYY-MM-DD'),
+                        end: moment(end).format('YYYY-MM-DD')
+                    })
                 }
             }
         },
-        divideSchedule(start, end, days) {
-            const result = [];
-            start = new Date(start);
-            end = new Date(end);
-            const current = new Date(start.getTime());
-            do {
-                const d1 = new Date(current.getTime());
-                const d2 = new Date(current.setDate(current.getDate() + days));
-
-                result.push({
-                    start: moment(d1).format('YYYY-MM-DD'),
-                    end: d2 <= end ? moment(new Date(d2.setDate(d2.getDate() - 1))).format('YYYY-MM-DD') : moment(end).format('YYYY-MM-DD')
-                });
-            } while (current <= end);
-
-            return result;
+        calculateThisSchedule(index) {
+            const course_duration = parseFloat(document.getElementById('courseForm').elements['course_duration'].value) || 0;
+            const start_date = this.param.course_schedules[index].start;
+            if (course_duration > 0 && start_date.trim() !== '') {
+                const start = new Date(start_date);
+                const current = new Date(start.getTime());
+                const end = new Date(current.setDate(current.getDate() + course_duration));
+                this.param.course_schedules[index] = {
+                    start: moment(start).format('YYYY-MM-DD'),
+                    end: moment(end).format('YYYY-MM-DD')
+                }
+            }
         },
-        deleteThisSchedule(index){
+        deleteThisSchedule(index) {
             this.param.course_schedules.splice(index, 1);
         },
-        addNewSchedule(){
+        addNewSchedule() {
             this.param.course_schedules.push({
                 start: null,
                 end: null
@@ -146,12 +137,12 @@ createApp({
         vueInstance.style.display = 'block';
         window.Codebase.helpersOnLoad(['js-flatpickr']);
         window.Codebase.helpersOnLoad(['js-ckeditor'], {
-            toolbar : 'Basic',
-            uiColor : '#9AB8F3'
+            toolbar: 'Basic',
+            uiColor: '#9AB8F3'
         });
-        if(window.course_details !== undefined){
+        if (window.course_details !== undefined) {
             this.param = window.course_details;
-            console.log(this.param)
+            console.log(this.param.course_schedules);
         }
         setTimeout(() => {
             this.autoCalculate = 1;
