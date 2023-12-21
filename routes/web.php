@@ -1,11 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
 use App\Http\Controllers\Frontend\HomePageController;
 use App\Http\Controllers\Frontend\TrainingPageController;
 use App\Http\Controllers\Frontend\ResourcesPageController;
 use App\Http\Controllers\Frontend\InternationalCandidatesPageController;
+use App\Http\Controllers\Frontend\AboutPageController;
+use App\Http\Controllers\Frontend\ContactPageController;
+use App\Http\Controllers\Frontend\JobsPageController;
 use App\Http\Controllers\Frontend\ApplyController;
 use App\Http\Controllers\Frontend\AuthController;
 use App\Http\Controllers\Frontend\ProfileController;
@@ -31,6 +33,9 @@ Route::get('/', [HomePageController::class, "viewPage"])->name('home');
 Route::get('osce-training', [TrainingPageController::class, "viewPage"])->name('osce');
 Route::get('resources', [ResourcesPageController::class, "viewPage"])->name('resources');
 Route::get('international-candidates', [InternationalCandidatesPageController::class, "ViewPage"])->name('international-candidates');
+Route::get('about', [AboutPageController::class, "ViewPage"])->name('about-us');
+Route::get('contact', [ContactPageController::class, "ViewPage"])->name('contact-us');
+Route::get('jobs', [JobsPageController::class, "ViewPage"])->name('jobs');
 
 
 // User Authentication

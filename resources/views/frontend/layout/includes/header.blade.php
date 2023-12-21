@@ -70,7 +70,7 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="components/typography.html">Jobs</a>
+                        <a class="nav-link @if(Route::currentRouteName() == 'jobs') active @endif" href="{{ route('jobs') }}">Jobs</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link @if(Route::currentRouteName() == 'international-candidates') active @endif" href="{{ route('international-candidates') }}">International Candidate</a>
@@ -79,10 +79,10 @@
                         <a class="nav-link @if(Route::currentRouteName() == 'resources') active @endif" href="{{ route('resources') }}">Resources</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="components/typography.html">About</a>
+                        <a class="nav-link @if(Route::currentRouteName() == 'about-us') active @endif" href="{{ route('about-us') }}">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="docs/getting-started.html">Contact</a>
+                        <a class="nav-link @if(Route::currentRouteName() == 'contact-us') active @endif" href="{{ route('contact-us') }}">Contact</a>
                     </li>
                 </ul>
                 <div class="d-sm-none p-3 mt-n3">

@@ -25,3 +25,8 @@
 .nav-link:hover, .nav-link:focus, .dropdown-item:hover, .dropdown-item:focus {
     color: var(--color-theme-dark) !important;
 }
+
+.form-check-input:checked {
+    background-color: var(--color-theme-dark);
+    border-color: var(--color-theme-dark);
+}
