@@ -20,4 +20,8 @@ class ProfileController extends BaseController
     {
         return view("frontend.pages.profile.profile");
     }
+    public function training()
+    {
+        return view("frontend.pages.profile.training");
+    }
 }

@@ -27,6 +27,7 @@ class User extends Eloquent implements Authenticatable
      */
     protected $hidden = [
         'password',
+        'reset_code',
         'remember_token',
         'created_at',
         'updated_at',

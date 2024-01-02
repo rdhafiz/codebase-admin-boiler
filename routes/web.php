@@ -42,12 +42,18 @@ Route::get('jobs', [JobsPageController::class, "ViewPage"])->name('jobs');
 Route::group(['middleware' => [UserAuthCheck::class]], function () {
     Route::get('/login', [AuthController::class, "login"])->name('front.login');
     Route::post('/login', [AuthController::class, "loginAction"])->name('front.login.action');
+    Route::get('/forgot-password', [AuthController::class, "forgot"])->name('front.forgot');
+    Route::post('/forgot-password', [AuthController::class, "forgotAction"])->name('front.forgot.action');
+    Route::get('/reset-password', [AuthController::class, "reset"])->name('front.reset');
+    Route::post('/reset-password', [AuthController::class, "resetAction"])->name('front.reset.action');
 });
 // User Profile
 Route::group(['middleware' => [UserAuthReq::class]], function () {
     Route::get('/logout', [AuthController::class, "logout"])->name('front.logout');
 
     Route::get('/profile', [ProfileController::class, "profile"])->name('front.profile');
+
+    Route::get('/training', [ProfileController::class, "training"])->name('front.training');
 });
 
 // Apply Course
