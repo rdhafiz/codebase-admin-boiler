@@ -62,8 +62,8 @@
                                 {{auth()->user()->name}}
                             </button>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="{{route('front.profile')}}">Profile</a>
-                                <a class="dropdown-item" href="#">Training</a>
+                                <a class="dropdown-item @if(Route::currentRouteName() == 'front.profile') active @endif" href="{{route('front.profile')}}">Profile</a>
+                                <a class="dropdown-item @if(Route::currentRouteName() == 'front.training') active @endif" href="{{route('front.training')}}">Training</a>
                                 <hr class="my-2">
                                 <a class="dropdown-item" href="{{route('front.logout')}}">Logout</a>
                             </div>

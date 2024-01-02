@@ -16,13 +16,22 @@
                     <div class="col-lg-9 pt-4 pb-2 pb-sm-4">
                         <h1 class="h2 mb-4">Overview</h1>
 
+                        <div class="w-100">
+                            @if($errors->has('success'))
+                                <p class="alert alert-success">{{$errors->first('success')}}</p>
+                            @endif
+                            @if($errors->has('error'))
+                                <p class="alert alert-danger">{{$errors->first('error')}}</p>
+                            @endif
+                        </div>
+
                         <!-- Basic info -->
                         <section class="card border-0 py-1 p-md-2 p-xl-3 p-xxl-4 mb-4">
                             <div class="card-body">
                                 <div class="d-flex align-items-center mt-sm-n1 pb-4 mb-0 mb-lg-1 mb-xl-3">
                                     <i class="ai-user text-primary lead pe-1 me-2"></i>
                                     <h2 class="h4 mb-0">Basic info</h2>
-                                    <a class="btn btn-sm btn-secondary ms-auto" href="account-settings.html">
+                                    <a class="btn btn-sm btn-secondary ms-auto" href="{{route('front.profile.update')}}">
                                         <i class="ai-edit ms-n1 me-2"></i>
                                         Edit Profile
                                     </a>
@@ -56,11 +65,11 @@
                                             <tbody>
                                             <tr>
                                                 <td class="border-0 text-body-secondary py-1 px-0">Phone</td>
-                                                <td class="border-0 text-dark fw-medium py-1 ps-3">+1 234 567 890</td>
+                                                <td class="border-0 text-dark fw-medium py-1 ps-3">{{auth()->user()->phone}}</td>
                                             </tr>
                                             <tr>
                                                 <td class="border-0 text-body-secondary py-1 px-0">Gender</td>
-                                                <td class="border-0 text-dark fw-medium py-1 ps-3">Female</td>
+                                                <td class="border-0 text-dark fw-medium py-1 ps-3">{{auth()->user()->gender}}</td>
                                             </tr>
                                             </tbody>
                                         </table>
