@@ -6,7 +6,8 @@
 
 @section('content')
 
-    <section class="bg-body py-5">
+    <div class="w-100 py-5">
+        <section class="bg-body py-5">
             <div class="container mt-5 mt-lg-0 py-md-2 py-lg-4 my-xl-2 my-xxl-3">
 
                 <!-- Item -->
@@ -29,10 +30,10 @@
                             <p class="fs-xl pb-3 mb-1 mb-sm-2 mb-md-3 mb-lg-4">
                                 At Purple Med, we specialise in training and providing qualified medical professionals, such as doctors, nurses and Allied Health Professionals to both the NHS and private sectors in the UK. In addition to offering world-class training, we also provide temporary and permanent staffing solutions for the NHS, primary care, and private sector to ensure our clients have access to skilled and compliant personnel.
                             </p>
-{{--                            <a class="d-inline-flex align-items-center fw-semibold text-decoration-none" href="#">--}}
-{{--                                Learn more--}}
-{{--                                <i class="ai-arrow-right fs-4 ms-2"></i>--}}
-{{--                            </a>--}}
+                            {{--                            <a class="d-inline-flex align-items-center fw-semibold text-decoration-none" href="#">--}}
+                            {{--                                Learn more--}}
+                            {{--                                <i class="ai-arrow-right fs-4 ms-2"></i>--}}
+                            {{--                            </a>--}}
                         </div>
                     </div>
                 </div>
@@ -93,5 +94,6 @@
                 </div>
             </div>
         </section>
+    </div>
 
 @endsection

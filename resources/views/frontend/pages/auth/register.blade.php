@@ -16,7 +16,7 @@
                     <div class="col-md-6 offset-md-3 mb-5 mb-md-0">
                         <div class="card border bg-secondary bg-li py-md-3 py-lg-4 px-lg-4 px-xl-5 mt-5">
                             <div class="card-body">
-                                <h1 class="py-2 pb-lg-3">Sign In</h1>
+                                <h1 class="py-2 pb-lg-3">Sign Up</h1>
                                 <div class="w-100">
                                     @if($errors->has('success'))
                                         <p class="alert alert-success">{{$errors->first('success')}}</p>
@@ -27,6 +27,20 @@
                                 </div>
                                 <form action="{{route('front.login.action')}}" method="post">
                                     {{csrf_field()}}
+                                    <div class="pb-3 mb-3">
+                                        <div class="position-relative">
+                                            <i class="ai-mail fs-lg position-absolute top-50 start-0 translate-middle-y text-dark opacity-80 ms-3"></i>
+                                            <input class="form-control form-control-lg ps-5" type="text" name="first_name" value="{{old('first_name')}}" placeholder="First Name" required>
+                                            @if($errors->has('first_name'))<small class="text-danger">{{$errors->first('first_name')}}</small> @endif
+                                        </div>
+                                    </div>
+                                    <div class="pb-3 mb-3">
+                                        <div class="position-relative">
+                                            <i class="ai-mail fs-lg position-absolute top-50 start-0 translate-middle-y text-dark opacity-80 ms-3"></i>
+                                            <input class="form-control form-control-lg ps-5" type="text" name="last_name" value="{{old('last_name')}}" placeholder="Last Name" required>
+                                            @if($errors->has('last_name'))<small class="text-danger">{{$errors->first('last_name')}}</small> @endif
+                                        </div>
+                                    </div>
                                     <div class="pb-3 mb-3">
                                         <div class="position-relative">
                                             <i class="ai-mail fs-lg position-absolute top-50 start-0 translate-middle-y text-dark opacity-80 ms-3"></i>
@@ -51,7 +65,7 @@
                                             <input class="form-check-input" type="checkbox" id="keep-signedin" name="remember" value="1">
                                             <label class="form-check-label ms-1" for="keep-signedin">Keep me signed in</label>
                                         </div>
-                                        <a class="text-primary fs-sm fw-semibold text-decoration-none my-1" href="{{route('front.forgot')}}">Forgot password?</a>
+                                        <a class="text-primary fs-sm fw-semibold text-decoration-none my-1" href="account-password-recovery.html">Forgot password?</a>
                                     </div>
                                     <button class="btn btn-lg btn-primary w-100 mb-4" type="submit">Sign in</button>
 
