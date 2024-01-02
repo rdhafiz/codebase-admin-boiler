@@ -11,11 +11,11 @@
                 </div>
                 <nav class="nav flex-column pb-2 pb-lg-4 mb-3">
                     <h4 class="fs-xs fw-medium text-body-secondary text-uppercase pb-1 mb-2">Account</h4>
-                    <a class="nav-link fw-semibold py-2 px-0 active" href="{{route('front.profile')}}">
+                    <a class="nav-link fw-semibold py-2 px-0 @if(Route::currentRouteName() == 'front.profile') active @endif" href="{{route('front.profile')}}">
                         <i class="ai-user-check fs-5 opacity-60 me-2"></i>
                         Overview
                     </a>
-                    <a class="nav-link fw-semibold py-2 px-0" href="{{route('front.training')}}">
+                    <a class="nav-link fw-semibold py-2 px-0 @if(Route::currentRouteName() == 'front.training') active @endif" href="{{route('front.training')}}">
                         <i class="ai-settings fs-5 opacity-60 me-2"></i>
                         Training
                     </a>
