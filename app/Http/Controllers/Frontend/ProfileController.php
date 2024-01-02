@@ -20,14 +20,17 @@ class ProfileController extends BaseController
     {
         return view("frontend.pages.profile.profile");
     }
+
     public function profileUpdate()
     {
         return view("frontend.pages.profile.profile-update");
     }
+
     public function training()
     {
         return view("frontend.pages.profile.training");
     }
+
     public function profileUpdateAction(Request $request)
     {
         try {
@@ -42,15 +45,19 @@ class ProfileController extends BaseController
             }
 
             $learner = User::where('_id', Auth::id())->first();
+            $name = $request->first_name . ' ' . $request->last_name;
 
-            $imagePath = null;
-            if (empty($learner->avatar)) {
+            $imagePath = $learner->avatar;
+            if (!empty($request->avatar)) {
                 $imagePath = MediaServices::upload($request->avatar);
+            } elseif (empty($learner->avatar)) {
+                $imagePath = MediaServices::uploadDummy($name);
             }
 
             $learner->avatar = $imagePath;
             $learner->first_name = $request->first_name;
             $learner->last_name = $request->last_name;
+            $learner->name = $name;
             $learner->country = $request->country;
             $learner->gender = $request->gender;
             $learner->phone = $request->phone ?? null;

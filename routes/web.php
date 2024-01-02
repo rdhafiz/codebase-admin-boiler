@@ -42,6 +42,8 @@ Route::get('jobs', [JobsPageController::class, "ViewPage"])->name('jobs');
 Route::group(['middleware' => [UserAuthCheck::class]], function () {
     Route::get('/login', [AuthController::class, "login"])->name('front.login');
     Route::post('/login', [AuthController::class, "loginAction"])->name('front.login.action');
+    Route::get('/register', [AuthController::class, "register"])->name('front.register');
+    Route::post('/register', [AuthController::class, "registerAction"])->name('front.register.action');
     Route::get('/forgot-password', [AuthController::class, "forgot"])->name('front.forgot');
     Route::post('/forgot-password', [AuthController::class, "forgotAction"])->name('front.forgot.action');
     Route::get('/reset-password', [AuthController::class, "reset"])->name('front.reset');

@@ -5,7 +5,7 @@
 
 @section('content')
 
-    <main class="page-wrapper my-5 py-5">
+    <main class="page-wrapper py-5">
         <div class="d-flex flex-column position-relative h-100 py-5 my-5">
 
 

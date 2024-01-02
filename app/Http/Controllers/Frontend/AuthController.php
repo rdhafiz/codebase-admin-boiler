@@ -20,10 +20,17 @@ class AuthController extends BaseController
     {
         return view("frontend.pages.auth.login");
     }
+
+    public function register()
+    {
+        return view("frontend.pages.auth.register");
+    }
+
     public function forgot()
     {
         return view("frontend.pages.auth.forgot");
     }
+
     public function reset()
     {
         return view("frontend.pages.auth.reset");
@@ -50,6 +57,40 @@ class AuthController extends BaseController
             } else {
                 return redirect()->back()->withInput($request->all())->withErrors(['error' => ['Invalid Credentials! Please try again.']]);
             }
+
+        } catch (\Exception $e) {
+            return redirect()->back()->withInput($request->all())->withErrors(['error' => $e->getMessage()]);
+        }
+    }
+
+    public function registerAction(Request $request)
+    {
+        try {
+            $validator = Validator::make($request->all(), [
+                'first_name' => 'required|min:3',
+                'last_name' => 'required|min:3',
+                'email' => 'required|email|unique:users,email',
+                'password' => 'required|min:6|confirmed'
+            ]);
+            if ($validator->fails()) {
+                return redirect()->back()->withInput($request->all())->withErrors($validator->errors());
+            }
+
+            $name = $request->first_name . ' ' . $request->last_name;
+            $imagePath = MediaServices::uploadDummy($name);
+            User::create([
+                'avatar' => $imagePath,
+                'first_name' => $request->first_name,
+                'last_name' => $request->last_name,
+                'name' => $name,
+                'email' => $request->email,
+                'password' => bcrypt($request->password),
+                'phone' => null,
+                'country' => null,
+                'gender' => null,
+                'bio' => null
+            ]);
+            return redirect()->route('front.login')->withErrors(['success' => ['Your account has been successfully created! Please login now.']]);
 
         } catch (\Exception $e) {
             return redirect()->back()->withInput($request->all())->withErrors(['error' => $e->getMessage()]);
@@ -94,7 +135,7 @@ class AuthController extends BaseController
             }
 
             $learner = User::where('reset_code', (int)$request->code)->first();
-            if($learner == null){
+            if ($learner == null) {
                 return redirect()->back()->withInput($request->all())->withErrors(['error' => ['Invalid password reset code!']]);
             }
             $learner->reset_code = null;

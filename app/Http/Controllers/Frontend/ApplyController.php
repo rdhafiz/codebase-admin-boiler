@@ -57,8 +57,11 @@ class ApplyController extends BaseController
                     'last_name' => $request->last_name,
                     'name' => $name,
                     'email' => $request->email,
-                    'phone' => null,
                     'password' => bcrypt($password),
+                    'phone' => $request->phone ?? null,
+                    'country' => $request->country ?? null,
+                    'gender' => null,
+                    'bio' => null
                 ]);
 
                 if ($learner != null) {
