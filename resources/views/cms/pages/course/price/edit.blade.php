@@ -38,18 +38,32 @@
 
                             <div class="w-100">
                                 <div class="row">
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-4">
                                         <div class="form-group mb-4">
                                             <label class="form-label">Price Name</label>
                                             <input type="text" class="form-control" name="name" value="{{old('name') ?? $price['name']}}" placeholder="Price Name">
                                             @if($errors->has('name')) <small class="text-danger">{{$errors->first('name')}}</small> @endif
                                         </div>
                                     </div>
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-4">
                                         <div class="form-group mb-4">
                                             <label class="form-label">Price Amount</label>
                                             <input type="text" class="form-control" name="price" value="{{old('price') ?? $price['price']}}" placeholder="Price Amount">
                                             @if($errors->has('price')) <small class="text-danger">{{$errors->first('price')}}</small> @endif
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-group mb-4">
+                                            <label class="form-label">Discount Amount</label>
+                                            <input type="text" class="form-control" name="discount" value="{{old('discount') ?? $price['discount']}}" placeholder="Discount Amount">
+                                            @if($errors->has('discount')) <small class="text-danger">{{$errors->first('discount')}}</small> @endif
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="form-group mb-4">
+                                            <label class="form-label">Discount Message</label>
+                                            <textarea class="form-control" name="discount_message" placeholder="Discount Message">{{old('discount_message') ?? $price['discount_message']}}</textarea>
+                                            @if($errors->has('discount_message')) <small class="text-danger">{{$errors->first('discount_message')}}</small> @endif
                                         </div>
                                     </div>
                                 </div>

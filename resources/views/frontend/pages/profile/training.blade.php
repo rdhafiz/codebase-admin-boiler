@@ -44,11 +44,18 @@
                                                         <div class="me-3 me-sm-4">
                                                             <div class="d-none d-sm-block fs-sm text-body-secondary mb-2">End Date</div>
                                                             <div class="d-sm-none fs-sm text-body-secondary mb-2">End</div>
-                                                            <div class="fs-sm fw-medium text-dark">{{date('d M, Y', strtotime($training['schedule']['start']))}}</div>
+                                                            <div class="fs-sm fw-medium text-dark">{{date('d M, Y', strtotime($training['schedule']['end']))}}</div>
                                                         </div>
                                                         <div class="me-3 me-sm-4">
                                                             <div class="fs-sm text-body-secondary mb-2">Fee</div>
-                                                            <div class="fs-sm fw-medium text-dark">£{{$training['course_details']['course_fee_price']['price']}}</div>
+                                                            <div class="fs-sm fw-medium text-dark">
+                                                                @if($training['course_details']['course_fee_price']['discount'] > 0)
+                                                                    <strong class="text-info">£{{$training['course_details']['course_fee_price']['price'] - $training['course_details']['course_fee_price']['discount']}}</strong>
+                                                                    <s class="text-danger">£{{$training['course_details']['course_fee_price']['price']}}</s>
+                                                                @else
+                                                                    <strong class="text-info">£{{$training['course_details']['course_fee_price']['price']}}</strong>
+                                                                @endif
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </a>

@@ -35,7 +35,9 @@ class CoursePriceController extends Controller
 
             CoursePrice::create([
                 'name' => $request->name,
-                'price' => $request->price
+                'price' => $request->price,
+                'discount' => $request->discount ?? 0,
+                'discount_message' => $request->discount_message ?? null
             ]);
 
             return redirect()->route('CMS.course.price.index')->withErrors(['success' => ['New price has been created successfully']]);
@@ -79,6 +81,8 @@ class CoursePriceController extends Controller
 
             $price->name = $request->name;
             $price->price = $request->price;
+            $price->discount = $request->discount ?? 0;
+            $price->discount_message = $request->discount_message ?? null;
             $price->save();
 
             return redirect()->route('CMS.course.price.index')->withErrors(['success' => ['Course price has been updated successfully']]);

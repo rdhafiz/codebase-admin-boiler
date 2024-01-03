@@ -191,8 +191,6 @@ class CourseController extends Controller
                     CourseSchedules::insert($course_schedules);
                 }
                 if (is_array($request->payment_instalment_details) && count($request->payment_instalment_details) > 0) {
-                    CourseInstallments::insert($request->payment_instalment_details);
-
                     $payment_instalment_details = [];
                     foreach ($request->payment_instalment_details as $payment_instalment_detail) {
                         $payment_instalment_details[] = array(

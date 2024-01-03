@@ -19,7 +19,8 @@ class ProfileController extends BaseController
 {
     public function profile()
     {
-        return view("frontend.pages.profile.profile");
+        $trainings = CourseApplicants::with(['course_details', 'type', 'schedule', 'payment_instalment_details'])->where('user_id', Auth::id())->orderBy('created_at', 'desc')->take(5)->get()->toArray();
+        return view("frontend.pages.profile.profile", compact('trainings'));
     }
 
     public function profileUpdate()

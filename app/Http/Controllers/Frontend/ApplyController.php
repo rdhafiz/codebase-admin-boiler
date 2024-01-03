@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use App\Models\Course;
 use App\Models\CourseApplicantPayments;
 use App\Models\CourseApplicants;
+use App\Models\CourseCategories;
 use App\Models\CourseInstallments;
 use App\Models\CourseType;
 use App\Models\User;
@@ -19,7 +20,8 @@ class ApplyController extends BaseController
 {
     public function index()
     {
-        $courses = Course::with(['course_schedules'])->orderBy('course_title', 'asc')->get();
+        $category = CourseCategories::where('name', 'OSCE')->first();
+        $courses = Course::with(['course_schedules','course_fee_price'])->where('course_category', $category->_id)->orderBy('course_title', 'asc')->get();
         $course_types = CourseType::orderBy('name', 'asc')->get();
         return view("frontend.pages.apply.form", compact('courses', 'course_types'));
     }

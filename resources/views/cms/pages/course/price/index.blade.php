@@ -43,7 +43,14 @@
                             @foreach($prices as $price)
                                 <tr>
                                     <td>{{ $price['name'] }}</td>
-                                    <td class="text-center">{{ $price['price'] }}</td>
+                                    <td class="text-center">
+                                        @if($price['discount'] > 0)
+                                            <strong class="me-1">£{{$price['price'] - $price['discount']}}</strong>
+                                            <s class="text-danger">£{{ $price['price'] }}</s>
+                                        @else
+                                            <strong>{{ $price['price'] }}</strong>
+                                        @endif
+                                    </td>
                                     <td class="text-center">
                                         <a href="{{route('CMS.course.price.edit', [$price['_id']])}}" class="btn btn-sm btn-outline-primary js-bs-tooltip-enabled me-1"><i class="fa fa-edit"></i></a>
                                         <form class="d-inline-block" id="delete_{{$price['_id']}}" action="{{route('CMS.course.price.destroy', [$price['_id']])}}" method="POST">
