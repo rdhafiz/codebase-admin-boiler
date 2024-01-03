@@ -14,7 +14,7 @@
 
                     <!-- Page content -->
                     <div class="col-lg-9 pt-4 pb-2 pb-sm-4">
-                        <h1 class="h2 mb-4">Overview</h1>
+                        <h1 class="h2 mb-4">Profile Update</h1>
 
                         <!-- Basic info -->
                         <section class="card border-0 py-1 p-md-2 p-xl-3 p-xxl-4 mb-4">

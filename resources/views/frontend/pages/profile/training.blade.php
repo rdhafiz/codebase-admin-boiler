@@ -21,107 +21,76 @@
                                 <div class="d-flex align-items-center mt-sm-n1 pb-4 mb-0 mb-lg-1 mb-xl-3">
                                     <i class="ai-open-book text-primary lead pe-1 me-2"></i>
                                     <h2 class="h4 mb-0">Training / Courses</h2>
-                                    <a class="btn btn-sm btn-secondary ms-auto" href="account-orders.html">View all</a>
                                 </div>
 
                                 <!-- Orders accordion -->
                                 <div class="accordion accordion-alt accordion-orders" id="orders">
 
-                                    <!-- Order -->
-                                    <div class="accordion-item border-top border-bottom mb-0">
-                                        <div class="accordion-header">
-                                            <a class="accordion-button d-flex fs-4 fw-normal text-decoration-none py-3 collapsed" href="#order0" data-bs-toggle="collapse">
-                                                <div class="d-flex justify-content-between w-100" style="max-width: 440px;">
-                                                    <div class="me-3 me-sm-4">
-                                                        <div class="fs-sm text-body-secondary">OSCE, 2024</div>
-                                                        <span class="badge bg-info text-white fs-xs">In Progress</span>
-                                                    </div>
-                                                    <div class="me-3 me-sm-4">
-                                                        <div class="d-none d-sm-block fs-sm text-body-secondary mb-2">Start Date</div>
-                                                        <div class="d-sm-none fs-sm text-body-secondary mb-2">Date</div>
-                                                        <div class="fs-sm fw-medium text-dark">January 09, 2024</div>
-                                                    </div>
-                                                    <div class="me-3 me-sm-4">
-                                                        <div class="fs-sm text-body-secondary mb-2">Fee</div>
-                                                        <div class="fs-sm fw-medium text-dark">$1000</div>
-                                                    </div>
-                                                </div>
-                                                <div class="accordion-button-img d-none d-sm-flex ms-auto">
-                                                    &nbsp;
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="accordion-collapse collapse" id="order0" data-bs-parent="#order0">
-                                            <div class="accordion-body">
-                                                <div class="bg-secondary rounded-1 p-4 my-2">
-                                                    <div class="row">
-                                                        <div class="col-sm-6 col-md-6 col-lg-6 mb-3 mb-md-0">
-                                                            <div class="fs-sm fw-medium text-dark mb-1">Payment:</div>
-                                                            <div class="fs-sm">Pay in Installment</div>
-                                                            <a class="btn btn-link py-1 px-0 mt-2" href="#">
-                                                                <i class="ai-time me-2 ms-n1"></i>
-                                                                Payment history
-                                                            </a>
+                                    <!-- Orders -->
+                                    @foreach($trainings as $training)
+                                        <div class="accordion-item border-top border-bottom mb-0">
+                                            <div class="accordion-header">
+                                                <a class="accordion-button d-flex fs-4 fw-normal text-decoration-none py-3 collapsed" href="#order0" data-bs-toggle="collapse">
+                                                    <div class="d-flex justify-content-between w-100">
+                                                        <div class="me-3 me-sm-4">
+                                                            <div class="fs-sm text-body-secondary">{{$training['course_details']['category']['name']}} - {{$training['course_details']['course_title']}} ({{$training['type']['name']}})</div>
+                                                            <span class="badge bg-info text-white fs-xs">In Progress</span>
                                                         </div>
-                                                        <div class="col-md-6 col-lg-6 text-md-end">
-                                                            <button class="btn btn-sm btn-outline-primary w-100 w-md-auto" type="button">
-                                                                <i class="ai-star me-2 ms-n1"></i>
-                                                                Leave a review
-                                                            </button>
+                                                        <div class="me-3 me-sm-4">
+                                                            <div class="d-none d-sm-block fs-sm text-body-secondary mb-2">Start Date</div>
+                                                            <div class="d-sm-none fs-sm text-body-secondary mb-2">Start</div>
+                                                            <div class="fs-sm fw-medium text-dark">{{date('d M, Y', strtotime($training['schedule']['start']))}}</div>
+                                                        </div>
+                                                        <div class="me-3 me-sm-4">
+                                                            <div class="d-none d-sm-block fs-sm text-body-secondary mb-2">End Date</div>
+                                                            <div class="d-sm-none fs-sm text-body-secondary mb-2">End</div>
+                                                            <div class="fs-sm fw-medium text-dark">{{date('d M, Y', strtotime($training['schedule']['start']))}}</div>
+                                                        </div>
+                                                        <div class="me-3 me-sm-4">
+                                                            <div class="fs-sm text-body-secondary mb-2">Fee</div>
+                                                            <div class="fs-sm fw-medium text-dark">£{{$training['course_details']['course_fee_price']['price']}}</div>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            <div class="accordion-collapse collapse" id="order0" data-bs-parent="#order0">
+                                                <div class="accordion-body">
+                                                    <div class="bg-secondary rounded-1 p-4 my-2">
+                                                        <div class="row">
+                                                            <div class="col-sm-4 col-md-4 col-lg-4 mb-3 mb-md-0">
+                                                                <div class="fs-sm fw-medium text-dark mb-1">Payment:</div>
+                                                                <div class="fs-sm">
+                                                                    @if($training['payment_type'] == 1)
+                                                                        Full Payment
+                                                                    @elseif($training['payment_type'] == 2)
+                                                                        Pay in Installment
+                                                                    @endif
+                                                                </div>
+                                                            </div>
+                                                            @foreach($training['payment_instalment_details'] as $step => $instalment)
+                                                                <div class="col-sm-4 col-md-4 col-lg-4 mb-3 mb-md-0">
+                                                                    <div class="fs-sm fw-medium text-dark mb-1">
+                                                                        @if($training['payment_type'] == 1)
+                                                                            Full Payment (£{{$instalment['payment_amount']}})
+                                                                        @elseif($training['payment_type'] == 2)
+                                                                            Installment {{$step+1}} (£{{$instalment['payment_amount']}})
+                                                                        @endif
+                                                                    </div>
+                                                                    <div class="fs-sm">
+                                                                        @if($instalment['status'] == 1)
+                                                                            <span class="badge bg-success text-white fs-xs">Paid</span>
+                                                                        @else
+                                                                            <a class="badge bg-info text-white fs-xs" href="">Pay Now</a>
+                                                                        @endif
+                                                                    </div>
+                                                                </div>
+                                                            @endforeach
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-
-                                    <!-- Order -->
-                                    <div class="accordion-item border-top border-bottom mb-0">
-                                        <div class="accordion-header">
-                                            <a class="accordion-button d-flex fs-4 fw-normal text-decoration-none py-3 collapsed" href="#order1" data-bs-toggle="collapse">
-                                                <div class="d-flex justify-content-between w-100" style="max-width: 440px;">
-                                                    <div class="me-3 me-sm-4">
-                                                        <div class="fs-sm text-body-secondary">OSCE, 2023</div>
-                                                        <span class="badge bg-success bg-opacity-50 text-dark fs-xs">Completed</span>
-                                                    </div>
-                                                    <div class="me-3 me-sm-4">
-                                                        <div class="d-none d-sm-block fs-sm text-body-secondary mb-2">Start Date</div>
-                                                        <div class="d-sm-none fs-sm text-body-secondary mb-2">Date</div>
-                                                        <div class="fs-sm fw-medium text-dark">May 11, 2023</div>
-                                                    </div>
-                                                    <div class="me-3 me-sm-4">
-                                                        <div class="fs-sm text-body-secondary mb-2">Fee</div>
-                                                        <div class="fs-sm fw-medium text-dark">$1000</div>
-                                                    </div>
-                                                </div>
-                                                <div class="accordion-button-img d-none d-sm-flex ms-auto">
-                                                    &nbsp;
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="accordion-collapse collapse" id="order1" data-bs-parent="#order1">
-                                            <div class="accordion-body">
-                                                <div class="bg-secondary rounded-1 p-4 my-2">
-                                                    <div class="row">
-                                                        <div class="col-sm-6 col-md-6 col-lg-6 mb-3 mb-md-0">
-                                                            <div class="fs-sm fw-medium text-dark mb-1">Payment:</div>
-                                                            <div class="fs-sm">Pay in Installment</div>
-                                                            <a class="btn btn-link py-1 px-0 mt-2" href="#">
-                                                                <i class="ai-time me-2 ms-n1"></i>
-                                                                Payment history
-                                                            </a>
-                                                        </div>
-                                                        <div class="col-md-6 col-lg-6 text-md-end">
-                                                            <button class="btn btn-sm btn-outline-primary w-100 w-md-auto" type="button">
-                                                                <i class="ai-star me-2 ms-n1"></i>
-                                                                Leave a review
-                                                            </button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    @endforeach
 
                                 </div>
                             </div>

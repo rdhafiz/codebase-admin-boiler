@@ -34,6 +34,6 @@ class Course extends Eloquent
         return $this->hasMany(CourseSchedules::class, 'course_id', '_id');
     }
     public function payment_instalment_details(){
-        return $this->hasMany(CourseInstallments::class, 'course_id', '_id');
+        return $this->hasMany(CourseInstallments::class, 'course_id', '_id')->with('price');
     }
 }

@@ -56,6 +56,8 @@ Route::group(['middleware' => [UserAuthReq::class]], function () {
     Route::get('/profile', [ProfileController::class, "profile"])->name('front.profile');
     Route::get('/profile/update', [ProfileController::class, "profileUpdate"])->name('front.profile.update');
     Route::post('/profile/update', [ProfileController::class, "profileUpdateAction"])->name('front.profile.update.action');
+    Route::get('/profile/update/password', [ProfileController::class, "profileUpdatePassword"])->name('front.profile.update.password');
+    Route::post('/profile/update/password', [ProfileController::class, "profileUpdatePasswordAction"])->name('front.profile.update.password.action');
 
     Route::get('/training', [ProfileController::class, "training"])->name('front.training');
 });
