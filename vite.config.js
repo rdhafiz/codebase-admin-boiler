@@ -18,6 +18,7 @@ export default defineConfig({
                 'resources/js/cms/auth/login.js',
                 'resources/js/cms/helper/header.js',
 
+                'resources/js/cms/pages/config/config.js',
                 'resources/js/cms/pages/profile/update.js',
                 'resources/js/cms/pages/page/page.js',
                 'resources/js/cms/pages/admin/admin.js',
