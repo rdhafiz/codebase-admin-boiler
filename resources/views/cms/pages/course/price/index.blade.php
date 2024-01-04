@@ -71,5 +71,5 @@
     </div>
 @endsection
 @section('js')
-    @vite('resources/js/cms/pages/course/type.js')
+    @vite('resources/js/cms/pages/course/price.js')
 @endsection
