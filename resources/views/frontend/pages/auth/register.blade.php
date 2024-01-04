@@ -72,7 +72,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <button class="btn btn-lg btn-primary w-100 mb-4" type="submit">Sign in</button>
+                                    <button class="btn btn-lg btn-primary w-100 mb-4" type="submit">Sign Up</button>
 
                                     <!-- Sign Up -->
                                     <h2 class="h6 text-center pt-3 pt-lg-4 mb-2">

@@ -58,7 +58,7 @@
                                             @if($errors->has('password_confirmation'))<small class="text-danger">{{$errors->first('password_confirmation')}}</small> @endif
                                         </div>
                                     </div>
-                                    <button class="btn btn-lg btn-primary w-100 mb-4" type="submit">Sign in</button>
+                                    <button class="btn btn-lg btn-primary w-100 mb-4" type="submit">Reset Password</button>
 
                                 </form>
                             </div>
