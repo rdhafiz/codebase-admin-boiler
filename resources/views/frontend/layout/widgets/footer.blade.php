@@ -2,11 +2,13 @@
 <footer class="footer bg-dark py-5" data-bs-theme="dark">
     <div class="container pt-md-2 pt-lg-3 pt-xl-4">
         <div class="row pb-5 pt-sm-2 mb-lg-2">
-            <div class="col-md-4 col-lg-3 pb-2 pb-md-0 mb-4 mb-md-0">
+            <div class="col-md-3 col-lg-2 pb-2 pb-md-0 mb-4 mb-md-0">
                 <a class="navbar-brand py-0 mb-3 mb-md-4" href="index.html">
                     <img src="{{ asset('assets/images/logo.png') }}" alt="Purple Med Logo">
                 </a>
-                <p class="text-body fs-sm pb-2 pb-md-3 mb-3">Tellus non diam morbi quam vel venenatis proin sed. Dolor elementum nunc dictum interdum amet arcu aenean eu integer</p>
+                <p class="text-body fs-sm pb-2 pb-md-3 mb-3">
+{{--                    Tellus non diam morbi quam vel venenatis proin sed. Dolor elementum nunc dictum interdum amet arcu aenean eu integer--}}
+                </p>
                 <div class="d-flex gap-3">
                     <a class="btn btn-icon btn-sm btn-secondary btn-facebook rounded-circle" href="#" aria-label="Facebook">
                         <i class="ai-facebook"></i>
@@ -19,36 +21,34 @@
                     </a>
                 </div>
             </div>
-            <div class="col-md-8 col-lg-7 col-xl-6 offset-lg-2 offset-xl-3">
+            <div class="col-md-7 col-lg-8 col-xl-6 offset-lg-1 offset-xl-2">
                 <div class="row row-cols-1 row-cols-sm-3">
                     <div class="col mb-4 mb-md-0">
-                        <h4 class="h6 fw-bold pb-lg-1">Company</h4>
+                        <h4 class="h6 fw-bold pb-lg-1">Quick Links</h4>
                         <ul class="nav flex-column">
-                            <li><a class="nav-link fw-normal py-1 px-0" href="#">Features</a></li>
-                            <li><a class="nav-link fw-normal py-1 px-0" href="#">Reviews</a></li>
-                            <li><a class="nav-link fw-normal py-1 px-0" href="#">How it works</a></li>
-                            <li><a class="nav-link fw-normal py-1 px-0" href="#">Pricing</a></li>
+                            <li><a class="nav-link fw-normal py-1 px-0" href="{{ route('osce') }}" target="_blank">OSCE Training</a></li>
+                            <li><a class="nav-link fw-normal py-1 px-0" href="{{ route('about-us') }}" target="_blank">About Us</a></li>
+                            <li><a class="nav-link fw-normal py-1 px-0" href="{{ route('contact-us') }}" target="_blank">Contact Us</a></li>
                         </ul>
                     </div>
                     <div class="col mb-4 mb-md-0">
-                        <h4 class="h6 fw-bold pb-lg-1">Support</h4>
+                        <h4 class="h6 fw-bold pb-lg-1">Staff & Students</h4>
                         <ul class="nav flex-column">
-                            <li><a class="nav-link fw-normal py-1 px-0" href="#">Help center</a></li>
-                            <li><a class="nav-link fw-normal py-1 px-0" href="#">Terms of service</a></li>
-                            <li><a class="nav-link fw-normal py-1 px-0" href="#">Legal</a></li>
-                            <li><a class="nav-link fw-normal py-1 px-0" href="#">Privacy policy</a></li>
+                            <li><a class="nav-link fw-normal py-1 px-0" href="https://teams.microsoft.com" target="_blank">Staff Portal</a></li>
+                            <li><a class="nav-link fw-normal py-1 px-0" href="https://moodle.purplemed.co.uk">Students Portal</a></li>
                         </ul>
                     </div>
-                    <div class="col">
-                        <h4 class="h6 fw-bold pb-2 mb-0 mb-lg-1">Install App</h4>
-                        <a class="btn btn-secondary px-3 py-2 mt-3 me-3 me-md-0" href="#">
-                            <img class="mx-1 d-dark-mode-none" src="assets/images/frontend/market/appstore-dark.svg" width="120" alt="App Store">
-                            <img class="mx-1 d-none d-dark-mode-block" src="assets/images/frontend/market/appstore-light.svg" width="120" alt="App Store">
-                        </a>
-                        <a class="btn btn-secondary px-3 py-2 mt-3 me-3 me-md-0" href="#">
-                            <img class="mx-1 d-dark-mode-none" src="assets/images/frontend/market/googleplay-dark.svg" width="119" alt="Google Play">
-                            <img class="mx-1 d-none d-dark-mode-block" src="assets/images/frontend/market/googleplay-light.svg" width="119" alt="Google Play">
-                        </a>
+                    <div class="col mb-4 mb-md-0">
+                        <h4 class="h6 fw-bold pb-lg-1">Contact Us</h4>
+                        <ul class="nav flex-column">
+                            <li class="fw-normal"><a href="#" class="nav-link fw-normal py-1 px-0">Purple Med,</a></li>
+                            <li><a href="#" class="nav-link fw-normal py-0 px-0">5-7 High Street,</a></li>
+                            <li><a href="#" class="nav-link fw-normal py-0 px-0">London, E130AD,</a></li>
+                            <li><a href="#" class="nav-link fw-normal py-0 px-0">United Kingdom</a></li>
+                            <li></li>
+                            <li><a href="tel://+44(0)2085527370">+44(0)2085527370</a></li>
+                            <li><a href="mailto://info@purplemed.co.uk">info@purplemed.co.uk</a></li>
+                        </ul>
                     </div>
                 </div>
             </div>

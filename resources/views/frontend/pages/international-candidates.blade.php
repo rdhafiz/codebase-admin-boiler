@@ -1,7 +1,7 @@
 @extends('frontend.layout.frontend-layout')
 
 @section('css')
-    @vite(['resources/sass/frontend/home.scss'])
+{{--    @vite(['resources/sass/frontend/home.scss'])--}}
 @show
 
 @section('content')

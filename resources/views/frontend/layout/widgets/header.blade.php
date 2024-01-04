@@ -1,5 +1,4 @@
-<!-- Navbar. Remove 'fixed-top' class to make the navigation bar scrollable with the page -->
-<header class="navbar navbar-expand-lg fixed-top bg-white">
+<header class="navbar navbar-expand-lg fixed-top bg-secondary" data-bs-theme="light">
     <div class="container">
 
         <!-- Navbar brand (Logo) -->
@@ -24,16 +23,16 @@
                             <div class="mega-dropdown-column pt-1 pt-lg-3 pb-lg-4">
                                 <ul class="list-unstyled mb-0">
                                     <li>
-                                        <a class="dropdown-item" href="{{route('osce')}}">OSCE</a>
+                                        <a class="dropdown-item" href="{{ route('osce') }}">OSCE</a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="#">Plab I-II</a>
+                                        <a class="dropdown-item" href="{{ route('plab') }}">Plab I-II</a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="#">CBT</a>
+                                        <a class="dropdown-item" href="{{ route('cbt') }}">CBT</a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="#">English Language</a>
+                                        <a class="dropdown-item" href="{{ route('english-language') }}">English Language</a>
                                     </li>
                                 </ul>
                             </div>

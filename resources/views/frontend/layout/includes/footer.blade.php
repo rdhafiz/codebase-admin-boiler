@@ -6,7 +6,9 @@
                 <a class="navbar-brand py-0 mb-3 mb-md-4" href="index.html">
                     <img src="{{ asset('assets/images/logo.png') }}" alt="Purple Med Logo">
                 </a>
-                <p class="text-body fs-sm pb-2 pb-md-3 mb-3">Tellus non diam morbi quam vel venenatis proin sed. Dolor elementum nunc dictum interdum amet arcu aenean eu integer</p>
+                <p class="text-body fs-sm pb-2 pb-md-3 mb-3">
+{{--                    Tellus non diam morbi quam vel venenatis proin sed. Dolor elementum nunc dictum interdum amet arcu aenean eu integer--}}
+                </p>
                 <div class="d-flex gap-3">
                     <a class="btn btn-icon btn-sm btn-secondary btn-facebook rounded-circle" href="#" aria-label="Facebook">
                         <i class="ai-facebook"></i>

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover">
 
     <!-- SEO meta tags -->
-{{--    <title>{{env('APP_NAME')}}</title>--}}
+    <title>{{env('APP_NAME')}}</title>
     <meta name="description" content="OSCE Course">
     <meta name="keywords" content="OSCE Course, OSCE, Purple Med, Medical, Medics, Plab, Plab 1, Plab 2">
     <meta name="author" content="MediprospectsAI Ltd">
