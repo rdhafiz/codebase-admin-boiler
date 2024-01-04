@@ -8,7 +8,9 @@ export default defineConfig({
                 'resources/sass/main.scss',
                 'resources/sass/frontend/purplemed.scss',
                 'resources/sass/frontend/home.scss',
+
                 'resources/js/frontend/purplemed.js',
+                'resources/js/frontend/pages/osce-apply.js',
 
                 'resources/js/lib/jquery.min.js',
                 'resources/js/codebase/app.js',
@@ -32,6 +34,7 @@ export default defineConfig({
 
                 'resources/js/rcp/auth/login.js',
                 'resources/js/rcp/helper/header.js',
+                'resources/js/rcp/pages/job/job.js',
                 'resources/js/rcp/pages/job/job.js',
 
                 'resources/sass/frontend/theme/theme.scss'

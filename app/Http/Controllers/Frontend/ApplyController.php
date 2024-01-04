@@ -3,12 +3,16 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Models\Course;
+use App\Models\CourseApplicantPayments;
 use App\Models\CourseApplicants;
+use App\Models\CourseCategories;
+use App\Models\CourseInstallments;
 use App\Models\CourseType;
 use App\Models\User;
 use App\Services\MediaServices;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
@@ -16,7 +20,8 @@ class ApplyController extends BaseController
 {
     public function index()
     {
-        $courses = Course::with(['course_schedules'])->orderBy('course_title', 'asc')->get();
+        $category = CourseCategories::where('name', 'OSCE')->first();
+        $courses = Course::with(['course_schedules','course_fee_price'])->where('course_category', $category->_id)->orderBy('course_title', 'asc')->get();
         $course_types = CourseType::orderBy('name', 'asc')->get();
         return view("frontend.pages.apply.form", compact('courses', 'course_types'));
     }
@@ -41,6 +46,8 @@ class ApplyController extends BaseController
                 return redirect()->back()->withInput($request->all())->withErrors($validator->errors());
             }
 
+            $course = Course::with('course_fee_price')->where('_id', $request->course_id)->first();
+
             $learner = User::where('email', $request->email)->first();
             if ($learner == null) {
                 $password = uniqid();
@@ -52,8 +59,11 @@ class ApplyController extends BaseController
                     'last_name' => $request->last_name,
                     'name' => $name,
                     'email' => $request->email,
-                    'phone' => null,
                     'password' => bcrypt($password),
+                    'phone' => $request->phone ?? null,
+                    'country' => $request->country ?? null,
+                    'gender' => null,
+                    'bio' => null
                 ]);
 
                 if ($learner != null) {
@@ -85,7 +95,36 @@ class ApplyController extends BaseController
                 'country_trained' => $request->country_trained ?? null,
                 'agree_to_terms' => $request->agree_to_terms
             ]);
-//            $application = CourseApplicants::with(['course'])->where('_id', $application->_id)->first();
+
+            if ($application) {
+                if ($application->payment_type == 1) {
+                    CourseApplicantPayments::create([
+                        'user_id' => $learner->_id,
+                        'course_id' => $request->course_id,
+                        'application_id' => $application->_id,
+                        'payment_code' => $course->course_fee_price->name,
+                        'payment_amount' => $course->course_fee_price->price,
+                        'status' => 0,
+                        'response' => null,
+                        'error' => null
+                    ]);
+                } else {
+                    $courseInstallments = CourseInstallments::with('price')->where('course_id', $request->course_id)->get()->toArray();
+                    foreach ($courseInstallments as $courseInstallment) {
+                        CourseApplicantPayments::create([
+                            'user_id' => $learner->_id,
+                            'course_id' => $request->course_id,
+                            'application_id' => $application->_id,
+                            'payment_code' => $courseInstallment['price']['name'],
+                            'payment_amount' => $courseInstallment['price']['price'],
+                            'status' => 0,
+                            'response' => null,
+                            'error' => null
+                        ]);
+                    }
+                }
+            }
+
             Mail::send('emails.apply-success', ['learner' => $learner, 'application' => $application], function ($message) use ($learner) {
                 $message->to($learner->email, $learner->name)->subject(env('MAIL_FROM_NAME') . ': New Application Submitted');
                 $message->from(env('MAIL_FROM_ADDRESS'), env('MAIL_FROM_NAME'));

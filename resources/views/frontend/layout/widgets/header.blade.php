@@ -24,7 +24,7 @@
                             <div class="mega-dropdown-column pt-1 pt-lg-3 pb-lg-4">
                                 <ul class="list-unstyled mb-0">
                                     <li>
-                                        <a class="dropdown-item" href="#">OSCE</a>
+                                        <a class="dropdown-item" href="{{route('osce')}}">OSCE</a>
                                     </li>
                                     <li>
                                         <a class="dropdown-item" href="#">Plab I-II</a>
@@ -55,15 +55,15 @@
                 <li class="nav-item">
                     <a class="nav-link @if(Route::currentRouteName() == 'contact-us') active @endif" href="{{ route('contact-us') }}">Contact</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item pt-1">
                     @if(auth()->check())
                         <div class="dropdown">
                             <button class="btn btn-primary btn-sm fs-sm order-lg-3 d-none d-sm-inline-flex dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 {{auth()->user()->name}}
                             </button>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="{{route('front.profile')}}">Profile</a>
-                                <a class="dropdown-item" href="#">Training</a>
+                                <a class="dropdown-item @if(Route::currentRouteName() == 'front.profile') active @endif" href="{{route('front.profile')}}">Profile</a>
+                                <a class="dropdown-item @if(Route::currentRouteName() == 'front.training') active @endif" href="{{route('front.training')}}">Training</a>
                                 <hr class="my-2">
                                 <a class="dropdown-item" href="{{route('front.logout')}}">Logout</a>
                             </div>
