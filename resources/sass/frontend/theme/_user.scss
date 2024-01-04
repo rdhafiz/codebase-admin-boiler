@@ -2,3 +2,32 @@
 // user.scss
 // Use this to write your custom SCSS
 //
+
+.navbar-nav {
+    .nav-link.active, .nav-link.show {
+        text-decoration-color: var(--color-theme-dark) !important;
+        border-bottom: 1px solid var(--color-theme-dark) !important;
+    }
+}
+
+.nav-link:hover, .nav-link:focus, .dropdown-item:hover, .dropdown-item:focus {
+
+}
+
+
+
+/////////////////
+$purplemed-color: #9a145d; // #46becb;
+$purplemed-color-light: rgb(154 20 93 / 50%);
+$purplemed-color-dark: rgb(154 20 93 / 80%);
+$theme-color: $purplemed-color-light;
+$theme-color-lightest: rgb(154 20 93 / 10%);
+$theme-color-dark: $purplemed-color-dark;
+
+:root {
+    //--color-theme : rgb(154 20 93 / 50%); //$theme-color;
+    --color-theme-dark : rgb(154 20 93 / 80%); //$theme-color-dark;
+    //--ar-navbar-hover-color: var(--color-theme-dark) !important;
+    //--ar-heading-link-hover-color: var(--color-theme-dark) !important;
+    //--ar-accordion-active-color: var(--color-theme-dark) !important;
+}

@@ -7,7 +7,7 @@
     <!-- SEO meta tags -->
     <title>{{env('APP_NAME')}}</title>
     <meta name="description" content="OSCE Course">
-    <meta name="keywords" content="OSCE, Purple Med, Medical, Plab, Plab 1, Plab 2">
+    <meta name="keywords" content="OSCE Course, OSCE, Purple Med, Medical, Medics, Plab, Plab 1, Plab 2">
     <meta name="author" content="MediprospectsAI Ltd">
 
     <link rel="icon" type="image/x-icon" href="{{asset('favicon.png')}}">
@@ -26,15 +26,6 @@
 </head>
 <body>
 
-<!-- Page loading spinner -->
-{{--<div class="page-loading active">--}}
-{{--    <div class="page-loading-inner">--}}
-{{--        <div class="page-spinner"></div>--}}
-{{--        <span>Loading...</span>--}}
-{{--    </div>--}}
-{{--</div>--}}
-
-
 <!-- Page wrapper -->
 <main class="page-wrapper">
     @include('frontend.layout.widgets.header')
@@ -43,7 +34,6 @@
 
     @include('frontend.layout.widgets.footer')
 </main>
-
 
 </body>
 @vite(['resources/js/frontend/purplemed.js',])

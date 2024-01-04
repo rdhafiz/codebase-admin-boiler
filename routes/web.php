@@ -33,9 +33,16 @@ Route::get('/', [HomePageController::class, "viewPage"])->name('home');
 Route::get('osce-training', [TrainingPageController::class, "viewPage"])->name('osce');
 Route::get('resources', [ResourcesPageController::class, "viewPage"])->name('resources');
 Route::get('international-candidates', [InternationalCandidatesPageController::class, "ViewPage"])->name('international-candidates');
-Route::get('about', [AboutPageController::class, "ViewPage"])->name('about-us');
-Route::get('contact', [ContactPageController::class, "ViewPage"])->name('contact-us');
-Route::get('jobs', [JobsPageController::class, "ViewPage"])->name('jobs');
+Route::get('about', [AboutPageController::class, "viewPage"])->name('about-us');
+Route::get('contact', [ContactPageController::class, "viewPage"])->name('contact-us');
+Route::get('jobs', [JobsPageController::class, "viewPage"])->name('jobs');
+//OSCE Pages
+Route::group(['prefix' => 'training'], function() {
+    Route::get('osce', [TrainingPageController::class, "viewOSCE"])->name('osce');
+    Route::get('plab', [TrainingPageController::class, "viewPlab"])->name('plab');
+    Route::get('cbt', [TrainingPageController::class, "viewCBT"])->name('cbt');
+    Route::get('english-language', [TrainingPageController::class, "viewEnglishLanguage"])->name('english-language');
+});
 
 
 // User Authentication
