@@ -38,3 +38,8 @@ Password: 123asd123
 ```
 Create Recruiter from CMS panel and login with the credential
 ```
+
+## Passport OAuth2
+
+```composer require laravel/passport```
+```php artisan fix:passport```
