@@ -3,11 +3,11 @@
     <div class="w-100 p-3 p-lg-5">
 
         <div class="w-100 mb-4">
-            <h2 class="fs-2 m-0 p-0">Course Price</h2>
+            <h2 class="fs-2 m-0 p-0">Course Payment</h2>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{route('CMS.dashboard')}}">Dashboard</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Course Price</li>
+                    <li class="breadcrumb-item active" aria-current="page">Course Payment</li>
                 </ol>
             </nav>
         </div>
@@ -32,39 +32,32 @@
         <div class="w-100 mt-4">
             <div class="block block-rounded">
                 <div class="block-header block-header-default">
-                    <h3 class="block-title">All Course Price</h3>
+                    <h3 class="block-title">All Course Payment</h3>
                     <div class="block-options">
-                        <a href="{{route('CMS.course.price.create')}}" class="btn btn-sm btn-outline-primary me-1">New Price</a>
+                        <a href="{{route('CMS.course.payment.create')}}" class="btn btn-sm btn-outline-primary me-1">New Payment</a>
                     </div>
                 </div>
-                <div class="block-content" id="vuePriceListInstance">
+                <div class="block-content" id="vuePaymentListInstance">
                     <div class="table-responsive">
                         <table class="table table-striped table-vcenter">
                             <thead>
                             <tr>
                                 <th>Name</th>
-                                <th class="text-center">Price</th>
-                                <th class="text-center">Active</th>
+                                <th>Description</th>
                                 <th style="width: 120px" class="text-center"></th>
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($prices as $price)
+                            @foreach($products as $product)
                                 <tr>
-                                    <td>{{ $price['product_info']['name'] }}</td>
-                                    <td class="text-center">{{ $price['unit_amount_format'] }} {{ strtoupper($price['currency']) }}</td>
+                                    <td>{{ $product['name'] }}</td>
+                                    <td>{{ $product['description'] }}</td>
                                     <td class="text-center">
-                                        @if($price['active'] === true)
-                                            <span class="badge bg-success">Active</span>
-                                        @else
-                                            <span class="badge bg-secondary">Inactive</span>
-                                        @endif
-                                    </td>
-                                    <td class="text-center">
-                                        <form class="d-inline-block" id="delete_{{$price['id']}}" action="{{route('CMS.course.price.destroy', [$price['id']])}}" method="POST">
+                                        <a href="{{route('CMS.course.payment.edit', [$product['id']])}}" class="btn btn-sm btn-outline-primary js-bs-tooltip-enabled me-1"><i class="fa fa-edit"></i></a>
+                                        <form class="d-inline-block" id="delete_{{$product['id']}}" action="{{route('CMS.course.payment.destroy', [$product['id']])}}" method="POST">
                                             {{csrf_field()}}
                                             <input type="hidden" name="_method" value="DELETE">
-                                            <a @click="deletePage(`{{$price['id']}}`)" class="btn btn-sm btn-outline-danger"><i class="fa fa-trash"></i></a>
+                                            <a @click="deletePayment(`{{$product['id']}}`)" class="btn btn-sm btn-outline-danger"><i class="fa fa-trash"></i></a>
                                         </form>
                                     </td>
                                 </tr>
@@ -79,5 +72,5 @@
     </div>
 @endsection
 @section('js')
-    @vite('resources/js/cms/pages/course/price.js')
+    @vite('resources/js/cms/pages/course/payment.js')
 @endsection

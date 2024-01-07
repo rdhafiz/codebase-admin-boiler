@@ -9,19 +9,26 @@ use App\Models\CourseCategories;
 use App\Models\CourseInstallments;
 use App\Models\CourseType;
 use App\Models\User;
+use App\Models\WebsiteConfig;
 use App\Services\MediaServices;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
 class ApplyController extends BaseController
 {
+    public function __construct()
+    {
+        $config = WebsiteConfig::where('name', 'STRIPE_SECRET_API_KEY')->first();
+        $this->stripe = new \Stripe\StripeClient($config->value);
+    }
     public function index()
     {
         $category = CourseCategories::where('name', 'OSCE')->first();
-        $courses = Course::with(['course_schedules','course_fee_price'])->where('course_category', $category->_id)->orderBy('course_title', 'asc')->get();
+        $courses = Course::with(['course_schedules'])->where('course_category', $category->_id)->orderBy('course_title', 'asc')->get();
         $course_types = CourseType::orderBy('name', 'asc')->get();
         return view("frontend.pages.apply.form", compact('courses', 'course_types'));
     }
@@ -46,7 +53,7 @@ class ApplyController extends BaseController
                 return redirect()->back()->withInput($request->all())->withErrors($validator->errors());
             }
 
-            $course = Course::with('course_fee_price')->where('_id', $request->course_id)->first();
+            $course = Course::where('_id', $request->course_id)->first();
 
             $learner = User::where('email', $request->email)->first();
             if ($learner == null) {
@@ -65,14 +72,13 @@ class ApplyController extends BaseController
                     'gender' => null,
                     'bio' => null
                 ]);
-
                 if ($learner != null) {
                     Mail::send('emails.registration', ['learner' => $learner, 'password' => $password], function ($message) use ($learner) {
                         $message->to($learner->email, $learner->name)->subject(env('MAIL_FROM_NAME') . ': New Registration');
                         $message->from(env('MAIL_FROM_ADDRESS'), env('MAIL_FROM_NAME'));
                     });
+                    Auth::login($learner);
                 }
-
             }
 
             $check = CourseApplicants::where('user_id', $learner->_id)->where('course_id', $request->course_id)->first();
@@ -98,28 +104,32 @@ class ApplyController extends BaseController
 
             if ($application) {
                 if ($application->payment_type == 1) {
+                    $course_price = $this->stripe->prices->retrieve($course->course_fee, []);
                     CourseApplicantPayments::create([
                         'user_id' => $learner->_id,
                         'course_id' => $request->course_id,
                         'application_id' => $application->_id,
-                        'payment_code' => $course->course_fee_price->name,
-                        'payment_amount' => $course->course_fee_price->price,
+                        'price_id' => $course_price['id'],
+                        'price_amount' => $course_price['unit_amount']/100,
                         'status' => 0,
-                        'response' => null,
-                        'error' => null
+                        'error' => null,
+                        'payment_session_id' => null,
+                        'stripe_invoice_id' => null,
                     ]);
                 } else {
                     $courseInstallments = CourseInstallments::with('price')->where('course_id', $request->course_id)->get()->toArray();
                     foreach ($courseInstallments as $courseInstallment) {
+                        $install_price = $this->stripe->prices->retrieve($courseInstallment['price_id'], []);
                         CourseApplicantPayments::create([
                             'user_id' => $learner->_id,
                             'course_id' => $request->course_id,
                             'application_id' => $application->_id,
-                            'payment_code' => $courseInstallment['price']['name'],
-                            'payment_amount' => $courseInstallment['price']['price'],
+                            'price_id' => $install_price['id'],
+                            'price_amount' => $install_price['unit_amount']/100,
                             'status' => 0,
-                            'response' => null,
-                            'error' => null
+                            'error' => null,
+                            'payment_session_id' => null,
+                            'stripe_invoice_id' => null,
                         ]);
                     }
                 }
@@ -130,11 +140,15 @@ class ApplyController extends BaseController
                 $message->from(env('MAIL_FROM_ADDRESS'), env('MAIL_FROM_NAME'));
             });
             Mail::send('emails.apply-new', ['learner' => $learner, 'application' => $application], function ($message) use ($learner) {
-                $message->to(env('MAIL_TO_ADDRESS'))->subject(env('MAIL_FROM_NAME') . ': New Application Submitted');
+                $message->to(env('MAIL_FROM_ADDRESS'))->subject(env('MAIL_FROM_NAME') . ': New Application Submitted');
                 $message->from(env('MAIL_FROM_ADDRESS'), env('MAIL_FROM_NAME'));
             });
 
-            return redirect()->back()->withErrors(['success' => ['Application has been submitted successfully. Now we are redirecting you to payment page.']]);
+            if(Auth::check()){
+                return redirect()->route('front.training.payment', [$request->course_id]);
+            } else {
+                return redirect()->route('front.login')->withErrors(['success' => ['Application has been submitted successfully. Please login to proceed for payment.']]);
+            }
         } catch (\Exception $e) {
             return redirect()->back()->withInput($request->all())->withErrors(['error' => $e->getMessage()]);
         }

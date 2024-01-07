@@ -22,7 +22,7 @@
                     </p>
                 </div>
             @endif
-            <form class="w-100" action="{{route('CMS.course.price.update', [$price['_id']])}}" method="post" enctype="multipart/form-data">
+            <form class="w-100" action="{{route('CMS.course.price.update', [$price['id']])}}" method="post" enctype="multipart/form-data">
                 {{csrf_field()}}
                 <input type="hidden" name="_method" value="PUT">
                 <div class="w-100 mt-4">
@@ -40,30 +40,31 @@
                                 <div class="row">
                                     <div class="col-lg-4">
                                         <div class="form-group mb-4">
-                                            <label class="form-label">Price Name</label>
-                                            <input type="text" class="form-control" name="name" value="{{old('name') ?? $price['name']}}" placeholder="Price Name">
-                                            @if($errors->has('name')) <small class="text-danger">{{$errors->first('name')}}</small> @endif
+                                            <label class="form-label">Payment Product</label>
+                                            <select name="product" class="form-select">
+                                                <option value="">Select payment product</option>
+                                                @foreach($products as $product)
+                                                    <option @if($product['id'] == $price['product']) selected @endif value="{{$product['id']}}">{{$product['name']}}</option>
+                                                @endforeach
+                                            </select>
+                                            @if($errors->has('product')) <small class="text-danger">{{$errors->first('product')}}</small> @endif
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-group mb-4">
+                                            <label class="form-label">Currency</label>
+                                            <select name="currency" class="form-select">
+                                                <option @if($price['currency'] == 'gbp') selected @endif value="gbp">GBP (£)</option>
+                                                <option @if($price['currency'] == 'usd') selected @endif value="usd">USD ($)</option>
+                                            </select>
+                                            @if($errors->has('currency')) <small class="text-danger">{{$errors->first('currency')}}</small> @endif
                                         </div>
                                     </div>
                                     <div class="col-lg-4">
                                         <div class="form-group mb-4">
                                             <label class="form-label">Price Amount</label>
-                                            <input type="text" class="form-control" name="price" value="{{old('price') ?? $price['price']}}" placeholder="Price Amount">
-                                            @if($errors->has('price')) <small class="text-danger">{{$errors->first('price')}}</small> @endif
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <div class="form-group mb-4">
-                                            <label class="form-label">Discount Amount</label>
-                                            <input type="text" class="form-control" name="discount" value="{{old('discount') ?? $price['discount']}}" placeholder="Discount Amount">
-                                            @if($errors->has('discount')) <small class="text-danger">{{$errors->first('discount')}}</small> @endif
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <div class="form-group mb-4">
-                                            <label class="form-label">Discount Message</label>
-                                            <textarea class="form-control" name="discount_message" placeholder="Discount Message">{{old('discount_message') ?? $price['discount_message']}}</textarea>
-                                            @if($errors->has('discount_message')) <small class="text-danger">{{$errors->first('discount_message')}}</small> @endif
+                                            <input type="text" class="form-control" name="unit_amount" value="{{old('unit_amount') ?? $price['unit_amount_format']}}" placeholder="Price Amount">
+                                            @if($errors->has('unit_amount')) <small class="text-danger">{{$errors->first('unit_amount')}}</small> @endif
                                         </div>
                                     </div>
                                 </div>

@@ -8,7 +8,9 @@ use App\Http\Controllers\Cms\CourseCategoryController;
 use App\Http\Controllers\Cms\LearnerController;
 use App\Http\Controllers\Cms\TrainerController;
 use App\Http\Controllers\Cms\CourseTypeController;
+use App\Http\Controllers\Cms\CoursePaymentPriceController;
 use App\Http\Controllers\Cms\CoursePriceController;
+use App\Http\Controllers\Cms\CourseDiscountController;
 use App\Http\Controllers\Cms\FrontController;
 use App\Http\Controllers\Cms\PageController;
 use App\Http\Controllers\Cms\ProfileController;
@@ -60,8 +62,12 @@ Route::group(['prefix' => '/secure/administration'], function () {
         Route::resource('course/category', CourseCategoryController::class, ['as' => 'CMS.course'])->middleware(['AdminPermissionReq:super,course']);
         // Resourceful routes for 'course type' with alias 'CMS'
         Route::resource('course/type', CourseTypeController::class, ['as' => 'CMS.course'])->middleware(['AdminPermissionReq:super,course']);
+        // Resourceful routes for 'course payment product' with alias 'CMS'
+        Route::resource('course/payment', CoursePaymentPriceController::class, ['as' => 'CMS.course'])->middleware(['AdminPermissionReq:super,finance']);
         // Resourceful routes for 'course price' with alias 'CMS'
-        Route::resource('course/price', CoursePriceController::class, ['as' => 'CMS.course'])->middleware(['AdminPermissionReq:super,course']);
+        Route::resource('course/price', CoursePriceController::class, ['as' => 'CMS.course'])->middleware(['AdminPermissionReq:super,finance']);
+        // Resourceful routes for 'course discount' with alias 'CMS'
+        Route::resource('course/discount', CourseDiscountController::class, ['as' => 'CMS.course'])->middleware(['AdminPermissionReq:super,finance']);
         // Resourceful routes for 'course' with alias 'CMS'
         Route::resource('course', CourseController::class, ['as' => 'CMS'])->middleware(['AdminPermissionReq:super,course']);
 

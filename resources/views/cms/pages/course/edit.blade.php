@@ -87,21 +87,31 @@
                                                 @endif
                                             </div>
                                         </div>
-                                        <div class="col-lg-6">
+                                        <div class="col-lg-4">
                                             <div class="form-group mb-4">
                                                 <label class="form-label">Course Fee</label>
                                                 <select name="course_fee" class="form-select">
                                                     <option value="">Select Course Fee</option>
                                                     @foreach($coursePrices as $price)
-                                                        <option @if($course->course_fee == $price['_id']) selected @endif  value="{{$price['_id']}}" data-price="{{$price['price']}}">£{{$price['price']}} - {{$price['name']}}</option>
+                                                        <option @if($course->course_fee == $price['id']) selected @endif value="{{$price['id']}}" data-price="{{$price['unit_amount_format']}}">{{$price['product_info']['name']}}</option>
                                                     @endforeach
                                                 </select>
-                                                @if($errors->has('course_fee'))
-                                                    <small class="text-danger">{{$errors->first('course_fee')}}</small>
-                                                @endif
+                                                @if($errors->has('course_fee')) <small class="text-danger">{{$errors->first('course_fee')}}</small> @endif
                                             </div>
                                         </div>
-                                        <div class="col-lg-6">
+                                        <div class="col-lg-4">
+                                            <div class="form-group mb-4">
+                                                <label class="form-label">Course Discount</label>
+                                                <select name="course_discount" class="form-select">
+                                                    <option value="">Select Course Discount</option>
+                                                    @foreach($courseDiscounts as $discount)
+                                                        <option @if($course->course_discount == $discount['id']) selected @endif value="{{$discount['id']}}">{{$discount['name']}}</option>
+                                                    @endforeach
+                                                </select>
+                                                @if($errors->has('course_discount')) <small class="text-danger">{{$errors->first('course_discount')}}</small> @endif
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4">
                                             <div class="form-group mb-4">
                                                 <label class="form-label">Course Duration</label>
                                                 <input type="text" class="form-control" name="course_duration" v-model="param.course_duration" placeholder="Course Duration" @keyup="calculateSchedule" @change="calculateSchedule" required>
@@ -148,7 +158,7 @@
                                                         </thead>
                                                         <tbody>
                                                         <tr v-for="(schedule,index) in param.course_schedules">
-                                                            <td>#@{{ index+1 }}</td>
+                                                            <td>#@{{ index+1 }} <input type="hidden" :name="'course_schedules['+index+'][_id]'" :value="schedule._id"></td>
                                                             <td class="p-0">
                                                                 <flat-pickr v-model="schedule.start"
                                                                             @on-change="calculateThisSchedule(index)"
@@ -232,12 +242,12 @@
                                                         </thead>
                                                         <tbody>
                                                         <tr v-for="(instalment,index) in param.payment_instalment_details">
-                                                            <td>#@{{ index+1 }}</td>
+                                                            <td>#@{{ index+1 }} <input type="hidden" :name="'payment_instalment_details['+index+'][_id]'" :value="instalment._id"></td>
                                                             <td class="p-0"><input type="text" class="form-control border-0 shadow-none text-center" v-model="instalment.days" placeholder="Days" :name="'payment_instalment_details['+index+'][days]'"></td>
                                                             <td class="p-0">
                                                                 <select v-model="instalment.price_id" :name="'payment_instalment_details['+index+'][price_id]'" class="form-select border-0 shadow-none text-center">
                                                                     <option value="">Select Installment Fee</option>
-                                                                    <option v-for="price in coursePrices" :value="price._id">£ @{{ price.price }} - @{{ price.name}}</option>
+                                                                    <option v-for="price in coursePrices" :value="price.id">@{{ price.product_info.name }}</option>
                                                                 </select>
                                                             </td>
                                                             <td class=" text-center"><a @click="deleteThisInstallment(index)" class="btn btn-sm btn-outline-danger"><i class="fa fa-trash"></i></a></td>
@@ -284,7 +294,7 @@
     <script type="application/javascript" src="{{asset('assets/js/plugins/flatpickr/flatpickr.min.js')}}"></script>
     <script>
         window.course_details = {!! json_encode($course, true) !!};
-        window.coursePrices = {!! json_encode($coursePrices, true) !!};
+        window.coursePrices = {!! json_encode($coursePrices['data'], true) !!};
     </script>
     @vite('resources/js/cms/pages/course/course-create.js')
 @endsection

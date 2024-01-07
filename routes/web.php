@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Frontend\HomePageController;
 use App\Http\Controllers\Frontend\TrainingPageController;
+use App\Http\Controllers\Frontend\StripePaymentController;
 use App\Http\Controllers\Frontend\ResourcesPageController;
 use App\Http\Controllers\Frontend\InternationalCandidatesPageController;
 use App\Http\Controllers\Frontend\AboutPageController;
@@ -67,6 +68,11 @@ Route::group(['middleware' => [UserAuthReq::class]], function () {
     Route::post('/profile/update/password', [ProfileController::class, "profileUpdatePasswordAction"])->name('front.profile.update.password.action');
 
     Route::get('/training', [ProfileController::class, "training"])->name('front.training');
+    Route::get('/training/payment/{course_id}', [StripePaymentController::class, "training_payment"])->name('front.training.payment');
+    Route::get('/training/payment/{course_id}/{payment_id}', [StripePaymentController::class, "training_payment_process"])->name('front.training.payment.process');
+    Route::get('/training/payment/{course_id}/{payment_id}/receipt', [StripePaymentController::class, "training_payment_process_receipt"])->name('front.training.payment.process.receipt');
+    Route::get('/training/payment/{course_id}/{payment_id}/success', [StripePaymentController::class, "training_payment_process_success"])->name('front.training.payment.process.success');
+    Route::get('/training/payment/{course_id}/{payment_id}/cancel', [StripePaymentController::class, "training_payment_process_cancel"])->name('front.training.payment.process.cancel');
 });
 
 // Apply Course

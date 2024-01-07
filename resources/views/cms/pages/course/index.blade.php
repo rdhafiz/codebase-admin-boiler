@@ -50,11 +50,11 @@
                                     <td class="text-center">{{ $course->type->name }}</td>
                                     <td class="text-center">{{ $course->course_duration }}</td>
                                     <td class="text-center">
-                                        @if($course->course_discount == 1)
-                                            {{ $course->course_fee_price->price - $course->course_discount_amount }} <br>
-                                            <s class="text-danger">{{ $course->course_fee_price->price }}</s>
+                                        @if($course['discount'] > 0)
+                                            £{{ $course['course_price']['unit_amount'] - $course['discount'] }} <br>
+                                            <s class="text-danger">£{{ $course['course_price']['unit_amount'] }}</s>
                                         @else
-                                            {{ $course->course_fee_price->price }}
+                                            £{{ $course['course_price']['unit_amount'] }}
                                         @endif
                                     </td>
                                     <td class="text-center">
