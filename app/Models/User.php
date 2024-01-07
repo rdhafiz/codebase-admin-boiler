@@ -8,10 +8,11 @@ use Jenssegers\Mongodb\Eloquent\Model as Eloquent;
 use Illuminate\Auth\Authenticatable as AuthenticatableTrait;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Jenssegers\Mongodb\Eloquent\SoftDeletes;
+use Laravel\Passport\HasApiTokens;
 
 class User extends Eloquent implements Authenticatable
 {
-    use HasFactory, Notifiable, AuthenticatableTrait, SoftDeletes;
+    use HasApiTokens, HasFactory, Notifiable, AuthenticatableTrait, SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
