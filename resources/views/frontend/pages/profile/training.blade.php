@@ -16,6 +16,15 @@
                     <div class="col-lg-9 pt-4 pb-2 pb-sm-4">
                         <h1 class="h2 mb-4">Training / Courses</h1>
 
+                        <div class="w-100">
+                            @if($errors->has('success'))
+                                <p class="alert alert-success">{{$errors->first('success')}}</p>
+                            @endif
+                            @if($errors->has('error'))
+                                <p class="alert alert-danger">{{$errors->first('error')}}</p>
+                            @endif
+                        </div>
+
                         <section class="card border-0 py-1 p-md-2 p-xl-3 p-xxl-4">
                             <div class="card-body">
                                 <div class="d-flex align-items-center mt-sm-n1 pb-4 mb-0 mb-lg-1 mb-xl-3">
@@ -27,14 +36,22 @@
                                 <div class="accordion accordion-alt accordion-orders" id="orders">
 
                                     <!-- Orders -->
-                                    @foreach($trainings as $training)
+                                    @foreach($trainings as $sl => $training)
                                         <div class="accordion-item border-top border-bottom mb-0">
                                             <div class="accordion-header">
-                                                <a class="accordion-button d-flex fs-4 fw-normal text-decoration-none py-3 collapsed" href="#order0" data-bs-toggle="collapse">
+                                                <a class="accordion-button d-flex fs-4 fw-normal text-decoration-none py-3 collapsed" href="#order{{$sl}}" data-bs-toggle="collapse">
                                                     <div class="d-flex justify-content-between w-100">
                                                         <div class="me-3 me-sm-4">
                                                             <div class="fs-sm text-body-secondary">{{$training['course_details']['category']['name']}} - {{$training['course_details']['course_title']}} ({{$training['type']['name']}})</div>
-                                                            <span class="badge bg-info text-white fs-xs">In Progress</span>
+                                                            @if($training['payment_status'] == 0)
+                                                                <span class="badge bg-warning text-dark fs-xs">Unpaid</span>
+                                                            @elseif($training['payment_status'] == 1)
+                                                                <span class="badge bg-success text-white fs-xs">Paid</span>
+                                                            @elseif($training['payment_status'] == 2)
+                                                                <span class="badge bg-info text-white fs-xs">Partially Paid</span>
+                                                            @else
+                                                                <span class="badge bg-warning text-dark fs-xs">Unpaid</span>
+                                                            @endif
                                                         </div>
                                                         <div class="me-3 me-sm-4">
                                                             <div class="d-none d-sm-block fs-sm text-body-secondary mb-2">Start Date</div>
@@ -49,18 +66,13 @@
                                                         <div class="me-3 me-sm-4">
                                                             <div class="fs-sm text-body-secondary mb-2">Fee</div>
                                                             <div class="fs-sm fw-medium text-dark">
-                                                                @if($training['course_details']['course_fee_price']['discount'] > 0)
-                                                                    <strong class="text-info">£{{$training['course_details']['course_fee_price']['price'] - $training['course_details']['course_fee_price']['discount']}}</strong>
-                                                                    <s class="text-danger">£{{$training['course_details']['course_fee_price']['price']}}</s>
-                                                                @else
-                                                                    <strong class="text-info">£{{$training['course_details']['course_fee_price']['price']}}</strong>
-                                                                @endif
+                                                                {{$training['course_details']['course_price']['unit_amount']/100}}
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </a>
                                             </div>
-                                            <div class="accordion-collapse collapse" id="order0" data-bs-parent="#order0">
+                                            <div class="accordion-collapse collapse" id="order{{$sl}}" data-bs-parent="#order0">
                                                 <div class="accordion-body">
                                                     <div class="bg-secondary rounded-1 p-4 my-2">
                                                         <div class="row">
@@ -78,16 +90,16 @@
                                                                 <div class="col-sm-4 col-md-4 col-lg-4 mb-3 mb-md-0">
                                                                     <div class="fs-sm fw-medium text-dark mb-1">
                                                                         @if($training['payment_type'] == 1)
-                                                                            Full Payment (£{{$instalment['payment_amount']}})
+                                                                            Full Payment (£{{$instalment['price_amount']}})
                                                                         @elseif($training['payment_type'] == 2)
-                                                                            Installment {{$step+1}} (£{{$instalment['payment_amount']}})
+                                                                            Installment {{$step+1}} (£{{$instalment['price_amount']}})
                                                                         @endif
                                                                     </div>
                                                                     <div class="fs-sm">
                                                                         @if($instalment['status'] == 1)
-                                                                            <span class="badge bg-success text-white fs-xs">Paid</span>
+                                                                            <a target="_blank" class="badge bg-success text-white fs-xs" href="{{route('front.training.payment.process.receipt',[$instalment['course_id'], $instalment['_id']])}}">Paid (View Receipt)</a>
                                                                         @else
-                                                                            <a class="badge bg-info text-white fs-xs" href="">Pay Now</a>
+                                                                            <a class="badge bg-info text-white fs-xs" href="{{route('front.training.payment.process',[$instalment['course_id'], $instalment['_id']])}}">Pay Now</a>
                                                                         @endif
                                                                     </div>
                                                                 </div>

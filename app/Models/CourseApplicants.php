@@ -25,7 +25,7 @@ class CourseApplicants extends Eloquent
         return $this->hasOne(Course::class, '_id', 'course_id');
     }
     public function course_details(){
-        return $this->hasOne(Course::class, '_id', 'course_id')->with(['category','course_fee_price']);
+        return $this->hasOne(Course::class, '_id', 'course_id')->with(['category']);
     }
     public function type(){
         return $this->hasOne(CourseType::class, '_id', 'course_type');

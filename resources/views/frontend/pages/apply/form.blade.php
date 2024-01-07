@@ -32,10 +32,7 @@
                                         <select name="course_id" class="form-select" required onchange="chooseOSCECourse()">
                                             <option value="">Choose Your OSCE Course</option>
                                             @foreach($courses as $course)
-                                                <option @if(old('course_id') == $course->_id) selected @endif
-                                                data-discount="{{$course->course_fee_price['discount']}}"
-                                                        data-discmsg="{{$course->course_fee_price['discount_message']}}"
-                                                        value="{{$course->_id}}">{{$course->course_title}} - £{{$course->course_fee_price['price'] - $course->course_fee_price['discount']}}</option>
+                                                <option @if(old('course_id') == $course->_id) selected @endif value="{{$course->_id}}">{{$course->course_title}}</option>
                                             @endforeach
                                         </select>
                                         <div class="w-100 text-end"><strong id="course_discount_offer" class="text-success"></strong></div>

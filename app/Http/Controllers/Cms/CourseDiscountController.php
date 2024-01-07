@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\View\View;
 use Stripe\Exception\ApiErrorException;
 
-class CoursePriceController extends Controller
+class CourseDiscountController extends Controller
 {
     public function __construct()
     {
@@ -20,18 +20,16 @@ class CoursePriceController extends Controller
 
     public function index(): View
     {
-        $prices = $this->stripe->prices->all(['limit' => 100]);
-        foreach ($prices as &$price) {
-            $price['unit_amount_format'] = ($price['unit_amount'] / 100);
-            $price['product_info'] = $this->stripe->products->retrieve($price['product'], []);
+        $discounts = $this->stripe->coupons->all();
+        foreach ($discounts as &$discount){
+            $discount['amount_off'] = $discount['amount_off'] / 100;
         }
-        return view('cms.pages.course.price.index', compact('prices'));
+        return view('cms.pages.course.discount.index', compact('discounts'));
     }
 
     public function create(): View
     {
-        $products = $this->stripe->products->all(['limit' => 100]);
-        return view('cms.pages.course.price.create', compact('products'));
+        return view('cms.pages.course.discount.create');
     }
 
     public function store(Request $request)
@@ -39,21 +37,21 @@ class CoursePriceController extends Controller
         try {
 
             $validator = Validator::make($request->all(), [
-                'product' => 'required|string',
+                'name' => 'required|string',
                 'currency' => 'required|string',
-                'unit_amount' => 'required|numeric',
+                'amount_off' => 'required|numeric',
             ]);
             if ($validator->fails()) {
                 return redirect()->back()->withInput($request->input())->withErrors($validator->errors());
             }
 
-            $this->stripe->prices->create([
+            $this->stripe->coupons->create([
+                'name' => $request->name,
                 'currency' => $request->currency,
-                'unit_amount' => $request->unit_amount * 100,
-                'product' => $request->product,
+                'amount_off' => $request->amount_off * 100
             ]);
 
-            return redirect()->route('CMS.course.price.index')->withErrors(['success' => ['New price has been created successfully']]);
+            return redirect()->route('CMS.course.discount.index')->withErrors(['success' => ['New discount has been created successfully']]);
         } catch (\Exception $e) {
             return redirect()->back()->withErrors(['error' => [$e->getMessage()]]);
         }
@@ -77,11 +75,9 @@ class CoursePriceController extends Controller
     public function destroy($id)
     {
         try {
-            $this->stripe->prices->update(
-                $id,
-                ['active' => false]
-            );
-            return redirect()->back()->withErrors(['success' => ['Course price has been deleted successfully']]);
+
+            $this->stripe->coupons->delete($id, []);
+            return redirect()->back()->withErrors(['success' => ['Course discount has been deleted successfully']]);
         } catch (\Exception $e) {
             return redirect()->back()->withErrors(['error' => [$e->getMessage()]]);
         }
