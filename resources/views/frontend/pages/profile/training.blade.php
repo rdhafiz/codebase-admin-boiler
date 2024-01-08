@@ -66,13 +66,18 @@
                                                         <div class="me-3 me-sm-4">
                                                             <div class="fs-sm text-body-secondary mb-2">Fee</div>
                                                             <div class="fs-sm fw-medium text-dark">
-                                                                {{$training['course_details']['course_price']['unit_amount']/100}}
+                                                                @if($training['course_details']['discount'] > 0)
+                                                                    £{{$training['course_details']['course_price']['unit_amount'] - $training['course_details']['discount']}}
+                                                                    <s class="text-danger">£{{$training['course_details']['course_price']['unit_amount']}}</s>
+                                                                @else
+                                                                    £{{$training['course_details']['course_price']['unit_amount']}}
+                                                                @endif
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </a>
                                             </div>
-                                            <div class="accordion-collapse collapse" id="order{{$sl}}" data-bs-parent="#order0">
+                                            <div class="accordion-collapse collapse" id="order{{$sl}}" data-bs-parent="#order{{$sl}}">
                                                 <div class="accordion-body">
                                                     <div class="bg-secondary rounded-1 p-4 my-2">
                                                         <div class="row">
@@ -90,7 +95,12 @@
                                                                 <div class="col-sm-4 col-md-4 col-lg-4 mb-3 mb-md-0">
                                                                     <div class="fs-sm fw-medium text-dark mb-1">
                                                                         @if($training['payment_type'] == 1)
-                                                                            Full Payment (£{{$instalment['price_amount']}})
+                                                                            @if($training['course_details']['discount'] > 0)
+                                                                                Full Payment (£{{$training['course_details']['course_price']['unit_amount'] - $training['course_details']['discount']}})
+                                                                            @else
+                                                                                Full Payment (£{{$training['course_details']['course_price']['unit_amount']}})
+
+                                                                            @endif
                                                                         @elseif($training['payment_type'] == 2)
                                                                             Installment {{$step+1}} (£{{$instalment['price_amount']}})
                                                                         @endif

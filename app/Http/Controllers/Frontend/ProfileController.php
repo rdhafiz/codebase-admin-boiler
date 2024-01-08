@@ -21,7 +21,26 @@ class ProfileController extends BaseController
     }
     public function profile()
     {
-        $trainings = CourseApplicants::with(['course_details', 'type', 'schedule', 'payment_instalment_details'])->where('user_id', Auth::id())->orderBy('created_at', 'desc')->take(5)->get()->toArray();
+        $trainings = CourseApplicants::with(['course_details', 'type', 'schedule', 'payment_instalment_details'])->where('user_id', Auth::id())->get()->toArray();
+        foreach ($trainings as &$training){
+            $training['course_details']['course_price'] = $this->stripe->prices->retrieve($training['course_details']['course_fee'], []);
+            $training['course_details']['course_price']['unit_amount'] = $training['course_details']['course_price']['unit_amount']/100;
+            $training['payment_status'] = 0;
+            $training['payment_status_value'] = array_column($training['payment_instalment_details'], 'status');
+            $training['payment_status_value'] = join(',', array_unique($training['payment_status_value']));
+            if($training['payment_status_value'] == 1){
+                $training['payment_status'] = 1;
+            } elseif ($training['payment_status_value'] == 0){
+                $training['payment_status'] = 0;
+            } else {
+                $training['payment_status'] = 2;
+            }
+            $training['course_details']['discount'] = 0;
+            if(!empty($training['course_details']['course_discount'])){
+                $discount = $this->stripe->coupons->retrieve($training['course_details']['course_discount'], []);
+                $training['course_details']['discount'] = $discount['amount_off']/100;
+            }
+        }
         return view("frontend.pages.profile.profile", compact('trainings'));
     }
 
@@ -40,6 +59,7 @@ class ProfileController extends BaseController
         $trainings = CourseApplicants::with(['course_details', 'type', 'schedule', 'payment_instalment_details'])->where('user_id', Auth::id())->get()->toArray();
         foreach ($trainings as &$training){
             $training['course_details']['course_price'] = $this->stripe->prices->retrieve($training['course_details']['course_fee'], []);
+            $training['course_details']['course_price']['unit_amount'] = $training['course_details']['course_price']['unit_amount']/100;
             $training['payment_status'] = 0;
             $training['payment_status_value'] = array_column($training['payment_instalment_details'], 'status');
             $training['payment_status_value'] = join(',', array_unique($training['payment_status_value']));
@@ -49,6 +69,11 @@ class ProfileController extends BaseController
                 $training['payment_status'] = 0;
             } else {
                 $training['payment_status'] = 2;
+            }
+            $training['course_details']['discount'] = 0;
+            if(!empty($training['course_details']['course_discount'])){
+                $discount = $this->stripe->coupons->retrieve($training['course_details']['course_discount'], []);
+                $training['course_details']['discount'] = $discount['amount_off']/100;
             }
         }
         return view("frontend.pages.profile.training", compact('trainings'));
