@@ -74,97 +74,121 @@
                             <span class="nav-main-link-name">Dashboard</span>
                         </a>
                     </li>
-                    <li class="nav-main-heading">Website Settings</li>
-                    <li class="nav-main-item {{in_array(Route::currentRouteName(), ['CMS.page.index']) ? 'open' : ''}}">
-                        <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="true" href="javascript:void(0)">
-                            <i class="nav-main-link-icon fa fa-file-alt"></i>
-                            <span class="nav-main-link-name">Pages</span>
-                        </a>
-                        <ul class="nav-main-submenu">
-                            <li class="nav-main-item">
-                                <a class="nav-main-link {{Route::currentRouteName() == 'CMS.page.index' ? 'active' : ''}}" href="{{route('CMS.page.index')}}">
-                                    <span class="nav-main-link-name">All Pages</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="nav-main-item">
-                        <a class="nav-main-link" href="{{route('CMS.config.index')}}">
-                            <i class="nav-main-link-icon fa fa-users-rectangle"></i>
-                            <span class="nav-main-link-name">Config</span>
-                        </a>
-                    </li>
-                    <li class="nav-main-heading">Learning Management</li>
-                    <li class="nav-main-item">
-                        <a class="nav-main-link" href="{{route('CMS.trainer.index')}}">
-                            <i class="nav-main-link-icon fa fa-users-rectangle"></i>
-                            <span class="nav-main-link-name">Trainer Management</span>
-                        </a>
-                    </li>
-                    <li class="nav-main-item">
-                        <a class="nav-main-link" href="{{route('CMS.learner.index')}}">
-                            <i class="nav-main-link-icon fa fa-users"></i>
-                            <span class="nav-main-link-name">Learner Management</span>
-                        </a>
-                    </li>
-                    <li class="nav-main-item {{in_array(Route::currentRouteName(), ['CMS.course.category.index','CMS.course.category.create','CMS.course.category.edit','CMS.course.type.index','CMS.course.type.create','CMS.course.type.edit','CMS.course.price.index','CMS.course.price.create','CMS.course.price.edit']) ? 'open' : ''}}">
-                        <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="true" href="javascript:void(0)">
-                            <i class="nav-main-link-icon fa fa-cubes"></i>
-                            <span class="nav-main-link-name">Course Management</span>
-                        </a>
-                        <ul class="nav-main-submenu">
-                            <li class="nav-main-item">
-                                <a class="nav-main-link {{in_array(Route::currentRouteName(), ['CMS.course.category.index','CMS.course.category.create','CMS.course.category.edit']) ? 'active' : ''}}" href="{{route('CMS.course.index')}}">
-                                    <i class="nav-main-link-icon fa fa-display"></i>
-                                    <span class="nav-main-link-name">All Courses</span>
-                                </a>
-                            </li>
-                            <li class="nav-main-item">
-                                <a class="nav-main-link {{in_array(Route::currentRouteName(), ['CMS.course.category.index','CMS.course.category.create','CMS.course.category.edit']) ? 'active' : ''}}" href="{{route('CMS.course.category.index')}}">
-                                    <i class="nav-main-link-icon fa fa-cubes-stacked"></i>
-                                    <span class="nav-main-link-name">Course Category</span>
-                                </a>
-                            </li>
-                            <li class="nav-main-item">
-                                <a class="nav-main-link {{in_array(Route::currentRouteName(), ['CMS.course.type.index','CMS.course.type.create','CMS.course.type.edit']) ? 'active' : ''}}" href="{{route('CMS.course.type.index')}}">
-                                    <i class="nav-main-link-icon fa fa-cubes-stacked"></i>
-                                    <span class="nav-main-link-name">Course Type</span>
-                                </a>
-                            </li>
-                            <li class="nav-main-item">
-                                <a class="nav-main-link {{in_array(Route::currentRouteName(), ['CMS.course.payment.index','CMS.course.payment.create','CMS.course.payment.edit']) ? 'active' : ''}}" href="{{route('CMS.course.payment.index')}}">
-                                    <i class="nav-main-link-icon fa fa-gbp"></i>
-                                    <span class="nav-main-link-name">Course Payment</span>
-                                </a>
-                            </li>
-                            <li class="nav-main-item">
-                                <a class="nav-main-link {{in_array(Route::currentRouteName(), ['CMS.course.price.index','CMS.course.price.create','CMS.course.price.edit']) ? 'active' : ''}}" href="{{route('CMS.course.price.index')}}">
-                                    <i class="nav-main-link-icon fa fa-gbp"></i>
-                                    <span class="nav-main-link-name">Course Price</span>
-                                </a>
-                            </li>
-                            <li class="nav-main-item">
-                                <a class="nav-main-link {{in_array(Route::currentRouteName(), ['CMS.course.discount.index','CMS.course.discount.create','CMS.course.discount.edit']) ? 'active' : ''}}" href="{{route('CMS.course.discount.index')}}">
-                                    <s><i class="nav-main-link-icon fa fa-gbp"></i></s>
-                                    <span class="nav-main-link-name">Course Discount</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="nav-main-heading">Job Management</li>
-                    <li class="nav-main-item">
-                        <a class="nav-main-link" href="{{route('CMS.recruiter.index')}}">
-                            <i class="nav-main-link-icon fa fa-user-friends"></i>
-                            <span class="nav-main-link-name">Recruiters</span>
-                        </a>
-                    </li>
-                    <li class="nav-main-heading">Admin Management</li>
-                    <li class="nav-main-item">
-                        <a class="nav-main-link" href="{{route('CMS.admin.index')}}">
-                            <i class="nav-main-link-icon fa fa-user-secret"></i>
-                            <span class="nav-main-link-name">Admins</span>
-                        </a>
-                    </li>
+                    @if(\App\Services\PermissionServices::isPermitted(['developer', 'super']))
+                        <li class="nav-main-heading">Website Settings</li>
+                        <li class="nav-main-item {{in_array(Route::currentRouteName(), ['CMS.page.index']) ? 'open' : ''}}">
+                            <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="true" href="javascript:void(0)">
+                                <i class="nav-main-link-icon fa fa-file-alt"></i>
+                                <span class="nav-main-link-name">Pages</span>
+                            </a>
+                            <ul class="nav-main-submenu">
+                                <li class="nav-main-item">
+                                    <a class="nav-main-link {{Route::currentRouteName() == 'CMS.page.index' ? 'active' : ''}}" href="{{route('CMS.page.index')}}">
+                                        <span class="nav-main-link-name">All Pages</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    @endif
+
+                    @if(\App\Services\PermissionServices::isPermitted(['developer']))
+                        <li class="nav-main-item">
+                            <a class="nav-main-link" href="{{route('CMS.config.index')}}">
+                                <i class="nav-main-link-icon fa fa-users-rectangle"></i>
+                                <span class="nav-main-link-name">Config</span>
+                            </a>
+                        </li>
+                    @endif
+
+
+                    @if(\App\Services\PermissionServices::isPermitted(['developer','super']))
+                        <li class="nav-main-heading">Learning Management</li>
+                        <li class="nav-main-item">
+                            <a class="nav-main-link" href="{{route('CMS.trainer.index')}}">
+                                <i class="nav-main-link-icon fa fa-users-rectangle"></i>
+                                <span class="nav-main-link-name">Trainer Management</span>
+                            </a>
+                        </li>
+                        <li class="nav-main-item">
+                            <a class="nav-main-link" href="{{route('CMS.learner.index')}}">
+                                <i class="nav-main-link-icon fa fa-users"></i>
+                                <span class="nav-main-link-name">Learner Management</span>
+                            </a>
+                        </li>
+                    @endif
+
+
+                    @if(\App\Services\PermissionServices::isPermitted(['developer','super','course']))
+                        <li class="nav-main-item {{in_array(Route::currentRouteName(), ['CMS.course.category.index','CMS.course.category.create','CMS.course.category.edit','CMS.course.type.index','CMS.course.type.create','CMS.course.type.edit','CMS.course.price.index','CMS.course.price.create','CMS.course.price.edit']) ? 'open' : ''}}">
+                            <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="true" href="javascript:void(0)">
+                                <i class="nav-main-link-icon fa fa-cubes"></i>
+                                <span class="nav-main-link-name">Course Management</span>
+                            </a>
+                            <ul class="nav-main-submenu">
+                                <li class="nav-main-item">
+                                    <a class="nav-main-link {{in_array(Route::currentRouteName(), ['CMS.course.category.index','CMS.course.category.create','CMS.course.category.edit']) ? 'active' : ''}}" href="{{route('CMS.course.index')}}">
+                                        <i class="nav-main-link-icon fa fa-display"></i>
+                                        <span class="nav-main-link-name">All Courses</span>
+                                    </a>
+                                </li>
+                                <li class="nav-main-item">
+                                    <a class="nav-main-link {{in_array(Route::currentRouteName(), ['CMS.course.category.index','CMS.course.category.create','CMS.course.category.edit']) ? 'active' : ''}}" href="{{route('CMS.course.category.index')}}">
+                                        <i class="nav-main-link-icon fa fa-cubes-stacked"></i>
+                                        <span class="nav-main-link-name">Course Category</span>
+                                    </a>
+                                </li>
+                                <li class="nav-main-item">
+                                    <a class="nav-main-link {{in_array(Route::currentRouteName(), ['CMS.course.type.index','CMS.course.type.create','CMS.course.type.edit']) ? 'active' : ''}}" href="{{route('CMS.course.type.index')}}">
+                                        <i class="nav-main-link-icon fa fa-cubes-stacked"></i>
+                                        <span class="nav-main-link-name">Course Type</span>
+                                    </a>
+                                </li>
+
+
+                                @if(\App\Services\PermissionServices::isPermitted(['developer','super','finance']))
+                                    <li class="nav-main-item">
+                                        <a class="nav-main-link {{in_array(Route::currentRouteName(), ['CMS.course.payment.index','CMS.course.payment.create','CMS.course.payment.edit']) ? 'active' : ''}}" href="{{route('CMS.course.payment.index')}}">
+                                            <i class="nav-main-link-icon fa fa-gbp"></i>
+                                            <span class="nav-main-link-name">Course Payment</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-main-item">
+                                        <a class="nav-main-link {{in_array(Route::currentRouteName(), ['CMS.course.price.index','CMS.course.price.create','CMS.course.price.edit']) ? 'active' : ''}}" href="{{route('CMS.course.price.index')}}">
+                                            <i class="nav-main-link-icon fa fa-gbp"></i>
+                                            <span class="nav-main-link-name">Course Price</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-main-item">
+                                        <a class="nav-main-link {{in_array(Route::currentRouteName(), ['CMS.course.discount.index','CMS.course.discount.create','CMS.course.discount.edit']) ? 'active' : ''}}" href="{{route('CMS.course.discount.index')}}">
+                                            <s><i class="nav-main-link-icon fa fa-gbp"></i></s>
+                                            <span class="nav-main-link-name">Course Discount</span>
+                                        </a>
+                                    </li>
+                                @endif
+                            </ul>
+                        </li>
+                    @endif
+
+                    @if(\App\Services\PermissionServices::isPermitted(['developer','super']))
+                        <li class="nav-main-heading">Job Management</li>
+                        <li class="nav-main-item">
+                            <a class="nav-main-link" href="{{route('CMS.recruiter.index')}}">
+                                <i class="nav-main-link-icon fa fa-user-friends"></i>
+                                <span class="nav-main-link-name">Recruiters</span>
+                            </a>
+                        </li>
+                    @endif
+
+                    @if(\App\Services\PermissionServices::isPermitted(['developer','super']))
+                        <li class="nav-main-heading">Admin Management</li>
+                        <li class="nav-main-item">
+                            <a class="nav-main-link" href="{{route('CMS.admin.index')}}">
+                                <i class="nav-main-link-icon fa fa-user-secret"></i>
+                                <span class="nav-main-link-name">Admins</span>
+                            </a>
+                        </li>
+                    @endif
+
                 </ul>
             </div>
             <!-- END Side Navigation -->

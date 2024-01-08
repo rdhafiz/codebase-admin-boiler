@@ -49,33 +49,36 @@ Route::group(['prefix' => '/secure/administration'], function () {
         Route::put('/profile/update/password', [ProfileController::class, 'profileUpdatePasswordAction'])->name('CMS.profile.update.password.action');
 
         // Resourceful routes for 'page' with alias 'CMS'
-        Route::resource('page', PageController::class, ['as' => 'CMS'])->middleware(['AdminPermissionReq:super']);
+        Route::resource('page', PageController::class, ['as' => 'CMS'])->middleware(['AdminPermissionReq:developer,super']);
         // Resourceful routes for 'website config' with alias 'CMS'
-        Route::resource('config', WebsiteConfigController::class, ['as' => 'CMS'])->middleware(['AdminPermissionReq:super']);
+        Route::resource('config', WebsiteConfigController::class, ['as' => 'CMS'])->middleware(['AdminPermissionReq:developer']);
 
         // Resourceful routes for 'trainer' with alias 'CMS'
-        Route::resource('trainer', TrainerController::class, ['as' => 'CMS'])->middleware(['AdminPermissionReq:super']);
+        Route::resource('trainer', TrainerController::class, ['as' => 'CMS'])->middleware(['AdminPermissionReq:developer,super']);
         // Resourceful routes for 'learner' with alias 'CMS'
-        Route::resource('learner', LearnerController::class, ['as' => 'CMS'])->middleware(['AdminPermissionReq:super']);
+        Route::resource('learner', LearnerController::class, ['as' => 'CMS'])->middleware(['AdminPermissionReq:developer,super']);
+        Route::get('learner/enrolments/{learner_id}', [LearnerController::class, "learner_enrolments"])->name('CMS.learner.enrolments')->middleware(['AdminPermissionReq:developer,super']);
+        Route::get('learner/enrolments/{learner_id}/{course_id}/{payment_id}/receipt', [LearnerController::class, "course_payment_process_receipt"])->name('CMS.learner.enrolment.payment.receipt')->middleware(['AdminPermissionReq:developer,super']);
+
 
         // Resourceful routes for 'course category' with alias 'CMS'
-        Route::resource('course/category', CourseCategoryController::class, ['as' => 'CMS.course'])->middleware(['AdminPermissionReq:super,course']);
+        Route::resource('course/category', CourseCategoryController::class, ['as' => 'CMS.course'])->middleware(['AdminPermissionReq:developer,super,course']);
         // Resourceful routes for 'course type' with alias 'CMS'
-        Route::resource('course/type', CourseTypeController::class, ['as' => 'CMS.course'])->middleware(['AdminPermissionReq:super,course']);
+        Route::resource('course/type', CourseTypeController::class, ['as' => 'CMS.course'])->middleware(['AdminPermissionReq:developer,super,course']);
         // Resourceful routes for 'course payment product' with alias 'CMS'
-        Route::resource('course/payment', CoursePaymentPriceController::class, ['as' => 'CMS.course'])->middleware(['AdminPermissionReq:super,finance']);
+        Route::resource('course/payment', CoursePaymentPriceController::class, ['as' => 'CMS.course'])->middleware(['AdminPermissionReq:developer,super,finance']);
         // Resourceful routes for 'course price' with alias 'CMS'
-        Route::resource('course/price', CoursePriceController::class, ['as' => 'CMS.course'])->middleware(['AdminPermissionReq:super,finance']);
+        Route::resource('course/price', CoursePriceController::class, ['as' => 'CMS.course'])->middleware(['AdminPermissionReq:developer,super,finance']);
         // Resourceful routes for 'course discount' with alias 'CMS'
-        Route::resource('course/discount', CourseDiscountController::class, ['as' => 'CMS.course'])->middleware(['AdminPermissionReq:super,finance']);
+        Route::resource('course/discount', CourseDiscountController::class, ['as' => 'CMS.course'])->middleware(['AdminPermissionReq:developer,super,finance']);
         // Resourceful routes for 'course' with alias 'CMS'
-        Route::resource('course', CourseController::class, ['as' => 'CMS'])->middleware(['AdminPermissionReq:super,course']);
+        Route::resource('course', CourseController::class, ['as' => 'CMS'])->middleware(['AdminPermissionReq:developer,super,course']);
 
         // Resourceful routes for 'recruiter' with alias 'CMS'
-        Route::resource('recruiter', RecruiterController::class, ['as' => 'CMS'])->middleware(['AdminPermissionReq:super']);
+        Route::resource('recruiter', RecruiterController::class, ['as' => 'CMS'])->middleware(['AdminPermissionReq:developer,super']);
 
         // Resourceful routes for 'admin' with alias 'CMS'
-        Route::resource('admin', AdminUserController::class, ['as' => 'CMS'])->middleware(['AdminPermissionReq:super']);
+        Route::resource('admin', AdminUserController::class, ['as' => 'CMS'])->middleware(['AdminPermissionReq:developer,super']);
     });
 
 });
