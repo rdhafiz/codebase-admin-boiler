@@ -132,9 +132,21 @@
                                 </a>
                             </li>
                             <li class="nav-main-item">
+                                <a class="nav-main-link {{in_array(Route::currentRouteName(), ['CMS.course.payment.index','CMS.course.payment.create','CMS.course.payment.edit']) ? 'active' : ''}}" href="{{route('CMS.course.payment.index')}}">
+                                    <i class="nav-main-link-icon fa fa-gbp"></i>
+                                    <span class="nav-main-link-name">Course Payment</span>
+                                </a>
+                            </li>
+                            <li class="nav-main-item">
                                 <a class="nav-main-link {{in_array(Route::currentRouteName(), ['CMS.course.price.index','CMS.course.price.create','CMS.course.price.edit']) ? 'active' : ''}}" href="{{route('CMS.course.price.index')}}">
                                     <i class="nav-main-link-icon fa fa-gbp"></i>
                                     <span class="nav-main-link-name">Course Price</span>
+                                </a>
+                            </li>
+                            <li class="nav-main-item">
+                                <a class="nav-main-link {{in_array(Route::currentRouteName(), ['CMS.course.discount.index','CMS.course.discount.create','CMS.course.discount.edit']) ? 'active' : ''}}" href="{{route('CMS.course.discount.index')}}">
+                                    <s><i class="nav-main-link-icon fa fa-gbp"></i></s>
+                                    <span class="nav-main-link-name">Course Discount</span>
                                 </a>
                             </li>
                         </ul>
