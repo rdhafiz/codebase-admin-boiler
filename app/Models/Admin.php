@@ -50,13 +50,16 @@ class Admin extends Eloquent implements Authenticatable
     protected $appends = ['avatar_full_path'];
 
     // Admin Roles
-    public static $SuperAdmin = 1;
-    public static $CoursePlanner = 2;
-    public static $FinanceManager = 3;
+    public static $Developer = 1;
+    public static $SuperAdmin = 2;
+    public static $CoursePlanner = 3;
+    public static $FinanceManager = 4;
+
     public static $Permission = [
-        'super' => 1,
-        'course' => 2,
-        'finance' => 3
+        'developer' => 1,
+        'super' => 2,
+        'course' => 3,
+        'finance' => 4
     ];
 
     public function getAvatarFullPathAttribute()
@@ -70,7 +73,7 @@ class Admin extends Eloquent implements Authenticatable
     public static function getAdminRoleText($role)
     {
         $role = $role - 1;
-        $Roles = ['Super Admin', 'Course Planner', 'Finance Manager'];
+        $Roles = ['Developer', 'Super Admin', 'Course Planner', 'Finance Manager'];
         return $Roles[$role] ?? '';
     }
 }

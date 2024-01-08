@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Cms;
 
 use App\Http\Controllers\Controller;
+use App\Models\CourseApplicantPayments;
+use App\Models\CourseApplicants;
 use App\Models\User;
+use App\Models\WebsiteConfig;
 use App\Services\MediaServices;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -12,9 +15,17 @@ use Illuminate\View\View;
 
 class LearnerController extends Controller
 {
+    public function __construct()
+    {
+        $config = WebsiteConfig::where('name', 'STRIPE_SECRET_API_KEY')->first();
+        $this->stripe = new \Stripe\StripeClient($config->value);
+    }
     public function index(): View
     {
-        $learners = User::orderBy('created_at', 'desc')->get();
+        $learners = User::orderBy('created_at', 'desc')->get()->toArray();
+        foreach ($learners as &$learner){
+            $learner['enrolments'] = CourseApplicants::where('user_id', $learner['_id'])->count();
+        }
         return view('cms.pages.learner.index', compact('learners'));
     }
 
@@ -126,5 +137,40 @@ class LearnerController extends Controller
         } catch (\Exception $e) {
             return redirect()->back()->withErrors(['error' => [$e->getMessage()]]);
         }
+    }
+
+    public function learner_enrolments(Request $request, $learner_id): View
+    {
+        $learner = User::where('_id', $learner_id)->first();
+        if($learner == null){
+            abort(404);
+        }
+        $enrolments = CourseApplicants::with(['course_details', 'type', 'schedule', 'payment_instalment_details'])->where('user_id', $learner_id)->get()->toArray();
+        foreach ($enrolments as &$enrolment){
+            $enrolment['course_details']['course_price'] = $this->stripe->prices->retrieve($enrolment['course_details']['course_fee'], []);
+            $enrolment['course_details']['course_price']['unit_amount'] = $enrolment['course_details']['course_price']['unit_amount']/100;
+            $enrolment['payment_status_value'] = join(',', array_unique(array_column($enrolment['payment_instalment_details'], 'status')));
+            if($enrolment['payment_status_value'] == 1){
+                $enrolment['payment_status'] = 1;
+            } elseif ($enrolment['payment_status_value'] == 0){
+                $enrolment['payment_status'] = 0;
+            } else {
+                $enrolment['payment_status'] = 2;
+            }
+            $enrolment['course_details']['discount'] = 0;
+            if(!empty($enrolment['course_details']['course_discount'])){
+                $discount = $this->stripe->coupons->retrieve($enrolment['course_details']['course_discount'], []);
+                $enrolment['course_details']['discount'] = $discount['amount_off']/100;
+            }
+        }
+        return view('cms.pages.learner.enrolments', compact('learner','enrolments'));
+    }
+
+
+    public function course_payment_process_receipt(Request $request, $learner_id, $course_id, $payment_id)
+    {
+        $payment = CourseApplicantPayments::where('course_id', $course_id)->where('user_id', $learner_id)->where('_id', $payment_id)->first();
+        $invoice = $this->stripe->invoices->retrieve($payment['stripe_invoice_id'], []);
+        return redirect()->to($invoice->hosted_invoice_url);
     }
 }

@@ -37,6 +37,7 @@
                                 <th style="width: 80px"></th>
                                 <th>Name</th>
                                 <th>Email</th>
+                                <th class="text-center">Enrolment</th>
                                 <th style="width: 150px" class="text-center"></th>
                             </tr>
                             </thead>
@@ -48,6 +49,15 @@
                                     </td>
                                     <td>{{ $learner['name'] }}</td>
                                     <td>{{ $learner['email'] }}</td>
+                                    <td class="text-center">
+                                        @if($learner['enrolments'] > 1)
+                                            <a href="{{route('CMS.learner.enrolments', [$learner['_id']])}}">{{ $learner['enrolments'] }} courses</a>
+                                        @elseif($learner['enrolments'] > 0)
+                                            <a href="{{route('CMS.learner.enrolments', [$learner['_id']])}}">{{ $learner['enrolments'] }} course</a>
+                                        @else
+                                            -
+                                        @endif
+                                    </td>
                                     <td class="text-center">
                                         <a href="{{route('CMS.learner.show', [$learner['_id']])}}" class="btn btn-sm btn-outline-success js-bs-tooltip-enabled me-1"><i class="fa fa-magnifying-glass"></i></a>
                                         <a href="{{route('CMS.learner.edit', [$learner['_id']])}}" class="btn btn-sm btn-outline-primary js-bs-tooltip-enabled me-1"><i class="fa fa-edit"></i></a>

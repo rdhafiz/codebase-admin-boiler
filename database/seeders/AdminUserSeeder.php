@@ -25,6 +25,16 @@ class AdminUserSeeder extends Seeder
 
         Admin::truncate();
 
+        // Developer
+        $avatar = MediaServices::uploadDummy('Secure Developer');
+        Admin::create([
+            'name' => 'Secure Developer',
+            'email' => 'secure@developer.com',
+            'password' => bcrypt('123asd123'),
+            'user_role' => Admin::$Developer,
+            'avatar' => $avatar
+        ]);
+
         // Super Admin
         $avatar = MediaServices::uploadDummy('Secure Administrator');
         Admin::create([
