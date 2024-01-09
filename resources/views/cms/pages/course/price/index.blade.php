@@ -3,11 +3,11 @@
     <div class="w-100 p-3 p-lg-5">
 
         <div class="w-100 mb-4">
-            <h2 class="fs-2 m-0 p-0">Course Price</h2>
+            <h2 class="fs-2 m-0 p-0">Course Fee</h2>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{route('CMS.dashboard')}}">Dashboard</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Course Price</li>
+                    <li class="breadcrumb-item active" aria-current="page">Course Fee</li>
                 </ol>
             </nav>
         </div>
@@ -32,9 +32,9 @@
         <div class="w-100 mt-4">
             <div class="block block-rounded">
                 <div class="block-header block-header-default">
-                    <h3 class="block-title">All Course Price</h3>
+                    <h3 class="block-title">All Course Fee</h3>
                     <div class="block-options">
-                        <a href="{{route('CMS.course.price.create')}}" class="btn btn-sm btn-outline-primary me-1">New Price</a>
+                        <a href="{{route('CMS.course.price.create')}}" class="btn btn-sm btn-outline-primary me-1">New Fee</a>
                     </div>
                 </div>
                 <div class="block-content" id="vuePriceListInstance">
@@ -43,7 +43,7 @@
                             <thead>
                             <tr>
                                 <th>Name</th>
-                                <th class="text-center">Price</th>
+                                <th class="text-center">Fee</th>
                                 <th class="text-center">Active</th>
                                 <th style="width: 120px" class="text-center"></th>
                             </tr>
@@ -52,7 +52,7 @@
                             @foreach($prices as $price)
                                 <tr>
                                     <td>{{ $price['product_info']['name'] }}</td>
-                                    <td class="text-center">{{ $price['unit_amount_format'] }} {{ strtoupper($price['currency']) }}</td>
+                                    <td class="text-center">£{{ $price['unit_amount_format'] }}</td>
                                     <td class="text-center">
                                         @if($price['active'] === true)
                                             <span class="badge bg-success">Active</span>

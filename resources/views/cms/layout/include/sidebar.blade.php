@@ -119,14 +119,30 @@
 
 
                     @if(\App\Services\PermissionServices::isPermitted(['developer','super','course']))
-                        <li class="nav-main-item {{in_array(Route::currentRouteName(), ['CMS.course.category.index','CMS.course.category.create','CMS.course.category.edit','CMS.course.type.index','CMS.course.type.create','CMS.course.type.edit','CMS.course.price.index','CMS.course.price.create','CMS.course.price.edit']) ? 'open' : ''}}">
+                        <li class="nav-main-item {{in_array(Route::currentRouteName(), [
+                                                                                        'CMS.course.index',
+                                                                                        'CMS.course.create',
+                                                                                        'CMS.course.edit',
+                                                                                        'CMS.course.category.index',
+                                                                                        'CMS.course.category.create',
+                                                                                        'CMS.course.category.edit',
+                                                                                        'CMS.course.type.index',
+                                                                                        'CMS.course.type.create',
+                                                                                        'CMS.course.type.edit',
+                                                                                        'CMS.course.payment.index',
+                                                                                        'CMS.course.payment.create',
+                                                                                        'CMS.course.payment.edit',
+                                                                                        'CMS.course.price.index',
+                                                                                        'CMS.course.price.create',
+                                                                                        'CMS.course.price.edit'
+                                                                                        ]) ? 'open' : ''}}">
                             <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="true" href="javascript:void(0)">
                                 <i class="nav-main-link-icon fa fa-cubes"></i>
                                 <span class="nav-main-link-name">Course Management</span>
                             </a>
                             <ul class="nav-main-submenu">
                                 <li class="nav-main-item">
-                                    <a class="nav-main-link {{in_array(Route::currentRouteName(), ['CMS.course.category.index','CMS.course.category.create','CMS.course.category.edit']) ? 'active' : ''}}" href="{{route('CMS.course.index')}}">
+                                    <a class="nav-main-link {{in_array(Route::currentRouteName(), ['CMS.course.index','CMS.course.create','CMS.course.edit']) ? 'active' : ''}}" href="{{route('CMS.course.index')}}">
                                         <i class="nav-main-link-icon fa fa-display"></i>
                                         <span class="nav-main-link-name">All Courses</span>
                                     </a>
@@ -149,13 +165,13 @@
                                     <li class="nav-main-item">
                                         <a class="nav-main-link {{in_array(Route::currentRouteName(), ['CMS.course.payment.index','CMS.course.payment.create','CMS.course.payment.edit']) ? 'active' : ''}}" href="{{route('CMS.course.payment.index')}}">
                                             <i class="nav-main-link-icon fa fa-gbp"></i>
-                                            <span class="nav-main-link-name">Course Payment</span>
+                                            <span class="nav-main-link-name">Course Plan</span>
                                         </a>
                                     </li>
                                     <li class="nav-main-item">
                                         <a class="nav-main-link {{in_array(Route::currentRouteName(), ['CMS.course.price.index','CMS.course.price.create','CMS.course.price.edit']) ? 'active' : ''}}" href="{{route('CMS.course.price.index')}}">
                                             <i class="nav-main-link-icon fa fa-gbp"></i>
-                                            <span class="nav-main-link-name">Course Price</span>
+                                            <span class="nav-main-link-name">Course Fee</span>
                                         </a>
                                     </li>
                                     <li class="nav-main-item">

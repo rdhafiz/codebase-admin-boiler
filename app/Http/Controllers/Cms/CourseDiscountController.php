@@ -38,7 +38,6 @@ class CourseDiscountController extends Controller
 
             $validator = Validator::make($request->all(), [
                 'name' => 'required|string',
-                'currency' => 'required|string',
                 'amount_off' => 'required|numeric',
             ]);
             if ($validator->fails()) {
@@ -47,7 +46,7 @@ class CourseDiscountController extends Controller
 
             $this->stripe->coupons->create([
                 'name' => $request->name,
-                'currency' => $request->currency,
+                'currency' => 'gbp',
                 'amount_off' => $request->amount_off * 100
             ]);
 

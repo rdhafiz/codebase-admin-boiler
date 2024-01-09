@@ -52,16 +52,6 @@
                                     </div>
                                     <div class="col-lg-4">
                                         <div class="form-group mb-4">
-                                            <label class="form-label">Currency</label>
-                                            <select name="currency" class="form-select">
-                                                <option @if($price['currency'] == 'gbp') selected @endif value="gbp">GBP (£)</option>
-                                                <option @if($price['currency'] == 'usd') selected @endif value="usd">USD ($)</option>
-                                            </select>
-                                            @if($errors->has('currency')) <small class="text-danger">{{$errors->first('currency')}}</small> @endif
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <div class="form-group mb-4">
                                             <label class="form-label">Price Amount</label>
                                             <input type="text" class="form-control" name="unit_amount" value="{{old('unit_amount') ?? $price['unit_amount_format']}}" placeholder="Price Amount">
                                             @if($errors->has('unit_amount')) <small class="text-danger">{{$errors->first('unit_amount')}}</small> @endif

@@ -14,7 +14,7 @@ class AdminUserController extends Controller
 {
     public function index(): View
     {
-        $admins = Admin::orderBy('created_at', 'desc')->where('_id', '!=', Auth::guard('admin')->id())->get();
+        $admins = Admin::orderBy('created_at', 'desc')->where('_id', '!=', Auth::guard('admin')->id())->where('user_role','>',Auth::guard('admin')->user()->user_role)->get();
         return view('cms.pages.admin.index', compact('admins'));
     }
 
