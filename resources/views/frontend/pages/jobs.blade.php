@@ -77,7 +77,7 @@
                                       'bg-secondary': job.job_type == 'Locum',
                                       'bg-primary': job.job_type == 'Internship',
                                       }">@{{ job.job_type }}</span>
-                                <h2 class="mb-2">@{{ job.job_title }}</h2>
+                                <h2 class="mb-2"><a :href="'/job/'+job._id">@{{ job.job_title }}</a></h2>
                                 <p class="m-0"><a class="text-decoration-none" :href="job.company_website" target="_blank">@{{ job.company_name }}</a></p>
                                 <p class="d-flex align-items-center"><i class="ai-map-pin"></i> &nbsp; <span>@{{ job.location }}</span></p>
                                 <p class="fs-lg mb-0 mb-lg-4">
