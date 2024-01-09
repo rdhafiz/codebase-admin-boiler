@@ -11,6 +11,7 @@ export default defineConfig({
 
                 'resources/js/frontend/purplemed.js',
                 'resources/js/frontend/pages/osce-apply.js',
+                'resources/js/frontend/pages/jobs.js',
 
                 'resources/js/lib/jquery.min.js',
                 'resources/js/codebase/app.js',

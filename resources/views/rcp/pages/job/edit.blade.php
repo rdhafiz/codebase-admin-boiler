@@ -103,7 +103,7 @@
                                     <div class="col-lg-6">
                                         <div class="form-group mb-4">
                                             <label class="form-label">Location</label>
-                                            <input type="text" class="form-control" name="location" value="{{old('location') ?? $job['salary_max']}}" placeholder="Location">
+                                            <input type="text" class="form-control" name="location" value="{{old('location') ?? $job['location']}}" placeholder="Location">
                                             @if($errors->has('location'))
                                                 <small class="text-danger">{{$errors->first('location')}}</small>
                                             @endif

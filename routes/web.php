@@ -37,6 +37,7 @@ Route::get('international-candidates', [InternationalCandidatesPageController::c
 Route::get('about', [AboutPageController::class, "viewPage"])->name('about-us');
 Route::get('contact', [ContactPageController::class, "viewPage"])->name('contact-us');
 Route::get('jobs', [JobsPageController::class, "viewPage"])->name('jobs');
+Route::post('job/search', [JobsPageController::class, "job_search"])->name('job.search');
 //OSCE Pages
 Route::group(['prefix' => 'training'], function() {
     Route::get('osce', [TrainingPageController::class, "viewOSCE"])->name('osce');

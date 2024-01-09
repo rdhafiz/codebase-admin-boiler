@@ -10,43 +10,50 @@
         <section class="bg-body py-5 my-lg-0 mt-3">
             <div class="container py-md-2 py-lg-4 my-xl-2 my-xxl-3">
 
-                <div class="row py-4 my-2 my-md-3 my-lg-4">
-                    <div class="col-md-3 col-lg-3">
-                        <h3 class="h5">Filter Jobs</h3>
-                        <div class="accordion accordion-alt pb-2 mb-4" id="shopCategories">
-                            <div class="accordion-item mb-0">
+                <div class="w-100" id="vueJobBrowseInstance" style="display: none">
+                    <div class="row py-4 my-2 my-md-3 my-lg-4">
+                        <div class="col-md-3 col-lg-3">
+                            <h4 class="fw-medium text-primary">Job Search</h4>
+                            <div class="accordion accordion-alt pb-2 mb-4" id="shopCategories">
+                                <div class="accordion-item mb-0">
+                                    <div class="position-relative mb-2">
+                                        <i class="ai-search position-absolute top-50 start-0 translate-middle-y ms-3"></i>
+                                        <input class="form-control ps-5" type="search" v-model="param.title" @keyup="keyTypeSlow" name="title" placeholder="Job Title">
+                                    </div>
+                                    <div class="position-relative mb-4">
+                                        <i class="ai-search position-absolute top-50 start-0 translate-middle-y ms-3"></i>
+                                        <input class="form-control ps-5" type="search" name="location" v-model="param.location" @keyup="keyTypeSlow" placeholder="Job Location">
+                                    </div>
 
-                                <div class="d-flex align-items-center w-100 mb-2">
-                                    {{--                                <label class="form-label fs-xs me-2 mb-0" for="price-min">From</label>--}}
-                                    <input class="form-control form-control-sm range-slider-value-min" placeholder="Job Title" type="text" id="job-title">
-                                </div>
-                                <div class="d-flex align-items-center w-100">
-                                    <input class="form-control form-control-sm range-slider-value-max" placeholder="Job Location" type="text" id="job-location">
-                                </div>
-
-                                <h4 class="accordion-header">
-                                    <button class="accordion-button fs-xl fw-medium py-2" type="button" --data-bs-toggle="collapse" --data-bs-target="#livingRoom" --aria-expanded="true" aria-controls="livingRoom">
-                                        <span class="fs-base">Job Type</span>
-                                    </button>
-                                </h4>
-                                <div class="accordion-collapse collapse show" id="livingRoom" data-bs-parent="#shopCategories">
-                                    <div class="accordion-body py-1 mb-1">
+                                    <h4 class="fw-medium text-primary">Job Type</h4>
+                                    <div class="w-100">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" id="lr-vases">
-                                            <label class="form-check-label d-flex align-items-center" for="lr-vases">
-                                                <span class="text-nav fw-medium">Permanent</span>
-                                                {{--                                            <span class="fs-xs text-body-secondary ms-auto">234</span>--}}
+                                            <input class="form-check-input" @change="toggleJobType('Full Time')" :checked="param.job_type.indexOf('Full Time') > -1" type="checkbox" id="jt-Full-Time" value="Full Time">
+                                            <label class="form-check-label d-flex align-items-center" for="jt-Full-Time">
+                                                <span class="text-nav fw-medium">Full Time</span>
                                             </label>
                                         </div>
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" id="lr-mirrors">
-                                            <label class="form-check-label d-flex align-items-center" for="lr-mirrors">
+                                            <input class="form-check-input" @change="toggleJobType('Part Time')" :checked="param.job_type.indexOf('Part Time') > -1" type="checkbox" id="jt-Part-Time" value="Part Time">
+                                            <label class="form-check-label d-flex align-items-center" for="jt-Part-Time">
+                                                <span class="text-nav fw-medium">Part Time</span>
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" @change="toggleJobType('Internship')" :checked="param.job_type.indexOf('Internship') > -1" type="checkbox" id="jt-Internship" value="Internship">
+                                            <label class="form-check-label d-flex align-items-center" for="jt-Internship">
+                                                <span class="text-nav fw-medium">Internship</span>
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" @change="toggleJobType('Temporary')" :checked="param.job_type.indexOf('Temporary') > -1" type="checkbox" id="jt-Temporary" value="Temporary">
+                                            <label class="form-check-label d-flex align-items-center" for="jt-Temporary">
                                                 <span class="text-nav fw-medium">Temporary</span>
                                             </label>
                                         </div>
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" id="lr-paintings">
-                                            <label class="form-check-label d-flex align-items-center" for="lr-paintings">
+                                            <input class="form-check-input" @change="toggleJobType('Locum')" :checked="param.job_type.indexOf('Locum') > -1" type="checkbox" id="jt-Locum" value="Locum">
+                                            <label class="form-check-label d-flex align-items-center" for="jt-Locum">
                                                 <span class="text-nav fw-medium">Locum</span>
                                             </label>
                                         </div>
@@ -54,28 +61,29 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-9 col-lg-9">
-                        <div class="mb-4 mb-lg-1">
-                            <span class="badge fs-sm bg-warning text-white mb-2">Locum</span>
-                            <h2 class="mb-2">Assistant Practitioner</h2>
-                            <p class="fs-lg mb-0 mb-lg-4">
-                                This programme is designed for those who want to pursue a career in Artificial Intelligence (specialising in machine learning and deep learning), developing smart and insightful software agents/algorithms that can...
-                            </p>
-                        </div>
-                        <div class="mb-4 mb-lg-1">
-                            <span class="badge fs-sm bg-success text-white mb-2">Permanent</span>
-                            <h2 class="mb-2">Neonatal Nursing Associate</h2>
-                            <p class="fs-lg mb-0 mb-lg-4">
-                                This programme is designed for those who want to pursue a career in Artificial Intelligence (specialising in machine learning and deep learning), developing smart and insightful software agents/algorithms that can...
-                            </p>
-                        </div>
-                        <div class="mb-4 mb-lg-1">
-                            <span class="badge fs-sm bg-info text-white mb-2">Temporary</span>
-                            <h2 class="mb-2">Assistant Practitioner - District Nursing Team</h2>
-                            <p class="fs-lg mb-0 mb-lg-4">
-                                Intelligent Systems, Machine Learning, Deep Learning, and a wider range of application areas ranging from predicting modelling to decision making to fintech to computer vision. Dr Mustansar Ali Ghazanfar is...
-                            </p>
+                        <div class="col-md-9 col-lg-9">
+                            <div class="w-100" v-if="loading">
+                                Searching Jobs....
+                            </div>
+                            <div class="w-100" v-if="!loading && jobs.length == 0">
+                                <p class="alert alert-danger text-center">No job found!</p>
+                            </div>
+                            <div class="my-4 border-bottom" v-for="job in jobs">
+                                <span class="badge mb-2"
+                                      :class="{
+                                      'bg-success': job.job_type == 'Full Time',
+                                      'bg-info': job.job_type == 'Part Time',
+                                      'bg-warning text-dark': job.job_type == 'Temporary',
+                                      'bg-secondary': job.job_type == 'Locum',
+                                      'bg-primary': job.job_type == 'Internship',
+                                      }">@{{ job.job_type }}</span>
+                                <h2 class="mb-2">@{{ job.job_title }}</h2>
+                                <p class="m-0"><a class="text-decoration-none" :href="job.company_website" target="_blank">@{{ job.company_name }}</a></p>
+                                <p class="d-flex align-items-center"><i class="ai-map-pin"></i> &nbsp; <span>@{{ job.location }}</span></p>
+                                <p class="fs-lg mb-0 mb-lg-4">
+                                    @{{ job.job_description }}...
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -84,4 +92,8 @@
         </section>
     </div>
 
+@endsection
+@section('js')
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    @vite('resources/js/frontend/pages/jobs.js')
 @endsection

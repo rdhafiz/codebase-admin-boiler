@@ -45,7 +45,9 @@
                             <tbody>
                             @foreach($recruiters as $recruiter)
                                 <tr>
-                                    <td></td>
+                                    <td>
+                                        <img class="img-fluid rounded-pill" style="width: 40px; height: 40px; object-fit: cover;overflow: hidden;" src="{{$recruiter['avatar_full_path']}}" alt="">
+                                    </td>
                                     <td>{{ $recruiter['name'] }}</td>
                                     <td>{{ $recruiter['email'] }}</td>
                                     <td>{{ $recruiter['phone'] }}</td>
