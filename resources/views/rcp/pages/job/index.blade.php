@@ -38,7 +38,7 @@
                                 <th>Job Type</th>
                                 <th>Company Name</th>
                                 <th>Salary</th>
-                                <th>Applicants</th>
+                                <th class="text-center">Applicants</th>
                                 <th style="width: 150px" class="text-center"></th>
                             </tr>
                             </thead>
@@ -49,7 +49,13 @@
                                     <td>{{ $job['job_type'] }}</td>
                                     <td>{{ $job['company_name'] }}</td>
                                     <td>${{ $job['salary_min'] }} @if(!empty($job['salary_max'])) - ${{$job['salary_max']}} @endif</td>
-                                    <td>0</td>
+                                    <td class="text-center">
+                                        @if($job['applicants'] > 0)
+                                            <a href="{{route('RCP.job.applications', [$job['_id']])}}"><strong>{{ $job['applicants'] }}</strong> Applicants</a>
+                                        @else
+                                            -
+                                        @endif
+                                    </td>
                                     <td class="text-center">
                                         <a href="{{route('RCP.job.show', [$job['_id']])}}" class="btn btn-sm btn-outline-primary js-bs-tooltip-enabled me-1"><i class="fa fa-expand"></i></a>
                                         <a href="{{route('RCP.job.edit', [$job['_id']])}}" class="btn btn-sm btn-outline-primary js-bs-tooltip-enabled me-1"><i class="fa fa-edit"></i></a>

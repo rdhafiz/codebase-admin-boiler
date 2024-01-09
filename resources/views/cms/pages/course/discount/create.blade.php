@@ -46,16 +46,6 @@
                                     </div>
                                     <div class="col-lg-4">
                                         <div class="form-group mb-4">
-                                            <label class="form-label">Currency</label>
-                                            <select name="currency" class="form-select">
-                                                <option value="gbp">GBP (£)</option>
-                                                <option value="usd">USD ($)</option>
-                                            </select>
-                                            @if($errors->has('currency')) <small class="text-danger">{{$errors->first('currency')}}</small> @endif
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <div class="form-group mb-4">
                                             <label class="form-label">Discount Amount</label>
                                             <input type="text" class="form-control" name="amount_off" value="{{old('amount_off')}}" placeholder="Discount Amount">
                                             @if($errors->has('amount_off')) <small class="text-danger">{{$errors->first('amount_off')}}</small> @endif

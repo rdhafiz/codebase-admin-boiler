@@ -3,11 +3,11 @@
     <div class="w-100 p-3 p-lg-5">
 
         <div class="w-100 mb-4">
-            <h2 class="fs-2 m-0 p-0">Course Payment</h2>
+            <h2 class="fs-2 m-0 p-0">Course Plan</h2>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{route('CMS.dashboard')}}">Dashboard</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Course Payment</li>
+                    <li class="breadcrumb-item active" aria-current="page">Course Plan</li>
                 </ol>
             </nav>
         </div>
@@ -32,9 +32,9 @@
         <div class="w-100 mt-4">
             <div class="block block-rounded">
                 <div class="block-header block-header-default">
-                    <h3 class="block-title">All Course Payment</h3>
+                    <h3 class="block-title">All Course Plan</h3>
                     <div class="block-options">
-                        <a href="{{route('CMS.course.payment.create')}}" class="btn btn-sm btn-outline-primary me-1">New Payment</a>
+                        <a href="{{route('CMS.course.payment.create')}}" class="btn btn-sm btn-outline-primary me-1">New Plan</a>
                     </div>
                 </div>
                 <div class="block-content" id="vuePaymentListInstance">

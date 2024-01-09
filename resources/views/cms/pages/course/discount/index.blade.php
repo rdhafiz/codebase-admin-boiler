@@ -51,7 +51,7 @@
                             @foreach($discounts as $discount)
                                 <tr>
                                     <td>{{ $discount['name'] }}</td>
-                                    <td class="text-center">{{ $discount['amount_off'] }} {{ strtoupper($discount['currency']) }}</td>
+                                    <td class="text-center">£{{ $discount['amount_off'] }}</td>
                                     <td class="text-center">
                                         <form class="d-inline-block" id="delete_{{$discount['id']}}" action="{{route('CMS.course.discount.destroy', [$discount['id']])}}" method="POST">
                                             {{csrf_field()}}

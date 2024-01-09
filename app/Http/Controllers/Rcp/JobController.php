@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Rcp;
 
 use App\Http\Controllers\Controller;
+use App\Models\JobApply;
 use App\Models\Jobs;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
@@ -13,7 +15,10 @@ class JobController extends Controller
 {
     public function index(): View
     {
-        $jobs = Jobs::orderBy('created_at', 'asc')->get();
+        $jobs = Jobs::orderBy('created_at', 'asc')->get()->toArray();
+        foreach ($jobs as &$job){
+            $job['applicants'] = JobApply::where('job_id', $job['_id'])->count();
+        }
         return view('rcp.pages.job.index', compact('jobs'));
     }
 
@@ -125,5 +130,17 @@ class JobController extends Controller
         } catch (\Exception $e) {
             return redirect()->back()->withErrors(['error' => [$e->getMessage()]]);
         }
+    }
+    public function applications(Request $request, $id): View
+    {
+        $job = Jobs::where('_id', $id)->first();
+        if ($job == null){
+            abort(404);
+        }
+        $applications = JobApply::where('job_id', $id)->get()->toArray();
+        foreach ($applications as &$application){
+            $application['user_info'] = User::where('_id', $application['user_id'])->first();
+        }
+        return view('rcp.pages.job.applications', compact('job','applications'));
     }
 }

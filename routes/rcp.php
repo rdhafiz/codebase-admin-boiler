@@ -39,6 +39,7 @@ Route::group(['prefix' => '/recruiter/portal'], function () {
 
         // Resourceful routes for 'job' with alias 'RCP'
         Route::resource('job', JobController::class, ['as' => 'RCP']);
+        Route::get('job/{id}/applications', [JobController::class, "applications"])->name('RCP.job.applications');
     });
 
 });

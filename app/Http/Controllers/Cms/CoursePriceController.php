@@ -40,7 +40,6 @@ class CoursePriceController extends Controller
 
             $validator = Validator::make($request->all(), [
                 'product' => 'required|string',
-                'currency' => 'required|string',
                 'unit_amount' => 'required|numeric',
             ]);
             if ($validator->fails()) {
@@ -48,7 +47,7 @@ class CoursePriceController extends Controller
             }
 
             $this->stripe->prices->create([
-                'currency' => $request->currency,
+                'currency' => 'gbp',
                 'unit_amount' => $request->unit_amount * 100,
                 'product' => $request->product,
             ]);
