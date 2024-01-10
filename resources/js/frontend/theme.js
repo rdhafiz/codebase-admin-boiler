@@ -7029,7 +7029,7 @@ import AOS from "aos/dist/aos";
   		// Initialize plugin
   		//
 
-  		init();
+  		//init();
 
 
   		//
@@ -7089,21 +7089,21 @@ import AOS from "aos/dist/aos";
    * @requires https://github.com/cferdinandi/smooth-scroll/
    */
 
-  (() => {
-    /* eslint-disable no-unused-vars, no-undef */
-    const selector = '[data-scroll]',
-      fixedHeader = '[data-scroll-header]';
-      new SmoothScroll(selector, {
-        speed: 800,
-        speedAsDuration: true,
-        offset: (anchor, toggle) => {
-          return toggle.dataset.scrollOffset || 20;
-        },
-        header: fixedHeader,
-        updateURL: false
-      });
-    /* eslint-enable no-unused-vars, no-undef */
-  })();
+  // (() => {
+  //   /* eslint-disable no-unused-vars, no-undef */
+  //   const selector = '[data-scroll]',
+  //     fixedHeader = '[data-scroll-header]';
+  //     new SmoothScroll(selector, {
+  //       speed: 800,
+  //       speedAsDuration: true,
+  //       offset: (anchor, toggle) => {
+  //         return toggle.dataset.scrollOffset || 20;
+  //       },
+  //       header: fixedHeader,
+  //       updateURL: false
+  //     });
+  //   /* eslint-enable no-unused-vars, no-undef */
+  // })();
 
   /**
    * Animate scroll to top button in/off view
