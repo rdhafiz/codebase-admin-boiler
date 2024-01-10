@@ -221,19 +221,20 @@ section {
             width: 100%;
             display: block;
             height: 600px;
-            background-size: 100%;
+            background-repeat: no-repeat;
+            background-size: cover;
             background-position: bottom;
             @include transition(all 1s linear);
             @media (max-width: 991px) {
                 height: 600px;
             }
         }
-        &:hover,&:active{
-            .each-home-jobs-photo {
-                background-size: 105%;
-                @include transition(all 1s linear);
-            }
-        }
+        //&:hover,&:active{
+        //    .each-home-jobs-photo {
+        //        background-size: 105%;
+        //        @include transition(all 1s linear);
+        //    }
+        //}
     }
 }
 

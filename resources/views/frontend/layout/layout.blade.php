@@ -24,7 +24,7 @@
     <!-- Modules -->
 
 </head>
-<body>
+<body class="side-scroll">
 
 <div class="pre-loader" id="preLoader">
     <svg width="100px" height="100px" viewBox="0 0 54 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
@@ -45,6 +45,6 @@
 </main>
 
 </body>
-@vite(['resources/js/frontend/purplemed.js',])
+@vite(['resources/js/frontend/purplemed.js'])
 @yield('js')
 </html>
