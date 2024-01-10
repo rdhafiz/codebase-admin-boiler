@@ -31,3 +31,44 @@ $theme-color-dark: $purplemed-color-dark;
     //--ar-heading-link-hover-color: var(--color-theme-dark) !important;
     //--ar-accordion-active-color: var(--color-theme-dark) !important;
 }
+
+
+
+@-webkit-keyframes draw_pre_loader {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+@-moz-keyframes draw_pre_loader {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+@keyframes draw_pre_loader {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+.pre-loader{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    z-index: 99;
+    background: #ffffff;
+    top: 0;
+    left: 0;
+    .beat-loader{
+        stroke: var(--color-theme-dark);
+        stroke-dasharray: 175;
+        stroke-dashoffset: 350;
+        -webkit-animation: draw_pre_loader 1.4s linear;
+        -moz-animation: draw_pre_loader 1.4s linear;
+        animation: draw_pre_loader 1.4s linear;
+        -webkit-animation-iteration-count: infinite;
+        -moz-animation-iteration-count: infinite;
+        animation-iteration-count: infinite;
+    }
+}

@@ -54,7 +54,7 @@
                 <li class="nav-item">
                     <a class="nav-link @if(Route::currentRouteName() == 'contact-us') active @endif" href="{{ route('contact-us') }}">Contact</a>
                 </li>
-                <li class="nav-item pt-1">
+                <li class="nav-item ms-3 pt-1">
                     @if(auth()->check())
                         <div class="dropdown">
                             <button class="btn btn-primary btn-sm fs-sm order-lg-3 d-none d-sm-inline-flex dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

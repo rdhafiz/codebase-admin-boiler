@@ -1,10 +1,10 @@
-window.onload = () => {
+document.addEventListener("DOMContentLoaded", function () {
     flatpickr("#cbt_pass_date", {
         altInput: true,
         altFormat: "F j, Y",
         dateFormat: "Y-m-d",
     });
-}
+});
 
 // chooseOSCECourse
 window.chooseOSCECourse = () => {
