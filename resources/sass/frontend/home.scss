@@ -1,5 +1,19 @@
 @import "library";
 
+@keyframes animated_particles {
+    0%{
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+        border-radius: 0;
+    }
+    100%{
+        transform: translateY(-1000px) rotate(720deg);
+        opacity: 0;
+        border-radius: 50%;
+    }
+}
+
+
 #section-hero {
 
     //background-image: url("assets/images/frontend/home/london-bridge.jpg");
@@ -17,17 +31,29 @@
         }
     }
 }
+
 #section-courses {
-  //transform: skew(0, -2.76deg) translateY(calc(50vw/-12));
+    position: relative;
+    z-index: 3;
+    margin-top: 5px;
+    transform: skew(0, -2.76deg) translateY(calc(50vw / -12));
+    //&:before{
+    //    content: "";
+    //    position: absolute;
+    //    left: 0;
+    //    top: -98px;
+    //    border-left: calc(50vw + 15px) solid #F6F9FC;
+    //    border-top: 100px solid transparent;
+    //}
 
     .course {
         max-width: 400px;
 
-        i {
-            margin-top: -56px;
-            color: var(--color-theme-dark);
-            font-size: 60px !important;
-        }
+        //i {
+        //    margin-top: -56px;
+        //    color: var(--color-theme-dark);
+        //    font-size: 60px !important;
+        //}
     }
 
     p {
@@ -42,6 +68,7 @@
         &:first-child {
             border-top-left-radius: var(--ar-border-radius-lg);
         }
+
         &:last-child {
             border-top-right-radius: var(--ar-border-radius-lg);
         }
@@ -51,7 +78,7 @@
 #section-medics {
     .steps {
         .step-body {
-          //color: white;
+            //color: white;
         }
 
         .step-number {
@@ -65,6 +92,7 @@
             background-color: rgba(var(--ar-primary-rgb), 0.1);
             border-radius: var(--ar-steps-number-border-radius);
         }
+
         .step-number::before {
             position: absolute;
             top: 0;
@@ -87,13 +115,171 @@
 }
 
 #section-why-us, #section-jobs {
-  p {
-    color: black;
-  }
+    p {
+        color: black;
+    }
 }
 
 section {
     .section-title {
         color: var(--color-theme-dark);
+    }
+}
+
+
+.home_banner {
+    width: 100%;
+    display: inline-block;
+
+    .each-home-banner {
+        width: 100%;
+        display: block;
+        min-height: 800px;
+        height: 70vh;
+        background: linear-gradient(109.6deg, rgb(20, 30, 48) 11.2%, rgb(36, 59, 85) 91.1%);
+        position: relative;
+        margin-top: 100px;
+        @media (max-width: 991px) {
+            min-height: 400px;
+            height: 50vh;
+        }
+
+        .each-home-banner-content {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 800px;
+            height: 70vh;
+            padding: 30px;
+            position: relative;
+            @media (max-width: 991px) {
+                min-height: 400px;
+                height: 50vh;
+                position: absolute;
+                z-index: 2;
+                top: 0;
+                left: 0;
+                background: rgba(#000000, 0.5);
+            }
+        }
+
+        .each-home-banner-photo {
+            width: 100%;
+            display: block;
+            min-height: 800px;
+            height: 70vh;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            @media (max-width: 991px) {
+                min-height: 400px;
+                height: 50vh;
+            }
+        }
+    }
+}
+.home-jobs {
+    width: 100%;
+    display: inline-block;
+    margin-top: -175px;
+
+    .each-home-jobs {
+        width: 100%;
+        display: block;
+        height: 600px;
+        background: radial-gradient(circle at 10% 20%, rgb(90, 92, 106) 0%, rgb(32, 45, 58) 81.3%);
+        position: relative;
+
+        .each-home-jobs-content {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 600px;
+            padding: 30px;
+            position: relative;
+            @media (max-width: 991px) {
+                height: 600px;
+                position: absolute;
+                z-index: 2;
+                top: 0;
+                left: 0;
+                background: rgba(#000000, 0.5);
+            }
+            .each-home-jobs-content-box{
+                width: 100%;
+                max-width: 500px;
+            }
+        }
+
+        .each-home-jobs-photo {
+            width: 100%;
+            display: block;
+            height: 600px;
+            background-size: 100%;
+            background-position: bottom;
+            @include transition(all 1s linear);
+            @media (max-width: 991px) {
+                height: 600px;
+            }
+        }
+        &:hover,&:active{
+            .each-home-jobs-photo {
+                background-size: 105%;
+                @include transition(all 1s linear);
+            }
+        }
+    }
+}
+
+
+.cube_rains{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    li{
+        position: absolute;
+        display: block;
+        list-style: none;
+        width: 0;
+        height: 0;
+        background: transparent;
+        border: 3px dashed rgba(#ffffff, 0.1);
+        animation: animated_particles 25s linear infinite;
+        bottom: -150px;
+        &:nth-child(1){
+            left: 25%;
+            width: 80px;
+            height: 80px;
+            animation-delay: 0s;
+        }
+        &:nth-child(2){
+            left: 40%;
+            width: 60px;
+            height: 60px;
+            animation-delay: 0s;
+            animation-duration: 10s;
+        }
+        &:nth-child(3){
+            left: 75%;
+            width: 110px;
+            height: 110px;
+            animation-delay: 3s;
+        }
+        &:nth-child(4){
+            left: 85%;
+            width: 150px;
+            height: 150px;
+            animation-delay: 0s;
+            animation-duration: 11s;
+        }
     }
 }

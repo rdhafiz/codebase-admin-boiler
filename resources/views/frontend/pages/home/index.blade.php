@@ -1,271 +1,22 @@
-@extends('frontend.layout.frontend-layout')
+@extends('frontend.layout.layout')
 
-@section('css')
+@section('stylesheet')
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
     @vite(['resources/sass/frontend/home.scss'])
 @show
 
 @section('content')
 
-    <!-- Section 1 - Hero -->
-    <section id="section-hero" class="bg-dark d-flex min-vh-100 position-relative overflow-hidden py-lg-5 jarallax-img" data-bs-theme="dark" data-jarallax data-speed="0.65"
-    style="background-image: url({{ asset('assets/images/frontend/home/london-bridge.jpg') }}); background-size: cover;">
-        <div class="container d-flex flex-column justify-content-lg-center justify-content-end position-relative z-2 pt-sm-3 pt-md-4 pt-xl-5 pb-1 pb-sm-3 pb-lg-4 pb-xl-5">
-            <div class="row flex-lg-nowrap align-items-center pb-lg-5 pt-2 pt-lg-4 pt-xl-0 mt-lg-4 mt-xl-0">
-                {{--
-                <div class="col-lg-7 order-lg-2 ms-lg-4 mb-2 mb-lg-0">
-                    <div class="parallax order-lg-2 mx-auto" style="max-width: 740px;">
-                        <div class="parallax-layer" data-depth="0.05">
-                            <img src="{{ asset('assets/images/frontend/landing/saas-2/hero/01.png') }}" alt="Layer">
-                        </div>
-                        <div class="parallax-layer" data-depth="-0.05">
-                            <img src="{{ asset('assets/images/frontend/landing/saas-2/hero/02.png') }}" style="animation: rotate-cw 100s linear infinite;" alt="Layer">
-                        </div>
-                        <div class="parallax-layer z-2" data-depth="0.3">
-                            <img src="{{ asset('assets/images/frontend/landing/saas-2/hero/03.png') }}" alt="Layer"></div>
-                        <div class="parallax-layer z-2" data-depth="0.15">
-                            <img src="{{ asset('assets/images/frontend/landing/saas-2/hero/04.png') }}" alt="Layer">
-                        </div>
-                        <div class="parallax-layer z-2" data-depth="0.4">
-                            <img src="{{ asset('assets/images/frontend/landing/saas-2/hero/05.png') }}" alt="Layer">
-                        </div>
-                    </div>
-                </div>
-                --}}
-                <div id="hero-content-text" class="bg-white card card-hover border-0 border-theme rounded-1 text-decoration-none overflow-hidden offset-lg-7 col-lg-5 order-lg-1 text-center text-lg-start me-xl-5 ps-3">
-                    <span class="badge bg-opacity-10 text-black fs-5 text-lg-start pt-3">Take your career to the next level&nbsp; 🚀</span>
-                    <h1 class="display-4 py-1 my-2 mb-xl-3 text-theme-dark">
-                        We Help Medics Getting Job in UK
-                    </h1>
-                    <ul class="list-unstyled d-table text-start mx-auto mx-lg-0 mb-0">
-                        <li class="d-flex text-body pb-2 mb-1">
-                            <i class="ai-check-alt lead me-2"></i>
-                            Transform Your Life in UK
-                        </li>
-                        <li class="d-flex text-body pb-2 mb-1">
-                            <i class="ai-check-alt lead me-2"></i>
-                            Road to being a Health Hero
-                        </li>
-                        <li class="d-flex text-body pb-2 mb-1">
-                            <i class="ai-check-alt lead me-2"></i>
-                            Gateway for Healthcare Professionals
-                        </li>
-                    </ul>
-                    <div class="d-flex justify-content-center justify-content-lg-start pt-4 pt-xl-4 pb-3">
-                        <div class="text-center">
-                            <a class="btn btn-theme w-100 w-sm-auto" href="{{route('front.apply')}}">Apply Now</a>
-                            <p class="text-black fs-sm pt-2 mt-sm-1 mb-0">100% job guaranteed!</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    @include('frontend.pages.home.widgets.banner')
+    @include('frontend.pages.home.widgets.courses')
+    @include('frontend.pages.home.widgets.jobs')
 
 
-    <section id="section-courses" class="bg-secondary">
-        <div class="container py-5 py-sm-0 py-lg-5">
 
-            <div class="row mb-1 pb-3">
-                <div class="col-12 order-md-2 mb-md-0 mb-3">
-                    <h2 class="section-title h1 fw-bold text-uppercase pe-3 d-flex justify-content-center">
-                        Courses
-                    </h2>
-                </div>
-            </div>
 
-            <div class="row pt-2 pt-sm-0 pt-lg-3">
 
-                <div class="col-sm-12 col-md-4 pb-4 mb-1">
-                    <div class="course bg-body p-4 rounded-3 mx-sm-auto">
-                        <i class="ai-calendar-minus"></i>
-                        <h3 class="h4 pt-3">15 Days (10 Stations)</h3>
-                        <p class="mb-3">£ 1,200 fees, 24/7 access from anywhere, blended and instructor-led learning, completed within 15 days</p>
-                    </div>
-                </div>
-                <div class="col-sm-12 col-md-4 pb-4 mb-1">
-                    <div class="course bg-body p-4 rounded-3 mx-sm-auto">
-                        <i class="ai-calendar-minus"></i>
-                        <h3 class="h4 pt-3">7 Days (10 Stations)</h3>
-                        <p class="mb-3">£ 1,200 fees, 24/7 access from anywhere, blended and instructor-led learning, completed within 15 days</p>
-                    </div>
-                </div>
-                <div class="col-sm-12 col-md-4 pb-4 mb-1">
-                    <div class="course bg-body p-4 rounded-3 mx-sm-auto">
-                        <i class="ai-calendar-minus"></i>
-                        <h3 class="h4 pt-3">3 Days (10 Stations)</h3>
-                        <p class="mb-3">£ 1,200 fees, 24/7 access from anywhere, blended and instructor-led learning, completed within 15 days</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-12 d-flex justify-content-center">
-                    <a class="btn btn-theme" href="{{route('front.apply')}}"><i class="ai-calendar-minus pe-2"></i>Apply Now</a>
-                </div>
-            </div>
-        </div>
-
-    </section>
-
-    <section id="section-jobs" class="container py-5">
-        <div class="row mb-1 pb-lg-3">
-            <div class="col-12 order-md-2 mb-md-0 mb-3">
-                <h2 class="text-body h1 fw-bold lh-1 pe-3 d-flex justify-content-center">
-                    Jobs You'll Love
-                </h2>
-            </div>
-        </div>
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
-
-            <!-- Item -->
-            <div class="col">
-                <div class="card card-flip">
-                    <div class="card-flip-inner">
-                        <div class="card-flip-front bg-secondary rounded-5 py-2 py-lg-4 px-0">
-                            <div class="card-body text-center">
-                                <svg fill="#000000" width="64px" height="64px" viewBox="0 0 24 24" id="hour-glass"
-                                     data-name="Flat Line" xmlns="http://www.w3.org/2000/svg" class="icon flat-line">
-                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                                    <g id="SVGRepo_iconCarrier">
-                                        <path id="secondary"
-                                              d="M12,12h0A5,5,0,0,1,7,7V3H17V7A5,5,0,0,1,12,12Zm0,0h0a5,5,0,0,0-5,5v4H17V17A5,5,0,0,0,12,12Z"
-                                              style="fill: #2ca9bc; stroke-width: 2;"></path>
-                                        <path id="primary"
-                                              d="M12,12h0A5,5,0,0,1,7,7V3H17V7A5,5,0,0,1,12,12Zm0,0h0a5,5,0,0,0-5,5v4H17V17A5,5,0,0,0,12,12ZM5,3H19M5,21H19"
-                                              style="fill: none; stroke: #2ca9bc; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></path>
-                                    </g>
-                                </svg>
-                                <h3>Locum</h3>
-                                <p class="card-text">
-                                    We cover a variety of different roles and can help you find locums for short-term or long-term cover
-                                </p>
-                            </div>
-                        </div>
-                        <div class="card-flip-back bg-theme-dark rounded-5 py-2 py-lg-4 px-0">
-                            <div class="card-body text-center">
-                                <svg fill="#fff" width="64px" height="64px" viewBox="0 0 24 24" id="hour-glass"
-                                     data-name="Flat Line" xmlns="http://www.w3.org/2000/svg" class="icon flat-line"
-                                     stroke="#fff">
-                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                                    <g id="SVGRepo_iconCarrier">
-                                        <path id="secondary"
-                                              d="M12,12h0A5,5,0,0,1,7,7V3H17V7A5,5,0,0,1,12,12Zm0,0h0a5,5,0,0,0-5,5v4H17V17A5,5,0,0,0,12,12Z"
-                                              style="fill: #fff; stroke-width: 2;"></path>
-                                        <path id="primary"
-                                              d="M12,12h0A5,5,0,0,1,7,7V3H17V7A5,5,0,0,1,12,12Zm0,0h0a5,5,0,0,0-5,5v4H17V17A5,5,0,0,0,12,12ZM5,3H19M5,21H19"
-                                              style="fill: none; stroke: #fff; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></path>
-                                    </g>
-                                </svg>
-                                <div class="h3 display-4 text-white pb-1 mb-2">Locum</div>
-                                <p class="card-text text-white opacity-70">
-                                    We cover a variety of different roles and can help you find locums for short-term or long-term cover
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Item -->
-            <div class="col">
-                <div class="card card-flip">
-                    <div class="card-flip-inner">
-                        <div class="card-flip-front bg-secondary rounded-5 py-2 py-lg-4 px-0">
-                            <div class="card-body text-center">
-                                <svg width="64px" height="64px" viewBox="0 0 24 24" fill="none"
-                                     xmlns="http://www.w3.org/2000/svg">
-                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                                    <g id="SVGRepo_iconCarrier">
-                                        <path
-                                            d="M12 14V11M12 6C7.85786 6 4.5 9.35786 4.5 13.5C4.5 17.6421 7.85786 21 12 21C16.1421 21 19.5 17.6421 19.5 13.5C19.5 11.5561 18.7605 9.78494 17.5474 8.4525M12 6C14.1982 6 16.1756 6.94572 17.5474 8.4525M12 6V3M19.5 6.5L17.5474 8.4525M12 3H9M12 3H15"
-                                            stroke="#ed5050" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round"></path>
-                                    </g>
-                                </svg>
-                                <h3>Temporary</h3>
-                                <p class="card-text">
-                                    We provide permanent (full time/ part time) and temporary staffing solutions for the NHS, primary care and private sector
-                                </p>
-                            </div>
-                        </div>
-                        <div class="card-flip-back bg-theme-dark rounded-5 py-2 py-lg-4 px-0">
-                            <div class="card-body text-center">
-                                <svg width="64px" height="64px" viewBox="0 0 24 24" fill="none"
-                                     xmlns="http://www.w3.org/2000/svg">
-                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                                    <g id="SVGRepo_iconCarrier">
-                                        <path
-                                            d="M12 14V11M12 6C7.85786 6 4.5 9.35786 4.5 13.5C4.5 17.6421 7.85786 21 12 21C16.1421 21 19.5 17.6421 19.5 13.5C19.5 11.5561 18.7605 9.78494 17.5474 8.4525M12 6C14.1982 6 16.1756 6.94572 17.5474 8.4525M12 6V3M19.5 6.5L17.5474 8.4525M12 3H9M12 3H15"
-                                            stroke="#fff" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round"></path>
-                                    </g>
-                                </svg>
-                                <div class="h3 display-4 text-white pb-1 mb-2">Temporary</div>
-                                <p class="card-text text-white opacity-70">
-                                    We provide permanent (full time/ part time) and temporary staffing solutions for the NHS, primary care and private sector
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Item -->
-            <div class="col">
-                <div class="card card-flip">
-                    <div class="card-flip-inner">
-                        <div class="card-flip-front bg-secondary rounded-5 py-2 py-lg-4 px-0">
-                            <div class="card-body text-center">
-                                <svg fill="#000000" width="64px" height="64px" viewBox="0 0 24 24" id="job"
-                                     data-name="Flat Line" xmlns="http://www.w3.org/2000/svg" class="icon flat-line">
-                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                                    <g id="SVGRepo_iconCarrier">
-                                        <rect id="secondary" x="5" y="5" width="14" height="18" rx="1"
-                                              transform="translate(26 2) rotate(90)"
-                                              style="fill: #3f7eca; stroke-width: 2;"></rect>
-                                        <path id="primary"
-                                              d="M16,7H8V4A1,1,0,0,1,9,3h6a1,1,0,0,1,1,1Zm1,4H7m8,0v2m6,7V8a1,1,0,0,0-1-1H4A1,1,0,0,0,3,8V20a1,1,0,0,0,1,1H20A1,1,0,0,0,21,20Z"
-                                              style="fill: none; stroke: #3f7eca; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></path>
-                                    </g>
-                                </svg>
-                                <h3>Permanent</h3>
-                                <p class="card-text">
-                                    We provide permanent (full time/ part time) and temporary staffing solutions for the NHS, primary care and private sector
-                                </p>
-                            </div>
-                        </div>
-                        <div class="card-flip-back bg-theme-dark rounded-5 py-2 py-lg-4 px-0">
-                            <div class="card-body text-center">
-                                <svg fill="#fff" width="64px" height="64px" viewBox="0 0 24 24" id="job"
-                                     data-name="Flat Line" xmlns="http://www.w3.org/2000/svg" class="icon flat-line"
-                                     stroke="#fff">
-                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                                    <g id="SVGRepo_iconCarrier">
-                                        <rect id="secondary" x="5" y="5" width="14" height="18" rx="1"
-                                              transform="translate(26 2) rotate(90)"
-                                              style="fill: #fff; stroke-width: 2;"></rect>
-                                        <path id="primary"
-                                              d="M16,7H8V4A1,1,0,0,1,9,3h6a1,1,0,0,1,1,1Zm1,4H7m8,0v2m6,7V8a1,1,0,0,0-1-1H4A1,1,0,0,0,3,8V20a1,1,0,0,0,1,1H20A1,1,0,0,0,21,20Z"
-                                              style="fill: none; stroke: #fff; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></path>
-                                    </g>
-                                </svg>
-                                <div class="h3 display-4 text-white pb-1 mb-2">Permanent</div>
-                                <p class="card-text text-white opacity-70">
-                                    We provide permanent (full time/ part time) and temporary staffing solutions for the NHS, primary care and private sector
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
 
     <!-- Section 4 - Why Choose Us -->
@@ -478,6 +229,24 @@
 @endsection
 
 @section('js')
-    @parent
-    <script src="{{ asset('assets/js/vendor/jarallax.min.js') }}"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    {{--    <script src="{{ asset('assets/js/vendor/jarallax.min.js') }}"></script>--}}
+    <script>
+        $(function (){
+            $('.owl-carousel').owlCarousel({
+                loop:true,
+                margin:0,
+                nav:false,
+                dots:false,
+                items:1,
+                autoplay:true,
+                autoplayTimeout:5000,
+                autoplayHoverPause:false,
+                animateOut: 'fadeOut'
+            })
+            AOS.init();
+        })
+    </script>
 @show

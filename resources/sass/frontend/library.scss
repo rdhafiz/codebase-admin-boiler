@@ -64,3 +64,11 @@ $theme-color-dark: $purplemed-color-dark;
 .btn-theme-darker {
 
 }
+
+
+
+@mixin transition($transition){
+    -moz-transition: $transition;
+    -webkit-transition: $transition;
+    transition: $transition;
+}
