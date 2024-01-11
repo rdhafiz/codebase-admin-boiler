@@ -1,5 +1,5 @@
 <div class="home_banner">
-    <div class="owl-carousel owl-theme">
+    <div class="owl-carousel owl-theme" id="home-banner-slide">
         <div class="item">
 
             <div class="each-home-banner">

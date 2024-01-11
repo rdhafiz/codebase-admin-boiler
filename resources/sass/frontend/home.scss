@@ -245,11 +245,14 @@ section {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    padding-top: 500px;
     position: relative;
+    &.extra-pad{
+        padding-top: 500px;
+    }
     .section_title_ui{
         position: absolute;
         top: 25px;
+        z-index: 3;
         left: 0;
         transform: skew(0, -2.76deg) translateY(-4.1666666667vw);
         width: 100%;
@@ -260,6 +263,44 @@ section {
             text-align: center;
             font-size: 40px;
             font-weight: bold;
+        }
+    }
+    .each-choose-item{
+        display: flex;
+        justify-content: start;
+        .each-choose-item-photo{
+            width: 400px;
+            height: 400px;
+            display: inline-block;
+            background-color: #ffffff;
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            margin: 5px;
+        }
+        .each-choose-item-content{
+            width: 400px;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            margin: 5px;
+            padding: 20px;
+            .choose-title{
+                font-size: 60px;
+                color: #ffffff;
+                text-align: center;
+                font-weight: bold;
+            }
+            .choose-desc{
+                font-size: 14px;
+                color: #ffffff;
+                text-align: center;
+                padding: 0 20px;
+            }
         }
     }
     .each-choose-box{
@@ -274,6 +315,30 @@ section {
         align-items: center;
         position: relative;
         overflow: hidden;
+    }
+
+    .owl-prev {
+        width: 100px;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        margin-left: -20px;
+        display: block !important;
+        border: none;
+        opacity: 0!important;
+    }
+    .owl-next {
+        width: 100px;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        right: -25px;
+        display: block !important;
+        border: none;
+        opacity: 0!important;
+    }
+    .owl-carousel .animated {
+        animation-duration: 3000ms !important;
     }
 }
 
