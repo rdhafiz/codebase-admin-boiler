@@ -36,17 +36,71 @@
                 autoplayHoverPause:false,
                 animateOut: 'fadeOut'
             })
-            window.whyChooseSlide = $('#why-choose-slide').owlCarousel({
+            $('#why-choose-slide').owlCarousel({
                 loop:false,
                 margin:0,
                 nav:true,
                 dots:false,
-                items:2,
                 autoplay:false,
-                stagePadding: 100,
                 navText : ['',''],
                 smartSpeed:1000,
+                responsive : {
+                    0 : {
+                        items:1,
+                        stagePadding: 25,
+                    },
+                    700 : {
+                        items:1,
+                        stagePadding: 50,
+                    },
+                    991 : {
+                        items:2,
+                        stagePadding: 100,
+                    },
+                    1200 : {
+                        items:1,
+                        stagePadding: 100,
+                    },
+                    1366 : {
+                        items:1,
+                        stagePadding: 100,
+                    },
+                    1600 : {
+                        items:2,
+                        stagePadding: 100,
+                    },
+                }
             })
+            if($(document).width() < 1200){
+                console.log($('#why-choose-item-slide'));
+                $('#why-choose-item-slide').owlCarousel({
+                    loop:false,
+                    margin:0,
+                    nav:true,
+                    dots:false,
+                    autoplay:false,
+                    navText : ['',''],
+                    smartSpeed:1000,
+                    responsive : {
+                        0 : {
+                            items:1,
+                            stagePadding: 25,
+                        },
+                        700 : {
+                            items:2,
+                            stagePadding: 25,
+                        },
+                        991 : {
+                            items:2,
+                            stagePadding: 100,
+                        },
+                        1200 : {
+                            items:3,
+                            stagePadding: 100,
+                        },
+                    }
+                })
+            }
             AOS.init();
         })
     </script>
