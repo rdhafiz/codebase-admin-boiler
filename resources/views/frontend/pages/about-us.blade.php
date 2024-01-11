@@ -7,7 +7,7 @@
             <div class="container mt-5 mt-lg-0 py-md-2 py-lg-4 my-xl-2 my-xxl-3">
 
                 <!-- Item -->
-                <div class="row align-items-center py-3 py-sm-4 py-lg-5 mb-3 my-sm-2 my-md-3 my-lg-0 my-xl-2 my-xxl-4" data-aos="fade-left" data-aos-duration="600" data-aos-offset="280" data-disable-parallax-down="md">
+                <div class="row align-items-center py-3 py-sm-4 py-lg-5 mb-3 my-sm-2 my-md-3 my-lg-0 my-xl-2 my-xxl-4" data-aos="zoom-in" data-aos-duration="600" data-aos-offset="280" data-disable-parallax-down="md">
                     <div class="col-md-6 col-xxl-6 offset-xl-1 offset-xxl-2 order-md-2 pb-1 pb-sm-2 pb-md-0 mb-4 mb-md-0">
                         <div class="position-relative">
                             <img class="d-block rounded-1" src="{{ asset('assets/images/frontend/about/about-1.png') }}" alt="Image">
