@@ -5,7 +5,7 @@
         <div class="w-100">
             <div class="row row-cols-1 row-cols-md-4">
                 <div class="col mb-4 mb-md-0">
-                    <h4 class="h6 fw-bold pb-lg-1">Traiing</h4>
+                    <h4 class="h6 fw-bold pb-lg-1">Training</h4>
                     <ul class="nav flex-column">
                         <li><a class="nav-link fw-normal py-1 px-0" href="{{ route('osce') }}" target="_blank">OSCE</a></li>
                         <li><a class="nav-link fw-normal py-1 px-0" href="{{ route('plab') }}" target="_blank">Plab I-II</a></li>
