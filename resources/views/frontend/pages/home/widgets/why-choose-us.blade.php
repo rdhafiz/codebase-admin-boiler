@@ -15,8 +15,8 @@
 
                     <div class="item">
                         <div class="each-choose-item">
-                            <div class="each-choose-item-photo rounded rounded-3 d-xl-block d-none" data-aos="fade-right" data-aos-duration="1000" style="background-image: url({{ asset('assets/images/frontend/home/choose-1.jpg') }})"></div>
-                            <div class="each-choose-item-content" data-aos="fade-left" data-aos-duration="1000" style="background-image: url({{ asset('assets/images/shapes/shape-1.svg') }})">
+                            <div class="each-choose-item-photo rounded rounded-3 d-xl-block d-none" data-aos="zoom-in" data-aos-duration="1000" style="background-image: url({{ asset('assets/images/frontend/home/choose-1.jpg') }})"></div>
+                            <div class="each-choose-item-content" data-aos="zoom-in" data-aos-duration="1000" style="background-image: url({{ asset('assets/images/shapes/shape-1.svg') }})">
                                 <div class="d-inline-block">
                                     <h3 class="choose-title">Motivation</h3>
                                     <p class="choose-desc">
@@ -28,8 +28,8 @@
                     </div>
                     <div class="item">
                         <div class="each-choose-item">
-                            <div class="each-choose-item-photo rounded rounded-3 d-xl-block d-none" data-aos="fade-right" data-aos-duration="1000" style="background-image: url({{ asset('assets/images/frontend/home/choose-2.jpg') }})"></div>
-                            <div class="each-choose-item-content" data-aos="fade-left" data-aos-duration="1000" style="background-image: url({{ asset('assets/images/shapes/shape-2.svg') }})">
+                            <div class="each-choose-item-photo rounded rounded-3 d-xl-block d-none" data-aos="zoom-in" data-aos-duration="1000" style="background-image: url({{ asset('assets/images/frontend/home/choose-2.jpg') }})"></div>
+                            <div class="each-choose-item-content" data-aos="zoom-in" data-aos-duration="1000" style="background-image: url({{ asset('assets/images/shapes/shape-2.svg') }})">
                                 <div class="d-inline-block">
                                     <h3 class="choose-title">Excellence</h3>
                                     <p class="choose-desc">
@@ -41,8 +41,8 @@
                     </div>
                     <div class="item">
                         <div class="each-choose-item">
-                            <div class="each-choose-item-photo rounded rounded-3 d-xl-block d-none" data-aos="fade-right" data-aos-duration="1000" style="background-image: url({{ asset('assets/images/frontend/home/choose-3.jpg') }})"></div>
-                            <div class="each-choose-item-content" data-aos="fade-left" data-aos-duration="1000" style="background-image: url({{ asset('assets/images/shapes/shape-3.svg') }})">
+                            <div class="each-choose-item-photo rounded rounded-3 d-xl-block d-none" data-aos="zoom-in" data-aos-duration="1000" style="background-image: url({{ asset('assets/images/frontend/home/choose-3.jpg') }})"></div>
+                            <div class="each-choose-item-content" data-aos="zoom-in" data-aos-duration="1000" style="background-image: url({{ asset('assets/images/shapes/shape-3.svg') }})">
                                 <div class="d-inline-block">
                                     <h3 class="choose-title">Dedication</h3>
                                     <p class="choose-desc">
@@ -54,8 +54,8 @@
                     </div>
                     <div class="item">
                         <div class="each-choose-item">
-                            <div class="each-choose-item-photo rounded rounded-3 d-xl-block d-none" data-aos="fade-right" data-aos-duration="1000" style="background-image: url({{ asset('assets/images/frontend/home/choose-4.jpg') }})"></div>
-                            <div class="each-choose-item-content" data-aos="fade-left" data-aos-duration="1000" style="background-image: url({{ asset('assets/images/shapes/shape-4.svg') }})">
+                            <div class="each-choose-item-photo rounded rounded-3 d-xl-block d-none" data-aos="zoom-in" data-aos-duration="1000" style="background-image: url({{ asset('assets/images/frontend/home/choose-4.jpg') }})"></div>
+                            <div class="each-choose-item-content" data-aos="zoom-in" data-aos-duration="1000" style="background-image: url({{ asset('assets/images/shapes/shape-4.svg') }})">
                                 <div class="d-inline-block">
                                     <h3 class="choose-title">Inclusivity</h3>
                                     <p class="choose-desc">
@@ -67,8 +67,8 @@
                     </div>
                     <div class="item">
                         <div class="each-choose-item">
-                            <div class="each-choose-item-photo rounded rounded-3 d-xl-block d-none" data-aos="fade-right" data-aos-duration="1000" style="background-image: url({{ asset('assets/images/frontend/home/choose-5.jpg') }})"></div>
-                            <div class="each-choose-item-content" data-aos="fade-left" data-aos-duration="1000" style="background-image: url({{ asset('assets/images/shapes/shape-5.svg') }})">
+                            <div class="each-choose-item-photo rounded rounded-3 d-xl-block d-none" data-aos="zoom-in" data-aos-duration="1000" style="background-image: url({{ asset('assets/images/frontend/home/choose-5.jpg') }})"></div>
+                            <div class="each-choose-item-content" data-aos="zoom-in" data-aos-duration="1000" style="background-image: url({{ asset('assets/images/shapes/shape-5.svg') }})">
                                 <div class="d-inline-block">
                                     <h3 class="choose-title">Community</h3>
                                     <p class="choose-desc">
@@ -80,8 +80,8 @@
                     </div>
                     <div class="item">
                         <div class="each-choose-item">
-                            <div class="each-choose-item-photo rounded rounded-3 d-xl-block d-none" data-aos="fade-right" data-aos-duration="1000" style="background-image: url({{ asset('assets/images/frontend/home/choose-6.jpg') }})"></div>
-                            <div class="each-choose-item-content" data-aos="fade-left" data-aos-duration="1000" style="background-image: url({{ asset('assets/images/shapes/shape-6.svg') }})">
+                            <div class="each-choose-item-photo rounded rounded-3 d-xl-block d-none" data-aos="zoom-in" data-aos-duration="1000" style="background-image: url({{ asset('assets/images/frontend/home/choose-6.jpg') }})"></div>
+                            <div class="each-choose-item-content" data-aos="zoom-in" data-aos-duration="1000" style="background-image: url({{ asset('assets/images/shapes/shape-6.svg') }})">
                                 <div class="d-inline-block">
                                     <h3 class="choose-title">Support</h3>
                                     <p class="choose-desc">
@@ -100,7 +100,7 @@
 <div class="why-choose-us extra-pad" style="background-image: url({{ asset('assets/images/frontend/home/about_us.jpg') }})">
 
     <div class="w-100 d-none d-xl-flex align-content-end justify-content-center">
-        <div class="each-choose-box" data-aos="fade-right" data-aos-delay="500" data-aos-duration="1000" style="background-image: url({{asset('assets/images/shapes/choose-1.svg')}})">
+        <div class="each-choose-box" data-aos="zoom-in" data-aos-delay="500" data-aos-duration="1000" style="background-image: url({{asset('assets/images/shapes/choose-1.svg')}})">
             <ul class="cube_rains">
                 <li></li>
                 <li></li>
@@ -135,7 +135,7 @@
                 </p>
             </div>
         </div>
-        <div class="each-choose-box" data-aos="fade-left" data-aos-delay="500" data-aos-duration="1000" style="background-image: url({{asset('assets/images/shapes/choose-3.svg')}})">
+        <div class="each-choose-box" data-aos="zoom-in" data-aos-delay="500" data-aos-duration="1000" style="background-image: url({{asset('assets/images/shapes/choose-3.svg')}})">
             <ul class="cube_rains">
                 <li></li>
                 <li></li>
@@ -158,7 +158,7 @@
     <div class="owl-carousel owl-theme d-xl-none" id="why-choose-item-slide">
 
         <div class="item">
-            <div class="each-choose-box" data-aos="fade-right" data-aos-delay="500" data-aos-duration="1000" style="background-image: url({{asset('assets/images/shapes/choose-1.svg')}})">
+            <div class="each-choose-box" data-aos="zoom-in" data-aos-delay="500" data-aos-duration="1000" style="background-image: url({{asset('assets/images/shapes/choose-1.svg')}})">
                 <ul class="cube_rains">
                     <li></li>
                     <li></li>
@@ -197,7 +197,7 @@
             </div>
         </div>
         <div class="item">
-            <div class="each-choose-box" data-aos="fade-left" data-aos-delay="500" data-aos-duration="1000" style="background-image: url({{asset('assets/images/shapes/choose-3.svg')}})">
+            <div class="each-choose-box" data-aos="zoom-in" data-aos-delay="500" data-aos-duration="1000" style="background-image: url({{asset('assets/images/shapes/choose-3.svg')}})">
                 <ul class="cube_rains">
                     <li></li>
                     <li></li>
