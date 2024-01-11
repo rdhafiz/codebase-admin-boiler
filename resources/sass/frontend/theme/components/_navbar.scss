@@ -324,3 +324,92 @@
     }
   }
 }
+
+
+@keyframes fadeMenu {
+    from {opacity: 0;padding-left: 30px;}
+    to {opacity: 1;padding-left: 0;}
+}
+@keyframes fadeMenuBox1 {
+    from {opacity: 0;margin-left: -20px;margin-top: -20px;}
+    to {opacity: 1;margin-left: 0;margin-top: 0;}
+}
+@keyframes fadeMenuBox2 {
+    from {opacity: 0;margin-left: 20px;margin-top: 20px;}
+    to {opacity: 1;margin-left: 0;margin-top: 0;}
+}
+// Custom Changes
+header{
+    .navbar-nav{
+        .nav-item{
+            .nav-link{
+                padding: 30px 10px!important;
+            }
+            .nav-link-btn{
+                padding: 17px 0!important;
+            }
+            .mega-dropdown-column{
+                padding: 0;
+                opacity: 1;
+            }
+            .mega-dropdown-content{
+                width: 500px;
+                height: 400px;
+                background-position: top left;
+                background-size: contain;
+                background-repeat: no-repeat;
+                padding: 100px 0 0 30px;
+                @include transition(all 0.2s linear);
+                .dropdown-item{
+                    color: #000000;
+                    font-size: 16px;
+                    font-weight: 500;
+                    @include transition(all 0.2s linear);
+                    &:hover,&:active{
+                        color: var(--color-theme-dark);
+                        padding-left: 30px;
+                        @include transition(all 0.2s linear);
+                    }
+                }
+            }
+            .drop-menu-img{
+                display: inline-block;
+                width: 250px;
+                height: 250px;
+                background-position: center;
+                background-size: cover;
+                background-repeat: no-repeat;
+            }
+            .drop-menu-apply{
+                width: 250px;
+                height: 250px;
+                display: inline-block;
+                position: absolute;
+                left: 250px;
+                top: 125px;
+                text-decoration: none;
+                @include transition(all 0.2s linear);
+                &:hover,&:active{
+                    top: 110px;
+                    color: var(--color-theme-dark);
+                    text-decoration: underline;
+                    @include transition(all 0.2s linear);
+                }
+            }
+            &:hover,&:active{
+                .mega-dropdown-column{
+                    animation-name: fadeMenu;
+                    animation-duration: 2s;
+                }
+                .drop-menu-img{
+                    animation-name: fadeMenuBox1;
+                    animation-duration: 0.5s;
+                }
+                .drop-menu-apply{
+                    animation-name: fadeMenuBox2;
+                    animation-duration: 0.5s;
+                }
+            }
+        }
+    }
+}
