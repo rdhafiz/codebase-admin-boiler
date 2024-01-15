@@ -8,6 +8,7 @@ export default defineConfig({
                 'resources/sass/main.scss',
                 'resources/sass/frontend/purplemed.scss',
                 'resources/sass/frontend/home.scss',
+                'resources/sass/frontend/resources.scss',
 
                 'resources/js/frontend/purplemed.js',
                 'resources/js/frontend/pages/osce-apply.js',
