@@ -130,6 +130,10 @@ section {
 .home_banner {
     width: 100%;
     display: inline-block;
+    margin-top: 85px;
+    @media (max-width: 991px) {
+        margin-top: 55px;
+    }
 
     .each-home-banner {
         width: 100%;
@@ -138,7 +142,6 @@ section {
         height: 70vh;
         background: linear-gradient(109.6deg, rgb(20, 30, 48) 11.2%, rgb(36, 59, 85) 91.1%);
         position: relative;
-        margin-top: 100px;
         @media (max-width: 991px) {
             min-height: 400px;
             height: 50vh;
