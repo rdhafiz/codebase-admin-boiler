@@ -36,6 +36,7 @@ Route::get('resources', [ResourcesPageController::class, "viewPage"])->name('res
 Route::get('international-candidates', [InternationalCandidatesPageController::class, "ViewPage"])->name('international-candidates');
 Route::get('about', [AboutPageController::class, "viewPage"])->name('about-us');
 Route::get('contact', [ContactPageController::class, "viewPage"])->name('contact-us');
+Route::post('contact/submit', [ContactPageController::class, "submit_contact"])->name('submit-contact');
 Route::get('jobs', [JobsPageController::class, "viewPage"])->name('jobs');
 Route::post('job/search', [JobsPageController::class, "job_search"])->name('job.search');
 Route::get('job/{id}', [JobsPageController::class, "job_details"])->name('job.details');
