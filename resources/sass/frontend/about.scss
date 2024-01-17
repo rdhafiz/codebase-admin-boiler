@@ -1,0 +1,106 @@
+@mixin transition($t){
+    -moz-transition: $t;
+    -webkit-transition: $t;
+    transition: $t;
+}
+
+.about_page{
+    width: 100%;
+    display: inline-block;
+    margin-top: 85px;
+    @media (max-width: 991px) {
+        margin-top: 55px;
+    }
+    .page_header{
+        width: 100%;
+        height: 400px;
+        display: inline-block;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        .page_title{
+            font-size: 90px;
+            color: #1F3047;
+            margin: 100px 0;
+            font-weight: bold;
+            position: relative;
+            @media (max-width: 991px) {
+                font-size: 50px;
+            }
+            @media (max-width: 500px) {
+                font-size: 30px;
+                text-align: center;
+            }
+            &:before{
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 0;
+                height: 2px;
+                background: #1F3047;
+                transform: skew(0, -2.76deg);
+                animation-delay: 2s!important;
+                animation: line_wave 0.4s linear forwards;
+                @media (max-width: 500px) {
+                    bottom: -10px;
+                    left: calc(50% - 100px);
+                }
+            }
+            &:after{
+                content: '';
+                position: absolute;
+                bottom: -10px;
+                left: 0;
+                width: 0;
+                height: 2px;
+                background: #1F3047;
+                transform: skew(0, -2.76deg);
+                animation-delay: 2.3s!important;
+                animation: line_wave_2 0.4s linear forwards;
+                @media (max-width: 500px) {
+                    bottom: -20px;
+                    left: calc(50% - 100px);
+                }
+            }
+        }
+    }
+    .resource_section{
+        width: 100%;
+        display: inline-block;
+        .resource_section_content{
+            width: 100%;
+            display: inline-block;
+        }
+    }
+
+    .skewThisUp{
+        transform: skew(0, -2.76deg);
+    }
+    .skewThisDown{
+        transform: skew(0, 2.76deg);
+    }
+}
+
+@keyframes line_wave {
+    0%{
+        width: 0;
+    }
+    65%{
+        width: 250px;
+    }
+    100%{
+        width: 200px;
+    }
+}
+@keyframes line_wave_2 {
+    0%{
+        width: 0;
+    }
+    65%{
+        width: 200px;
+    }
+    100%{
+        width: 150px;
+    }
+}
