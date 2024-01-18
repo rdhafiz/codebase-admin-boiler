@@ -19,6 +19,10 @@ class ProfileController extends BaseController
         $config = WebsiteConfig::where('name', 'STRIPE_SECRET_API_KEY')->first();
         $this->stripe = new \Stripe\StripeClient($config->value);
     }
+    public function dashboard()
+    {
+        return view("frontend.pages.profile.dashboard");
+    }
     public function profile()
     {
         $trainings = CourseApplicants::with(['course_details', 'type', 'schedule', 'payment_instalment_details'])->where('user_id', Auth::id())->get()->toArray();

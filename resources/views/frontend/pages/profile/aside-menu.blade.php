@@ -10,10 +10,16 @@
                     <p class="fs-sm text-body-secondary mb-0">{{auth()->user()->email}}</p>
                 </div>
                 <nav class="nav flex-column pb-2 pb-lg-4 mb-3">
+                    <a class="nav-link fw-semibold py-2 px-0 @if(Route::currentRouteName() == 'front.dashboard') active @endif" href="{{route('front.dashboard')}}">
+                        <i class="ai-dashboard fs-5 opacity-60 me-2"></i>
+                        Dashboard
+                    </a>
+                </nav>
+                <nav class="nav flex-column pb-2 pb-lg-4 mb-3">
                     <h4 class="fs-xs fw-medium text-body-secondary text-uppercase pb-1 mb-2">Account</h4>
                     <a class="nav-link fw-semibold py-2 px-0 @if(Route::currentRouteName() == 'front.profile') active @endif" href="{{route('front.profile')}}">
                         <i class="ai-user-check fs-5 opacity-60 me-2"></i>
-                        Overview
+                        Profile
                     </a>
                     <a class="nav-link fw-semibold py-2 px-0 @if(Route::currentRouteName() == 'front.profile.update') active @endif" href="{{route('front.profile.update')}}">
                         <i class="ai-user-plus fs-5 opacity-60 me-2"></i>
