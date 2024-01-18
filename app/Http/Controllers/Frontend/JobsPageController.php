@@ -30,9 +30,7 @@ class JobsPageController extends BaseController
             }
             if(!empty($request->title)){
                 $q->where('job_title', 'LIKE', '%'.$request->title.'%');
-            }
-            if(!empty($request->location)){
-                $q->where('location', 'LIKE', '%'.$request->location.'%');
+                $q->orWhere('location', 'LIKE', '%'.$request->title.'%');
             }
         })->orderBy('created_at', 'desc')->get()->toArray();
         foreach ($jobs as &$job){

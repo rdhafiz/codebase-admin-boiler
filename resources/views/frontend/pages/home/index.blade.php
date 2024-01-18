@@ -37,66 +37,60 @@
                 animateOut: 'fadeOut'
             })
             $('#why-choose-slide').owlCarousel({
-                loop:false,
+                loop:true,
                 margin:0,
                 nav:true,
                 dots:false,
-                autoplay:false,
-                navText : ['',''],
-                smartSpeed:1000,
+                autoplay: true,
+                slideTransition: 'linear',
+                autoplaySpeed: 6000,
+                smartSpeed: 6000,
+                center: true,
                 responsive : {
                     0 : {
-                        items:1,
-                        stagePadding: 25,
+                        items:1
                     },
                     700 : {
-                        items:1,
-                        stagePadding: 50,
+                        items:1
                     },
                     991 : {
-                        items:2,
-                        stagePadding: 100,
+                        items:2
                     },
                     1200 : {
-                        items:1,
-                        stagePadding: 100,
+                        items:1
                     },
                     1366 : {
-                        items:1,
-                        stagePadding: 100,
+                        items:1
                     },
                     1600 : {
-                        items:2,
-                        stagePadding: 100,
+                        items:2
                     },
                 }
             })
             if($(document).width() < 1200){
                 console.log($('#why-choose-item-slide'));
                 $('#why-choose-item-slide').owlCarousel({
-                    loop:false,
+                    loop: true,
                     margin:0,
-                    nav:true,
+                    nav:false,
                     dots:false,
-                    autoplay:false,
-                    navText : ['',''],
-                    smartSpeed:1000,
+                    autoplay: true,
+                    slideTransition: 'linear',
+                    autoplaySpeed: 6000,
+                    smartSpeed: 6000,
+                    center: true,
                     responsive : {
                         0 : {
                             items:1,
-                            stagePadding: 25,
                         },
                         700 : {
                             items:2,
-                            stagePadding: 25,
                         },
                         991 : {
                             items:2,
-                            stagePadding: 100,
                         },
                         1200 : {
                             items:3,
-                            stagePadding: 100,
                         },
                     }
                 })

@@ -17,14 +17,14 @@
         <nav class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav navbar-nav-scroll ms-auto" style="--ar-scroll-height: 520px;">
                 <li class="nav-item dropdown" style="position: initial">
-                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Training</a>
-                    <div class="dropdown-menu bg-secondary shadow-none border-top overflow-hidden py-5 w-100 rounded-0 mt-0" style="left: 0;margin-top: 0!important;">
-                        <div class="container-lg">
+                    <a class="nav-link dropdown-toggle" href="javascript:void(0)" data-bs-toggle="dropdown" aria-expanded="false">Training</a>
+                    <div class="dropdown-menu bg-secondary shadow-none border-top overflow-hidden px-5 w-100 rounded-0 mt-0" style="left: 0;margin-top: 0!important;">
+                        <div class="container-lg px-5">
                             <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="w-100">
+                                <div class="col-lg-5">
+                                    <div class="w-100 ps-5">
                                         <div class="d-lg-flex">
-                                            <div class="mega-dropdown-column">
+                                            <div class="mega-dropdown-column ps-5">
                                                 <ul class="mega-dropdown-content list-unstyled mb-0" style="background-image: url({{asset('assets/images/shapes/menu.svg')}})">
                                                     <li>
                                                         <a class="dropdown-item" href="{{ route('osce') }}"><i class="ai-arrow-right"></i> OSCE</a>
@@ -43,7 +43,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-lg-6">
+                                <div class="col-lg-7">
                                     <div class="position-relative pt-4">
                                         <div class="drop-menu-img" style="background-image: url({{asset('assets/images/frontend/home/trainee.jpg')}})"></div>
                                         <a href="{{route('front.apply')}}" class="drop-menu-apply fs-3 bg-primary d-flex align-items-center justify-content-center text-center text-white">
@@ -62,8 +62,48 @@
                         </div>
                     </div>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link @if(Route::currentRouteName() == 'jobs') active @endif" href="{{ route('jobs') }}">Jobs</a>
+                <li class="nav-item dropdown" style="position: initial">
+                    <a class="nav-link dropdown-toggle @if(Route::currentRouteName() == 'jobs') active @endif" href="javascript:void(0)" data-bs-toggle="dropdown" aria-expanded="false">Jobs</a>
+                    <div class="dropdown-menu bg-secondary shadow-none border-top overflow-hidden px-5 w-100 rounded-0 mt-0" style="left: 0;margin-top: 0!important;">
+                        <div class="container-lg px-5">
+                            <div class="row">
+                                <div class="col-lg-5">
+                                    <div class="w-100 ps-5">
+                                        <div class="d-lg-flex">
+                                            <div class="mega-dropdown-column ps-5">
+                                                <ul class="mega-dropdown-content list-unstyled mb-0" style="background-image: url({{asset('assets/images/shapes/menu.svg')}})">
+                                                    <li>
+                                                        <a class="dropdown-item" href="{{ route('jobs') }}"><i class="ai-arrow-right"></i> Full Time</a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="dropdown-item" href="{{ route('jobs') }}"><i class="ai-arrow-right"></i> Temporary</a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="dropdown-item" href="{{ route('jobs') }}"><i class="ai-arrow-right"></i> Locum</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-7">
+                                    <div class="position-relative pt-4">
+                                        <div class="drop-menu-img" style="background-image: url({{asset('assets/images/frontend/home/choose-3.jpg')}})"></div>
+                                        <a href="{{ route('jobs') }}" class="drop-menu-apply fs-3 bg-primary d-flex align-items-center justify-content-center text-center text-white">
+                                            <div class="">
+                                                <i class="ai-external-link ms-2"></i>
+                                                <br>
+                                                Find Your
+                                                <br>
+                                                Job
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link @if(Route::currentRouteName() == 'international-candidates') active @endif" href="{{ route('international-candidates') }}">International Candidate</a>
