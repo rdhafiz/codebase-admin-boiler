@@ -109,7 +109,8 @@
                                                                         @if($instalment['status'] == 1)
                                                                             <a target="_blank" class="badge bg-success text-white fs-xs" href="{{route('front.training.payment.process.receipt',[$instalment['course_id'], $instalment['_id']])}}">Paid (View Receipt)</a>
                                                                         @else
-                                                                            <a class="badge bg-info text-white fs-xs" href="{{route('front.training.payment.process',[$instalment['course_id'], $instalment['_id']])}}">Pay Now</a>
+{{--                                                                            <a class="badge bg-info text-white fs-xs" href="{{route('front.training.payment.process',[$instalment['course_id'], $instalment['_id']])}}">Pay Now</a>--}}
+                                                                            <a class="badge bg-info text-white fs-xs" href="{{route('front.training.payment',[$instalment['course_id']])}}">Pay Now</a>
                                                                         @endif
                                                                     </div>
                                                                 </div>

@@ -22,7 +22,8 @@ class StripePaymentController extends BaseController
     {
         $payment = CourseApplicantPayments::where('course_id', $course_id)->where('user_id', Auth::id())->where('status', 0)->first();
         if ($payment != null) {
-            return redirect()->route('front.training.payment.process', [$course_id, $payment['_id']]);
+            $card_payment_url = route('front.training.payment.process', [$course_id, $payment['_id']]);
+            return view("frontend.pages.profile.payment_options", compact('card_payment_url'));
         }
         return redirect()->back();
     }
@@ -58,7 +59,7 @@ class StripePaymentController extends BaseController
                 'success_url' => route('front.training.payment.process.success', [$course_id, $payment_id]),
                 'cancel_url' => route('front.training.payment.process.cancel', [$course_id, $payment_id]),
             ];
-            if(!empty($course->course_discount) && $application['payment_type'] == 1){
+            if (!empty($course->course_discount) && $application['payment_type'] == 1) {
                 $session['discounts'][] = [
                     'coupon' => $course->course_discount,
                 ];
