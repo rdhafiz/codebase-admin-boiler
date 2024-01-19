@@ -81,3 +81,5 @@ Route::group(['middleware' => [UserAuthReq::class]], function () {
 // Apply Course
 Route::get('/apply', [ApplyController::class, "index"])->name('front.apply');
 Route::post('/apply', [ApplyController::class, "apply"])->name('front.apply.action');
+
+Route::get('/test-bank', [StripePaymentController::class, "createCustomer"])->name('front.apply.action');

@@ -102,4 +102,29 @@ class StripePaymentController extends BaseController
         return redirect()->route('front.training')->withErrors(['error' => ['Your payment process was failed or cancelled or expired!']]);
 
     }
+
+    public function createCustomer()
+    {
+
+        $customer = $this->stripe->customers->create([
+            'name'  => "User Test 1",
+            'email' => "user-test-1@email.com",
+        ]);
+
+        $paymentIntent = $this->stripe->paymentIntents->create([
+            'amount' => 1099,
+            'currency' => 'gbp',
+            'customer' => $customer->id,
+            'payment_method_types' => ['customer_balance'],
+            'payment_method_data' => ['type' => 'customer_balance'],
+            'payment_method_options' => [
+                'customer_balance' => [
+                    'funding_type' => 'bank_transfer',
+                    'bank_transfer' => ['type' => 'gb_bank_transfer'],
+                ],
+            ],
+            'confirm' => true,
+        ]);
+        dd($paymentIntent);
+    }
 }
