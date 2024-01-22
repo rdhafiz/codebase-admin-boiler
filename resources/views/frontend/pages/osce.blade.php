@@ -1,93 +1,1155 @@
 @extends('frontend.layout.layout')
 
+@section('stylesheet')
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    @vite(['resources/sass/frontend/about.scss'])
+@show
+
 @section('content')
 
-    <section class="bg-body py-5">
-            <div class="container mt-5 mt-lg-0 py-md-2 py-lg-4 my-xl-2 my-xxl-3">
+    <div class="about_page">
 
-                <!-- Item -->
-                <div class="row align-items-center py-3 py-sm-4 py-lg-5 mb-3 my-sm-2 my-md-3 my-lg-0 my-xl-2 my-xxl-4" data-aos="zoom-in" data-aos-duration="600" data-aos-offset="280" data-disable-parallax-down="md">
-                    <div class="col-md-6 col-xxl-6 offset-xl-1 offset-xxl-2 order-md-2 pb-1 pb-sm-2 pb-md-0 mb-4 mb-md-0">
-                        <div class="position-relative">
-                            <img class="d-block rounded-1" src="{{ asset('assets/images/frontend/about/about-1.png') }}" alt="Image">
-                            <div class="d-none d-lg-block position-absolute top-0 end-0 translate-middle-y w-auto pe-1 me-4">
-                                <div data-aos="fade-up" data-aos-duration="950" data-aos-offset="280">
-                                    <svg class="text-info" width="107" height="107" viewBox="0 0 107 107" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M106.192 53.0468C106.225 63.5385 103.146 73.8042 97.3443 82.5459C91.5426 91.2875 83.279 98.1125 73.5985 102.158C63.918 106.203 53.2553 107.287 42.9589 105.272C32.6624 103.257 23.1946 98.2343 15.7528 90.8387C8.31094 83.4431 3.22928 74.0068 1.15039 63.7231C-0.92849 53.4394 0.0887821 42.7702 4.07357 33.0647C8.05836 23.3591 14.8317 15.0531 23.537 9.19711C32.2424 3.34107 42.4887 0.197979 52.9804 0.16529L53.1457 53.2121L106.192 53.0468Z"></path>
-                                    </svg>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-5 col-xl-4 order-md-1" data-aos="fade-up" data-aos-duration="800" data-aos-offset="180" data-disable-parallax-down="md">
-                        <div class="pe-md-4 pe-lg-0">
-                            <h2 class="h1 pb-sm-2 pb-lg-3">About Us</h2>
-                            <p class="fs-xl pb-3 mb-1 mb-sm-2 mb-md-3 mb-lg-4">
-                                At Purple Med, we specialise in training and providing qualified medical professionals, such as doctors, nurses and Allied Health Professionals to both the NHS and private sectors in the UK. In addition to offering world-class training, we also provide temporary and permanent staffing solutions for the NHS, primary care, and private sector to ensure our clients have access to skilled and compliant personnel.
-                            </p>
-{{--                            <a class="d-inline-flex align-items-center fw-semibold text-decoration-none" href="#">--}}
-{{--                                Learn more--}}
-{{--                                <i class="ai-arrow-right fs-4 ms-2"></i>--}}
-{{--                            </a>--}}
-                        </div>
-                    </div>
-                </div>
+        <div class="page_header" style="background-image: url({{asset('assets/images/frontend/resources/wave-1.svg')}})">
+            <div class="container-lg">
+                <h1 class="page_title" data-aos="fade-left" data-aos-delay="1000" data-aos-duration="1000">OSCE Training</h1>
+            </div>
+        </div>
 
-                <!-- Item -->
-                <div class="row align-items-center py-3 py-sm-4 py-lg-5 mb-3 my-sm-2 my-md-3 my-lg-0 my-xl-2 my-xxl-4" data-aos="fade-up" data-aos-duration="600" data-aos-offset="280" data-disable-parallax-down="md">
-                    <div class="col-md-6 col-xxl-6 pb-1 pb-sm-2 pb-md-0 mb-4 mb-md-0">
-                        <div class="position-relative">
-                            <img class="d-block rounded-1 w-100 position-relative z-2" src="{{ asset('assets/images/frontend/about/about-2.png') }}" alt="Image">
-                            <div class="d-none d-lg-block position-absolute top-0 start-0 translate-middle-x w-auto pt-3 mt-5">
-                                <div data-aos="fade-up" data-aos-duration="950" data-aos-offset="280">
-                                    <svg class="text-primary" width="160" height="160" viewBox="0 0 160 160" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                        <circle cx="80" cy="80" r="80"></circle>
-                                    </svg>
+        <div class="about_section welcome-section mb-5">
+            <div class="container-lg">
+                <div class="about_section_content bg-secondary p-5 rounded rounded-5" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="1000">
+                    <div class="row align-items-center mb-3 my-sm-2 my-md-3 my-lg-0 my-xl-2 my-xxl-4">
+                        <div class="col-md-6 col-lg-6 col-xl-6 order-md-1">
+                            <div class="pe-md-4 pe-lg-0">
+                                <div class="w-100">
+                                    <img src="{{asset('assets/images/lanada.png')}}" alt="Ariel Lanada">
+                                    <h4 class="text-dark">José Ariel Lañada
+                                        <a class="btn btn-sm btn-info px-2" href="https://www.linkedin.com/in/joarielan" target="_blank"><i class="ai-linkedin"></i></a>
+                                    </h4>
                                 </div>
+                                <h2 class="h1 fw-bold text-primary pb-sm-2 pb-lg-3">Meet Your Lead Instructor</h2>
+                                <p class="fs-xl pb-3 mb-1 mb-sm-2 mb-md-3 mb-lg-4">
+                                    Has over 20 years of experience working in the NHS
+                                    <br><br>
+                                    Currently serves as Divisional Lead for Practice Development and Education at a major NHS Foundation Trust.
+                                    <br><br>
+                                    Responsible for overseeing the professional development and education of all non-medical staff within his division.
+                                </p>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-6 offset-lg-1 col-lg-5 offset-xl-1 col-xl-5" data-aos="fade-up" data-aos-duration="800" data-aos-offset="180" data-disable-parallax-down="md">
-                        <div class="pe-md-4 pe-lg-0">
-                            <h2 class="h1 pb-3 mb-2 mb-lg-3 mb-xl-4">Mission Statement</h2>
-                            <div class="row g-4">
-                                <div class="col">
-                                    <p class="fs-xl pb-3 mb-1 mb-sm-2 mb-md-3 mb-lg-4">
-                                        Our ultimate purpose is to awaken the latent potential within medical professionals, and to guide them along their journey to realising that potential. We do this by providing comprehensive training, support, and job opportunities that imbue them with the necessary skills and knowledge. We foster a culture of inclusivity and community, to create an environment that nurtures their growth. We offer ongoing support throughout their career development, to ensure that they stay true to their path. Through our unwavering dedication to excellence, we strive to set the highest standards in the industry, to create a positive and motivating environment, and to build a strong community of medical professionals. We are committed to a continuous process of improvement, to adapt to the ever-changing needs of our clients and to provide unparalleled support as they navigate the job market.
-                                    </p>
+                        <div class="col-md-6 col-lg-6 col-xl-6 order-md-2">
+                            <div class="position-relative">
+                                <div class="w-100">
+                                    <div class="welcome-video">
+                                        <video class="w-100" id="welcome-video"
+                                               src="{{asset('assets/videos/welcome_message_OSCE_Training.mp4')}}"></video>
+                                        <div class="welcome-play-toggle"><i class="ai-play"></i></div>
+                                        <div class="welcome-pause-toggle"><i class="ai-pause"></i></div>
+                                    </div>
+                                </div>
+                                <div class="d-none d-lg-block position-absolute top-0 end-0 translate-middle-y w-auto pe-1 me-4">
+                                    <div data-aos="fade-up" data-aos-duration="950" data-aos-offset="280">
+                                        <svg class="text-info" width="107" height="107" viewBox="0 0 107 107" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M106.192 53.0468C106.225 63.5385 103.146 73.8042 97.3443 82.5459C91.5426 91.2875 83.279 98.1125 73.5985 102.158C63.918 106.203 53.2553 107.287 42.9589 105.272C32.6624 103.257 23.1946 98.2343 15.7528 90.8387C8.31094 83.4431 3.22928 74.0068 1.15039 63.7231C-0.92849 53.4394 0.0887821 42.7702 4.07357 33.0647C8.05836 23.3591 14.8317 15.0531 23.537 9.19711C32.2424 3.34107 42.4887 0.197979 52.9804 0.16529L53.1457 53.2121L106.192 53.0468Z"></path>
+                                        </svg>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Item -->
-                <div class="row align-items-center py-3 py-sm-4 py-lg-5 my-sm-2 my-md-3 my-lg-0 my-xl-2 my-xxl-4" data-aos="fade-up" data-aos-duration="600" data-aos-offset="280" data-disable-parallax-down="md">
-                    <div class="col-md-6 col-xxl-6 offset-lg-1 offset-xl-2 offset-xxl-2 order-md-2 pb-1 pb-sm-2 pb-md-0 mb-4 mb-md-0">
-                        <div class="position-relative">
-                            <img class="d-block rounded-1 w-100" src="{{ asset('assets/images/frontend/about/about-3.png') }}" alt="Image">
-                            <div class="d-none d-lg-block position-absolute top-0 start-50 translate-middle w-auto ms-2">
-                                <div data-aos="fade-up" data-aos-duration="950" data-aos-offset="280">
-                                    <svg class="text-danger" width="108" height="111" viewBox="0 0 108 111" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M68.9244 1.23484C69.1072 0.713703 69.6783 0.438641 70.1961 0.630706C78.5792 3.74012 86.1086 8.79818 92.1601 15.3932C98.4371 22.2339 102.93 30.5171 105.241 39.5091C107.552 48.501 107.61 57.9241 105.41 66.9438C103.209 75.9634 98.8179 84.3011 92.6254 91.2184C86.4328 98.1356 78.6299 103.419 69.9078 106.6C61.1857 109.782 51.8136 110.763 42.6217 109.457C33.4298 108.151 24.7018 104.598 17.2109 99.1136C9.98911 93.8259 4.13195 86.8998 0.117483 78.9106C-0.130486 78.4171 0.079957 77.8191 0.577752 77.5799L21.7446 67.4094C22.2425 67.1702 22.8384 67.3807 23.0936 67.8705C25.2883 72.084 28.4252 75.7403 32.2656 78.5522C36.3752 81.5612 41.1634 83.5102 46.2062 84.2266C51.2489 84.943 56.3905 84.4048 61.1756 82.6595C65.9606 80.9142 70.2414 78.0157 73.6387 74.2208C77.0359 70.426 79.4449 65.8518 80.6522 60.9036C81.8594 55.9553 81.8277 50.7857 80.5598 45.8526C79.2919 40.9196 76.827 36.3753 73.3834 32.6224C70.1654 29.1154 66.1855 26.4006 61.7558 24.6837C61.2409 24.4841 60.9659 23.9149 61.1488 23.3938L68.9244 1.23484Z"></path>
-                                    </svg>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-5 col-xl-4 order-md-1" data-aos="fade-up" data-aos-duration="800" data-aos-offset="180" data-disable-parallax-down="md">
-                        <div class="pe-md-4 pe-lg-0">
-                            <h2 class="h1 pb-sm-2 pb-lg-3">Core Values</h2>
-                            <p class="fs-xl mb-lg-4">
-                                Our core values are Motivation, Empowerment, Dedication, Inclusivity, Community and Support.
-                            </p>
-                            <p class="fs-xl mb-lg-4">
-                                Together, these values make the acronym MEDICS, representing our commitment to creating a positive and empowering environment for medical professionals, providing comprehensive training and job opportunities, fostering a culture of inclusivity and community, and offering ongoing support throughout their career development.
-                            </p>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
 
+        <div class="w-100 sticky-osce" id="middle-menu">
+            <div class="w-100 bg-dark py-3" id="nav-band">
+                <div class="container-fluid container-lg">
+                    <div class="w-100 text-center osce-sub-float-menu">
+                        <a class="slideLeftOsceSub" href="javascript:void(0)"><i class="ai-chevron-left"></i></a>
+                        <div class="osce-sub-float-menu-content">
+                            <nav class="d-inline-block">
+                                <div class="w-100 d-block z-index-99" id="content-nav">
+                                    <ul class="w-100 m-0">
+                                        <li class="">
+                                            <a href="javascript:void(0)" data-target="#osce-course" class="fs-5 fw-bold nav-link text-white text-decoration-none scroll-to-here fw-7 fs-4-5 txt-animation">Quick
+                                                Info</a>
+                                        </li>
+                                        <li class="">
+                                            <a href="javascript:void(0)" data-target="#overview" class="fs-5 fw-bold nav-link text-white text-decoration-none scroll-to-here fw-7 fs-4-5 txt-animation">Overview</a>
+                                        </li>
+                                        <li class="">
+                                            <a href="javascript:void(0)" data-target="#workstations" class="fs-5 fw-bold nav-link text-white text-decoration-none scroll-to-here fw-7 fs-4-5 txt-animation">Workstations</a>
+                                        </li>
+                                        <li class="">
+                                            <a href="javascript:void(0)" data-target="#fees" class="fs-5 fw-bold nav-link text-white text-decoration-none scroll-to-here fw-7 fs-4-5 txt-animation">Fees</a>
+                                        </li>
+                                        <li class="">
+                                            <a href="javascript:void(0)" data-target="#osce-course-benefits" class="fs-5 fw-bold nav-link text-white text-decoration-none scroll-to-here fw-7 fs-4-5 txt-animation">Why
+                                                Us</a>
+                                        </li>
+                                        <li class="">
+                                            <a href="javascript:void(0)" data-target="#staffs" class="fs-5 fw-bold nav-link text-white text-decoration-none fw-7 fs-4-5 txt-animation">Staffs</a>
+                                        </li>
+                                        <li class="">
+                                            <a href="javascript:void(0)" data-target="#faq" class="fs-5 fw-bold nav-link text-white text-decoration-none scroll-to-here fw-7 fs-4-5 txt-animation">FAQ</a>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                            </nav>
+                        </div>
+                        <a class="slideRightOsceSub" href="javascript:void(0)"><i class="ai-chevron-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="w-100 mb-5" id="osce-course">
+            <div class="container-lg">
+                <div class="w-100 pt-lg-5 pt-45">
+                    <h2 class="fs-1 text-primary px-3 px-lg-0 text-purple">Quick Info</h2>
+                </div>
+                <div class="w-100 quick-info-tabs">
+                    <div class="quick-info-contents">
+                        <div class="tab-content" id="v-pills-training-tabContent">
+                            <div class="tab-pane fade show active" id="v-pills-home">
+                                <div class="row pl-lg-4">
+                                    <div class="col mb-lg-0 mb-3">
+                                        <div class="text-uppercase fs-4 fw-bold text-primary mb-2 text-center">
+                                            Training
+                                        </div>
+                                        <div class="text-uppercase fs-5 text-dark text-center">OSCE</div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="text-uppercase fs-4 fw-bold text-primary mb-2 text-center">
+                                            Duration
+                                        </div>
+                                        <div class="text-uppercase fs-5 text-dark text-center">15 Days</div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="text-uppercase fs-4 fw-bold text-primary mb-2 text-center">Fees</div>
+                                        <div class="text-center">
+                                            <label class="text-uppercase fs-5 text-dark text-center">£ 1,000</label>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="text-uppercase fs-4 fw-bold text-primary mb-2 text-center">
+                                            Learning
+                                        </div>
+                                        <div class="text-uppercase fs-5 text-dark text-center">Blended</div>
+                                        <div class="text-uppercase fs-5 text-dark text-center">Instructor-led</div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="text-uppercase fs-4 fw-bold text-primary mb-2 text-center">
+                                            Access
+                                        </div>
+                                        <div class="text-uppercase fs-5 text-dark text-center">24/7</div>
+                                        <div class="text-uppercase fs-5 text-dark text-center">Anywhere</div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="border-top border-2 border-gray-50 mt-3 mb-3"></div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 text-end">
+                                        <a href="{{route('front.apply')}}" class="btn btn-primary">
+                                            Apply
+                                            <i class="ai-external-link"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="about_section welcome-section mb-5" id="overview">
+            <div class="container-lg">
+                <div class="about_section_content bg-secondary p-5 rounded rounded-5" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="1000">
+                    <div class="row align-items-center mb-3 my-sm-2 my-md-3 my-lg-0 my-xl-2 my-xxl-4">
+                        <div class="col-12">
+                            <div class="pe-md-4 pe-lg-0">
+                                <h2 class="h1 fw-bold text-primary pb-sm-2 pb-lg-3">Overview</h2>
+                                <div class="w-100">
+                                    <p class="text-dark">
+                                        Are you an internationally educated nurse looking to gain your Nursing and Midwifery
+                                        Council (NMC) registration and work in the UK? Our OSCE training program at Purple Med
+                                        can help you achieve your goals!
+                                    </p>
+                                    <p class="text-dark">Imagine yourself walking into the exam room feeling confident and
+                                        prepared. That's what we want for you at Purple Med. Our 15-day intensive course is
+                                        designed to help you prepare for the OSCE exam and feel ready to succeed.</p>
+
+                                    <p class="text-dark">We have a team of experienced OSCE tutors who have helped nurses from
+                                        all over the world succeed in their exams. Some of them have even taken and passed the
+                                        OSCE themselves, so they know what it's like and can give you helpful tips and advice.
+                                        We also have the most up-to-date training materials, resources, and equipment to help
+                                        you practice and improve your skills.</p>
+
+                                    <p class="text-dark">Our main goal at Purple Med is to help you pass your OSCE the first
+                                        time, saving you the time and money of having to re-sit the exam. We'll do everything we
+                                        can to support you along the way, and our course is comprehensive but easy to follow.
+                                        We'll make sure you understand all the requirements and feel well-prepared.</p>
+
+                                    <p class="text-dark">Don't let the OSCE exam stand in the way of working as a nurse in the
+                                        UK. Choose Purple Med for the best OSCE training and support available. Contact us today
+                                        to learn more and get started on the path to success!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- workstations start -->
+        <div class="ac-chose-area bg-dark py-5" id="workstations">
+            <div class="container-lg">
+                <div class="row py-3">
+                    <div class="col-12">
+                        <h2 class="text-white fs-1 fw-bold">Workstations</h2>
+                    </div>
+                </div>
+                <div class="row py-3">
+                    <div class="col-xl-4 col-lg-6 col-md-6 col-12">
+                        <div class="card border-0 mb-4">
+                            <div style="min-height: 600px" class="card-body border-0 rounded rounded-3 bg-dark-light text-white">
+                                <div class="fs-1 mb-5 text-center">
+                                    <i class="ai-chart"></i>
+                                </div>
+                                <div class="w-100 text-white">
+                                    <h4 class="mb-3"><a class="text-white" href="javascript:void(0)">APIE Assessment (station-1)</a></h4>
+                                    <h4 class="text-white">Overview</h4>
+                                    <p>Carrying out a patient centred assessment of patient’s nursing needs using activities of
+                                        daily living model including accurate taking and plotting of vital signs and A to E
+                                        assessment within allocated time of 20 minutes</p>
+                                    <br>
+                                    <h4 class="text-white">Top Tips</h4>
+                                    <p class="m-0">Use holistic approach</p>
+                                    <p class="m-0">Listen attentively to the patient’s problems and concerns</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-6 col-md-6 col-12">
+                        <div class="card border-0 mb-4">
+                            <div style="min-height: 600px" class="card-body border-0 rounded rounded-3 bg-dark-light text-white">
+                                <div class="fs-1 mb-5 text-center">
+                                    <i class="ai-chart"></i>
+                                </div>
+                                <div class="w-100 text-white">
+                                    <h4 class="mb-3"><a class="text-white" href="javascript:void(0)">APIE Planning (station-2)</a></h4>
+                                    <h4 class="text-white">Overview</h4>
+                                    <p>Write 2 relevant aspects of nursing care related to the scenario from assessment station within allocated time of 14 minutes</p>
+                                    <br>
+                                    <h4 class="text-white">Top Tips</h4>
+                                    <p class="m-0">Only write relevant and evidence based intervention – use SMART</p>
+                                    <p class="m-0">Only include two most important nursing needs based on your assessment of the patient</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-6 col-md-6 col-12">
+                        <div class="card border-0 mb-4">
+                            <div style="min-height: 600px" class="card-body border-0 rounded rounded-3 bg-dark-light text-white">
+                                <div class="fs-1 mb-5 text-center">
+                                    <i class="ai-chart"></i>
+                                </div>
+                                <div class="w-100 text-white">
+                                    <h4 class="mb-3"><a class="text-white" href="javascript:void(0)">APIE Implementation (station-3)</a></h4>
+                                    <h4 class="text-white">Overview</h4>
+                                    <p>Administer oral drugs adhering to correct principles of drug administration and within NMC guidance and allocated time of 15 minutes</p>
+                                    <br>
+                                    <h4 class="text-white">Top Tips</h4>
+                                    <p class="m-0">Develop a strategy to read medication administration record correctly</p>
+                                    <p class="m-0">Complete the documentation accurately</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-6 col-md-6 col-12">
+                        <div class="card border-0 mb-4">
+                            <div style="min-height: 600px" class="card-body border-0 rounded rounded-3 bg-dark-light text-white">
+                                <div class="fs-1 mb-5 text-center">
+                                    <i class="ai-chart"></i>
+                                </div>
+                                <div class="w-100 text-white">
+                                    <h4 class="mb-3"><a class="text-white" href="javascript:void(0)">APIE Evaluation (station-4)</a></h4>
+                                    <h4 class="text-white">Overview</h4>
+                                    <p>Verbal handover of your patient using SBAR process within allocated time of 8 minutes</p>
+                                    <br>
+                                    <h4 class="text-white">Top Tips</h4>
+                                    <p class="m-0">Be systematic</p>
+                                    <p class="m-0">Take few minutes to make clear written notes and use them for verbal handover</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-6 col-md-6 col-12">
+                        <div class="card border-0 mb-4">
+                            <div style="min-height: 600px" class="card-body border-0 rounded rounded-3 bg-dark-light text-white">
+                                <div class="fs-1 mb-5 text-center">
+                                    <i class="ai-chart"></i>
+                                </div>
+                                <div class="w-100 text-white">
+                                    <h4 class="mb-3"><a class="text-white" href="javascript:void(0)">PrEP Professional Values & Behaviours (station-5)</a></h4>
+                                    <h4 class="text-white">Overview</h4>
+                                    <p>You will read the scenario and summarise the actions that you would take, considering the professional, ethical and legal implications of this situation.</p>
+                                    <br>
+                                    <h4 class="text-white">Top Tips</h4>
+                                    <p class="m-0">Carefully listen to the briefing before start of station</p>
+                                    <p class="m-0">Always demonstrate correct use of PPE</p>
+                                    <p class="m-0">Follow correct infection control practices including disposal of clinical waste</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-6 col-md-6 col-12">
+                        <div class="card border-0 mb-4">
+                            <div style="min-height: 600px" class="card-body border-0 rounded rounded-3 bg-dark-light text-white">
+                                <div class="fs-1 mb-5 text-center">
+                                    <i class="ai-chart"></i>
+                                </div>
+                                <div class="w-100 text-white">
+                                    <h4 class="mb-3"><a class="text-white" href="javascript:void(0)">PrEP Evidence based Practices (station-6)</a></h4>
+                                    <h4 class="text-white">Overview</h4>
+                                    <p>You will read the scenario and summary of the research, then write up how you would apply the findings to the scenario.</p>
+                                    <br>
+                                    <h4 class="text-white">Top Tips</h4>
+                                    <p class="m-0">Carefully listen to the briefing before start of station</p>
+                                    <p class="m-0">Always demonstrate correct use of PPE</p>
+                                    <p class="m-0">Follow correct infection control practices including disposal of clinical waste</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-6 col-md-6 col-12">
+                        <div class="card border-0 mb-4">
+                            <div style="min-height: 600px" class="card-body border-0 rounded rounded-3 bg-dark-light text-white">
+                                <div class="fs-1 mb-5 text-center">
+                                    <i class="ai-chart"></i>
+                                </div>
+                                <div class="w-100 text-white">
+                                    <h4 class="mb-3"><a class="text-white" href="javascript:void(0)">CSA Clinical Skills (station-7&8)</a></h4>
+                                    <h4 class="text-white">Overview</h4>
+                                    <p>You will be assessed on correctly demonstrating two clinical skills paired together from a set list of skills provided by the test centre for you to prepare. Different skills are allocated different time period.</p>
+                                    <br>
+                                    <h4 class="text-white">Top Tips</h4>
+                                    <p class="m-0">Carefully listen to the briefing before start of station</p>
+                                    <p class="m-0">Always demonstrate correct use of PPE</p>
+                                    <p class="m-0">Follow correct infection control practices including disposal of clinical waste</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-6 col-md-6 col-12">
+                        <div class="card border-0 mb-4">
+                            <div style="min-height: 600px" class="card-body border-0 rounded rounded-3 bg-dark-light text-white">
+                                <div class="fs-1 mb-5 text-center">
+                                    <i class="ai-chart"></i>
+                                </div>
+                                <div class="w-100 text-white">
+                                    <h4 class="mb-3"><a class="text-white" href="javascript:void(0)">CSA Clinical Skills (station-9&10)</a></h4>
+                                    <h4 class="text-white">Overview</h4>
+                                    <p>You will be assessed on correctly writing your actions as bullet points after reading a given scenario to test your knowledge of NMC code within allocated time of 10 minutes</p>
+                                    <br>
+                                    <h4 class="text-white">Top Tips</h4>
+                                    <p class="m-0">Carefully read the scenario and understand its relevance to The code and write your bullet points clearly</p>
+                                    <p class="m-0">Ensure you are familiar with the marking criteria set by the test centres</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- workstations end -->
+
+        <div class="w-100 bg-white py-5" id="fees">
+            <div class="container-lg">
+                <div class="w-100 py-5">
+                    <h2 class="fs-1 fw-bold text-primary">Fees</h2>
+                </div>
+                <div class="row mb-5">
+                    <div class="col-lg-4">
+                        <div class="fs-2 text-uppercase fw-bold mb-2 text-primary border-bottom">
+                            Fees
+                        </div>
+                        <div class="mb-2 text-left">
+                            <label class="fs-2 text-dark">£ 1,000</label>
+                        </div>
+                    </div>
+                    <div class="col-lg-8">
+                        <div class="fs-2 text-uppercase fw-bold mb-2 text-primary border-bottom">
+                            Duration
+                        </div>
+                        <div class="fs-4 text-dark">15 Days</div>
+                        <div class="fs-4 text-dark">(10 days online, 5 days face-to-face)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="w-100 py-5 bg-dark" id="osce-course-benefits">
+            <div class="container-lg">
+                <div class="row py-3">
+                    <div class="col-12">
+                        <h2 class="fs-1 fw-bold text-white">Why Us</h2>
+                    </div>
+                </div>
+                <div class="row py-3 mb-5">
+                    <div class="col-xl-4 col-md-6">
+                        <div class="card border-0">
+                            <div style="min-height: 650px" class="card-body border-0 rounded rounded-3 bg-dark-light text-white">
+                                <div class="w-100 text-center mb-5">
+                                    <img src="{{asset('assets/images/learning.png')}}" alt="">
+                                </div>
+                                <div class="w-100">
+                                    <h3 class="w-100 fs-3 fw-bold text-center fw-bold text-white mb-3">PRACTICAL BASED LEARNING</h3>
+                                    <p class="fs-5 text-center text-white">We'll give you lots of materials to use before you come to our
+                                        training sessions, both online and in person. This includes videos, slideshows, and
+                                        forms to help you practice. You'll also get to try some mock exams to get a feel for
+                                        what it's really like, and you'll get feedback from our teachers to help you improve.
+                                        Plus, we'll give you a study guide to help you learn on your own.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-md-6">
+                        <div class="card border-0">
+                            <div style="min-height: 650px" class="card-body border-0 rounded rounded-3 bg-dark-light text-white">
+                                <div class="w-100 text-center mb-5">
+                                    <img src="{{asset('assets/images/pc.png')}}" alt="">
+                                </div>
+                                <div class="w-100">
+                                    <h3 class="w-100 fs-3 fw-bold text-center fw-bold text-white mb-3">ONLINE LEARNING PLATFORM</h3>
+                                    <p class="fs-5 text-center text-white">Even after our training sessions are over, you'll still have access
+                                        to all our resources and guidelines through our online learning platform. This way, you
+                                        can keep learning and practicing until you take your exam.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-md-6">
+                        <div class="card border-0">
+                            <div style="min-height: 650px" class="card-body border-0 rounded rounded-3 bg-dark-light text-white">
+                                <div class="w-100 text-center mb-5">
+                                    <img src="{{asset('assets/images/customer-service.png')}}" alt=""
+                                         data-author="https://www.flaticon.com/free-icon/temporary-offer_1054583">
+                                </div>
+                                <div class="w-100">
+                                    <h3 class="w-100 fs-3 fw-bold text-center fw-bold text-white mb-3">PRE-OSCE EXAM SUPPORT</h3>
+                                    <p class="fs-5 text-center text-white">We don't just stop once the training is over. We'll give you support
+                                        before your exam with a mentor, our online learning platform, and a study guide with a
+                                        suggested timeline. We'll also have competence tests and resit preparation to make sure
+                                        you're ready to do your best on exam day.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tp-team-area bg-secondary py-5" id="staffs">
+            <div class="container-lg">
+                <div class="row py-3">
+                    <div class="col-12">
+                        <h2 class="fs-1 fw-bold text-primary text-center">Meet the Team</h2>
+                    </div>
+                </div>
+                <div class="row py-3">
+                    @foreach(config('params.teams') as $team)
+                        <div class="col-xl-2 col-lg-4 col-md-6 col-sm-6 col-6">
+                            <div class="tp-team-item mb-4">
+                                <div class="tp-team-item__img">
+                                    <img class="w-100" src="{{asset('assets/'.$team['dp'])}}" alt="">
+                                </div>
+                                <div class="each-staff-preview-content tp-team-item__info d-flex justify-content-between align-items-center">
+                                    <div class="tp-team-item__text">
+                                        <h5 class="tp-team-title">
+                                            <a href="javascript:void(0)" class="each-staff-preview">{{$team['name']}}</a>
+                                        </h5>
+                                    </div>
+                                    <div class="tp-team-item__icon">
+                                        <a href="javascript:void(0)" class="each-staff-preview"><i class="fs-4 ai-external-link"></i></a>
+                                        <span class="d-none staff_preview_dp">{{asset('assets/'.$team['dp'])}}</span>
+                                        <span class="d-none staff_preview_name">{{$team['name']}}</span>
+                                        <span class="d-none staff_preview_designation">{!! str_replace(',', '<br>', $team['designation']) !!}</span>
+                                        <span class="d-none staff_preview_qualifications">{{$team['qualifications']}}</span>
+                                        <span class="d-none staff_preview_employment_history">{{$team['employment_history']}}</span>
+                                        <span class="d-none staff_preview_social_facebook">{{$team['social']['facebook']}}</span>
+                                        <span class="d-none staff_preview_social_twitter">{{$team['social']['twitter']}}</span>
+                                        <span class="d-none staff_preview_social_linkedin">{{$team['social']['linkedin']}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+
+        <div class="sd-accordio-area bg-white py-5" id="faq">
+            <div class="container-lg">
+                <div class="row py-3">
+                    <div class="col-12">
+                        <h2 class="fs-1 fw-bold text-primary">FAQ</h2>
+                    </div>
+                </div>
+                <div class="row py-3">
+                    <div class="col-xl-12">
+                        <div class="w-100">
+                            <div class="accordion" id="accordionExample">
+                                <div class="accordion-items bg-white p-3 p-lg-4 mb-4 rounded rounded-3 shadow">
+                                    <h2 class="accordion-header" id="headingOne">
+                                        <button class="border-0 bg-white w-100 text-start fs-5 fw-bold" type="button" data-bs-toggle="collapse"
+                                                data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                            <i class="fs-1 ai-chevron-down"></i>
+                                            What is the OSCE exam?
+                                        </button>
+                                    </h2>
+                                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                                         data-bs-parent="#accordionExample">
+                                        <div class="accordion-body mt-3 py-3 fs-6 fs-lg-5 border-top">
+                                            OSCE stands for Objective Standard Clinical Examination, which is designed
+                                            to
+                                            test you on your UK pre-registration practical nursing standards. The OSCE
+                                            comprises ten stations, lasting around 2.5 hours in total. Each station
+                                            varies
+                                            between 10 to 17 minutes. Four stations will be clinical-scenario-based
+                                            which
+                                            will relate to the four stages of the nursing and midwifery care process:
+                                            (1)
+                                            Assessment-holistic patient-centered care, (2) Planning, (3)
+                                            Implementation,
+                                            and (4) Evaluation.
+                                            The other four stations will take the form of two sets of two linked
+                                            stations,
+                                            testing clinical skills. Each pairing of skills stations will last for up
+                                            to 20
+                                            minutes in total, with a 4 minute interval.
+                                            The last two stations are written. One station will specifically assess
+                                            professional issues associated with accountability and the other will
+                                            specifically assess critical appraisal of research evidence and associated
+                                            decision-making processes.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="accordion-items bg-white p-3 p-lg-4 mb-4 rounded rounded-3 shadow">
+                                    <h2 class="accordion-header" id="headingTwo">
+                                        <button class="border-0 bg-white w-100 text-start fs-5 fw-bold collapsed" type="button" data-bs-toggle="collapse"
+                                                data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                            <i class="fs-1 ai-chevron-down"></i>
+                                            When do I have to sit the OSCE exam?
+                                        </button>
+                                    </h2>
+                                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                                         data-bs-parent="#accordionExample">
+                                        <div class="accordion-body mt-3 py-3 fs-6 fs-lg-5 border-top">
+                                            Once you’ve arrived in the UK your employer should enroll you on an OSCE
+                                            preparation course and , you must sit your first OSCE exam within 12 weeks.
+                                            You
+                                            have up to 8 months and 3 attempts to pass your OSCE
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="accordion-items bg-white p-3 p-lg-4 mb-4 rounded rounded-3 shadow">
+                                    <h2 class="accordion-header" id="headingThree">
+                                        <button class="border-0 bg-white w-100 text-start fs-5 fw-bold collapsed" type="button" data-bs-toggle="collapse"
+                                                data-bs-target="#collapseThree" aria-expanded="false"
+                                                aria-controls="collapseThree">
+                                            <i class="fs-1 ai-chevron-down"></i>
+                                            How much is the OSCE exam?
+                                        </button>
+                                    </h2>
+                                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                                         data-bs-parent="#accordionExample">
+                                        <div class="accordion-body mt-3 py-3 fs-6 fs-lg-5 border-top">
+                                            The full cost of the OSCE exam is £794, reduced from £992 in April 2019.
+                                            The resit cost of the exam is £397 from £496.
+                                            Tip – Before you book and pay for your exam, enquire to see if your NHS
+                                            trust
+                                            will fund your examination.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="accordion-items bg-white p-3 p-lg-4 mb-4 rounded rounded-3 shadow">
+                                    <h2 class="accordion-header" id="headingfour">
+                                        <button class="border-0 bg-white w-100 text-start fs-5 fw-bold collapsed" type="button" data-bs-toggle="collapse"
+                                                data-bs-target="#collapsefour" aria-expanded="false"
+                                                aria-controls="collapsefour">
+                                            <i class="fs-1 ai-chevron-down"></i>
+                                            Where can I sit the OSCE exam?
+                                        </button>
+                                    </h2>
+                                    <div id="collapsefour" class="accordion-collapse collapse" aria-labelledby="headingfour"
+                                         data-bs-parent="#accordionExample">
+                                        <div class="accordion-body mt-3 py-3 fs-6 fs-lg-5 border-top">
+                                            You must sit the OSCE exam in the UK and there are five approved test
+                                            centres:
+                                            <ul class="list-unstyled ps-5">
+                                                <li><i class="fa-solid fa-building-columns"></i> Oxford Brookes
+                                                    University
+                                                </li>
+                                                <li><i class="fa-solid fa-building-columns"></i> Ulster University</li>
+                                                <li><i class="fa-solid fa-building-columns"></i> Northampton University
+                                                </li>
+                                                <li><i class="fa-solid fa-building-columns"></i> Northumbria University
+                                                </li>
+                                                <li><i class="fa-solid fa-building-columns"></i> Leeds Teaching
+                                                    Hospitals NHS Trust
+                                                </li>
+                                            </ul>
+                                            Each of the universities offer the OSCE in the different fields of nursing
+                                            and
+                                            midwifery
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="accordion-items bg-white p-3 p-lg-4 mb-4 rounded rounded-3 shadow">
+                                    <h2 class="accordion-header" id="headingfive">
+                                        <button class="border-0 bg-white w-100 text-start fs-5 fw-bold" type="button" data-bs-toggle="collapse"
+                                                data-bs-target="#collapsefive" aria-expanded="true"
+                                                aria-controls="collapsefive">
+                                            <i class="fs-1 ai-chevron-down"></i>
+                                            What practical skills will I be tested against?
+                                        </button>
+                                    </h2>
+                                    <div id="collapsefive" class="accordion-collapse collapse" aria-labelledby="headingfive"
+                                         data-bs-parent="#accordionExample">
+                                        <div class="accordion-body mt-3 py-3 fs-6 fs-lg-5 border-top">
+                                            Typical skills which may be tested on their own or within a
+                                            nursing/midwifery
+                                            scenario include:
+                                            <ul class="list-unstyled ps-5">
+                                                <li><i class="fa-solid fa-user-ninja"></i> Basic life support (adult,
+                                                    child and baby)
+                                                </li>
+                                                <li><i class="fa-solid fa-user-ninja"></i> Intramuscular injection</li>
+                                                <li><i class="fa-solid fa-user-ninja"></i> Subcutaneous injection</li>
+                                                <li><i class="fa-solid fa-user-ninja"></i> MDI= Metered Dose Inhaler
+                                                </li>
+                                                <li><i class="fa-solid fa-user-ninja"></i> Peak Expiratory Flow (PEF)
+                                                </li>
+                                                <li><i class="fa-solid fa-user-ninja"></i> MSU & Urinalysis</li>
+                                                <li><i class="fa-solid fa-user-ninja"></i> Catheter Sample of Urine
+                                                </li>
+                                                <li><i class="fa-solid fa-user-ninja"></i> Removal of Urinary Catheter
+                                                </li>
+                                                <li><i class="fa-solid fa-user-ninja"></i> Safe disposal of sharps</li>
+                                                <li><i class="fa-solid fa-user-ninja"></i> Medication administrations
+                                                </li>
+                                                <li><i class="fa-solid fa-user-ninja"></i> Peak flows</li>
+                                                <li><i class="fa-solid fa-user-ninja"></i> Wound care Antt (15-minutes
+                                                    allocated for this skill)
+                                                </li>
+                                                <li><i class="fa-solid fa-user-ninja"></i> Fluid balance</li>
+                                                <li><i class="fa-solid fa-user-ninja"></i> Hand hygiene</li>
+                                                <li><i class="fa-solid fa-user-ninja"></i> Calculating drug dosages
+                                                </li>
+                                                <li><i class="fa-solid fa-user-ninja"></i> Vital signs</li>
+                                                <li><i class="fa-solid fa-user-ninja"></i> Palpation (Midwifery)</li>
+                                                <li><i class="fa-solid fa-user-ninja"></i> Auscultation of foetal heart
+                                                    (Midwifery)
+                                                </li>
+                                                <li><i class="fa-solid fa-user-ninja"></i> New born check (Midwifery)
+                                                </li>
+                                            </ul>
+                                            Each of the universities offer the OSCE in the different fields of nursing
+                                            and
+                                            midwifery
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="accordion-items bg-white p-3 p-lg-4 mb-4 rounded rounded-3 shadow">
+                                    <h2 class="accordion-header" id="headingsix">
+                                        <button class="border-0 bg-white w-100 text-start fs-5 fw-bold collapsed" type="button" data-bs-toggle="collapse"
+                                                data-bs-target="#collapsesix" aria-expanded="false" aria-controls="collapsesix">
+                                            <i class="fs-1 ai-chevron-down"></i>
+                                            Will my communication skills be tested?
+                                        </button>
+                                    </h2>
+                                    <div id="collapsesix" class="accordion-collapse collapse" aria-labelledby="headingsix"
+                                         data-bs-parent="#accordionExample">
+                                        <div class="accordion-body mt-3 py-3 fs-6 fs-lg-5 border-top">
+                                            Yes. Communication is at the heart of nursing and the OSCE exam will assess
+                                            your full range of communication skills (verbal, non-verbal and written).
+                                            You
+                                            will receive marks for:
+                                            <ul class="list-unstyled ps-5">
+                                                <li><i class="fa-solid fa-check"></i> Clearly explaining care,
+                                                    diagnosis, investigations and/or treatments
+                                                </li>
+                                                <li><i class="fa-solid fa-check"></i> Involving the patient in
+                                                    decision-making
+                                                </li>
+                                                <li><i class="fa-solid fa-check"></i> Communicating with relatives and
+                                                    healthcare professionals
+                                                </li>
+                                                <li><i class="fa-solid fa-check"></i> Seeking and obtaining informed
+                                                    consent
+                                                </li>
+                                                <li><i class="fa-solid fa-check"></i> Active listening</li>
+                                                <li><i class="fa-solid fa-check"></i> Dealing appropriately with
+                                                    anxious, upset, worried patients and their
+                                                    family
+                                                </li>
+                                                <li><i class="fa-solid fa-check"></i> Giving clear instructions on
+                                                    discharge
+                                                </li>
+                                                <li><i class="fa-solid fa-check"></i> Giving advice on lifestyle,
+                                                    health promotion or risk factors
+                                                </li>
+                                                <li><i class="fa-solid fa-check"></i> Demonstrating compassion and care
+                                                    during communication
+                                                </li>
+                                                <li><i class="fa-solid fa-check"></i> Professional behaviour</li>
+                                                <li><i class="fa-solid fa-check"></i> Adhering to the NMC’s guidelines
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="accordion-items bg-white p-3 p-lg-4 mb-4 rounded rounded-3 shadow">
+                                    <h2 class="accordion-header" id="headingseven">
+                                        <button class="border-0 bg-white w-100 text-start fs-5 fw-bold collapsed" type="button" data-bs-toggle="collapse"
+                                                data-bs-target="#collapseseven" aria-expanded="false"
+                                                aria-controls="collapseseven">
+                                            <i class="fs-1 ai-chevron-down"></i>
+                                            Mistakes to avoid
+                                        </button>
+                                    </h2>
+                                    <div id="collapseseven" class="accordion-collapse collapse" aria-labelledby="headingseven"
+                                         data-bs-parent="#accordionExample">
+                                        <div class="accordion-body mt-3 py-3 fs-6 fs-lg-5 border-top">
+                                            <ul class="list-unstyled">
+                                                <li><i class="fa-solid fa-circle-radiation"></i> Lack of communication
+                                                    – verbal, non-verbal and not listening to the
+                                                    patient
+                                                </li>
+                                                <li><i class="fa-solid fa-circle-radiation"></i> Not reading the
+                                                    scenarios or instructions properly
+                                                </li>
+                                                <li><i class="fa-solid fa-circle-radiation"></i> Touching the patient
+                                                    before conducting hand hygiene techniques
+                                                </li>
+                                                <li><i class="fa-solid fa-circle-radiation"></i> Not checking for
+                                                    allergies
+                                                </li>
+                                                <li><i class="fa-solid fa-circle-radiation"></i> Not ensuring patient
+                                                    safety
+                                                </li>
+                                                <li><i class="fa-solid fa-circle-radiation"></i> Not gaining consent
+                                                    from the patient
+                                                </li>
+                                                <li><i class="fa-solid fa-circle-radiation"></i> Not completing the
+                                                    station within the timeframe
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="accordion-items bg-white p-3 p-lg-4 mb-4 rounded rounded-3 shadow">
+                                    <h2 class="accordion-header" id="headingeight">
+                                        <button class="border-0 bg-white w-100 text-start fs-5 fw-bold collapsed" type="button" data-bs-toggle="collapse"
+                                                data-bs-target="#collapseight" aria-expanded="false"
+                                                aria-controls="collapseight">
+                                            <i class="fs-1 ai-chevron-down"></i>
+                                            How will I be assessed?
+                                        </button>
+                                    </h2>
+                                    <div id="collapseight" class="accordion-collapse collapse" aria-labelledby="headingeight"
+                                         data-bs-parent="#accordionExample">
+                                        <div class="accordion-body mt-3 py-3 fs-6 fs-lg-5 border-top">
+                                            Each station has a unique 20 criterion-based assessment sheet which will be
+                                            matched to the scenario or skill being assessed. The criterion is mapped
+                                            against the NMC’s standards for pre-registration education and the NMC
+                                            Code.
+                                            When it comes to your results, the NMC will email them to your personal
+                                            email
+                                            address within 5-days of your examination. You’ll either receive a pass, a
+                                            partial fail (this requires a partial re-sit at 50% cost) or a full-fail
+                                            (where
+                                            you’ll be required to resit the full exam).
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="accordion-items bg-white p-3 p-lg-4 mb-4 rounded rounded-3 shadow">
+                                    <h2 class="accordion-header" id="headingnine">
+                                        <button class="border-0 bg-white w-100 text-start fs-5 fw-bold collapsed" type="button" data-bs-toggle="collapse"
+                                                data-bs-target="#collapsnine" aria-expanded="false" aria-controls="collapsnine">
+                                            <i class="fs-1 ai-chevron-down"></i>
+                                            Can I have my OSCE remarked?
+                                        </button>
+                                    </h2>
+                                    <div id="collapsnine" class="accordion-collapse collapse" aria-labelledby="headingnine"
+                                         data-bs-parent="#accordionExample">
+                                        <div class="accordion-body mt-3 py-3 fs-6 fs-lg-5 border-top">
+                                            All OSCEs are recorded, and all OSCEs deemed a fail will always be reviewed
+                                            by
+                                            the panel of assessors on the day of the OSCE. Failed OSCEs are
+                                            automatically
+                                            remarked and checked as part of the qualityassurance process.
+                                            The academic lead/centre manager and administration team will co-ordinate
+                                            any
+                                            appeals, complaints, reasonable adjustments and fitness-to-practise issues,
+                                            and
+                                            will refer such matters to the test panel for investigation and reporting
+                                            to
+                                            the NMC
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="accordion-items bg-white p-3 p-lg-4 mb-4 rounded rounded-3 shadow">
+                                    <h2 class="accordion-header" id="headingten">
+                                        <button class="border-0 bg-white w-100 text-start fs-5 fw-bold collapsed" type="button" data-bs-toggle="collapse"
+                                                data-bs-target="#collapsten" aria-expanded="false" aria-controls="collapsten">
+                                            <i class="fs-1 ai-chevron-down"></i>
+                                            How do I get the results of the OSCE?
+                                        </button>
+                                    </h2>
+                                    <div id="collapsten" class="accordion-collapse collapse" aria-labelledby="headingten"
+                                         data-bs-parent="#accordionExample">
+                                        <div class="accordion-body mt-3 py-3 fs-6 fs-lg-5 border-top">
+                                            The NMC will inform candidates of the result of the OSCE usually within 5
+                                            working days after the test is taken. In some instances, this may take up
+                                            to 10
+                                            working days if new OSCE content is being introduced.
+                                            The NMC test of competence Part 2 is made up of ten stations, split into:
+                                            <ul class="list-unstyled ps-5">
+                                                <li><i class="fa-solid fa-list-ul"></i> Four scenario stations
+                                                    (assessment, planning, implementation and
+                                                    evaluation)
+                                                </li>
+                                                <li><i class="fa-solid fa-list-ul"></i> two sets of two linked skills
+                                                    stations
+                                                </li>
+                                                <li><i class="fa-solid fa-list-ul"></i> Two written stations, one
+                                                    assessing professional values and one
+                                                    assessing evidence based practice.
+                                                </li>
+                                            </ul>
+                                            If you are unsuccessful in up to seven stations, your re-sit will be
+                                            charged at
+                                            50% cost: £397.
+                                            If you are unsuccessful in eight or more stations, your re-sit will be
+                                            charged
+                                            at 100% cost: £794.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="accordion-items bg-white p-3 p-lg-4 mb-4 rounded rounded-3 shadow">
+                                    <h2 class="accordion-header" id="headingeleven">
+                                        <button class="border-0 bg-white w-100 text-start fs-5 fw-bold collapsed" type="button" data-bs-toggle="collapse"
+                                                data-bs-target="#collapseleven" aria-expanded="false"
+                                                aria-controls="collapseleven">
+                                            <i class="fs-1 ai-chevron-down"></i>
+                                            What are the potential results?
+                                        </button>
+                                    </h2>
+                                    <div id="collapseleven" class="accordion-collapse collapse" aria-labelledby="headingeleven"
+                                         data-bs-parent="#accordionExample">
+                                        <div class="accordion-body mt-3 py-3 fs-6 fs-lg-5 border-top">
+                                            <table class="table table-responsive">
+                                                <thead>
+                                                <tr>
+                                                    <th>Result</th>
+                                                    <th>Description</th>
+                                                    <th>Outcome</th>
+                                                    <th>Cost</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr>
+                                                    <td>PASS</td>
+                                                    <td>Passed all stations taken</td>
+                                                    <td>Congratulations!
+                                                        The NMC will be in touch to issue your NMC PIN.
+                                                    </td>
+                                                    <td>
+                                                        N/A
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Fail
+                                                        1–7 stations
+                                                    </td>
+                                                    <td>Failed up to seven stations across both the APIE and/or skill
+                                                        stations
+                                                    </td>
+                                                    <td>Will require a re-sit at 50% cost.
+                                                        You will need to re-sit only the stations you failed. If you
+                                                        need
+                                                        to re-sit the APIE
+                                                        station(s), you will be given your original
+                                                        paperwork from the APIE stations you
+                                                        passed in your previous attempt, to
+                                                        complete the re-sit stations in sequence.
+                                                    </td>
+                                                    <td>£397</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Fail
+                                                        8–10 stations
+                                                    </td>
+                                                    <td>Failed eight or more stations
+                                                        across both the APIE and skill stations
+                                                    </td>
+                                                    <td>Will require a re-sit at 100% cost.
+                                                        You will need to re-sit the APIE station(s)
+                                                        you failed and the skill station(s) you failed. You will be
+                                                        given
+                                                        the same scenario and your original paperwork from the APIE
+                                                        stations you passed in your previous attempt, to complete the
+                                                        re-sit stations in sequence.
+                                                    </td>
+                                                    <td>£794</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Full fail</td>
+                                                    <td>Fail any station on the third
+                                                        attempt
+                                                    </td>
+                                                    <td>Will require 6 months to elapse before you can reapply to the
+                                                        NMC.
+                                                    </td>
+                                                    <td>N/A</td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="accordion-items bg-white p-3 p-lg-4 mb-4 rounded rounded-3 shadow">
+                                    <h2 class="accordion-header" id="headingtwelve">
+                                        <button class="border-0 bg-white w-100 text-start fs-5 fw-bold collapsed" type="button" data-bs-toggle="collapse"
+                                                data-bs-target="#collapstwelve" aria-expanded="false"
+                                                aria-controls="collapstwelve">
+                                            <i class="fs-1 ai-chevron-down"></i>
+                                            What happens if I pass?
+                                        </button>
+                                    </h2>
+                                    <div id="collapstwelve" class="accordion-collapse collapse" aria-labelledby="headingtwelve"
+                                         data-bs-parent="#accordionExample">
+                                        <div class="accordion-body mt-3 py-3 fs-6 fs-lg-5 border-top">
+                                            Your OSCE result will be uploaded to your NMC application and you will be
+                                            able
+                                            to continue your application for registration providing you have passed the
+                                            CBT, paid your registration fee of £153 and the NMC have received your
+                                            supporting declarations
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="accordion-items bg-white p-3 p-lg-4 mb-4 rounded rounded-3 shadow">
+                                    <h2 class="accordion-header" id="headingthirteen">
+                                        <button class="border-0 bg-white w-100 text-start fs-5 fw-bold collapsed" type="button" data-bs-toggle="collapse"
+                                                data-bs-target="#collapsthirteen" aria-expanded="false"
+                                                aria-controls="collapsthirteen">
+                                            <i class="fs-1 ai-chevron-down"></i>
+                                            Can I have more than one attempt at the OSCE?
+                                        </button>
+                                    </h2>
+                                    <div id="collapsthirteen" class="accordion-collapse collapse"
+                                         aria-labelledby="headingthirteen" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body mt-3 py-3 fs-6 fs-lg-5 border-top">
+                                            Candidates have three opportunities to attempt each part of the test of
+                                            competence.
+                                            In exceptional cases, a further attempt at each part may be offered. This
+                                            attempt will be agreed only by application to the NMC. The additional
+                                            attempt will be granted in situations such as the following:
+                                            <ul class="list-unstyled ps-5">
+                                                <li><i class="fa-solid fa-list-ul"></i> The test centre did not follow
+                                                    agreed processes.
+                                                </li>
+                                                <li><i class="fa-solid fa-list-ul"></i> The assessor behaved in a way
+                                                    that demonstrably did not comply with the agreed processes.
+                                                </li>
+                                                <li><i class="fa-solid fa-list-ul"></i> There was an unanticipated
+                                                    interruption to the assessment, such as a fire alarm.
+                                                </li>
+                                                <li><i class="fa-solid fa-list-ul"></i> Illness or severe anxiety in
+                                                    the candidate.
+                                                </li>
+                                            </ul>
+                                            Candidates must wait at least 10 days between each sitting. Candidates can
+                                            choose to take longer than 4 weeks between the second and final attempts.
+                                            The OSCE will be passed or failed for each individual station. Re-sits will
+                                            be required only for those stations the candidate failed. Re-sit candidates
+                                            will take the same or a similar but different station(s) to the one(s) they
+                                            failed. If the stations are not all passed in three sittings, then the
+                                            whole OSCE must be re-taken.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!--Each Staff Modal Section-->
+    <div class="modal modal-left fade" id="staff-modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-content rounded-0">
+
+                <div class="modal-header">
+                    <label id="staff-modal-label" class="fs-3 fw-bold text-primary">FACULTY MEMBERS</label>
+                    <button type="button" class="close btn btn-sm btn-secondary px-2" data-bs-dismiss="modal" aria-label="Close"><i class="ai-cross"></i></button>
+                </div>
+
+                <div class="modal-body px-lg-5">
+                    <div class="row">
+                        <div class="col-12 col-lg-3">
+                            <div class="div-img">
+                                <img class="facilitator-image img-fluid" alt="Staff" loading="lazy">
+                            </div>
+                            <div class="mt-4 text-center">
+                                <ul class="list-unstyled row">
+                                    <li class="col-2">
+                                        <a class="social_facebook" target="_blank" href="#"><i class="fa-brands fa-facebook-square fa-2x text-dark"></i></a>
+                                    </li>
+                                    <li class="col-2">
+                                        <a class="social_twitter" target="_blank" href="#"><span class="fa-brands fa-twitter-square fa-2x text-dark"></span></a>
+                                    </li>
+                                    <li class="col-2">
+                                        <a class="social_linkedin" target="_blank" href="#"><span class="fa-brands fa-linkedin fa-2x text-dark"></span></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-9">
+                            <h3 class="facilitator-name text-dark fw-bold">Facilitator Name</h3>
+                            <div class="mb-lg-5 facilitator-position">Facilitator Position</div>
+                            <h5 class="text-dark fw-bold">Employment History</h5>
+                            <div class="facilitator-employment text-dark">Facilitator Employment History</div>
+                            <br><br>
+                            <h5 class="text-dark fw-bold">Qualifications</h5>
+                            <div class="facilitator-qualification text-dark">Facilitator Qualifications</div>
+                            <br><br><br>
+                        </div>
+                    </div>
+                </div>
+
+            </div><!-- modal-content -->
+        </div><!-- modal-dialog -->
+    </div>
+    <!--Staffs Modal Section-->
+
+@endsection
+@section('js')
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script>
+        // Play welcome Video
+        const welcomeTriggerPlay = document.querySelector('.welcome-play-toggle');
+        const welcomeTriggerPause = document.querySelector('.welcome-pause-toggle');
+        const welcomeTarget = document.getElementById('welcome-video');
+        welcomeTriggerPlay.addEventListener('click', function () {
+            welcomeTarget.play();
+            welcomeTriggerPlay.style.display = "none";
+            welcomeTriggerPause.style.display = "flex";
+        });
+        welcomeTriggerPause.addEventListener('click', function () {
+            welcomeTarget.pause();
+            welcomeTriggerPlay.style.display = "flex";
+            welcomeTriggerPause.style.display = "none";
+        });
+        welcomeTarget.addEventListener('ended', function () {
+            welcomeTriggerPlay.style.display = "flex";
+            welcomeTriggerPause.style.display = "none";
+        });
+
+        // keep distance for 2 header height
+        const getOffsetTop = element => {
+            let offsetTop = 0;
+            while (element) {
+                offsetTop += element.offsetTop;
+                element = element.offsetParent;
+            }
+            return offsetTop;
+        }
+        document.querySelectorAll("#content-nav li a.nav-link").forEach((el) => {
+
+            const tabsHeight = document.querySelector("#middle-menu").clientHeight;
+            const topHeaderHeight = document.querySelector('header').clientHeight;
+
+            el.addEventListener('click', (e) => {
+
+                const targetId = el.dataset.target;
+
+                window.scrollTo({
+                    left: 0,
+                    top: getOffsetTop(document.querySelector(`${targetId}`)) - (tabsHeight + topHeaderHeight),
+                    behavior: 'smooth',
+                });
+            });
+        });
+
+
+        const staffModal = new bootstrap.Modal('#staff-modal', {});
+        $('.each-staff-preview').on('click', (e) => {
+            const mdl = $('#staff-modal');
+            const parent = $(e.target).closest('.each-staff-preview-content');
+            const staff = {
+                dp: parent.find('.staff_preview_dp').html(),
+                name: parent.find('.staff_preview_name').html(),
+                designation: parent.find('.staff_preview_designation').html(),
+                qualifications: parent.find('.staff_preview_qualifications').html(),
+                employment_history: parent.find('.staff_preview_employment_history').html(),
+                social_facebook: parent.find('.staff_preview_social_facebook').html(),
+                social_twitter: parent.find('.staff_preview_social_twitter').html(),
+                social_linkedin: parent.find('.staff_preview_social_linkedin').html(),
+            };
+
+            mdl.find('.facilitator-image').attr('src', staff.dp);
+
+            mdl.find('.social_facebook').attr('href', staff.social_facebook);
+            mdl.find('.social_twitter').attr('href', staff.social_twitter);
+            mdl.find('.social_linkedin').attr('href', staff.social_linkedin);
+
+            mdl.find('.facilitator-name').html(staff.name);
+            mdl.find('.facilitator-position').html(staff.designation);
+            mdl.find('.facilitator-employment').html(staff.employment_history);
+            mdl.find('.facilitator-qualification').html(staff.qualifications);
+
+            staffModal.show();
+        });
+
+
+        $('.slideLeftOsceSub').on('click', function (){
+            const element = document.querySelector('.osce-sub-float-menu-content');
+            element.scroll({
+                left: element.scrollLeft - 300,
+                behavior: 'smooth'
+            });
+        })
+        $('.slideRightOsceSub').on('click', function (){
+            const element = document.querySelector('.osce-sub-float-menu-content');
+            element.scroll({
+                left: element.scrollLeft + 300,
+                behavior: 'smooth'
+            });
+        })
+    </script>
 @endsection
