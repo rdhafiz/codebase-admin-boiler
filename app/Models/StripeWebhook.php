@@ -7,11 +7,11 @@ use Jenssegers\Mongodb\Eloquent\Model as Eloquent;
 use Illuminate\Notifications\Notifiable;
 use Jenssegers\Mongodb\Eloquent\SoftDeletes;
 
-class CourseApplicantPayments extends Eloquent
+class StripeWebhook extends Eloquent
 {
     use HasFactory, Notifiable, SoftDeletes;
 
-    protected $collection = 'course_applicant_payments';
+    protected $collection = 'stripe_webhook';
     protected $guarded = [];
     protected $hidden = [
         'created_at',

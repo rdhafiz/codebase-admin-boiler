@@ -35,7 +35,7 @@
                                         </a>
                                     </div>
                                     <div class="col-lg-6">
-                                        <a href="#"
+                                        <a href="{{$bank_transfer_url}}"
                                            class="w-100 d-inline-block card card-hover-primary text-decoration-none bg-secondary p-5 text-center rounded rounded-3">
                                             <i class="ai-dollar fs-1"></i>
                                             <h3>Bank Transfer</h3>

@@ -8,15 +8,31 @@ use Illuminate\Http\Request;
 use Stripe\Webhook;
 use Stripe\Exception\SignatureVerificationException;
 
-class StripeCheckoutWebhook
+class StripeWebhook
 {
+    private string $endpointSecret;
+    private $stripe;
+
     public function __construct()
     {
+        $this->endpointSecret = env('STRIPE_SECRET_ENDPOINT');
         $config = WebsiteConfig::where('name', 'STRIPE_SECRET_API_KEY')->first();
         $this->stripe = new \Stripe\StripeClient($config->value);
     }
 
-    public function paymentEvents(Request $request)
+    public function simulateBankTransfer()
+    {
+        $this->stripe->testHelpers->customers->fundCashBalance(
+            'cus_PQJCrIT3dcP9Ju', //test mode customer id
+            [
+                'amount' => 1500,
+                'currency' => 'gbp',
+                'reference' => '5YFSTKEPV379',
+            ]
+        );
+    }
+
+    public function trackEvents(Request $request)
     {
         if (env('APP_ENV') === 'local')
             http_response_code(200);
@@ -43,21 +59,47 @@ class StripeCheckoutWebhook
 
         // Handle the checkout.session.completed event
         if ($event->type == 'checkout.session.completed') {
-            Payment::create([
+            StripeWebhook::create([
                 'data' => $event->data->object,
-                'eventType' => 'checkout.session.completed',
+                'type' => 'checkout.session.completed'
             ]);
         } elseif ($event->type == 'checkout.session.async_payment_succeeded') {
-            Payment::create([
+            StripeWebhook::create([
                 'data' => $event->data->object,
-                'eventType' => 'checkout.session.async_payment_succeeded',
+                'type' => 'checkout.session.async_payment_succeeded'
             ]);
         } elseif ($event->type == 'checkout.session.async_payment_failed') {
-            Payment::create([
+            StripeWebhook::create([
                 'data' => $event->data->object,
-                'eventType' => 'checkout.session.async_payment_failed',
+                'type' => 'checkout.session.async_payment_failed'
+            ]);
+        } else if ($event->type === 'payment_intent.partially_funded') {
+            StripeWebhook::create([
+                'data' => $event->data->object,
+                'type' => 'payment_intent.partially_funde'
+            ]);
+        } else if ($event->type === 'payment_intent.payment_failed') {
+            StripeWebhook::create([
+                'data' => $event->data->object,
+                'type' => 'payment_intent.payment_failed'
+            ]);
+        } else if ($event->type === 'payment_intent.processing') {
+            StripeWebhook::create([
+                'data' => $event->data->object,
+                'type' => 'payment_intent.processing'
+            ]);
+        } else if ($event->type === 'payment_intent.succeeded') {
+            StripeWebhook::create([
+                'data' => $event->data->object,
+                'type' => 'payment_intent.succeeded'
+            ]);
+        } else {
+            StripeWebhook::create([
+                'data' => $event->data->object,
+                'type' => $event->type
             ]);
         }
+
         http_response_code(200);
     }
 
