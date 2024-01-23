@@ -103,6 +103,7 @@ class ApplyController extends BaseController
             ]);
 
             if ($application) {
+                // Full Payment
                 if ($application->payment_type == 1) {
                     $course_price = $this->stripe->prices->retrieve($course->course_fee, []);
                     CourseApplicantPayments::create([
@@ -117,6 +118,7 @@ class ApplyController extends BaseController
                         'stripe_invoice_id' => null,
                     ]);
                 } else {
+                    // Installment Payment
                     $courseInstallments = CourseInstallments::with('price')->where('course_id', $request->course_id)->get()->toArray();
                     foreach ($courseInstallments as $courseInstallment) {
                         $install_price = $this->stripe->prices->retrieve($courseInstallment['price_id'], []);

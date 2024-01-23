@@ -128,8 +128,8 @@
                                     <div class="form-group mb-4">
                                         <label class="form-label">Have You Taken OSCE Before?</label>
                                         <select name="have_taken_osce" class="form-select" required>
-                                            <option value="Yes">Yes</option>
-                                            <option value="No">No</option>
+                                            <option @if(old('have_taken_osce') == "Yes") selected @endif value="Yes">Yes</option>
+                                            <option @if(old('have_taken_osce') == "No") selected @endif value="No">No</option>
                                         </select>
                                         @if($errors->has('have_taken_osce'))
                                             <small class="text-danger">{{$errors->first('have_taken_osce')}}</small>
