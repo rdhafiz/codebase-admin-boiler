@@ -2,9 +2,6 @@
 
 @section('stylesheet')
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
-    @vite(['resources/sass/frontend/osce.scss'])
     @vite(['resources/sass/frontend/about.scss'])
 @show
 
@@ -13,7 +10,7 @@
 
     <div class="about_page">
 
-        <div class="tp-team-area bg-secondary py-5" id="staffs">
+        <div class="tp-team-area py-5" id="staffs">
             <div class="container-lg">
                 <div class="row py-3">
                     <div class="col-12">
@@ -22,7 +19,7 @@
                 </div>
                 <div class="row py-3">
                     @foreach(config('params.teams') as $team)
-                        <div class="col-xl-2 col-lg-4 col-md-6 col-sm-6 col-6">
+                        <div class="col-lg-3 col-md-4 col-6">
                             <div class="tp-team-item mb-4">
                                 <div class="tp-team-item__img">
                                     <img class="w-100" src="{{asset('assets/'.$team['dp'])}}" alt="">
@@ -106,54 +103,7 @@
 @section('js')
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
-        // Play welcome Video
-        const welcomeTriggerPlay = document.querySelector('.welcome-play-toggle');
-        const welcomeTriggerPause = document.querySelector('.welcome-pause-toggle');
-        const welcomeTarget = document.getElementById('welcome-video');
-        welcomeTriggerPlay.addEventListener('click', function () {
-            welcomeTarget.play();
-            welcomeTriggerPlay.style.display = "none";
-            welcomeTriggerPause.style.display = "flex";
-        });
-        welcomeTriggerPause.addEventListener('click', function () {
-            welcomeTarget.pause();
-            welcomeTriggerPlay.style.display = "flex";
-            welcomeTriggerPause.style.display = "none";
-        });
-        welcomeTarget.addEventListener('ended', function () {
-            welcomeTriggerPlay.style.display = "flex";
-            welcomeTriggerPause.style.display = "none";
-        });
-
-        // keep distance for 2 header height
-        const getOffsetTop = element => {
-            let offsetTop = 0;
-            while (element) {
-                offsetTop += element.offsetTop;
-                element = element.offsetParent;
-            }
-            return offsetTop;
-        }
-        document.querySelectorAll("#content-nav li a.nav-link").forEach((el) => {
-
-            const tabsHeight = document.querySelector("#middle-menu").clientHeight;
-            const topHeaderHeight = document.querySelector('header').clientHeight;
-
-            el.addEventListener('click', (e) => {
-
-                const targetId = el.dataset.target;
-
-                window.scrollTo({
-                    left: 0,
-                    top: getOffsetTop(document.querySelector(`${targetId}`)) - (tabsHeight + topHeaderHeight),
-                    behavior: 'smooth',
-                });
-            });
-        });
-
-
         const staffModal = new bootstrap.Modal('#staff-modal', {});
         $('.each-staff-preview').on('click', (e) => {
             const mdl = $('#staff-modal');
@@ -182,48 +132,5 @@
 
             staffModal.show();
         });
-
-
-        $('.slideLeftOsceSub').on('click', function () {
-            const element = document.querySelector('.osce-sub-float-menu-content');
-            element.scroll({
-                left: element.scrollLeft - 300,
-                behavior: 'smooth'
-            });
-        })
-        $('.slideRightOsceSub').on('click', function () {
-            const element = document.querySelector('.osce-sub-float-menu-content');
-            element.scroll({
-                left: element.scrollLeft + 300,
-                behavior: 'smooth'
-            });
-        })
-
-
-        $('#workstations-slide').owlCarousel({
-            loop: true,
-            margin:20,
-            nav:true,
-            dots:false,
-            autoplay: true,
-            navText : ["<i class='ai-chevron-left'></i>","<i class='ai-chevron-right'></i>"],
-            responsive : {
-                0 : {
-                    items:1,
-                },
-                700 : {
-                    items:2,
-                },
-                991 : {
-                    items:2,
-                },
-                1200 : {
-                    items:3,
-                },
-                1300 : {
-                    items:3,
-                },
-            }
-        })
     </script>
 @endsection

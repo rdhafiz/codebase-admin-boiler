@@ -47,6 +47,7 @@ Route::group(['prefix' => 'training'], function() {
     Route::get('plab', [TrainingPageController::class, "viewPlab"])->name('plab');
     Route::get('cbt', [TrainingPageController::class, "viewCBT"])->name('cbt');
     Route::get('english-language', [TrainingPageController::class, "viewEnglishLanguage"])->name('english-language');
+    Route::get('trainers', [TrainingPageController::class, "viewTrainers"])->name('trainers');
 });
 
 

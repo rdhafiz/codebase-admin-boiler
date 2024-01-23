@@ -25,4 +25,9 @@ class TrainingPageController extends BaseController
     {
         return view("frontend.pages.osce");
     }
+
+    public function viewTrainers()
+    {
+        return view("frontend.pages.teams");
+    }
 }

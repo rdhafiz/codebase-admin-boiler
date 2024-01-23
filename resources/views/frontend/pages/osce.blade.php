@@ -5,7 +5,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
     @vite(['resources/sass/frontend/osce.scss'])
-    @vite(['resources/sass/frontend/about.scss'])
 @show
 
 @section('content')
@@ -44,53 +43,55 @@
 
         <div class="w-100 mb-5">
             <div class="container-lg">
-                <div class="w-100 pt-lg-5 pt-5">
-                    <h2 class="fs-2 text-primary px-3 px-lg-0 text-center">Quick Info</h2>
-                </div>
-                <div class="w-100 mt-5">
-                    <div class="row">
-                        <div class="col mb-lg-0 mb-3">
-                            <div class="text-uppercase text-center fs-4 fw-bold text-primary mb-2">
-                                Training
-                            </div>
-                            <div class="text-uppercase text-center fs-5 text-dark">OSCE</div>
-                        </div>
-                        <div class="col">
-                            <div class="text-uppercase text-center fs-4 fw-bold text-primary mb-2">
-                                Duration
-                            </div>
-                            <div class="text-uppercase text-center fs-5 text-dark">15 Days</div>
-                        </div>
-                        <div class="col">
-                            <div class="text-uppercase text-center fs-4 fw-bold text-primary mb-2">Fees</div>
-                            <div class="text-uppercase text-center fs-5 text-dark">£ 1,000</div>
-                        </div>
-                        <div class="col">
-                            <div class="text-uppercase text-center fs-4 fw-bold text-primary mb-2">
-                                Learning
-                            </div>
-                            <div class="text-uppercase text-center fs-5 text-dark">Blended</div>
-                            <div class="text-uppercase text-center fs-5 text-dark">Instructor-led</div>
-                        </div>
-                        <div class="col">
-                            <div class="text-uppercase text-center fs-4 fw-bold text-primary mb-2">
-                                Access
-                            </div>
-                            <div class="text-uppercase text-center fs-5 text-dark">24/7</div>
-                            <div class="text-uppercase text-center fs-5 text-dark">Anywhere</div>
-                        </div>
+                <div class="w-100" data-aos="fade-up" data-aos-duration="1000">
+                    <div class="w-100 pt-lg-5 pt-5">
+                        <h2 class="fs-2 text-primary px-3 px-lg-0 text-center">Quick Info</h2>
                     </div>
-                    <div class="row">
-                        <div class="col">
-                            <div class="border-top border-2 border-gray-50 mt-3 mb-3"></div>
+                    <div class="w-100 mt-5">
+                        <div class="row">
+                            <div class="col mb-lg-0 mb-3">
+                                <div class="text-uppercase text-center fs-4 fw-bold text-primary mb-2">
+                                    Training
+                                </div>
+                                <div class="text-uppercase text-center fs-5 text-dark">OSCE</div>
+                            </div>
+                            <div class="col">
+                                <div class="text-uppercase text-center fs-4 fw-bold text-primary mb-2">
+                                    Duration
+                                </div>
+                                <div class="text-uppercase text-center fs-5 text-dark">15 Days</div>
+                            </div>
+                            <div class="col">
+                                <div class="text-uppercase text-center fs-4 fw-bold text-primary mb-2">Fees</div>
+                                <div class="text-uppercase text-center fs-5 text-dark">£ 1,000</div>
+                            </div>
+                            <div class="col">
+                                <div class="text-uppercase text-center fs-4 fw-bold text-primary mb-2">
+                                    Learning
+                                </div>
+                                <div class="text-uppercase text-center fs-5 text-dark">Blended</div>
+                                <div class="text-uppercase text-center fs-5 text-dark">Instructor-led</div>
+                            </div>
+                            <div class="col">
+                                <div class="text-uppercase text-center fs-4 fw-bold text-primary mb-2">
+                                    Access
+                                </div>
+                                <div class="text-uppercase text-center fs-5 text-dark">24/7</div>
+                                <div class="text-uppercase text-center fs-5 text-dark">Anywhere</div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-12 text-center">
-                            <a href="{{route('front.apply')}}" class="btn btn-primary">
-                                Apply
-                                <i class="ai-external-link"></i>
-                            </a>
+                        <div class="row">
+                            <div class="col">
+                                <div class="border-top border-2 border-gray-50 mt-3 mb-3"></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 text-center">
+                                <a href="{{route('front.apply')}}" class="btn btn-primary">
+                                    Apply
+                                    <i class="ai-external-link"></i>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -320,7 +321,7 @@
                                     Responsible for overseeing the professional development and education of all non-medical staff within his division.
                                 </p>
                                 <p>
-                                    <a href="#" class="btn btn-primary"><i class="ai-user-group me-2"></i> See All Trainers</a>
+                                    <a href="{{route('trainers')}}" class="btn btn-primary"><i class="ai-user-group me-2"></i> See All Trainers</a>
                                 </p>
                             </div>
                         </div>
@@ -923,7 +924,6 @@
 @endsection
 @section('js')
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
         $(function () {
@@ -950,7 +950,7 @@
                 margin: 20,
                 nav: true,
                 dots: false,
-                autoplay: false,
+                autoplay: true,
                 navText: ["<i class='ai-chevron-left'></i>", "<i class='ai-chevron-right'></i>"],
                 responsive: {
                     0: {

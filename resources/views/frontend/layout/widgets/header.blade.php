@@ -22,10 +22,10 @@
                         <div class="container-lg px-5">
                             <div class="row">
                                 <div class="col-lg-5">
-                                    <div class="w-100 ps-5">
+                                    <div class="w-100 ps-lg-5">
                                         <div class="d-lg-flex">
-                                            <div class="mega-dropdown-column ps-5">
-                                                <ul class="mega-dropdown-content list-unstyled mb-0" style="background-image: url({{asset('assets/images/shapes/menu.svg')}})">
+                                            <div class="mega-dropdown-column ps-lg-5">
+                                                <ul class="mega-dropdown-content list-unstyled mb-0">
                                                     <li>
                                                         <a class="dropdown-item" href="{{ route('osce') }}"><i class="ai-arrow-right"></i> OSCE</a>
                                                     </li>
@@ -68,10 +68,10 @@
                         <div class="container-lg px-5">
                             <div class="row">
                                 <div class="col-lg-5">
-                                    <div class="w-100 ps-5">
+                                    <div class="w-100 ps-lg-5">
                                         <div class="d-lg-flex">
-                                            <div class="mega-dropdown-column ps-5">
-                                                <ul class="mega-dropdown-content list-unstyled mb-0" style="background-image: url({{asset('assets/images/shapes/menu.svg')}})">
+                                            <div class="mega-dropdown-column ps-lg-5">
+                                                <ul class="mega-dropdown-content list-unstyled mb-0">
                                                     <li>
                                                         <a class="dropdown-item" href="{{ route('jobs') }}"><i class="ai-arrow-right"></i> Full Time</a>
                                                     </li>
@@ -124,7 +124,7 @@
                                 <button class="btn btn-primary btn-sm fs-sm order-lg-3 d-none d-sm-inline-flex dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     {{auth()->user()->name}}
                                 </button>
-                                <div class="dropdown-menu">
+                                <div class="dropdown-menu" style="margin-top: 0!important;">
                                     <a class="dropdown-item @if(Route::currentRouteName() == 'front.dashboard') active @endif" href="{{route('front.dashboard')}}">Dashboard</a>
                                     <a class="dropdown-item @if(Route::currentRouteName() == 'front.profile') active @endif" href="{{route('front.profile')}}">Profile</a>
                                     <a class="dropdown-item @if(Route::currentRouteName() == 'front.training') active @endif" href="{{route('front.training')}}">Training</a>
