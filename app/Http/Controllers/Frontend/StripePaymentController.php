@@ -22,19 +22,28 @@ class StripePaymentController extends BaseController
     {
         $payment = CourseApplicantPayments::where('course_id', $course_id)->where('user_id', Auth::id())->where('status', 0)->first();
         if ($payment != null) {
-            $card_payment_url = route('front.training.payment.process', [$course_id, $payment['_id']]);
-            return view("frontend.pages.profile.payment_options", compact('card_payment_url'));
+            $card_payment_url = route('front.training.payment.process', [$course_id, $payment['_id'], 'card']);
+            $bank_transfer_url = route('front.training.payment.process', [$course_id, $payment['_id'], 'bank_transfer']);
+            return view("frontend.pages.profile.payment_options", compact('card_payment_url', 'bank_transfer_url'));
         }
         return redirect()->back();
     }
 
-    public function training_payment_process(Request $request, $course_id, $payment_id)
+    public function training_payment_process(Request $request, $course_id, $payment_id, $payment_method = "card")
     {
-        $payment = CourseApplicantPayments::where('course_id', $course_id)->where('user_id', Auth::id())->where('status', 0)->where('_id', $payment_id)->first();
+        $payment = CourseApplicantPayments
+            ::where('course_id', $course_id)
+            ->where('user_id', Auth::id())
+            ->where('status', 0)
+            ->where('_id', $payment_id)
+            ->first();
         if ($payment != null) {
 
             $course = Course::where('_id', $payment->course_id)->first();
-            $application = CourseApplicants::where('course_id', $course->_id)->where('_id', $payment->application_id)->first();
+            $application = CourseApplicants
+                ::where('course_id', $course->_id)
+                ->where('_id', $payment->application_id)
+                ->first();
 
             $user = Auth::user();
             if (!isset($user->stripe_customer_id)) {
@@ -46,28 +55,49 @@ class StripePaymentController extends BaseController
                 $user->save();
             }
 
-            $session = [
-                'line_items' => [
-                    [
-                        'price' => $payment['price_id'],
-                        'quantity' => 1,
+            if ($payment_method === 'card') {
+                $session = [
+                    'line_items' => [
+                        [
+                            'price' => $payment['price_id'],
+                            'quantity' => 1,
+                        ],
                     ],
-                ],
-                'customer' => $user->stripe_customer_id,
-                'invoice_creation' => ['enabled' => true],
-                'mode' => 'payment',
-                'success_url' => route('front.training.payment.process.success', [$course_id, $payment_id]),
-                'cancel_url' => route('front.training.payment.process.cancel', [$course_id, $payment_id]),
-            ];
-            if (!empty($course->course_discount) && $application['payment_type'] == 1) {
-                $session['discounts'][] = [
-                    'coupon' => $course->course_discount,
+                    'customer' => $user->stripe_customer_id,
+                    'invoice_creation' => ['enabled' => true],
+                    'mode' => 'payment',
+                    'success_url' => route('front.training.payment.process.success', [$course_id, $payment_id]),
+                    'cancel_url' => route('front.training.payment.process.cancel', [$course_id, $payment_id]),
                 ];
-            } else {
-                $session['allow_promotion_codes'] = true;
+                if (!empty($course->course_discount) && $application['payment_type'] == 1) {
+                    $session['discounts'][] = [
+                        'coupon' => $course->course_discount,
+                    ];
+                } else {
+                    $session['allow_promotion_codes'] = true;
+                }
+                $paymentSession = $this->stripe->checkout->sessions->create($session);
+                $payment->payment_session_id = $paymentSession['id'];
+            } else if ($payment_method === 'bank_transfer') {
+                $paymentIntent = $this->stripe->paymentIntents->create([
+                    'amount' => $payment['price_amount'] * 100,
+                    'currency' => 'gbp',
+                    'customer' => $user->stripe_customer_id,
+                    'payment_method_types' => ['customer_balance'],
+                    'payment_method_data' => ['type' => 'customer_balance'],
+                    'payment_method_options' => [
+                        'customer_balance' => [
+                            'funding_type' => 'bank_transfer',
+                            'bank_transfer' => ['type' => 'gb_bank_transfer'],
+                        ],
+                    ],
+                    'confirm' => true,
+                ]);
+                if ($paymentIntent->status === 'requires_action') {
+                    $instructionUrl = $paymentIntent->next_action->display_bank_transfer_instructions->hosted_instructions_url;
+                    return redirect()->to($instructionUrl);
+                }
             }
-            $paymentSession = $this->stripe->checkout->sessions->create($session);
-            $payment->payment_session_id = $paymentSession['id'];
             $payment->save();
             return redirect()->to($paymentSession->url);
 

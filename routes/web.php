@@ -75,7 +75,7 @@ Route::group(['middleware' => [UserAuthReq::class]], function () {
 
     Route::get('/training', [ProfileController::class, "training"])->name('front.training');
     Route::get('/training/payment/{course_id}', [StripePaymentController::class, "training_payment"])->name('front.training.payment');
-    Route::get('/training/payment/{course_id}/{payment_id}', [StripePaymentController::class, "training_payment_process"])->name('front.training.payment.process');
+    Route::get('/training/payment/{course_id}/{payment_id}/{payment_method}', [StripePaymentController::class, "training_payment_process"])->name('front.training.payment.process');
     Route::get('/training/payment/{course_id}/{payment_id}/receipt', [StripePaymentController::class, "training_payment_process_receipt"])->name('front.training.payment.process.receipt');
     Route::get('/training/payment/{course_id}/{payment_id}/success', [StripePaymentController::class, "training_payment_process_success"])->name('front.training.payment.process.success');
     Route::get('/training/payment/{course_id}/{payment_id}/cancel', [StripePaymentController::class, "training_payment_process_cancel"])->name('front.training.payment.process.cancel');
@@ -84,3 +84,8 @@ Route::group(['middleware' => [UserAuthReq::class]], function () {
 // Apply Course
 Route::get('/apply', [ApplyController::class, "index"])->name('front.apply');
 Route::post('/apply', [ApplyController::class, "apply"])->name('front.apply.action');
+
+Route::get('/test-bank', [StripePaymentController::class, "createCustomer"])->name('payment.bank');
+
+Route::post('stripe/hook', [\App\Http\Controllers\Payment\StripeWebhook::class, 'trackEvents',])->name('stripe.webhook');
+Route::post('stripe/simulate/bank_transfer', [\App\Http\Controllers\Payment\StripeWebhook::class, 'simulateBankTransfer',])->name('stripe.simulate.bank_transfer');
