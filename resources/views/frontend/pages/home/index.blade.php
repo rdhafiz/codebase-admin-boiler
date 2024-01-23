@@ -68,7 +68,6 @@
                 }
             })
             if($(document).width() < 1200){
-                console.log($('#why-choose-item-slide'));
                 $('#why-choose-item-slide').owlCarousel({
                     loop: true,
                     margin:0,

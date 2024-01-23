@@ -88,41 +88,6 @@
         transform: skew(0, 2.76deg);
     }
 
-    .welcome-section {
-        .welcome-video {
-            position: relative;
-            width: 100%;
-            display: block;
-
-            .welcome-play-toggle {
-                display: flex
-            }
-
-            .welcome-pause-toggle, .welcome-play-toggle {
-                width: 60px;
-                height: 60px;
-                align-items: center;
-                justify-content: center;
-                position: absolute;
-                border-radius: 100px;
-                color: #fff;
-                top: calc(50% - 30px);
-                left: calc(50% - 30px);
-                background-color: rgba(0, 0, 0, .5)
-            }
-
-            .welcome-pause-toggle {
-                display: none;
-                opacity: 0
-            }
-
-            &:active, &:hover {
-                .welcome-pause-toggle, .welcome-pause-toggle {
-                    opacity: 1
-                }
-            }
-        }
-    }
 
     .sticky-osce {
         position: sticky;

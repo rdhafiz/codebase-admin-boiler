@@ -2,22 +2,306 @@
 
 @section('stylesheet')
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    @vite(['resources/sass/frontend/osce.scss'])
     @vite(['resources/sass/frontend/about.scss'])
 @show
 
 @section('content')
 
-    <div class="about_page">
+    <div class="osce_page">
 
-        <div class="page_header" style="background-image: url({{asset('assets/images/frontend/resources/wave-1.svg')}})">
+        <div class="page_header">
             <div class="container-lg">
-                <h1 class="page_title" data-aos="fade-left" data-aos-delay="1000" data-aos-duration="1000">OSCE Training</h1>
+
+                <div class="bread-crumb" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="1000">
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li> ></li>
+                        <li><a href="#">Training</a></li>
+                        <li> ></li>
+                        <li><a href="#">OSCE</a></li>
+                    </ul>
+                </div>
+
+                <h1 class="page_title" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="1000">OSCE</h1>
+
+                <div class="page-quick-links">
+                    <ul>
+                        <li data-aos="zoom-out-left" data-aos-delay="1500"><a href="#">Apply Full Time</a></li>
+                        <li data-aos="zoom-out-left" data-aos-delay="1700"><a href="#">Apply Temporary</a></li>
+                        <li data-aos="zoom-out-left" data-aos-delay="1900"><a href="#">Apply Locum</a></li>
+                    </ul>
+                </div>
+
+            </div>
+            <div class="page_header_cover">
+                <div class="angular-bar" style="background-image: url({{asset('assets/images/shapes/angular-shape-1.svg')}})"></div>
+                <img src="{{asset('assets/images/frontend/home/about_us.jpg')}}" alt="">
             </div>
         </div>
 
-        <div class="about_section welcome-section mb-5">
+        <div class="w-100 mb-5">
             <div class="container-lg">
-                <div class="about_section_content bg-secondary p-5 rounded rounded-5" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="1000">
+                <div class="w-100 pt-lg-5 pt-5">
+                    <h2 class="fs-2 text-primary px-3 px-lg-0 text-center">Quick Info</h2>
+                </div>
+                <div class="w-100 mt-5">
+                    <div class="row">
+                        <div class="col mb-lg-0 mb-3">
+                            <div class="text-uppercase text-center fs-4 fw-bold text-primary mb-2">
+                                Training
+                            </div>
+                            <div class="text-uppercase text-center fs-5 text-dark">OSCE</div>
+                        </div>
+                        <div class="col">
+                            <div class="text-uppercase text-center fs-4 fw-bold text-primary mb-2">
+                                Duration
+                            </div>
+                            <div class="text-uppercase text-center fs-5 text-dark">15 Days</div>
+                        </div>
+                        <div class="col">
+                            <div class="text-uppercase text-center fs-4 fw-bold text-primary mb-2">Fees</div>
+                            <div class="text-uppercase text-center fs-5 text-dark">£ 1,000</div>
+                        </div>
+                        <div class="col">
+                            <div class="text-uppercase text-center fs-4 fw-bold text-primary mb-2">
+                                Learning
+                            </div>
+                            <div class="text-uppercase text-center fs-5 text-dark">Blended</div>
+                            <div class="text-uppercase text-center fs-5 text-dark">Instructor-led</div>
+                        </div>
+                        <div class="col">
+                            <div class="text-uppercase text-center fs-4 fw-bold text-primary mb-2">
+                                Access
+                            </div>
+                            <div class="text-uppercase text-center fs-5 text-dark">24/7</div>
+                            <div class="text-uppercase text-center fs-5 text-dark">Anywhere</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="border-top border-2 border-gray-50 mt-3 mb-3"></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 text-center">
+                            <a href="{{route('front.apply')}}" class="btn btn-primary">
+                                Apply
+                                <i class="ai-external-link"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="w-100 bg-dark-olive py-5 mb-5">
+            <div class="container-lg">
+                <div class="about_section_content" data-aos="fade-up" data-aos-duration="1000">
+                    <div class="row align-items-center mb-3 my-sm-2 my-md-3 my-lg-0 my-xl-2 my-xxl-4">
+                        <div class="col-12">
+                            <div class="pe-md-4 pe-lg-0">
+                                <h2 class="fs-1 fw-bold text-white pb-sm-2 pb-lg-3">Overview</h2>
+                                <div class="w-100">
+                                    <p class="fs-5 text-white">
+                                        Are you an internationally educated nurse looking to gain your Nursing and Midwifery
+                                        Council (NMC) registration and work in the UK? Our OSCE training program at Purple Med
+                                        can help you achieve your goals!
+                                    </p>
+                                    <p class="fs-5 text-white">Imagine yourself walking into the exam room feeling confident and
+                                        prepared. That's what we want for you at Purple Med. Our 15-day intensive course is
+                                        designed to help you prepare for the OSCE exam and feel ready to succeed.
+                                        We have a team of experienced OSCE tutors who have helped nurses from
+                                        all over the world succeed in their exams. Some of them have even taken and passed the
+                                        OSCE themselves, so they know what it's like and can give you helpful tips and advice.
+                                        We also have the most up-to-date training materials, resources, and equipment to help
+                                        you practice and improve your skills.</p>
+
+                                    <p class="fs-5 text-white">Our main goal at Purple Med is to help you pass your OSCE the first
+                                        time, saving you the time and money of having to re-sit the exam. We'll do everything we
+                                        can to support you along the way, and our course is comprehensive but easy to follow.
+                                        We'll make sure you understand all the requirements and feel well-prepared.
+                                        Don't let the OSCE exam stand in the way of working as a nurse in the
+                                        UK. Choose Purple Med for the best OSCE training and support available. Contact us today
+                                        to learn more and get started on the path to success!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="w-100 py-5">
+            <div class="container-lg">
+                <div class="row">
+                    <div class="col-12">
+                        <h2 class="text-primary text-center fs-1 fw-bold">Workstations</h2>
+                    </div>
+                </div>
+                <div class="row py-3">
+                    <div class="w-100 pt-5">
+                        <div class="owl-carousel owl-theme" id="workstations-slide">
+                            <div class="item">
+                                <div class="card border-0 mb-4">
+                                    <div style="min-height: 620px;background-color: #FF0066!important;border-radius: 10px!important;" class="card-body border-0 rounded rounded-3 text-white">
+                                        <div class="fs-1 mb-5">
+                                            <i class="ai-chart"></i>
+                                        </div>
+                                        <div class="w-100 ">
+                                            <h4 class="mb-3"><a class="text-white" href="javascript:void(0)">APIE Assessment (station-1)</a></h4>
+                                            <h5 class="text-white">Overview</h5>
+                                            <p>Carrying out a patient centred assessment of patient’s nursing needs using activities of
+                                                daily living model including accurate taking and plotting of vital signs and A to E
+                                                assessment within allocated time of 20 minutes</p>
+                                            <br>
+                                            <h5 class="text-white">Top Tips</h5>
+                                            <p class="m-0">Use holistic approach</p>
+                                            <p class="m-0">Listen attentively to the patient’s problems and concerns</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="card border-0 mb-4">
+                                    <div style="min-height: 620px;background-color: #44BD32!important;border-radius: 10px!important;;" class="card-body border-0 rounded rounded-3 text-white">
+                                        <div class="fs-1 mb-5">
+                                            <i class="ai-chart"></i>
+                                        </div>
+                                        <div class="w-100 text-white">
+                                            <h4 class="mb-3"><a class="text-white" href="javascript:void(0)">APIE Planning (station-2)</a></h4>
+                                            <h5 class="text-white">Overview</h5>
+                                            <p>Write 2 relevant aspects of nursing care related to the scenario from assessment station within allocated time of 14 minutes</p>
+                                            <br>
+                                            <h5 class="text-white">Top Tips</h5>
+                                            <p class="m-0">Only write relevant and evidence based intervention – use SMART</p>
+                                            <p class="m-0">Only include two most important nursing needs based on your assessment of the patient</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="card border-0 mb-4">
+                                    <div style="min-height: 620px;background-color: #BE2EDD!important;border-radius: 10px!important;" class="card-body border-0 rounded rounded-3 text-white">
+                                        <div class="fs-1 mb-5">
+                                            <i class="ai-chart"></i>
+                                        </div>
+                                        <div class="w-100 text-white">
+                                            <h4 class="mb-3"><a class="text-white" href="javascript:void(0)">APIE Implementation (station-3)</a></h4>
+                                            <h5 class="text-white">Overview</h5>
+                                            <p>Administer oral drugs adhering to correct principles of drug administration and within NMC guidance and allocated time of 15 minutes</p>
+                                            <br>
+                                            <h5 class="text-white">Top Tips</h5>
+                                            <p class="m-0">Develop a strategy to read medication administration record correctly</p>
+                                            <p class="m-0">Complete the documentation accurately</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="card border-0 mb-4">
+                                    <div style="min-height: 620px;background-color: #4834D4!important;border-radius: 10px!important;" class="card-body border-0 rounded rounded-3 text-white">
+                                        <div class="fs-1 mb-5">
+                                            <i class="ai-chart"></i>
+                                        </div>
+                                        <div class="w-100 text-white">
+                                            <h4 class="mb-3"><a class="text-white" href="javascript:void(0)">APIE Evaluation (station-4)</a></h4>
+                                            <h5 class="text-white">Overview</h5>
+                                            <p>Verbal handover of your patient using SBAR process within allocated time of 8 minutes</p>
+                                            <br>
+                                            <h5 class="text-white">Top Tips</h5>
+                                            <p class="m-0">Be systematic</p>
+                                            <p class="m-0">Take few minutes to make clear written notes and use them for verbal handover</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="card border-0 mb-4">
+                                    <div style="min-height: 620px;background-color: #FED330!important;border-radius: 10px!important;" class="card-body border-0 rounded rounded-3 text-white">
+                                        <div class="fs-1 mb-5">
+                                            <i class="ai-chart"></i>
+                                        </div>
+                                        <div class="w-100 text-white">
+                                            <h4 class="mb-3"><a class="text-white" href="javascript:void(0)">PrEP Professional Values & Behaviours (station-5)</a></h4>
+                                            <h5 class="text-white">Overview</h5>
+                                            <p>You will read the scenario and summarise the actions that you would take, considering the professional, ethical and legal implications of this situation.</p>
+                                            <br>
+                                            <h5 class="text-white">Top Tips</h5>
+                                            <p class="m-0">Carefully listen to the briefing before start of station</p>
+                                            <p class="m-0">Always demonstrate correct use of PPE</p>
+                                            <p class="m-0">Follow correct infection control practices including disposal of clinical waste</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="card border-0 mb-4">
+                                    <div style="min-height: 620px;background-color: #9A145D!important;border-radius: 10px!important;" class="card-body border-0 rounded rounded-3 text-white">
+                                        <div class="fs-1 mb-5">
+                                            <i class="ai-chart"></i>
+                                        </div>
+                                        <div class="w-100 text-white">
+                                            <h4 class="mb-3"><a class="text-white" href="javascript:void(0)">PrEP Evidence based Practices (station-6)</a></h4>
+                                            <h5 class="text-white">Overview</h5>
+                                            <p>You will read the scenario and summary of the research, then write up how you would apply the findings to the scenario.</p>
+                                            <br>
+                                            <h5 class="text-white">Top Tips</h5>
+                                            <p class="m-0">Carefully listen to the briefing before start of station</p>
+                                            <p class="m-0">Always demonstrate correct use of PPE</p>
+                                            <p class="m-0">Follow correct infection control practices including disposal of clinical waste</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="card border-0 mb-4">
+                                    <div style="min-height: 620px;background-color: #192a56!important;border-radius: 10px!important;" class="card-body border-0 rounded rounded-3 text-white">
+                                        <div class="fs-1 mb-5">
+                                            <i class="ai-chart"></i>
+                                        </div>
+                                        <div class="w-100 text-white">
+                                            <h4 class="mb-3"><a class="text-white" href="javascript:void(0)">CSA Clinical Skills (station-7&8)</a></h4>
+                                            <h5 class="text-white">Overview</h5>
+                                            <p>You will be assessed on correctly demonstrating two clinical skills paired together from a set list of skills provided by the test centre for you to prepare. Different skills are allocated different time period.</p>
+                                            <br>
+                                            <h5 class="text-white">Top Tips</h5>
+                                            <p class="m-0">Carefully listen to the briefing before start of station</p>
+                                            <p class="m-0">Always demonstrate correct use of PPE</p>
+                                            <p class="m-0">Follow correct infection control practices including disposal of clinical waste</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="card border-0 mb-4">
+                                    <div style="min-height: 620px;background-color: #6ab04c!important;border-radius: 10px!important;" class="card-body border-0 rounded rounded-3 text-white">
+                                        <div class="fs-1 mb-5">
+                                            <i class="ai-chart"></i>
+                                        </div>
+                                        <div class="w-100 text-white">
+                                            <h4 class="mb-3"><a class="text-white" href="javascript:void(0)">CSA Clinical Skills (station-9&10)</a></h4>
+                                            <h5 class="text-white">Overview</h5>
+                                            <p>You will be assessed on correctly writing your actions as bullet points after reading a given scenario to test your knowledge of NMC code within allocated time of 10 minutes</p>
+                                            <br>
+                                            <h5 class="text-white">Top Tips</h5>
+                                            <p class="m-0">Carefully read the scenario and understand its relevance to The code and write your bullet points clearly</p>
+                                            <p class="m-0">Ensure you are familiar with the marking criteria set by the test centres</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="about_section welcome-section bg-secondary">
+            <div class="container-lg">
+                <div class="about_section_content p-5" data-aos="fade-up" data-aos-duration="1000">
                     <div class="row align-items-center mb-3 my-sm-2 my-md-3 my-lg-0 my-xl-2 my-xxl-4">
                         <div class="col-md-6 col-lg-6 col-xl-6 order-md-1">
                             <div class="pe-md-4 pe-lg-0">
@@ -30,10 +314,13 @@
                                 <h2 class="h1 fw-bold text-primary pb-sm-2 pb-lg-3">Meet Your Lead Instructor</h2>
                                 <p class="fs-xl pb-3 mb-1 mb-sm-2 mb-md-3 mb-lg-4">
                                     Has over 20 years of experience working in the NHS
-                                    <br><br>
+                                    <br>
                                     Currently serves as Divisional Lead for Practice Development and Education at a major NHS Foundation Trust.
-                                    <br><br>
+                                    <br>
                                     Responsible for overseeing the professional development and education of all non-medical staff within his division.
+                                </p>
+                                <p>
+                                    <a href="#" class="btn btn-primary"><i class="ai-user-group me-2"></i> See All Trainers</a>
                                 </p>
                             </div>
                         </div>
@@ -61,392 +348,55 @@
             </div>
         </div>
 
-        <div class="w-100 sticky-osce" id="middle-menu">
-            <div class="w-100 bg-dark py-3" id="nav-band">
-                <div class="container-fluid container-lg">
-                    <div class="w-100 text-center osce-sub-float-menu">
-                        <a class="slideLeftOsceSub" href="javascript:void(0)"><i class="ai-chevron-left"></i></a>
-                        <div class="osce-sub-float-menu-content">
-                            <nav class="d-inline-block">
-                                <div class="w-100 d-block z-index-99" id="content-nav">
-                                    <ul class="w-100 m-0">
-                                        <li class="">
-                                            <a href="javascript:void(0)" data-target="#osce-course" class="fs-5 fw-bold nav-link text-white text-decoration-none scroll-to-here fw-7 fs-4-5 txt-animation">Quick
-                                                Info</a>
-                                        </li>
-                                        <li class="">
-                                            <a href="javascript:void(0)" data-target="#overview" class="fs-5 fw-bold nav-link text-white text-decoration-none scroll-to-here fw-7 fs-4-5 txt-animation">Overview</a>
-                                        </li>
-                                        <li class="">
-                                            <a href="javascript:void(0)" data-target="#workstations" class="fs-5 fw-bold nav-link text-white text-decoration-none scroll-to-here fw-7 fs-4-5 txt-animation">Workstations</a>
-                                        </li>
-                                        <li class="">
-                                            <a href="javascript:void(0)" data-target="#fees" class="fs-5 fw-bold nav-link text-white text-decoration-none scroll-to-here fw-7 fs-4-5 txt-animation">Fees</a>
-                                        </li>
-                                        <li class="">
-                                            <a href="javascript:void(0)" data-target="#osce-course-benefits" class="fs-5 fw-bold nav-link text-white text-decoration-none scroll-to-here fw-7 fs-4-5 txt-animation">Why
-                                                Us</a>
-                                        </li>
-                                        <li class="">
-                                            <a href="javascript:void(0)" data-target="#staffs" class="fs-5 fw-bold nav-link text-white text-decoration-none fw-7 fs-4-5 txt-animation">Staffs</a>
-                                        </li>
-                                        <li class="">
-                                            <a href="javascript:void(0)" data-target="#faq" class="fs-5 fw-bold nav-link text-white text-decoration-none scroll-to-here fw-7 fs-4-5 txt-animation">FAQ</a>
-                                        </li>
-
-                                    </ul>
-                                </div>
-                            </nav>
-                        </div>
-                        <a class="slideRightOsceSub" href="javascript:void(0)"><i class="ai-chevron-right"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="w-100 mb-5" id="osce-course">
-            <div class="container-lg">
-                <div class="w-100 pt-lg-5 pt-45">
-                    <h2 class="fs-1 text-primary px-3 px-lg-0 text-purple">Quick Info</h2>
-                </div>
-                <div class="w-100 quick-info-tabs">
-                    <div class="quick-info-contents">
-                        <div class="tab-content" id="v-pills-training-tabContent">
-                            <div class="tab-pane fade show active" id="v-pills-home">
-                                <div class="row pl-lg-4">
-                                    <div class="col mb-lg-0 mb-3">
-                                        <div class="text-uppercase fs-4 fw-bold text-primary mb-2 text-center">
-                                            Training
-                                        </div>
-                                        <div class="text-uppercase fs-5 text-dark text-center">OSCE</div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="text-uppercase fs-4 fw-bold text-primary mb-2 text-center">
-                                            Duration
-                                        </div>
-                                        <div class="text-uppercase fs-5 text-dark text-center">15 Days</div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="text-uppercase fs-4 fw-bold text-primary mb-2 text-center">Fees</div>
-                                        <div class="text-center">
-                                            <label class="text-uppercase fs-5 text-dark text-center">£ 1,000</label>
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="text-uppercase fs-4 fw-bold text-primary mb-2 text-center">
-                                            Learning
-                                        </div>
-                                        <div class="text-uppercase fs-5 text-dark text-center">Blended</div>
-                                        <div class="text-uppercase fs-5 text-dark text-center">Instructor-led</div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="text-uppercase fs-4 fw-bold text-primary mb-2 text-center">
-                                            Access
-                                        </div>
-                                        <div class="text-uppercase fs-5 text-dark text-center">24/7</div>
-                                        <div class="text-uppercase fs-5 text-dark text-center">Anywhere</div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col">
-                                        <div class="border-top border-2 border-gray-50 mt-3 mb-3"></div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-12 text-end">
-                                        <a href="{{route('front.apply')}}" class="btn btn-primary">
-                                            Apply
-                                            <i class="ai-external-link"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="about_section welcome-section mb-5" id="overview">
-            <div class="container-lg">
-                <div class="about_section_content bg-secondary p-5 rounded rounded-5" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="1000">
-                    <div class="row align-items-center mb-3 my-sm-2 my-md-3 my-lg-0 my-xl-2 my-xxl-4">
-                        <div class="col-12">
-                            <div class="pe-md-4 pe-lg-0">
-                                <h2 class="h1 fw-bold text-primary pb-sm-2 pb-lg-3">Overview</h2>
-                                <div class="w-100">
-                                    <p class="text-dark">
-                                        Are you an internationally educated nurse looking to gain your Nursing and Midwifery
-                                        Council (NMC) registration and work in the UK? Our OSCE training program at Purple Med
-                                        can help you achieve your goals!
-                                    </p>
-                                    <p class="text-dark">Imagine yourself walking into the exam room feeling confident and
-                                        prepared. That's what we want for you at Purple Med. Our 15-day intensive course is
-                                        designed to help you prepare for the OSCE exam and feel ready to succeed.</p>
-
-                                    <p class="text-dark">We have a team of experienced OSCE tutors who have helped nurses from
-                                        all over the world succeed in their exams. Some of them have even taken and passed the
-                                        OSCE themselves, so they know what it's like and can give you helpful tips and advice.
-                                        We also have the most up-to-date training materials, resources, and equipment to help
-                                        you practice and improve your skills.</p>
-
-                                    <p class="text-dark">Our main goal at Purple Med is to help you pass your OSCE the first
-                                        time, saving you the time and money of having to re-sit the exam. We'll do everything we
-                                        can to support you along the way, and our course is comprehensive but easy to follow.
-                                        We'll make sure you understand all the requirements and feel well-prepared.</p>
-
-                                    <p class="text-dark">Don't let the OSCE exam stand in the way of working as a nurse in the
-                                        UK. Choose Purple Med for the best OSCE training and support available. Contact us today
-                                        to learn more and get started on the path to success!</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- workstations start -->
-        <div class="ac-chose-area bg-dark py-5" id="workstations">
+        <div class="w-100 py-5 bg-dark-olive">
             <div class="container-lg">
                 <div class="row py-3">
                     <div class="col-12">
-                        <h2 class="text-white fs-1 fw-bold">Workstations</h2>
-                    </div>
-                </div>
-                <div class="row py-3">
-                    <div class="col-xl-4 col-lg-6 col-md-6 col-12">
-                        <div class="card border-0 mb-4">
-                            <div style="min-height: 600px" class="card-body border-0 rounded rounded-3 bg-dark-light text-white">
-                                <div class="fs-1 mb-5 text-center">
-                                    <i class="ai-chart"></i>
-                                </div>
-                                <div class="w-100 text-white">
-                                    <h4 class="mb-3"><a class="text-white" href="javascript:void(0)">APIE Assessment (station-1)</a></h4>
-                                    <h4 class="text-white">Overview</h4>
-                                    <p>Carrying out a patient centred assessment of patient’s nursing needs using activities of
-                                        daily living model including accurate taking and plotting of vital signs and A to E
-                                        assessment within allocated time of 20 minutes</p>
-                                    <br>
-                                    <h4 class="text-white">Top Tips</h4>
-                                    <p class="m-0">Use holistic approach</p>
-                                    <p class="m-0">Listen attentively to the patient’s problems and concerns</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-6 col-md-6 col-12">
-                        <div class="card border-0 mb-4">
-                            <div style="min-height: 600px" class="card-body border-0 rounded rounded-3 bg-dark-light text-white">
-                                <div class="fs-1 mb-5 text-center">
-                                    <i class="ai-chart"></i>
-                                </div>
-                                <div class="w-100 text-white">
-                                    <h4 class="mb-3"><a class="text-white" href="javascript:void(0)">APIE Planning (station-2)</a></h4>
-                                    <h4 class="text-white">Overview</h4>
-                                    <p>Write 2 relevant aspects of nursing care related to the scenario from assessment station within allocated time of 14 minutes</p>
-                                    <br>
-                                    <h4 class="text-white">Top Tips</h4>
-                                    <p class="m-0">Only write relevant and evidence based intervention – use SMART</p>
-                                    <p class="m-0">Only include two most important nursing needs based on your assessment of the patient</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-6 col-md-6 col-12">
-                        <div class="card border-0 mb-4">
-                            <div style="min-height: 600px" class="card-body border-0 rounded rounded-3 bg-dark-light text-white">
-                                <div class="fs-1 mb-5 text-center">
-                                    <i class="ai-chart"></i>
-                                </div>
-                                <div class="w-100 text-white">
-                                    <h4 class="mb-3"><a class="text-white" href="javascript:void(0)">APIE Implementation (station-3)</a></h4>
-                                    <h4 class="text-white">Overview</h4>
-                                    <p>Administer oral drugs adhering to correct principles of drug administration and within NMC guidance and allocated time of 15 minutes</p>
-                                    <br>
-                                    <h4 class="text-white">Top Tips</h4>
-                                    <p class="m-0">Develop a strategy to read medication administration record correctly</p>
-                                    <p class="m-0">Complete the documentation accurately</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-6 col-md-6 col-12">
-                        <div class="card border-0 mb-4">
-                            <div style="min-height: 600px" class="card-body border-0 rounded rounded-3 bg-dark-light text-white">
-                                <div class="fs-1 mb-5 text-center">
-                                    <i class="ai-chart"></i>
-                                </div>
-                                <div class="w-100 text-white">
-                                    <h4 class="mb-3"><a class="text-white" href="javascript:void(0)">APIE Evaluation (station-4)</a></h4>
-                                    <h4 class="text-white">Overview</h4>
-                                    <p>Verbal handover of your patient using SBAR process within allocated time of 8 minutes</p>
-                                    <br>
-                                    <h4 class="text-white">Top Tips</h4>
-                                    <p class="m-0">Be systematic</p>
-                                    <p class="m-0">Take few minutes to make clear written notes and use them for verbal handover</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-6 col-md-6 col-12">
-                        <div class="card border-0 mb-4">
-                            <div style="min-height: 600px" class="card-body border-0 rounded rounded-3 bg-dark-light text-white">
-                                <div class="fs-1 mb-5 text-center">
-                                    <i class="ai-chart"></i>
-                                </div>
-                                <div class="w-100 text-white">
-                                    <h4 class="mb-3"><a class="text-white" href="javascript:void(0)">PrEP Professional Values & Behaviours (station-5)</a></h4>
-                                    <h4 class="text-white">Overview</h4>
-                                    <p>You will read the scenario and summarise the actions that you would take, considering the professional, ethical and legal implications of this situation.</p>
-                                    <br>
-                                    <h4 class="text-white">Top Tips</h4>
-                                    <p class="m-0">Carefully listen to the briefing before start of station</p>
-                                    <p class="m-0">Always demonstrate correct use of PPE</p>
-                                    <p class="m-0">Follow correct infection control practices including disposal of clinical waste</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-6 col-md-6 col-12">
-                        <div class="card border-0 mb-4">
-                            <div style="min-height: 600px" class="card-body border-0 rounded rounded-3 bg-dark-light text-white">
-                                <div class="fs-1 mb-5 text-center">
-                                    <i class="ai-chart"></i>
-                                </div>
-                                <div class="w-100 text-white">
-                                    <h4 class="mb-3"><a class="text-white" href="javascript:void(0)">PrEP Evidence based Practices (station-6)</a></h4>
-                                    <h4 class="text-white">Overview</h4>
-                                    <p>You will read the scenario and summary of the research, then write up how you would apply the findings to the scenario.</p>
-                                    <br>
-                                    <h4 class="text-white">Top Tips</h4>
-                                    <p class="m-0">Carefully listen to the briefing before start of station</p>
-                                    <p class="m-0">Always demonstrate correct use of PPE</p>
-                                    <p class="m-0">Follow correct infection control practices including disposal of clinical waste</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-6 col-md-6 col-12">
-                        <div class="card border-0 mb-4">
-                            <div style="min-height: 600px" class="card-body border-0 rounded rounded-3 bg-dark-light text-white">
-                                <div class="fs-1 mb-5 text-center">
-                                    <i class="ai-chart"></i>
-                                </div>
-                                <div class="w-100 text-white">
-                                    <h4 class="mb-3"><a class="text-white" href="javascript:void(0)">CSA Clinical Skills (station-7&8)</a></h4>
-                                    <h4 class="text-white">Overview</h4>
-                                    <p>You will be assessed on correctly demonstrating two clinical skills paired together from a set list of skills provided by the test centre for you to prepare. Different skills are allocated different time period.</p>
-                                    <br>
-                                    <h4 class="text-white">Top Tips</h4>
-                                    <p class="m-0">Carefully listen to the briefing before start of station</p>
-                                    <p class="m-0">Always demonstrate correct use of PPE</p>
-                                    <p class="m-0">Follow correct infection control practices including disposal of clinical waste</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-6 col-md-6 col-12">
-                        <div class="card border-0 mb-4">
-                            <div style="min-height: 600px" class="card-body border-0 rounded rounded-3 bg-dark-light text-white">
-                                <div class="fs-1 mb-5 text-center">
-                                    <i class="ai-chart"></i>
-                                </div>
-                                <div class="w-100 text-white">
-                                    <h4 class="mb-3"><a class="text-white" href="javascript:void(0)">CSA Clinical Skills (station-9&10)</a></h4>
-                                    <h4 class="text-white">Overview</h4>
-                                    <p>You will be assessed on correctly writing your actions as bullet points after reading a given scenario to test your knowledge of NMC code within allocated time of 10 minutes</p>
-                                    <br>
-                                    <h4 class="text-white">Top Tips</h4>
-                                    <p class="m-0">Carefully read the scenario and understand its relevance to The code and write your bullet points clearly</p>
-                                    <p class="m-0">Ensure you are familiar with the marking criteria set by the test centres</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- workstations end -->
-
-        <div class="w-100 bg-white py-5" id="fees">
-            <div class="container-lg">
-                <div class="w-100 py-5">
-                    <h2 class="fs-1 fw-bold text-primary">Fees</h2>
-                </div>
-                <div class="row mb-5">
-                    <div class="col-lg-4">
-                        <div class="fs-2 text-uppercase fw-bold mb-2 text-primary border-bottom">
-                            Fees
-                        </div>
-                        <div class="mb-2 text-left">
-                            <label class="fs-2 text-dark">£ 1,000</label>
-                        </div>
-                    </div>
-                    <div class="col-lg-8">
-                        <div class="fs-2 text-uppercase fw-bold mb-2 text-primary border-bottom">
-                            Duration
-                        </div>
-                        <div class="fs-4 text-dark">15 Days</div>
-                        <div class="fs-4 text-dark">(10 days online, 5 days face-to-face)</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="w-100 py-5 bg-dark" id="osce-course-benefits">
-            <div class="container-lg">
-                <div class="row py-3">
-                    <div class="col-12">
-                        <h2 class="fs-1 fw-bold text-white">Why Us</h2>
+                        <h2 class="fs-1 fw-bold text-white text-center">Why Us?</h2>
                     </div>
                 </div>
                 <div class="row py-3 mb-5">
                     <div class="col-xl-4 col-md-6">
-                        <div class="card border-0">
-                            <div style="min-height: 650px" class="card-body border-0 rounded rounded-3 bg-dark-light text-white">
-                                <div class="w-100 text-center mb-5">
-                                    <img src="{{asset('assets/images/learning.png')}}" alt="">
-                                </div>
-                                <div class="w-100">
-                                    <h3 class="w-100 fs-3 fw-bold text-center fw-bold text-white mb-3">PRACTICAL BASED LEARNING</h3>
-                                    <p class="fs-5 text-center text-white">We'll give you lots of materials to use before you come to our
+                        <div class="each-why-item">
+                            <div class="each-why-item-content" data-aos="zoom-in" data-aos-duration="1000" style="background-image: url({{ asset('assets/images/shapes/shape-2.svg') }})">
+                                <div class="d-inline-block">
+                                    <h3 class="choose-title">PRACTICAL <br> BASED LEARNING</h3>
+                                    <p class="choose-desc">
+                                        We'll give you lots of materials to use before you come to our
                                         training sessions, both online and in person. This includes videos, slideshows, and
                                         forms to help you practice. You'll also get to try some mock exams to get a feel for
                                         what it's really like, and you'll get feedback from our teachers to help you improve.
-                                        Plus, we'll give you a study guide to help you learn on your own.</p>
+                                        Plus, we'll give you a study guide to help you learn on your own.
+                                    </p>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="col-xl-4 col-md-6">
-                        <div class="card border-0">
-                            <div style="min-height: 650px" class="card-body border-0 rounded rounded-3 bg-dark-light text-white">
-                                <div class="w-100 text-center mb-5">
-                                    <img src="{{asset('assets/images/pc.png')}}" alt="">
-                                </div>
-                                <div class="w-100">
-                                    <h3 class="w-100 fs-3 fw-bold text-center fw-bold text-white mb-3">ONLINE LEARNING PLATFORM</h3>
-                                    <p class="fs-5 text-center text-white">Even after our training sessions are over, you'll still have access
+                        <div class="each-why-item">
+                            <div class="each-why-item-content" data-aos="zoom-in" data-aos-duration="1000" style="background-image: url({{ asset('assets/images/shapes/shape-5.svg') }})">
+                                <div class="d-inline-block">
+                                    <h3 class="choose-title">ONLINE <br> LEARNING PLATFORM</h3>
+                                    <p class="choose-desc">
+                                        Even after our training sessions are over, you'll still have access
                                         to all our resources and guidelines through our online learning platform. This way, you
-                                        can keep learning and practicing until you take your exam.</p>
+                                        can keep learning and practicing until you take your exam.
+                                    </p>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="col-xl-4 col-md-6">
-                        <div class="card border-0">
-                            <div style="min-height: 650px" class="card-body border-0 rounded rounded-3 bg-dark-light text-white">
-                                <div class="w-100 text-center mb-5">
-                                    <img src="{{asset('assets/images/customer-service.png')}}" alt=""
-                                         data-author="https://www.flaticon.com/free-icon/temporary-offer_1054583">
-                                </div>
-                                <div class="w-100">
-                                    <h3 class="w-100 fs-3 fw-bold text-center fw-bold text-white mb-3">PRE-OSCE EXAM SUPPORT</h3>
-                                    <p class="fs-5 text-center text-white">We don't just stop once the training is over. We'll give you support
+                        <div class="each-why-item">
+                            <div class="each-why-item-content" data-aos="zoom-in" data-aos-duration="1000" style="background-image: url({{ asset('assets/images/shapes/shape-3.svg') }})">
+                                <div class="d-inline-block">
+                                    <h3 class="choose-title">PRE-OSCE <br> EXAM SUPPORT</h3>
+                                    <p class="choose-desc">
+                                        We don't just stop once the training is over. We'll give you support
                                         before your exam with a mentor, our online learning platform, and a study guide with a
                                         suggested timeline. We'll also have competence tests and resit preparation to make sure
-                                        you're ready to do your best on exam day.</p>
+                                        you're ready to do your best on exam day.
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -455,46 +405,7 @@
             </div>
         </div>
 
-        <div class="tp-team-area bg-secondary py-5" id="staffs">
-            <div class="container-lg">
-                <div class="row py-3">
-                    <div class="col-12">
-                        <h2 class="fs-1 fw-bold text-primary text-center">Meet the Team</h2>
-                    </div>
-                </div>
-                <div class="row py-3">
-                    @foreach(config('params.teams') as $team)
-                        <div class="col-xl-2 col-lg-4 col-md-6 col-sm-6 col-6">
-                            <div class="tp-team-item mb-4">
-                                <div class="tp-team-item__img">
-                                    <img class="w-100" src="{{asset('assets/'.$team['dp'])}}" alt="">
-                                </div>
-                                <div class="each-staff-preview-content tp-team-item__info d-flex justify-content-between align-items-center">
-                                    <div class="tp-team-item__text">
-                                        <h5 class="tp-team-title">
-                                            <a href="javascript:void(0)" class="each-staff-preview">{{$team['name']}}</a>
-                                        </h5>
-                                    </div>
-                                    <div class="tp-team-item__icon">
-                                        <a href="javascript:void(0)" class="each-staff-preview"><i class="fs-4 ai-external-link"></i></a>
-                                        <span class="d-none staff_preview_dp">{{asset('assets/'.$team['dp'])}}</span>
-                                        <span class="d-none staff_preview_name">{{$team['name']}}</span>
-                                        <span class="d-none staff_preview_designation">{!! str_replace(',', '<br>', $team['designation']) !!}</span>
-                                        <span class="d-none staff_preview_qualifications">{{$team['qualifications']}}</span>
-                                        <span class="d-none staff_preview_employment_history">{{$team['employment_history']}}</span>
-                                        <span class="d-none staff_preview_social_facebook">{{$team['social']['facebook']}}</span>
-                                        <span class="d-none staff_preview_social_twitter">{{$team['social']['twitter']}}</span>
-                                        <span class="d-none staff_preview_social_linkedin">{{$team['social']['linkedin']}}</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
-            </div>
-        </div>
-
-        <div class="sd-accordio-area bg-white py-5" id="faq">
+        <div class="sd-accordio-area bg-white py-5">
             <div class="container-lg">
                 <div class="row py-3">
                     <div class="col-12">
@@ -1008,148 +919,58 @@
 
     </div>
 
-    <!--Each Staff Modal Section-->
-    <div class="modal modal-left fade" id="staff-modal" tabindex="-1" role="dialog">
-        <div class="modal-dialog modal-xl" role="document">
-            <div class="modal-content rounded-0">
-
-                <div class="modal-header">
-                    <label id="staff-modal-label" class="fs-3 fw-bold text-primary">FACULTY MEMBERS</label>
-                    <button type="button" class="close btn btn-sm btn-secondary px-2" data-bs-dismiss="modal" aria-label="Close"><i class="ai-cross"></i></button>
-                </div>
-
-                <div class="modal-body px-lg-5">
-                    <div class="row">
-                        <div class="col-12 col-lg-3">
-                            <div class="div-img">
-                                <img class="facilitator-image img-fluid" alt="Staff" loading="lazy">
-                            </div>
-                            <div class="mt-4 text-center">
-                                <ul class="list-unstyled row">
-                                    <li class="col-2">
-                                        <a class="social_facebook" target="_blank" href="#"><i class="fa-brands fa-facebook-square fa-2x text-dark"></i></a>
-                                    </li>
-                                    <li class="col-2">
-                                        <a class="social_twitter" target="_blank" href="#"><span class="fa-brands fa-twitter-square fa-2x text-dark"></span></a>
-                                    </li>
-                                    <li class="col-2">
-                                        <a class="social_linkedin" target="_blank" href="#"><span class="fa-brands fa-linkedin fa-2x text-dark"></span></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-12 col-lg-9">
-                            <h3 class="facilitator-name text-dark fw-bold">Facilitator Name</h3>
-                            <div class="mb-lg-5 facilitator-position">Facilitator Position</div>
-                            <h5 class="text-dark fw-bold">Employment History</h5>
-                            <div class="facilitator-employment text-dark">Facilitator Employment History</div>
-                            <br><br>
-                            <h5 class="text-dark fw-bold">Qualifications</h5>
-                            <div class="facilitator-qualification text-dark">Facilitator Qualifications</div>
-                            <br><br><br>
-                        </div>
-                    </div>
-                </div>
-
-            </div><!-- modal-content -->
-        </div><!-- modal-dialog -->
-    </div>
-    <!--Staffs Modal Section-->
 
 @endsection
 @section('js')
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
-        // Play welcome Video
-        const welcomeTriggerPlay = document.querySelector('.welcome-play-toggle');
-        const welcomeTriggerPause = document.querySelector('.welcome-pause-toggle');
-        const welcomeTarget = document.getElementById('welcome-video');
-        welcomeTriggerPlay.addEventListener('click', function () {
-            welcomeTarget.play();
-            welcomeTriggerPlay.style.display = "none";
-            welcomeTriggerPause.style.display = "flex";
-        });
-        welcomeTriggerPause.addEventListener('click', function () {
-            welcomeTarget.pause();
-            welcomeTriggerPlay.style.display = "flex";
-            welcomeTriggerPause.style.display = "none";
-        });
-        welcomeTarget.addEventListener('ended', function () {
-            welcomeTriggerPlay.style.display = "flex";
-            welcomeTriggerPause.style.display = "none";
-        });
-
-        // keep distance for 2 header height
-        const getOffsetTop = element => {
-            let offsetTop = 0;
-            while (element) {
-                offsetTop += element.offsetTop;
-                element = element.offsetParent;
-            }
-            return offsetTop;
-        }
-        document.querySelectorAll("#content-nav li a.nav-link").forEach((el) => {
-
-            const tabsHeight = document.querySelector("#middle-menu").clientHeight;
-            const topHeaderHeight = document.querySelector('header').clientHeight;
-
-            el.addEventListener('click', (e) => {
-
-                const targetId = el.dataset.target;
-
-                window.scrollTo({
-                    left: 0,
-                    top: getOffsetTop(document.querySelector(`${targetId}`)) - (tabsHeight + topHeaderHeight),
-                    behavior: 'smooth',
-                });
+        $(function () {
+            // Play welcome Video
+            const welcomeTriggerPlay = document.querySelector('.welcome-play-toggle');
+            const welcomeTriggerPause = document.querySelector('.welcome-pause-toggle');
+            const welcomeTarget = document.getElementById('welcome-video');
+            welcomeTriggerPlay.addEventListener('click', function () {
+                welcomeTarget.play();
+                welcomeTriggerPlay.style.display = "none";
+                welcomeTriggerPause.style.display = "flex";
             });
-        });
-
-
-        const staffModal = new bootstrap.Modal('#staff-modal', {});
-        $('.each-staff-preview').on('click', (e) => {
-            const mdl = $('#staff-modal');
-            const parent = $(e.target).closest('.each-staff-preview-content');
-            const staff = {
-                dp: parent.find('.staff_preview_dp').html(),
-                name: parent.find('.staff_preview_name').html(),
-                designation: parent.find('.staff_preview_designation').html(),
-                qualifications: parent.find('.staff_preview_qualifications').html(),
-                employment_history: parent.find('.staff_preview_employment_history').html(),
-                social_facebook: parent.find('.staff_preview_social_facebook').html(),
-                social_twitter: parent.find('.staff_preview_social_twitter').html(),
-                social_linkedin: parent.find('.staff_preview_social_linkedin').html(),
-            };
-
-            mdl.find('.facilitator-image').attr('src', staff.dp);
-
-            mdl.find('.social_facebook').attr('href', staff.social_facebook);
-            mdl.find('.social_twitter').attr('href', staff.social_twitter);
-            mdl.find('.social_linkedin').attr('href', staff.social_linkedin);
-
-            mdl.find('.facilitator-name').html(staff.name);
-            mdl.find('.facilitator-position').html(staff.designation);
-            mdl.find('.facilitator-employment').html(staff.employment_history);
-            mdl.find('.facilitator-qualification').html(staff.qualifications);
-
-            staffModal.show();
-        });
-
-
-        $('.slideLeftOsceSub').on('click', function (){
-            const element = document.querySelector('.osce-sub-float-menu-content');
-            element.scroll({
-                left: element.scrollLeft - 300,
-                behavior: 'smooth'
+            welcomeTriggerPause.addEventListener('click', function () {
+                welcomeTarget.pause();
+                welcomeTriggerPlay.style.display = "flex";
+                welcomeTriggerPause.style.display = "none";
             });
-        })
-        $('.slideRightOsceSub').on('click', function (){
-            const element = document.querySelector('.osce-sub-float-menu-content');
-            element.scroll({
-                left: element.scrollLeft + 300,
-                behavior: 'smooth'
+            welcomeTarget.addEventListener('ended', function () {
+                welcomeTriggerPlay.style.display = "flex";
+                welcomeTriggerPause.style.display = "none";
             });
+            $('#workstations-slide').owlCarousel({
+                loop: true,
+                margin: 20,
+                nav: true,
+                dots: false,
+                autoplay: false,
+                navText: ["<i class='ai-chevron-left'></i>", "<i class='ai-chevron-right'></i>"],
+                responsive: {
+                    0: {
+                        items: 1,
+                    },
+                    700: {
+                        items: 2,
+                    },
+                    991: {
+                        items: 2,
+                    },
+                    1200: {
+                        items: 3,
+                    },
+                    1300: {
+                        items: 3,
+                    },
+                }
+            })
+            AOS.init();
         })
     </script>
 @endsection
