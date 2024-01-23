@@ -88,4 +88,4 @@ Route::post('/apply', [ApplyController::class, "apply"])->name('front.apply.acti
 Route::get('/test-bank', [StripePaymentController::class, "createCustomer"])->name('payment.bank');
 
 Route::post('stripe/hook', [\App\Http\Controllers\Payment\StripeWebhook::class, 'trackEvents',])->name('stripe.webhook');
-Route::post('stripe/simulate/bank_transfer', [\App\Http\Controllers\Payment\StripeWebhook::class, 'simulateBankTransfer',])->name('stripe.simulate.bank_transfer');
+Route::get('stripe/simulate/bank_transfer', [\App\Http\Controllers\Payment\StripeWebhook::class, 'simulateBankTransfer',])->name('stripe.simulate.bank_transfer');
