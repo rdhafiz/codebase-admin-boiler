@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Payment;
 
-use App\Models\Payment;
 use App\Models\WebsiteConfig;
 use Illuminate\Http\Request;
 use Stripe\Webhook;
 use Stripe\Exception\SignatureVerificationException;
 use Stripe\StripeClient;
+use App\Models\WebhookData;
 
 class StripeWebhook
 {
@@ -63,8 +63,6 @@ class StripeWebhook
 
     public function trackEvents(Request $request)
     {
-        if (env('APP_ENV') === 'local')
-            http_response_code(200);
 
         $sigHeader = $request->server('HTTP_STRIPE_SIGNATURE');
         $payload   = @file_get_contents('php://input');
@@ -78,55 +76,56 @@ class StripeWebhook
         catch (\UnexpectedValueException $e) {
             // Invalid payload
             http_response_code(400);
-            exit();
+            exit($e->getMessage());
         }
         catch (SignatureVerificationException $e) {
             // Invalid signature
             http_response_code(400);
-            exit();
+            exit($e->getMessage());
         }
 
         // Handle the checkout.session.completed event
         if ($event->type == 'checkout.session.completed') {
-            StripeWebhook::create([
+            WebhookData::create([
                 'data' => $event->data->object,
                 'type' => 'checkout.session.completed'
             ]);
         } elseif ($event->type == 'checkout.session.async_payment_succeeded') {
-            StripeWebhook::create([
+            WebhookData::create([
                 'data' => $event->data->object,
                 'type' => 'checkout.session.async_payment_succeeded'
             ]);
         } elseif ($event->type == 'checkout.session.async_payment_failed') {
-            StripeWebhook::create([
+            WebhookData::create([
                 'data' => $event->data->object,
                 'type' => 'checkout.session.async_payment_failed'
             ]);
         } else if ($event->type === 'payment_intent.partially_funded') {
-            StripeWebhook::create([
+            WebhookData::create([
                 'data' => $event->data->object,
-                'type' => 'payment_intent.partially_funde'
+                'type' => 'payment_intent.partially_funded'
             ]);
         } else if ($event->type === 'payment_intent.payment_failed') {
-            StripeWebhook::create([
+            WebhookData::create([
                 'data' => $event->data->object,
                 'type' => 'payment_intent.payment_failed'
             ]);
         } else if ($event->type === 'payment_intent.processing') {
-            StripeWebhook::create([
+            WebhookData::create([
                 'data' => $event->data->object,
                 'type' => 'payment_intent.processing'
             ]);
         } else if ($event->type === 'payment_intent.succeeded') {
-            StripeWebhook::create([
+            WebhookData::create([
                 'data' => $event->data->object,
                 'type' => 'payment_intent.succeeded'
             ]);
         } else {
-            StripeWebhook::create([
+            //do something
+            /*WebhookData::create([
                 'data' => $event->data->object,
                 'type' => $event->type
-            ]);
+            ]);*/
         }
 
         http_response_code(200);
