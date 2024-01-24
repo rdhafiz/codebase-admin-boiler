@@ -66,19 +66,21 @@ Route::group(['middleware' => [UserAuthCheck::class]], function () {
 Route::group(['middleware' => [UserAuthReq::class]], function () {
     Route::get('/logout', [AuthController::class, "logout"])->name('front.logout');
 
-    Route::get('/dashboard', [ProfileController::class, "dashboard"])->name('front.dashboard');
+    Route::get('/portal', [ProfileController::class, "portal"])->name('front.portal');
     Route::get('/profile', [ProfileController::class, "profile"])->name('front.profile');
     Route::get('/profile/update', [ProfileController::class, "profileUpdate"])->name('front.profile.update');
     Route::post('/profile/update', [ProfileController::class, "profileUpdateAction"])->name('front.profile.update.action');
     Route::get('/profile/update/password', [ProfileController::class, "profileUpdatePassword"])->name('front.profile.update.password');
     Route::post('/profile/update/password', [ProfileController::class, "profileUpdatePasswordAction"])->name('front.profile.update.password.action');
 
+    Route::get('/billing', [ProfileController::class, "billing"])->name('front.billing');
+
     Route::get('/training', [ProfileController::class, "training"])->name('front.training');
     Route::get('/training/payment/{course_id}', [StripePaymentController::class, "training_payment"])->name('front.training.payment');
-    Route::get('/training/payment/{course_id}/{payment_id}/{payment_method}', [StripePaymentController::class, "training_payment_process"])->name('front.training.payment.process');
     Route::get('/training/payment/{course_id}/{payment_id}/receipt', [StripePaymentController::class, "training_payment_process_receipt"])->name('front.training.payment.process.receipt');
     Route::get('/training/payment/{course_id}/{payment_id}/success', [StripePaymentController::class, "training_payment_process_success"])->name('front.training.payment.process.success');
     Route::get('/training/payment/{course_id}/{payment_id}/cancel', [StripePaymentController::class, "training_payment_process_cancel"])->name('front.training.payment.process.cancel');
+    Route::get('/training/payment/{course_id}/{payment_id}/{payment_method}', [StripePaymentController::class, "training_payment_process"])->name('front.training.payment.process');
 });
 
 // Apply Course
