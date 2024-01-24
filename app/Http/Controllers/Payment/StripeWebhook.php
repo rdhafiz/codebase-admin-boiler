@@ -23,11 +23,11 @@ class StripeWebhook
     public function simulateBankTransfer()
     {
         $this->stripe->testHelpers->customers->fundCashBalance(
-            'cus_PQJCrIT3dcP9Ju', //test mode customer id
+            env('STRIPE_TEST_CUSTOMER'), //test mode customer id
             [
-                'amount' => 1500,
-                'currency' => 'gbp',
-                'reference' => '5YFSTKEPV379',
+                'amount' => env('STRIPE_TEST_AMOUNT'),
+                'currency' => env('STRIPE_TEST_CURRENCY'),
+                'reference' => env('STRIPE_TEST_BANK_REFERENCE'),
             ]
         );
     }
