@@ -84,7 +84,7 @@ class StripePaymentController extends BaseController
         } else if ($payment_method === 'bank_transfer') {
             $discountAmount = $this->stripe->coupons->retrieve($course->course_discount, []);
             $paymentIntent = $this->stripe->paymentIntents->create([
-                'amount' => ($payment->price_amount - ($discountAmount->amount_off / 100) * 100),
+                'amount' => ($payment->price_amount - ($discountAmount->amount_off / 100)) * 100,
                 'currency' => 'gbp',
                 'customer' => $user->stripe_customer_id,
                 'payment_method_types' => ['customer_balance'],
