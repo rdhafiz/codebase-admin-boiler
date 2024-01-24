@@ -14,6 +14,7 @@ use App\Http\Controllers\Frontend\AuthController;
 use App\Http\Controllers\Frontend\ProfileController;
 use App\Http\Middleware\UserAuthCheck;
 use App\Http\Middleware\UserAuthReq;
+use App\Http\Controllers\Payment\StripeWebhook;
 
 include_once 'cms.php';
 include_once 'rcp.php';
@@ -87,7 +88,12 @@ Route::group(['middleware' => [UserAuthReq::class]], function () {
 Route::get('/apply', [ApplyController::class, "index"])->name('front.apply');
 Route::post('/apply', [ApplyController::class, "apply"])->name('front.apply.action');
 
-Route::get('/test-bank', [StripePaymentController::class, "createCustomer"])->name('payment.bank');
-
 Route::post('stripe/hook', [\App\Http\Controllers\Payment\StripeWebhook::class, 'trackEvents',])->name('stripe.webhook');
+
+// Test Routes
 Route::get('stripe/simulate/bank_transfer', [\App\Http\Controllers\Payment\StripeWebhook::class, 'simulateBankTransfer',])->name('stripe.simulate.bank_transfer');
+Route::get('test-bank', [StripePaymentController::class, "createCustomer"])->name('payment.bank');
+Route::get('stripe/prices/{priceId}', [StripeWebhook::class, "getPriceDetails"])->name('stripe.price');
+Route::get('stripe/customers/{customerId}', [StripeWebhook::class, "getCustomerDetails"])->name('stripe.customer');
+Route::get('stripe/products/{productId}', [StripeWebhook::class, "getProductDetails"])->name('stripe.product');
+Route::get('stripe/coupons/{couponId?}', [StripeWebhook::class, "getCoupons"])->name('stripe.coupons');

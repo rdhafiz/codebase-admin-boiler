@@ -82,9 +82,9 @@ class StripePaymentController extends BaseController
             $paymentSession = $this->stripe->checkout->sessions->create($session);
             $payment->payment_session_id = $paymentSession['id'];
         } else if ($payment_method === 'bank_transfer') {
-            $priceDetails = $this->stripe->prices->retrieve($payment->price_id, []);
+            $discountAmount = $this->stripe->coupons->retrieve($course->course_discount, []);
             $paymentIntent = $this->stripe->paymentIntents->create([
-                'amount' => $priceDetails['unit_amount'] * 100,
+                'amount' => $payment->price_amount - ($discountAmount->amount_off / 100),
                 'currency' => 'gbp',
                 'customer' => $user->stripe_customer_id,
                 'payment_method_types' => ['customer_balance'],

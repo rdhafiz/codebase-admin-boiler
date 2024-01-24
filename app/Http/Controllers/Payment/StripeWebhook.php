@@ -7,6 +7,7 @@ use App\Models\WebsiteConfig;
 use Illuminate\Http\Request;
 use Stripe\Webhook;
 use Stripe\Exception\SignatureVerificationException;
+use Stripe\StripeClient;
 
 class StripeWebhook
 {
@@ -17,7 +18,35 @@ class StripeWebhook
     {
         $this->endpointSecret = env('STRIPE_SECRET_ENDPOINT');
         $config = WebsiteConfig::where('name', 'STRIPE_SECRET_API_KEY')->first();
-        $this->stripe = new \Stripe\StripeClient($config->value);
+        $this->stripe = new StripeClient($config->value);
+    }
+
+    public function getPriceDetails(string $priceId)
+    {
+        $priceDetails = $this->stripe->prices->retrieve($priceId, []);
+        dd($priceDetails);
+    }
+
+    public function getCustomerDetails(string $customerId)
+    {
+        $customerDetails = $this->stripe->customers->retrieve($customerId, []);
+        dd($customerDetails);
+    }
+
+    public function getProductDetails(string $productId)
+    {
+        $productDetails = $this->stripe->products->retrieve($productId, []);
+        dd($productDetails);
+    }
+
+    public function getCoupons(string $coupon = null)
+    {
+        if ($coupon !== null) {
+            $data = $this->stripe->coupons->retrieve($coupon, []);
+        } else {
+            $data = $this->stripe->coupons->all();
+        }
+        dd($data);
     }
 
     public function simulateBankTransfer()
