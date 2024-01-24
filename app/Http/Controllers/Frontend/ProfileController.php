@@ -19,9 +19,9 @@ class ProfileController extends BaseController
         $config = WebsiteConfig::where('name', 'STRIPE_SECRET_API_KEY')->first();
         $this->stripe = new \Stripe\StripeClient($config->value);
     }
-    public function dashboard()
+    public function portal()
     {
-        return view("frontend.pages.profile.dashboard");
+        return view("frontend.pages.profile.portal");
     }
     public function profile()
     {
@@ -56,6 +56,31 @@ class ProfileController extends BaseController
     public function profileUpdatePassword()
     {
         return view("frontend.pages.profile.profile-update-password");
+    }
+
+    public function billing()
+    {
+        $billings = [];
+        $user = User::where('_id', Auth::id())->first();
+        if(isset($user->stripe_customer_id)){
+            $invoices = $this->stripe->invoices->all(['customer' => $user->stripe_customer_id]);
+            foreach ($invoices as $invoice){
+                $discount = 0;
+                foreach ($invoice['total_discount_amounts'] as $total_discount_amount){
+                    $discount = $discount + $total_discount_amount['amount'];
+                }
+                $billings[] = array(
+                    'invoice_number' => $invoice['number'],
+                    'invoice_date' => date('d M, Y', $invoice['created']),
+                    'invoice_status' => $invoice['status'],
+                    'invoice_amount' => ($invoice['subtotal'] / 100),
+                    'invoice_discount' => ($discount / 100),
+                    'invoice_total' => ($invoice['total'] / 100),
+                    'invoice_receipt' => $invoice['hosted_invoice_url']
+                );
+            }
+        }
+        return view("frontend.pages.profile.billing", compact('billings'));
     }
 
     public function training()

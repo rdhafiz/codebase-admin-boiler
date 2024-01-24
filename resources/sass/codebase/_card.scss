@@ -29,9 +29,15 @@
     > .card-header {
       border-bottom: 0;
     }
-    
+
     > .card-footer {
       border-top: 0;
     }
   }
+}
+.card-hover-primary:hover {
+    color: #ffffff;
+    background-color: $primary !important; // stylelint-disable-line declaration-no-important
+    border-color: $primary !important; // stylelint-disable-line declaration-no-important
+    @include transition(all 0.2s linear);
 }

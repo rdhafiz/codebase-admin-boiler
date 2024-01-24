@@ -10,9 +10,9 @@
                     <p class="fs-sm text-body-secondary mb-0">{{auth()->user()->email}}</p>
                 </div>
                 <nav class="nav flex-column pb-2 pb-lg-4 mb-3">
-                    <a class="nav-link fw-semibold py-2 px-0 @if(Route::currentRouteName() == 'front.dashboard') active @endif" href="{{route('front.dashboard')}}">
+                    <a class="nav-link fw-semibold py-2 px-0 @if(Route::currentRouteName() == 'front.portal') active @endif" href="{{route('front.portal')}}">
                         <i class="ai-dashboard fs-5 opacity-60 me-2"></i>
-                        Dashboard
+                        Portal
                     </a>
                 </nav>
                 <nav class="nav flex-column pb-2 pb-lg-4 mb-3">
@@ -36,7 +36,7 @@
                         <i class="ai-open-book fs-5 opacity-60 me-2"></i>
                         Training
                     </a>
-                    <a class="nav-link fw-semibold py-2 px-0" href="">
+                    <a class="nav-link fw-semibold py-2 px-0 @if(Route::currentRouteName() == 'front.billing') active @endif" href="{{route('front.billing')}}">
                         <i class="ai-wallet fs-5 opacity-60 me-2"></i>
                         Billing
                     </a>

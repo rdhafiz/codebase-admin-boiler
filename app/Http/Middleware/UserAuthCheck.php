@@ -20,7 +20,7 @@ class UserAuthCheck
         if(!Auth::guard('web')->check()){
             return $next($request);
         } else {
-            return redirect()->route('front.profile');
+            return redirect()->route('front.portal');
         }
     }
 }

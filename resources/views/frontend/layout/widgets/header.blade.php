@@ -125,11 +125,13 @@
                                     {{auth()->user()->name}}
                                 </button>
                                 <div class="dropdown-menu" style="margin-top: 0!important;">
-                                    <a class="dropdown-item @if(Route::currentRouteName() == 'front.dashboard') active @endif" href="{{route('front.dashboard')}}">Dashboard</a>
-                                    <a class="dropdown-item @if(Route::currentRouteName() == 'front.profile') active @endif" href="{{route('front.profile')}}">Profile</a>
-                                    <a class="dropdown-item @if(Route::currentRouteName() == 'front.training') active @endif" href="{{route('front.training')}}">Training</a>
+                                    <a class="dropdown-item @if(Route::currentRouteName() == 'front.portal') active @endif" href="{{route('front.portal')}}"><i class="ai-dashboard fs-5 opacity-60 me-2"></i> Portal</a>
                                     <hr class="my-2">
-                                    <a class="dropdown-item" href="{{route('front.logout')}}">Logout</a>
+                                    <a class="dropdown-item @if(Route::currentRouteName() == 'front.profile') active @endif" href="{{route('front.profile')}}"><i class="ai-user-check fs-5 opacity-60 me-2"></i> Profile</a>
+                                    <a class="dropdown-item @if(Route::currentRouteName() == 'front.training') active @endif" href="{{route('front.training')}}"><i class="ai-open-book fs-5 opacity-60 me-2"></i> Training</a>
+                                    <a class="dropdown-item @if(Route::currentRouteName() == 'front.billing') active @endif" href="{{route('front.billing')}}"><i class="ai-wallet fs-5 opacity-60 me-2"></i> Billing</a>
+                                    <hr class="my-2">
+                                    <a class="dropdown-item" href="{{route('front.logout')}}"><i class="ai-power fs-5 opacity-60 me-2"></i> Logout</a>
                                 </div>
                             </div>
                         @else
