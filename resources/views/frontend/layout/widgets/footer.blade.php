@@ -8,9 +8,9 @@
                     <h4 class="h6 fw-bold pb-lg-1">Training</h4>
                     <ul class="nav flex-column">
                         <li><a class="nav-link fw-normal py-1 px-0" href="{{ route('osce') }}" target="_blank">OSCE</a></li>
-                        <li><a class="nav-link fw-normal py-1 px-0" href="{{ route('plab') }}" target="_blank">Plab I-II</a></li>
                         <li><a class="nav-link fw-normal py-1 px-0" href="{{ route('cbt') }}" target="_blank">CBT</a></li>
-                        <li><a class="nav-link fw-normal py-1 px-0" href="{{ route('english-language') }}" target="_blank">English Language</a></li>
+                        <li><a class="nav-link fw-normal py-1 px-0" href="{{ route('plab-1') }}" target="_blank">Plab-1</a></li>
+                        <li><a class="nav-link fw-normal py-1 px-0" href="{{ route('plab-2') }}" target="_blank">Plab-2</a></li>
                     </ul>
                 </div>
                 <div class="col mb-4 mb-md-0">

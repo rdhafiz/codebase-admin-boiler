@@ -16,7 +16,7 @@
 
                 <div class="bread-crumb" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="1000">
                     <ul>
-                        <li><a href="#">Home</a></li>
+                        <li><a href="{{route('home')}}">Home</a></li>
                         <li> ></li>
                         <li><a href="#">Training</a></li>
                         <li> ></li>

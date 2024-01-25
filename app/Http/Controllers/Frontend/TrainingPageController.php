@@ -11,9 +11,14 @@ class TrainingPageController extends BaseController
         return view("frontend.pages.osce");
     }
 
-    public function viewPlab()
+    public function viewPlab1()
     {
-        return view("frontend.pages.osce");
+        return view("frontend.pages.plab-1");
+    }
+
+    public function viewPlab2()
+    {
+        return view("frontend.pages.plab-2");
     }
 
     public function viewCBT()

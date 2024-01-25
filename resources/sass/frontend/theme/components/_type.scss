@@ -180,3 +180,11 @@ dt {
 del.text-body-secondary { // stylelint-disable-line selector-no-qualifying-type
   color: var(--#{$prefix}gray-500) !important; // stylelint-disable-line declaration-no-important
 }
+
+
+.fs-100{font-size: 100px;}
+.fs-90{font-size: 90px;}
+.fs-80{font-size: 80px;}
+.fs-70{font-size: 70px;}
+.fs-60{font-size: 60px;}
+.fs-50{font-size: 50px;}

@@ -45,7 +45,8 @@ Route::get('job/{id}/apply', [JobsPageController::class, "job_apply"])->name('jo
 //OSCE Pages
 Route::group(['prefix' => 'training'], function() {
     Route::get('osce', [TrainingPageController::class, "viewOSCE"])->name('osce');
-    Route::get('plab', [TrainingPageController::class, "viewPlab"])->name('plab');
+    Route::get('plab-1', [TrainingPageController::class, "viewPlab1"])->name('plab-1');
+    Route::get('plab-2', [TrainingPageController::class, "viewPlab2"])->name('plab-2');
     Route::get('cbt', [TrainingPageController::class, "viewCBT"])->name('cbt');
     Route::get('english-language', [TrainingPageController::class, "viewEnglishLanguage"])->name('english-language');
     Route::get('trainers', [TrainingPageController::class, "viewTrainers"])->name('trainers');

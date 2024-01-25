@@ -221,6 +221,45 @@
         background-color: #151F35;
     }
 
+    .each-sqr-item{
+        width: 100%;
+        display: block;
+        background-color: #ffffff;
+        .choose-title{
+            font-size: 30px;
+            color: #000000;
+            font-weight: bold;
+        }
+        .choose-desc{
+            font-size: 16px;
+            color: #222222;
+        }
+    }
+    .each-shape-item-content{
+        width: 400px;
+        height: 400px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+        margin: 5px;
+        padding: 20px;
+        .choose-title{
+            font-size: 30px;
+            color: #ffffff;
+            text-align: center;
+            font-weight: bold;
+        }
+        .choose-desc{
+            font-size: 14px;
+            color: #ffffff;
+            text-align: center;
+            padding: 0 20px;
+        }
+    }
+
     .owl-prev, .owl-next {
         font-size: 100px!important;
         height: 100px;

@@ -22,21 +22,22 @@
                         <div class="container-lg px-5">
                             <div class="row">
                                 <div class="col-lg-5">
-                                    <div class="w-100 ps-lg-5">
-                                        <div class="d-lg-flex">
-                                            <div class="mega-dropdown-column ps-lg-5">
-                                                <ul class="mega-dropdown-content list-unstyled mb-0">
+                                    <div class="w-100 ps-lg-5 pt-4">
+                                        <div class="w-100 d-lg-flex ps-5">
+                                            <div class="w-100 mega-dropdown-column" style="background-image: url({{asset('assets/images/shapes/menu.svg')}})">
+                                                <h4 class="sub_menu_header">Training <i class="ai-arrow-right"></i></h4>
+                                                <ul class="mega-dropdown-content">
                                                     <li>
-                                                        <a class="dropdown-item" href="{{ route('osce') }}"><i class="ai-arrow-right"></i> OSCE</a>
+                                                        <a class="dropdown-item" href="{{ route('osce') }}">OSCE</a>
                                                     </li>
                                                     <li>
-                                                        <a class="dropdown-item" href="{{ route('plab') }}"><i class="ai-arrow-right"></i> Plab I-II</a>
+                                                        <a class="dropdown-item" href="{{ route('cbt') }}">CBT</a>
                                                     </li>
                                                     <li>
-                                                        <a class="dropdown-item" href="{{ route('cbt') }}"><i class="ai-arrow-right"></i> CBT</a>
+                                                        <a class="dropdown-item" href="{{ route('plab-1') }}">Plab-1</a>
                                                     </li>
                                                     <li>
-                                                        <a class="dropdown-item" href="{{ route('english-language') }}"><i class="ai-arrow-right"></i> English Language</a>
+                                                        <a class="dropdown-item" href="{{ route('plab-2') }}">Plab-2</a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -68,18 +69,19 @@
                         <div class="container-lg px-5">
                             <div class="row">
                                 <div class="col-lg-5">
-                                    <div class="w-100 ps-lg-5">
-                                        <div class="d-lg-flex">
-                                            <div class="mega-dropdown-column ps-lg-5">
-                                                <ul class="mega-dropdown-content list-unstyled mb-0">
+                                    <div class="w-100 ps-lg-5 pt-4">
+                                        <div class="w-100 d-lg-flex ps-5">
+                                            <div class="w-100 mega-dropdown-column" style="background-image: url({{asset('assets/images/shapes/menu.svg')}})">
+                                                <h4 class="sub_menu_header">Jobs <i class="ai-arrow-right"></i></h4>
+                                                <ul class="mega-dropdown-content">
                                                     <li>
-                                                        <a class="dropdown-item" href="{{ route('jobs') }}"><i class="ai-arrow-right"></i> Full Time</a>
+                                                        <a class="dropdown-item" href="{{ route('jobs') }}">Full Time</a>
                                                     </li>
                                                     <li>
-                                                        <a class="dropdown-item" href="{{ route('jobs') }}"><i class="ai-arrow-right"></i> Temporary</a>
+                                                        <a class="dropdown-item" href="{{ route('jobs') }}">Temporary</a>
                                                     </li>
                                                     <li>
-                                                        <a class="dropdown-item" href="{{ route('jobs') }}"><i class="ai-arrow-right"></i> Locum</a>
+                                                        <a class="dropdown-item" href="{{ route('jobs') }}">Locum</a>
                                                     </li>
                                                 </ul>
                                             </div>
