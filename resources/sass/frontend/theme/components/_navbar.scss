@@ -346,6 +346,7 @@ header{
                 font-weight: bold;
                 padding: 30px 10px!important;
                 position: relative;
+                border: 0!important;
                 &:after{
                     display: none!important;
                 }
@@ -361,6 +362,7 @@ header{
                     @include transition(all 0.2s linear);
                 }
                 &:hover,&:active{
+                    border: 0!important;
                     &:before{
                         width: 100%;
                         @include transition(all 0.2s linear);

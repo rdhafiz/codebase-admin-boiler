@@ -98,20 +98,20 @@
             </div>
         </div>
 
-        <div class="w-100 bg-dark-olive py-5 mb-5">
+        <div class="page_header bg-dark-olive">
             <div class="container-lg">
                 <div class="about_section_content" data-aos="fade-up" data-aos-duration="1000">
                     <div class="row align-items-center mb-3 my-sm-2 my-md-3 my-lg-0 my-xl-2 my-xxl-4">
-                        <div class="col-12">
+                        <div class="col-lg-6">
                             <div class="pe-md-4 pe-lg-0">
                                 <h2 class="fs-1 fw-bold text-white pb-sm-2 pb-lg-3">Overview</h2>
                                 <div class="w-100">
-                                    <p class="fs-5 text-white">
+                                    <p class="fs-6 text-white">
                                         Are you an internationally educated nurse looking to gain your Nursing and Midwifery
                                         Council (NMC) registration and work in the UK? Our OSCE training program at Purple Med
                                         can help you achieve your goals!
                                     </p>
-                                    <p class="fs-5 text-white">Imagine yourself walking into the exam room feeling confident and
+                                    <p class="fs-6 text-white">Imagine yourself walking into the exam room feeling confident and
                                         prepared. That's what we want for you at Purple Med. Our 15-day intensive course is
                                         designed to help you prepare for the OSCE exam and feel ready to succeed.
                                         We have a team of experienced OSCE tutors who have helped nurses from
@@ -120,7 +120,7 @@
                                         We also have the most up-to-date training materials, resources, and equipment to help
                                         you practice and improve your skills.</p>
 
-                                    <p class="fs-5 text-white">Our main goal at Purple Med is to help you pass your OSCE the first
+                                    <p class="fs-6 text-white">Our main goal at Purple Med is to help you pass your OSCE the first
                                         time, saving you the time and money of having to re-sit the exam. We'll do everything we
                                         can to support you along the way, and our course is comprehensive but easy to follow.
                                         We'll make sure you understand all the requirements and feel well-prepared.
@@ -132,6 +132,10 @@
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="page_header_cover">
+                <div class="angular-bar" style="background-image: url({{asset('assets/images/shapes/wave-shape-1.svg')}})"></div>
+                <img src="{{asset('assets/images/banner/overview.jpg')}}" alt="">
             </div>
         </div>
 

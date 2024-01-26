@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="200" height="800" viewBox="0 0 200 800" xml:space="preserve">
+<desc>Created with Fabric.js 5.2.4</desc>
+<defs>
+</defs>
+<g transform="matrix(1 0 0 1 100 400)" id="3d05b943-3613-4532-9459-c4ce915453ab"  >
+<rect style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(255,255,255); fill-rule: nonzero; opacity: 1; visibility: hidden;" vector-effect="non-scaling-stroke"  x="-100" y="-400" rx="0" ry="0" width="200" height="800" />
+</g>
+<g transform="matrix(Infinity NaN NaN Infinity 0 0)" id="11f5b02e-387b-4540-939b-f7e29d551b8c"  >
+</g>
+<g transform="matrix(0 0.56 -0.62 0 98.73 403.44)" id="d67a2275-ef4c-4f47-925b-c15cdee5afa0"  >
+<path style="stroke: rgb(0,0,0); stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(21,31,53); fill-rule: nonzero; opacity: 1;" vector-effect="non-scaling-stroke"  transform=" translate(-720, -160)" d="M 0 0 L 18.5 10.7 C 36.9 21 74 43 111 74.7 C 147.7 107 185 149 222 160 C 258.5 171 295 149 332 160 C 369.2 171 406 213 443 224 C 480 235 517 213 554 192 C 590.8 171 628 149 665 144 C 701.5 139 738 149 775 154.7 C 812.3 160 849 160 886 181.3 C 923.1 203 960 245 997 224 C 1033.8 203 1071 117 1108 90.7 C 1144.6 64 1182 96 1218 133.3 C 1255.4 171 1292 213 1329 245.3 C 1366.2 277 1403 299 1422 309.3 L 1440 320 L 1440 320 L 1421.5 320 C 1403.1 320 1366 320 1329 320 C 1292.3 320 1255 320 1218 320 C 1181.5 320 1145 320 1108 320 C 1070.8 320 1034 320 997 320 C 960 320 923 320 886 320 C 849.2 320 812 320 775 320 C 738.5 320 702 320 665 320 C 627.7 320 591 320 554 320 C 516.9 320 480 320 443 320 C 406.2 320 369 320 332 320 C 295.4 320 258 320 222 320 C 184.6 320 148 320 111 320 C 73.8 320 37 320 18 320 L 0 320 Z" stroke-linecap="round" />
+</g>
+<g transform="matrix(NaN NaN NaN NaN 0 0)"  >
+<g style=""   >
+</g>
+</g>
+</svg>

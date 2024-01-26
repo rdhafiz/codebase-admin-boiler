@@ -23,7 +23,7 @@ class TrainingPageController extends BaseController
 
     public function viewCBT()
     {
-        return view("frontend.pages.osce");
+        return view("frontend.pages.cbt");
     }
 
     public function viewEnglishLanguage()

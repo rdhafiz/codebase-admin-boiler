@@ -98,19 +98,19 @@
             </div>
         </div>
 
-        <div class="w-100 bg-dark-olive py-5 mb-5">
+        <div class="page_header bg-dark-olive">
             <div class="container-lg">
                 <div class="about_section_content" data-aos="fade-up" data-aos-duration="1000">
                     <div class="row align-items-center mb-3 my-sm-2 my-md-3 my-lg-0 my-xl-2 my-xxl-4">
-                        <div class="col-12">
+                        <div class="col-lg-6">
                             <div class="pe-md-4 pe-lg-0">
                                 <h2 class="fs-1 fw-bold text-white pb-sm-2 pb-lg-3">Overview</h2>
                                 <div class="w-100">
-                                    <p class="fs-5 text-white">
+                                    <p class="fs-6 text-white">
                                         The PLAB 2 exam is the final step in the PLAB assessment series conducted by the General Medical Council (GMC) in the UK.
                                         It's designed as an Objective Structured Clinical Examination (OSCE) and serves as a practical test of your clinical abilities.
                                     </p>
-                                    <ul class="fs-5 text-white mt-3">
+                                    <ul class="fs-6 text-white mt-3">
                                         <li class="mb-4">
                                             <strong>Exam Format:</strong><br>
                                             PLAB 2 consists of 16 different scenarios, each lasting eight minutes.
@@ -137,6 +137,10 @@
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="page_header_cover">
+                <div class="angular-bar" style="background-image: url({{asset('assets/images/shapes/wave-shape-1.svg')}})"></div>
+                <img src="{{asset('assets/images/banner/overview.jpg')}}" alt="">
             </div>
         </div>
 
